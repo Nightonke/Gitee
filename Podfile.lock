@@ -1,0 +1,41 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - LibYAML (0.1.4)
+  - Realm (2.4.3):
+    - Realm/Headers (= 2.4.3)
+  - Realm/Headers (2.4.3)
+  - SYFlatButton (1.2)
+  - UAGithubEngine (2.3)
+  - YAML-Framework (0.0.2):
+    - LibYAML (~> 0.1.4)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.0)
+  - Realm
+  - SYFlatButton
+  - UAGithubEngine (~> 2.3)
+  - YAML-Framework
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  LibYAML: 3af2c5adf3a40dff936d087aa6a77edc10036bc5
+  Realm: e08d60b0048ccccd3949c8c28a92c4db5712d7e9
+  SYFlatButton: cc8b2eb1d123fb196f42b922a47802c03abc602a
+  UAGithubEngine: 774172b0cc0c9fe35c7bcfb7eb3d64787b846d9d
+  YAML-Framework: 6fe698e19d39d778829f5937e39d1e6bc12afd7b
+
+PODFILE CHECKSUM: ae3fb3dde044723245889468daf0d178093f0d80
+
+COCOAPODS: 1.1.0.rc.3

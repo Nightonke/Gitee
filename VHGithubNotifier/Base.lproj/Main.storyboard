@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16C68" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <scenes>
+        <!--TabVC-->
+        <scene sceneID="140-l1-CKU">
+            <objects>
+                <tabViewController selectedTabViewItemIndex="1" id="bGS-95-Kx7" customClass="VHTabVC" sceneMemberID="viewController">
+                    <tabViewItems>
+                        <tabViewItem identifier="" id="6DX-KR-UrZ"/>
+                        <tabViewItem identifier="" id="s31-4G-QcY"/>
+                    </tabViewItems>
+                    <tabView key="tabView" type="noTabsNoBorder" id="xI8-HR-kiS">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <font key="font" metaFont="message"/>
+                        <tabViewItems/>
+                    </tabView>
+                    <connections>
+                        <segue destination="s9C-As-odF" kind="relationship" relationship="tabItems" id="YiR-UY-TMR"/>
+                        <segue destination="PWk-eH-5mj" kind="relationship" relationship="tabItems" id="2YW-Hz-rKE"/>
+                    </connections>
+                </tabViewController>
+                <customObject id="xp8-da-GaW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-258" y="-1003"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nuB-UF-aIs">
+            <objects>
+                <viewController id="s9C-As-odF" sceneMemberID="viewController">
+                    <view key="view" id="dXU-Ju-Ipp">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="LGJ-co-yJv" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="513" y="-1070"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="oHw-sw-uo3">
+            <objects>
+                <viewController id="PWk-eH-5mj" sceneMemberID="viewController">
+                    <view key="view" id="VqU-Du-SjI">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="YJc-Lq-ZXd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="513" y="-709"/>
+        </scene>
+        <!--Application-->
+        <scene sceneID="JPo-4y-FX3">
+            <objects>
+                <application id="hnw-xV-0zn" sceneMemberID="viewController">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6"/>
+                    <connections>
+                        <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
+                    </connections>
+                </application>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
+                    <connections>
+                        <outlet property="menu" destination="KIx-Hg-0XS" id="2o4-Qh-exo"/>
+                        <outlet property="repositoriesMenu" destination="ZvS-cE-BrY" id="4g4-k4-bol"/>
+                    </connections>
+                </customObject>
+                <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <menu id="KIx-Hg-0XS">
+                    <items>
+                        <menuItem title="Item 2" id="q9r-QD-BHI">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Repositories" id="EMp-8Z-SLN">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <menu key="submenu" id="ZvS-cE-BrY">
+                                <items>
+                                    <menuItem title="Item 1" id="oVo-X4-3oD">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="Item 2" id="GjY-IS-fyU">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="Item 3" id="Qvz-Pp-QqM">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                </items>
+                            </menu>
+                        </menuItem>
+                        <menuItem title="Settings" id="OCi-tL-kD5">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <segue destination="Zdm-qa-fH0" kind="show" id="C4Q-gs-RX1"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
+            </objects>
+            <point key="canvasLocation" x="75" y="0.0"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="PeW-RW-OdP">
+            <objects>
+                <viewController id="Zdm-qa-fH0" sceneMemberID="viewController">
+                    <view key="view" id="bzJ-mi-dDf">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="z4T-vh-ayP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-244" y="339"/>
+        </scene>
+    </scenes>
+</document>

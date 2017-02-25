@@ -1,0 +1,18 @@
+//
+//  VHGithubNotifier+Prefix.pch
+//  VHGithubNotifier
+//
+//  Created by viktorhuang on 2016/12/25.
+//  Copyright © 2016年 黄伟平. All rights reserved.
+//
+
+#ifndef VHGithubNotifier_Prefix_pch
+#define VHGithubNotifier_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "VHDefines.h"
+#import "VHGithubNotifierNotifications.h"
+
+#endif /* VHGithubNotifier_Prefix_pch */

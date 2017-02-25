@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16C68" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="VHTabVC">
+            <connections>
+                <outlet property="tab" destination="2n8-6A-LQy" id="WJO-J3-WvO"/>
+                <outlet property="vhTabView" destination="l22-Qg-2wk" id="We6-fK-ecV"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY" customClass="VHTabVCBackgroundView">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <tabView type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="2n8-6A-LQy">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="545"/>
+                    <font key="font" metaFont="system"/>
+                    <tabViewItems/>
+                </tabView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="l22-Qg-2wk" customClass="VHTabView">
+                    <rect key="frame" x="0.0" y="545" width="400" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Ndt-pe-xG2"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="2n8-6A-LQy" secondAttribute="trailing" id="Bpx-hU-hFc"/>
+                <constraint firstAttribute="trailing" secondItem="l22-Qg-2wk" secondAttribute="trailing" id="CG9-2a-Nkc"/>
+                <constraint firstAttribute="bottom" secondItem="2n8-6A-LQy" secondAttribute="bottom" id="LZh-K0-yvm"/>
+                <constraint firstItem="l22-Qg-2wk" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="15" id="Qh6-qF-XTT"/>
+                <constraint firstItem="2n8-6A-LQy" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ipA-ox-X7U"/>
+                <constraint firstItem="2n8-6A-LQy" firstAttribute="top" secondItem="l22-Qg-2wk" secondAttribute="bottom" id="saH-bn-rv6"/>
+                <constraint firstItem="l22-Qg-2wk" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ubq-g1-0a8"/>
+            </constraints>
+            <point key="canvasLocation" x="269" y="178"/>
+        </customView>
+    </objects>
+</document>

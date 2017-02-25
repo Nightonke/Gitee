@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16C68" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="VHTrendingVC">
+            <connections>
+                <outlet property="languagePopupButton" destination="Q6C-F9-l80" id="gK8-xx-ChJ"/>
+                <outlet property="scrollView" destination="bbJ-b5-UxK" id="B7Y-hK-bqY"/>
+                <outlet property="stateView" destination="xp5-ki-0kg" id="Rp7-Qr-eXT"/>
+                <outlet property="tableView" destination="ffk-Nz-h5o" id="Fo1-8i-fji"/>
+                <outlet property="timePopupButton" destination="j6M-mg-JZS" id="Rp0-ue-sWj"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="545"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q6C-F9-l80">
+                    <rect key="frame" x="18" y="501" width="175" height="26"/>
+                    <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="2Mj-1A-315" id="2rG-Ag-Fxy">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="FBW-at-i5o">
+                            <items>
+                                <menuItem title="Item 1" state="on" id="2Mj-1A-315"/>
+                                <menuItem title="Item 2" id="XpW-bG-pk7"/>
+                                <menuItem title="Item 3" id="OGY-7q-cQx"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="onTrendingContentSelected:" target="-2" id="L8J-I8-Abb"/>
+                    </connections>
+                </popUpButton>
+                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="102" horizontalPageScroll="10" verticalLineScroll="102" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbJ-b5-UxK">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="496"/>
+                    <clipView key="contentView" id="Zua-uv-oUG">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="496"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="100" viewBased="YES" id="ffk-Nz-h5o">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="496"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <size key="intercellSpacing" width="3" height="2"/>
+                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn identifier="" width="397" minWidth="10" maxWidth="3.4028234663852886e+38" id="IuQ-Br-k8L">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="9Hb-Fx-xvM">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                    </tableColumn>
+                                </tableColumns>
+                            </tableView>
+                        </subviews>
+                    </clipView>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="400" id="Jdh-pP-bbe"/>
+                    </constraints>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="9ul-Lg-iiQ">
+                        <rect key="frame" x="-100" y="-100" width="223" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="dmF-e5-YXi">
+                        <rect key="frame" x="-100" y="-100" width="15" height="0.0"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="j6M-mg-JZS">
+                    <rect key="frame" x="208" y="501" width="175" height="26"/>
+                    <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="dY1-mt-5i6" id="8V3-Jl-BwC">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="ytz-OB-Ujt">
+                            <items>
+                                <menuItem title="Item 1" state="on" id="dY1-mt-5i6"/>
+                                <menuItem title="Item 2" id="BU8-mJ-HWL"/>
+                                <menuItem title="Item 3" id="tve-00-g2d"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="onTrendingTimeSelected:" target="-2" id="up4-kG-cxo"/>
+                    </connections>
+                </popUpButton>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="xp5-ki-0kg" customClass="VHStateView">
+                    <rect key="frame" x="50" y="213" width="300" height="120"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="S3W-z4-jUL"/>
+                        <constraint firstAttribute="width" constant="300" id="eMx-Hy-3bo"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="xp5-ki-0kg" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="19A-mj-AjU"/>
+                <constraint firstAttribute="trailing" secondItem="j6M-mg-JZS" secondAttribute="trailing" constant="20" id="1WA-lx-5jW"/>
+                <constraint firstItem="Q6C-F9-l80" firstAttribute="width" secondItem="j6M-mg-JZS" secondAttribute="width" id="LjX-4R-jCr"/>
+                <constraint firstItem="xp5-ki-0kg" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="O4e-f9-Y3h"/>
+                <constraint firstItem="bbJ-b5-UxK" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Uek-Nn-AmX"/>
+                <constraint firstItem="bbJ-b5-UxK" firstAttribute="top" secondItem="Q6C-F9-l80" secondAttribute="bottom" constant="8" id="X11-tV-0RG"/>
+                <constraint firstItem="j6M-mg-JZS" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="c2p-Vg-Tzj"/>
+                <constraint firstAttribute="bottom" secondItem="bbJ-b5-UxK" secondAttribute="bottom" id="jRp-mc-M20"/>
+                <constraint firstItem="Q6C-F9-l80" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="jqn-9e-QUU"/>
+                <constraint firstItem="j6M-mg-JZS" firstAttribute="leading" secondItem="Q6C-F9-l80" secondAttribute="trailing" constant="20" id="mop-0o-o6A"/>
+                <constraint firstItem="Q6C-F9-l80" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="sLi-e3-TRI"/>
+            </constraints>
+            <point key="canvasLocation" x="117" y="168.5"/>
+        </customView>
+    </objects>
+</document>

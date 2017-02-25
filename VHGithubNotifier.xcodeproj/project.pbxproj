@@ -1,0 +1,927 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		25D4B81FADCFFCA82BBA83A7 /* libPods-VHGithubNotifier.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FD0823EF354958CE567028 /* libPods-VHGithubNotifier.a */; };
+		37005C281E5C6E3E000AEFF9 /* RLMResults+ToArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 37005C271E5C6E3E000AEFF9 /* RLMResults+ToArray.m */; };
+		37005C2D1E5C7EFB000AEFF9 /* VHGithubNotifierManager+Trending.m in Sources */ = {isa = PBXBuildFile; fileRef = 37005C2C1E5C7EFB000AEFF9 /* VHGithubNotifierManager+Trending.m */; };
+		37005C301E5C83AB000AEFF9 /* VHTrendingRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 37005C2F1E5C83AB000AEFF9 /* VHTrendingRepository.m */; };
+		37005C321E5C9B88000AEFF9 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 37005C311E5C9B88000AEFF9 /* libxml2.2.dylib */; };
+		37005C3A1E5C9C1C000AEFF9 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 37005C351E5C9C1C000AEFF9 /* TFHpple.m */; };
+		37005C3B1E5C9C1C000AEFF9 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 37005C371E5C9C1C000AEFF9 /* TFHppleElement.m */; };
+		37005C3C1E5C9C1C000AEFF9 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 37005C391E5C9C1C000AEFF9 /* XPathQuery.m */; };
+		37005C3F1E5D285A000AEFF9 /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 37005C3E1E5D285A000AEFF9 /* NSArray+Safe.m */; };
+		37005C441E5D96EA000AEFF9 /* VHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37005C431E5D96EA000AEFF9 /* VHViewController.m */; };
+		37298F3A1E27EEEC003810E8 /* VHTrendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37298F381E27EEEC003810E8 /* VHTrendVC.m */; };
+		37298F3B1E27EEEC003810E8 /* VHTrendVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37298F391E27EEEC003810E8 /* VHTrendVC.xib */; };
+		373185F61E5DDB5B00926F4F /* VHTrendingRepositoryCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373185F51E5DDB5B00926F4F /* VHTrendingRepositoryCellView.xib */; };
+		373185FB1E5DE54D00926F4F /* VHTrendingRepositoryCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373185FA1E5DE54D00926F4F /* VHTrendingRepositoryCellView.m */; };
+		373186041E5E98F600926F4F /* VHScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 373186031E5E98F600926F4F /* VHScroller.m */; };
+		373186071E5E99D300926F4F /* VHScrollerThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 373186061E5E99D300926F4F /* VHScrollerThumb.m */; };
+		3731860A1E5EBEA800926F4F /* NSTimer+Pausable.m in Sources */ = {isa = PBXBuildFile; fileRef = 373186091E5EBEA800926F4F /* NSTimer+Pausable.m */; };
+		3731860E1E5EF7D100926F4F /* VHLanguageDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3731860D1E5EF7D100926F4F /* VHLanguageDotView.m */; };
+		373186311E5F4A1A00926F4F /* VHSettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3731862F1E5F4A1A00926F4F /* VHSettingsVC.m */; };
+		373186321E5F4A1A00926F4F /* VHSettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373186301E5F4A1A00926F4F /* VHSettingsVC.xib */; };
+		3731863F1E60646500926F4F /* VHAccountInfoWC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3731863D1E60646500926F4F /* VHAccountInfoWC.m */; };
+		373186401E60646500926F4F /* VHAccountInfoWC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3731863E1E60646500926F4F /* VHAccountInfoWC.xib */; };
+		373186491E607D5E00926F4F /* VHTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 373186481E607D5E00926F4F /* VHTextFieldCell.m */; };
+		373186521E6084F700926F4F /* VHSecureTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 373186511E6084F700926F4F /* VHSecureTextFieldCell.m */; };
+		373186581E60A96D00926F4F /* VHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 373186571E60A96D00926F4F /* VHTextField.m */; };
+		3731865B1E60AFDA00926F4F /* VHSecureTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3731865A1E60AFDA00926F4F /* VHSecureTextField.m */; };
+		3748DF831E2CE3E900507D9C /* VHDateValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */; };
+		3748DF861E2CEA9800507D9C /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF851E2CEA9800507D9C /* NSDate+Utils.m */; };
+		3748DF8E1E2F54A300507D9C /* VHTrendTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF8D1E2F54A300507D9C /* VHTrendTableCellView.m */; };
+		3748DF911E33CCA000507D9C /* VHHorizontalTrendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF901E33CCA000507D9C /* VHHorizontalTrendView.m */; };
+		3749CDCE1E59B27C0083CEB1 /* VHPieVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3749CDCC1E59B27C0083CEB1 /* VHPieVC.m */; };
+		3749CDCF1E59B27C0083CEB1 /* VHPieVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3749CDCD1E59B27C0083CEB1 /* VHPieVC.xib */; };
+		3749CDD51E59B2950083CEB1 /* VHTrendingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3749CDD31E59B2950083CEB1 /* VHTrendingVC.m */; };
+		3749CDD61E59B2950083CEB1 /* VHTrendingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3749CDD41E59B2950083CEB1 /* VHTrendingVC.xib */; };
+		3749CDDA1E59B42A0083CEB1 /* VHNotificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3749CDD81E59B42A0083CEB1 /* VHNotificationVC.m */; };
+		3749CDDB1E59B42A0083CEB1 /* VHNotificationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3749CDD91E59B42A0083CEB1 /* VHNotificationVC.xib */; };
+		3749CDE01E5B17060083CEB1 /* VHLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3749CDDF1E5B17060083CEB1 /* VHLanguage.m */; };
+		3749CDE31E5B17DE0083CEB1 /* VHGithubNotifierManager+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 3749CDE21E5B17DE0083CEB1 /* VHGithubNotifierManager+Language.m */; };
+		3749CDE61E5B1B140083CEB1 /* VHHTTPResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3749CDE51E5B1B140083CEB1 /* VHHTTPResponseSerializer.m */; };
+		3752DD091E117B51000AB94A /* VHWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3752DD081E117B51000AB94A /* VHWindow.m */; };
+		3752DD191E12AAAE000AB94A /* VHGithubNotifierManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3752DD181E12AAAE000AB94A /* VHGithubNotifierManager.m */; };
+		3752DD261E12D85E000AB94A /* VHTabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3752DD241E12D85E000AB94A /* VHTabVC.m */; };
+		3752DD291E12DB4D000AB94A /* VHTabVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3752DD281E12DB4D000AB94A /* VHTabVC.xib */; };
+		37531A381E1405ED00C3EB64 /* VHTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37531A371E1405ED00C3EB64 /* VHTabView.m */; };
+		37531A3B1E1406A400C3EB64 /* VHGithubNotifierManager+UserDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = 37531A3A1E1406A400C3EB64 /* VHGithubNotifierManager+UserDefault.m */; };
+		37531A3F1E140C3500C3EB64 /* VHUtils+TransForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 37531A3E1E140C3500C3EB64 /* VHUtils+TransForm.m */; };
+		37531A431E14366800C3EB64 /* VHProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37531A411E14366800C3EB64 /* VHProfileVC.m */; };
+		37531A441E14366800C3EB64 /* VHProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37531A421E14366800C3EB64 /* VHProfileVC.xib */; };
+		37531A4A1E14411500C3EB64 /* NSMutableArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 37531A491E14411500C3EB64 /* NSMutableArray+Safe.m */; };
+		378CE7651E1DF34400235E5F /* VHRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 378CE7641E1DF34400235E5F /* VHRecord.m */; };
+		378CE76A1E1DF6AB00235E5F /* VHGithubNotifierManager+Realm.m in Sources */ = {isa = PBXBuildFile; fileRef = 378CE7691E1DF6AB00235E5F /* VHGithubNotifierManager+Realm.m */; };
+		378E0AE01E0ECD070033CBD5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0ADF1E0ECD070033CBD5 /* AppDelegate.m */; };
+		378E0AE31E0ECD070033CBD5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0AE21E0ECD070033CBD5 /* main.m */; };
+		378E0AE81E0ECD070033CBD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378E0AE71E0ECD070033CBD5 /* Assets.xcassets */; };
+		378E0AEB1E0ECD070033CBD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378E0AE91E0ECD070033CBD5 /* Main.storyboard */; };
+		378E0B231E0FEEA10033CBD5 /* VHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0B171E0FEEA10033CBD5 /* VHUtils.m */; };
+		378E0B251E0FEEA10033CBD5 /* NSView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0B1D1E0FEEA10033CBD5 /* NSView+Position.m */; };
+		378E0B261E0FEEA10033CBD5 /* VHBasicInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0B1F1E0FEEA10033CBD5 /* VHBasicInfoView.m */; };
+		378E0B271E0FEEA10033CBD5 /* VHStatusBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0B211E0FEEA10033CBD5 /* VHStatusBarButton.m */; };
+		378E0B291E0FEEE50033CBD5 /* VHBasicInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 378E0B281E0FEEE50033CBD5 /* VHBasicInfoView.xib */; };
+		378E0B2C1E0FEF7B0033CBD5 /* VHUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0B2B1E0FEF7B0033CBD5 /* VHUser.m */; };
+		378E0B2F1E0FFA560033CBD5 /* VHRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0B2E1E0FFA560033CBD5 /* VHRepository.m */; };
+		378E0B341E0FFBA60033CBD5 /* VHUtils+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0B331E0FFBA60033CBD5 /* VHUtils+Json.m */; };
+		378E0B371E1012960033CBD5 /* VHRepositoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0B361E1012960033CBD5 /* VHRepositoryView.m */; };
+		378E0B391E1012A60033CBD5 /* VHRepositoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 378E0B381E1012A60033CBD5 /* VHRepositoryView.xib */; };
+		378E0B3F1E103D940033CBD5 /* VHTabVCBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0B3E1E103D930033CBD5 /* VHTabVCBackgroundView.m */; };
+		37CB05F61E1C091000E9B924 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CB05F11E1C08FE00E9B924 /* Charts.framework */; };
+		37CB05F71E1C091000E9B924 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37CB05F11E1C08FE00E9B924 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		37CB06001E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CB05FF1E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.m */; };
+		37E7CCFB1E5C576D00BA8BA9 /* VHStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E7CCFA1E5C576D00BA8BA9 /* VHStateView.m */; };
+		37E7CD011E5C5D2D00BA8BA9 /* VHStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E7CD001E5C5D2D00BA8BA9 /* VHStateView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		37CB05F01E1C08FE00E9B924 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37CB05EA1E1C08FE00E9B924 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F241D8110E600722320;
+			remoteInfo = Charts;
+		};
+		37CB05F21E1C08FE00E9B924 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37CB05EA1E1C08FE00E9B924 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06B120D51D811E6200D14B02;
+			remoteInfo = ChartsRealm;
+		};
+		37CB05F41E1C08FE00E9B924 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37CB05EA1E1C08FE00E9B924 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F2E1D8110E600722320;
+			remoteInfo = ChartsTests;
+		};
+		37CB05F81E1C091000E9B924 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37CB05EA1E1C08FE00E9B924 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 06165F231D8110E600722320;
+			remoteInfo = Charts;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		37CB05FA1E1C091000E9B924 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				37CB05F71E1C091000E9B924 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		084497C5227A0B4C7B2B775D /* Pods-VHGithubNotifier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHGithubNotifier.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VHGithubNotifier/Pods-VHGithubNotifier.debug.xcconfig"; sourceTree = "<group>"; };
+		37005C261E5C6E3E000AEFF9 /* RLMResults+ToArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RLMResults+ToArray.h"; sourceTree = "<group>"; };
+		37005C271E5C6E3E000AEFF9 /* RLMResults+ToArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RLMResults+ToArray.m"; sourceTree = "<group>"; };
+		37005C2B1E5C7EFB000AEFF9 /* VHGithubNotifierManager+Trending.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VHGithubNotifierManager+Trending.h"; sourceTree = "<group>"; };
+		37005C2C1E5C7EFB000AEFF9 /* VHGithubNotifierManager+Trending.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VHGithubNotifierManager+Trending.m"; sourceTree = "<group>"; };
+		37005C2E1E5C83AB000AEFF9 /* VHTrendingRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHTrendingRepository.h; sourceTree = "<group>"; };
+		37005C2F1E5C83AB000AEFF9 /* VHTrendingRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHTrendingRepository.m; sourceTree = "<group>"; };
+		37005C311E5C9B88000AEFF9 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = ../../../../../usr/lib/libxml2.2.dylib; sourceTree = "<group>"; };
+		37005C341E5C9C1C000AEFF9 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		37005C351E5C9C1C000AEFF9 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		37005C361E5C9C1C000AEFF9 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		37005C371E5C9C1C000AEFF9 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		37005C381E5C9C1C000AEFF9 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		37005C391E5C9C1C000AEFF9 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		37005C3D1E5D285A000AEFF9 /* NSArray+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Safe.h"; sourceTree = "<group>"; };
+		37005C3E1E5D285A000AEFF9 /* NSArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safe.m"; sourceTree = "<group>"; };
+		37005C421E5D96EA000AEFF9 /* VHViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHViewController.h; sourceTree = "<group>"; };
+		37005C431E5D96EA000AEFF9 /* VHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHViewController.m; sourceTree = "<group>"; };
+		37298F371E27EEEC003810E8 /* VHTrendVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHTrendVC.h; sourceTree = "<group>"; };
+		37298F381E27EEEC003810E8 /* VHTrendVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHTrendVC.m; sourceTree = "<group>"; };
+		37298F391E27EEEC003810E8 /* VHTrendVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHTrendVC.xib; sourceTree = "<group>"; };
+		373185F51E5DDB5B00926F4F /* VHTrendingRepositoryCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHTrendingRepositoryCellView.xib; sourceTree = "<group>"; };
+		373185F91E5DE54D00926F4F /* VHTrendingRepositoryCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHTrendingRepositoryCellView.h; sourceTree = "<group>"; };
+		373185FA1E5DE54D00926F4F /* VHTrendingRepositoryCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHTrendingRepositoryCellView.m; sourceTree = "<group>"; };
+		373186021E5E98F600926F4F /* VHScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHScroller.h; sourceTree = "<group>"; };
+		373186031E5E98F600926F4F /* VHScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHScroller.m; sourceTree = "<group>"; };
+		373186051E5E99D300926F4F /* VHScrollerThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHScrollerThumb.h; sourceTree = "<group>"; };
+		373186061E5E99D300926F4F /* VHScrollerThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHScrollerThumb.m; sourceTree = "<group>"; };
+		373186081E5EBEA800926F4F /* NSTimer+Pausable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Pausable.h"; sourceTree = "<group>"; };
+		373186091E5EBEA800926F4F /* NSTimer+Pausable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Pausable.m"; sourceTree = "<group>"; };
+		3731860C1E5EF7D100926F4F /* VHLanguageDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHLanguageDotView.h; sourceTree = "<group>"; };
+		3731860D1E5EF7D100926F4F /* VHLanguageDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHLanguageDotView.m; sourceTree = "<group>"; };
+		3731862E1E5F4A1A00926F4F /* VHSettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHSettingsVC.h; sourceTree = "<group>"; };
+		3731862F1E5F4A1A00926F4F /* VHSettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSettingsVC.m; sourceTree = "<group>"; };
+		373186301E5F4A1A00926F4F /* VHSettingsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHSettingsVC.xib; sourceTree = "<group>"; };
+		3731863C1E60646500926F4F /* VHAccountInfoWC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHAccountInfoWC.h; sourceTree = "<group>"; };
+		3731863D1E60646500926F4F /* VHAccountInfoWC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHAccountInfoWC.m; sourceTree = "<group>"; };
+		3731863E1E60646500926F4F /* VHAccountInfoWC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHAccountInfoWC.xib; sourceTree = "<group>"; };
+		373186471E607D5E00926F4F /* VHTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHTextFieldCell.h; sourceTree = "<group>"; };
+		373186481E607D5E00926F4F /* VHTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHTextFieldCell.m; sourceTree = "<group>"; };
+		373186501E6084F700926F4F /* VHSecureTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHSecureTextFieldCell.h; sourceTree = "<group>"; };
+		373186511E6084F700926F4F /* VHSecureTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSecureTextFieldCell.m; sourceTree = "<group>"; };
+		373186561E60A96D00926F4F /* VHTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHTextField.h; sourceTree = "<group>"; };
+		373186571E60A96D00926F4F /* VHTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHTextField.m; sourceTree = "<group>"; };
+		373186591E60AFDA00926F4F /* VHSecureTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHSecureTextField.h; sourceTree = "<group>"; };
+		3731865A1E60AFDA00926F4F /* VHSecureTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSecureTextField.m; sourceTree = "<group>"; };
+		3748DF811E2CE3E900507D9C /* VHDateValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHDateValueFormatter.h; sourceTree = "<group>"; };
+		3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHDateValueFormatter.m; sourceTree = "<group>"; };
+		3748DF841E2CEA9800507D9C /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
+		3748DF851E2CEA9800507D9C /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
+		3748DF8C1E2F54A300507D9C /* VHTrendTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHTrendTableCellView.h; sourceTree = "<group>"; };
+		3748DF8D1E2F54A300507D9C /* VHTrendTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHTrendTableCellView.m; sourceTree = "<group>"; };
+		3748DF8F1E33CCA000507D9C /* VHHorizontalTrendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHHorizontalTrendView.h; sourceTree = "<group>"; };
+		3748DF901E33CCA000507D9C /* VHHorizontalTrendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHHorizontalTrendView.m; sourceTree = "<group>"; };
+		3749CDCB1E59B27C0083CEB1 /* VHPieVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHPieVC.h; sourceTree = "<group>"; };
+		3749CDCC1E59B27C0083CEB1 /* VHPieVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHPieVC.m; sourceTree = "<group>"; };
+		3749CDCD1E59B27C0083CEB1 /* VHPieVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHPieVC.xib; sourceTree = "<group>"; };
+		3749CDD21E59B2950083CEB1 /* VHTrendingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHTrendingVC.h; sourceTree = "<group>"; };
+		3749CDD31E59B2950083CEB1 /* VHTrendingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHTrendingVC.m; sourceTree = "<group>"; };
+		3749CDD41E59B2950083CEB1 /* VHTrendingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHTrendingVC.xib; sourceTree = "<group>"; };
+		3749CDD71E59B42A0083CEB1 /* VHNotificationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHNotificationVC.h; sourceTree = "<group>"; };
+		3749CDD81E59B42A0083CEB1 /* VHNotificationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHNotificationVC.m; sourceTree = "<group>"; };
+		3749CDD91E59B42A0083CEB1 /* VHNotificationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHNotificationVC.xib; sourceTree = "<group>"; };
+		3749CDDE1E5B17060083CEB1 /* VHLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHLanguage.h; sourceTree = "<group>"; };
+		3749CDDF1E5B17060083CEB1 /* VHLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHLanguage.m; sourceTree = "<group>"; };
+		3749CDE11E5B17DE0083CEB1 /* VHGithubNotifierManager+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VHGithubNotifierManager+Language.h"; sourceTree = "<group>"; };
+		3749CDE21E5B17DE0083CEB1 /* VHGithubNotifierManager+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VHGithubNotifierManager+Language.m"; sourceTree = "<group>"; };
+		3749CDE41E5B1B140083CEB1 /* VHHTTPResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHHTTPResponseSerializer.h; sourceTree = "<group>"; };
+		3749CDE51E5B1B140083CEB1 /* VHHTTPResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHHTTPResponseSerializer.m; sourceTree = "<group>"; };
+		3752DD071E117B51000AB94A /* VHWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHWindow.h; sourceTree = "<group>"; };
+		3752DD081E117B51000AB94A /* VHWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHWindow.m; sourceTree = "<group>"; };
+		3752DD171E12AAAE000AB94A /* VHGithubNotifierManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHGithubNotifierManager.h; sourceTree = "<group>"; };
+		3752DD181E12AAAE000AB94A /* VHGithubNotifierManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHGithubNotifierManager.m; sourceTree = "<group>"; };
+		3752DD1A1E12AAC8000AB94A /* VHGithubNotifierManager_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHGithubNotifierManager_Private.h; sourceTree = "<group>"; };
+		3752DD231E12D85E000AB94A /* VHTabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHTabVC.h; sourceTree = "<group>"; };
+		3752DD241E12D85E000AB94A /* VHTabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHTabVC.m; sourceTree = "<group>"; };
+		3752DD281E12DB4D000AB94A /* VHTabVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHTabVC.xib; sourceTree = "<group>"; };
+		37531A361E1405ED00C3EB64 /* VHTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHTabView.h; sourceTree = "<group>"; };
+		37531A371E1405ED00C3EB64 /* VHTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHTabView.m; sourceTree = "<group>"; };
+		37531A391E1406A400C3EB64 /* VHGithubNotifierManager+UserDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VHGithubNotifierManager+UserDefault.h"; sourceTree = "<group>"; };
+		37531A3A1E1406A400C3EB64 /* VHGithubNotifierManager+UserDefault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VHGithubNotifierManager+UserDefault.m"; sourceTree = "<group>"; };
+		37531A3C1E1408FC00C3EB64 /* VHGithubNotifierEnums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHGithubNotifierEnums.h; sourceTree = "<group>"; };
+		37531A3D1E140C3500C3EB64 /* VHUtils+TransForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VHUtils+TransForm.h"; sourceTree = "<group>"; };
+		37531A3E1E140C3500C3EB64 /* VHUtils+TransForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VHUtils+TransForm.m"; sourceTree = "<group>"; };
+		37531A401E14366800C3EB64 /* VHProfileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHProfileVC.h; sourceTree = "<group>"; };
+		37531A411E14366800C3EB64 /* VHProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHProfileVC.m; sourceTree = "<group>"; };
+		37531A421E14366800C3EB64 /* VHProfileVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHProfileVC.xib; sourceTree = "<group>"; };
+		37531A481E14411500C3EB64 /* NSMutableArray+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Safe.h"; sourceTree = "<group>"; };
+		37531A491E14411500C3EB64 /* NSMutableArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Safe.m"; sourceTree = "<group>"; };
+		378CE7631E1DF34400235E5F /* VHRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHRecord.h; sourceTree = "<group>"; };
+		378CE7641E1DF34400235E5F /* VHRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHRecord.m; sourceTree = "<group>"; };
+		378CE7681E1DF6AB00235E5F /* VHGithubNotifierManager+Realm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VHGithubNotifierManager+Realm.h"; sourceTree = "<group>"; };
+		378CE7691E1DF6AB00235E5F /* VHGithubNotifierManager+Realm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VHGithubNotifierManager+Realm.m"; sourceTree = "<group>"; };
+		378E0ADB1E0ECD070033CBD5 /* VHGithubNotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VHGithubNotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		378E0ADE1E0ECD070033CBD5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		378E0ADF1E0ECD070033CBD5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		378E0AE21E0ECD070033CBD5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		378E0AE71E0ECD070033CBD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		378E0AEA1E0ECD070033CBD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		378E0AEC1E0ECD070033CBD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		378E0AF81E0EE8030033CBD5 /* VHGithubNotifierUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHGithubNotifierUserDefaults.h; sourceTree = "<group>"; };
+		378E0AF91E0EE9D00033CBD5 /* VHDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHDefines.h; sourceTree = "<group>"; };
+		378E0AFA1E0EE9EC0033CBD5 /* VHGithubNotifier+Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VHGithubNotifier+Prefix.pch"; sourceTree = "<group>"; };
+		378E0AFB1E0EF3560033CBD5 /* VHGithubNotifierNotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHGithubNotifierNotifications.h; sourceTree = "<group>"; };
+		378E0B161E0FEEA10033CBD5 /* VHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHUtils.h; sourceTree = "<group>"; };
+		378E0B171E0FEEA10033CBD5 /* VHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHUtils.m; sourceTree = "<group>"; };
+		378E0B1C1E0FEEA10033CBD5 /* NSView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+Position.h"; sourceTree = "<group>"; };
+		378E0B1D1E0FEEA10033CBD5 /* NSView+Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+Position.m"; sourceTree = "<group>"; };
+		378E0B1E1E0FEEA10033CBD5 /* VHBasicInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHBasicInfoView.h; sourceTree = "<group>"; };
+		378E0B1F1E0FEEA10033CBD5 /* VHBasicInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHBasicInfoView.m; sourceTree = "<group>"; };
+		378E0B201E0FEEA10033CBD5 /* VHStatusBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHStatusBarButton.h; sourceTree = "<group>"; };
+		378E0B211E0FEEA10033CBD5 /* VHStatusBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHStatusBarButton.m; sourceTree = "<group>"; };
+		378E0B281E0FEEE50033CBD5 /* VHBasicInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHBasicInfoView.xib; sourceTree = "<group>"; };
+		378E0B2A1E0FEF7B0033CBD5 /* VHUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHUser.h; sourceTree = "<group>"; };
+		378E0B2B1E0FEF7B0033CBD5 /* VHUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHUser.m; sourceTree = "<group>"; };
+		378E0B2D1E0FFA560033CBD5 /* VHRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHRepository.h; sourceTree = "<group>"; };
+		378E0B2E1E0FFA560033CBD5 /* VHRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHRepository.m; sourceTree = "<group>"; };
+		378E0B321E0FFBA60033CBD5 /* VHUtils+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VHUtils+Json.h"; sourceTree = "<group>"; };
+		378E0B331E0FFBA60033CBD5 /* VHUtils+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VHUtils+Json.m"; sourceTree = "<group>"; };
+		378E0B351E1012960033CBD5 /* VHRepositoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHRepositoryView.h; sourceTree = "<group>"; };
+		378E0B361E1012960033CBD5 /* VHRepositoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHRepositoryView.m; sourceTree = "<group>"; };
+		378E0B381E1012A60033CBD5 /* VHRepositoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHRepositoryView.xib; sourceTree = "<group>"; };
+		378E0B3D1E103D930033CBD5 /* VHTabVCBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHTabVCBackgroundView.h; sourceTree = "<group>"; };
+		378E0B3E1E103D930033CBD5 /* VHTabVCBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHTabVCBackgroundView.m; sourceTree = "<group>"; };
+		37CB05EA1E1C08FE00E9B924 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
+		37CB05FB1E1C092600E9B924 /* VHGithubNotifier-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VHGithubNotifier-Bridging-Header.h"; sourceTree = "<group>"; };
+		37CB05FE1E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VHGithubNotifierManager+ChartDataProvider.h"; sourceTree = "<group>"; };
+		37CB05FF1E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VHGithubNotifierManager+ChartDataProvider.m"; sourceTree = "<group>"; };
+		37E7CCF91E5C576D00BA8BA9 /* VHStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHStateView.h; sourceTree = "<group>"; };
+		37E7CCFA1E5C576D00BA8BA9 /* VHStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHStateView.m; sourceTree = "<group>"; };
+		37E7CD001E5C5D2D00BA8BA9 /* VHStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHStateView.xib; sourceTree = "<group>"; };
+		A9FD0823EF354958CE567028 /* libPods-VHGithubNotifier.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VHGithubNotifier.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F12D56CE52FBE25F772313B8 /* Pods-VHGithubNotifier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHGithubNotifier.release.xcconfig"; path = "Pods/Target Support Files/Pods-VHGithubNotifier/Pods-VHGithubNotifier.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		378E0AD81E0ECD070033CBD5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37005C321E5C9B88000AEFF9 /* libxml2.2.dylib in Frameworks */,
+				25D4B81FADCFFCA82BBA83A7 /* libPods-VHGithubNotifier.a in Frameworks */,
+				37CB05F61E1C091000E9B924 /* Charts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		37005C331E5C9C1C000AEFF9 /* Hpple */ = {
+			isa = PBXGroup;
+			children = (
+				37005C341E5C9C1C000AEFF9 /* TFHpple.h */,
+				37005C351E5C9C1C000AEFF9 /* TFHpple.m */,
+				37005C361E5C9C1C000AEFF9 /* TFHppleElement.h */,
+				37005C371E5C9C1C000AEFF9 /* TFHppleElement.m */,
+				37005C381E5C9C1C000AEFF9 /* XPathQuery.h */,
+				37005C391E5C9C1C000AEFF9 /* XPathQuery.m */,
+			);
+			path = Hpple;
+			sourceTree = "<group>";
+		};
+		373186341E60640000926F4F /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				3731863C1E60646500926F4F /* VHAccountInfoWC.h */,
+				3731863D1E60646500926F4F /* VHAccountInfoWC.m */,
+				3731863E1E60646500926F4F /* VHAccountInfoWC.xib */,
+			);
+			path = Window;
+			sourceTree = "<group>";
+		};
+		3752DD161E12AAAE000AB94A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				3752DD171E12AAAE000AB94A /* VHGithubNotifierManager.h */,
+				3752DD181E12AAAE000AB94A /* VHGithubNotifierManager.m */,
+				37531A391E1406A400C3EB64 /* VHGithubNotifierManager+UserDefault.h */,
+				37531A3A1E1406A400C3EB64 /* VHGithubNotifierManager+UserDefault.m */,
+				37CB05FE1E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.h */,
+				37CB05FF1E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.m */,
+				378CE7681E1DF6AB00235E5F /* VHGithubNotifierManager+Realm.h */,
+				378CE7691E1DF6AB00235E5F /* VHGithubNotifierManager+Realm.m */,
+				3749CDE11E5B17DE0083CEB1 /* VHGithubNotifierManager+Language.h */,
+				3749CDE21E5B17DE0083CEB1 /* VHGithubNotifierManager+Language.m */,
+				37005C2B1E5C7EFB000AEFF9 /* VHGithubNotifierManager+Trending.h */,
+				37005C2C1E5C7EFB000AEFF9 /* VHGithubNotifierManager+Trending.m */,
+				3752DD1A1E12AAC8000AB94A /* VHGithubNotifierManager_Private.h */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		378E0AD21E0ECD060033CBD5 = {
+			isa = PBXGroup;
+			children = (
+				37CB05EA1E1C08FE00E9B924 /* Charts.xcodeproj */,
+				378E0ADD1E0ECD070033CBD5 /* VHGithubNotifier */,
+				378E0ADC1E0ECD070033CBD5 /* Products */,
+				C0CEE69334124DF6AA58F7A8 /* Pods */,
+				F59CE8E1C63E9FE780573A3A /* Frameworks */,
+				37CB05FB1E1C092600E9B924 /* VHGithubNotifier-Bridging-Header.h */,
+			);
+			sourceTree = "<group>";
+		};
+		378E0ADC1E0ECD070033CBD5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				378E0ADB1E0ECD070033CBD5 /* VHGithubNotifier.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		378E0ADD1E0ECD070033CBD5 /* VHGithubNotifier */ = {
+			isa = PBXGroup;
+			children = (
+				373186341E60640000926F4F /* Window */,
+				378E0B121E0FEEA10033CBD5 /* Model */,
+				378E0B151E0FEEA10033CBD5 /* Utils */,
+				378E0B181E0FEEA10033CBD5 /* VC */,
+				378E0B1B1E0FEEA10033CBD5 /* View */,
+				378E0ADE1E0ECD070033CBD5 /* AppDelegate.h */,
+				378E0ADF1E0ECD070033CBD5 /* AppDelegate.m */,
+				378E0AF81E0EE8030033CBD5 /* VHGithubNotifierUserDefaults.h */,
+				378E0AF91E0EE9D00033CBD5 /* VHDefines.h */,
+				378E0AFA1E0EE9EC0033CBD5 /* VHGithubNotifier+Prefix.pch */,
+				378E0AFB1E0EF3560033CBD5 /* VHGithubNotifierNotifications.h */,
+				378E0AE71E0ECD070033CBD5 /* Assets.xcassets */,
+				378E0AE91E0ECD070033CBD5 /* Main.storyboard */,
+				378E0AEC1E0ECD070033CBD5 /* Info.plist */,
+				378E0AE11E0ECD070033CBD5 /* Supporting Files */,
+			);
+			path = VHGithubNotifier;
+			sourceTree = "<group>";
+		};
+		378E0AE11E0ECD070033CBD5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				378E0AE21E0ECD070033CBD5 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		378E0B121E0FEEA10033CBD5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3752DD161E12AAAE000AB94A /* Manager */,
+				378E0B2A1E0FEF7B0033CBD5 /* VHUser.h */,
+				378E0B2B1E0FEF7B0033CBD5 /* VHUser.m */,
+				378E0B2D1E0FFA560033CBD5 /* VHRepository.h */,
+				378E0B2E1E0FFA560033CBD5 /* VHRepository.m */,
+				37005C2E1E5C83AB000AEFF9 /* VHTrendingRepository.h */,
+				37005C2F1E5C83AB000AEFF9 /* VHTrendingRepository.m */,
+				378CE7631E1DF34400235E5F /* VHRecord.h */,
+				378CE7641E1DF34400235E5F /* VHRecord.m */,
+				3749CDDE1E5B17060083CEB1 /* VHLanguage.h */,
+				3749CDDF1E5B17060083CEB1 /* VHLanguage.m */,
+				3749CDE41E5B1B140083CEB1 /* VHHTTPResponseSerializer.h */,
+				3749CDE51E5B1B140083CEB1 /* VHHTTPResponseSerializer.m */,
+				37531A3C1E1408FC00C3EB64 /* VHGithubNotifierEnums.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		378E0B151E0FEEA10033CBD5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				37005C331E5C9C1C000AEFF9 /* Hpple */,
+				378E0B161E0FEEA10033CBD5 /* VHUtils.h */,
+				378E0B171E0FEEA10033CBD5 /* VHUtils.m */,
+				378E0B321E0FFBA60033CBD5 /* VHUtils+Json.h */,
+				378E0B331E0FFBA60033CBD5 /* VHUtils+Json.m */,
+				37531A3D1E140C3500C3EB64 /* VHUtils+TransForm.h */,
+				37531A3E1E140C3500C3EB64 /* VHUtils+TransForm.m */,
+				37005C3D1E5D285A000AEFF9 /* NSArray+Safe.h */,
+				37005C3E1E5D285A000AEFF9 /* NSArray+Safe.m */,
+				37531A481E14411500C3EB64 /* NSMutableArray+Safe.h */,
+				37531A491E14411500C3EB64 /* NSMutableArray+Safe.m */,
+				3748DF811E2CE3E900507D9C /* VHDateValueFormatter.h */,
+				3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */,
+				3748DF841E2CEA9800507D9C /* NSDate+Utils.h */,
+				3748DF851E2CEA9800507D9C /* NSDate+Utils.m */,
+				37005C261E5C6E3E000AEFF9 /* RLMResults+ToArray.h */,
+				37005C271E5C6E3E000AEFF9 /* RLMResults+ToArray.m */,
+				373186081E5EBEA800926F4F /* NSTimer+Pausable.h */,
+				373186091E5EBEA800926F4F /* NSTimer+Pausable.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		378E0B181E0FEEA10033CBD5 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				37005C421E5D96EA000AEFF9 /* VHViewController.h */,
+				37005C431E5D96EA000AEFF9 /* VHViewController.m */,
+				3752DD231E12D85E000AB94A /* VHTabVC.h */,
+				3752DD241E12D85E000AB94A /* VHTabVC.m */,
+				3752DD281E12DB4D000AB94A /* VHTabVC.xib */,
+				37531A401E14366800C3EB64 /* VHProfileVC.h */,
+				37531A411E14366800C3EB64 /* VHProfileVC.m */,
+				37531A421E14366800C3EB64 /* VHProfileVC.xib */,
+				3749CDCB1E59B27C0083CEB1 /* VHPieVC.h */,
+				3749CDCC1E59B27C0083CEB1 /* VHPieVC.m */,
+				3749CDCD1E59B27C0083CEB1 /* VHPieVC.xib */,
+				37298F371E27EEEC003810E8 /* VHTrendVC.h */,
+				37298F381E27EEEC003810E8 /* VHTrendVC.m */,
+				37298F391E27EEEC003810E8 /* VHTrendVC.xib */,
+				3749CDD21E59B2950083CEB1 /* VHTrendingVC.h */,
+				3749CDD31E59B2950083CEB1 /* VHTrendingVC.m */,
+				3749CDD41E59B2950083CEB1 /* VHTrendingVC.xib */,
+				3749CDD71E59B42A0083CEB1 /* VHNotificationVC.h */,
+				3749CDD81E59B42A0083CEB1 /* VHNotificationVC.m */,
+				3749CDD91E59B42A0083CEB1 /* VHNotificationVC.xib */,
+				3731862E1E5F4A1A00926F4F /* VHSettingsVC.h */,
+				3731862F1E5F4A1A00926F4F /* VHSettingsVC.m */,
+				373186301E5F4A1A00926F4F /* VHSettingsVC.xib */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		378E0B1B1E0FEEA10033CBD5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				378E0B1C1E0FEEA10033CBD5 /* NSView+Position.h */,
+				378E0B1D1E0FEEA10033CBD5 /* NSView+Position.m */,
+				378E0B1E1E0FEEA10033CBD5 /* VHBasicInfoView.h */,
+				378E0B1F1E0FEEA10033CBD5 /* VHBasicInfoView.m */,
+				378E0B281E0FEEE50033CBD5 /* VHBasicInfoView.xib */,
+				378E0B351E1012960033CBD5 /* VHRepositoryView.h */,
+				378E0B361E1012960033CBD5 /* VHRepositoryView.m */,
+				378E0B381E1012A60033CBD5 /* VHRepositoryView.xib */,
+				378E0B201E0FEEA10033CBD5 /* VHStatusBarButton.h */,
+				378E0B211E0FEEA10033CBD5 /* VHStatusBarButton.m */,
+				378E0B3D1E103D930033CBD5 /* VHTabVCBackgroundView.h */,
+				378E0B3E1E103D930033CBD5 /* VHTabVCBackgroundView.m */,
+				3752DD071E117B51000AB94A /* VHWindow.h */,
+				3752DD081E117B51000AB94A /* VHWindow.m */,
+				37531A361E1405ED00C3EB64 /* VHTabView.h */,
+				37531A371E1405ED00C3EB64 /* VHTabView.m */,
+				3748DF8C1E2F54A300507D9C /* VHTrendTableCellView.h */,
+				3748DF8D1E2F54A300507D9C /* VHTrendTableCellView.m */,
+				3748DF8F1E33CCA000507D9C /* VHHorizontalTrendView.h */,
+				3748DF901E33CCA000507D9C /* VHHorizontalTrendView.m */,
+				373185F91E5DE54D00926F4F /* VHTrendingRepositoryCellView.h */,
+				373185FA1E5DE54D00926F4F /* VHTrendingRepositoryCellView.m */,
+				373185F51E5DDB5B00926F4F /* VHTrendingRepositoryCellView.xib */,
+				37E7CCF91E5C576D00BA8BA9 /* VHStateView.h */,
+				37E7CCFA1E5C576D00BA8BA9 /* VHStateView.m */,
+				37E7CD001E5C5D2D00BA8BA9 /* VHStateView.xib */,
+				373186021E5E98F600926F4F /* VHScroller.h */,
+				373186031E5E98F600926F4F /* VHScroller.m */,
+				373186051E5E99D300926F4F /* VHScrollerThumb.h */,
+				373186061E5E99D300926F4F /* VHScrollerThumb.m */,
+				3731860C1E5EF7D100926F4F /* VHLanguageDotView.h */,
+				3731860D1E5EF7D100926F4F /* VHLanguageDotView.m */,
+				373186471E607D5E00926F4F /* VHTextFieldCell.h */,
+				373186481E607D5E00926F4F /* VHTextFieldCell.m */,
+				373186561E60A96D00926F4F /* VHTextField.h */,
+				373186571E60A96D00926F4F /* VHTextField.m */,
+				373186501E6084F700926F4F /* VHSecureTextFieldCell.h */,
+				373186511E6084F700926F4F /* VHSecureTextFieldCell.m */,
+				373186591E60AFDA00926F4F /* VHSecureTextField.h */,
+				3731865A1E60AFDA00926F4F /* VHSecureTextField.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		37CB05EB1E1C08FE00E9B924 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37CB05F11E1C08FE00E9B924 /* Charts.framework */,
+				37CB05F31E1C08FE00E9B924 /* ChartsRealm.framework */,
+				37CB05F51E1C08FE00E9B924 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C0CEE69334124DF6AA58F7A8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				084497C5227A0B4C7B2B775D /* Pods-VHGithubNotifier.debug.xcconfig */,
+				F12D56CE52FBE25F772313B8 /* Pods-VHGithubNotifier.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F59CE8E1C63E9FE780573A3A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37005C311E5C9B88000AEFF9 /* libxml2.2.dylib */,
+				A9FD0823EF354958CE567028 /* libPods-VHGithubNotifier.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		378E0ADA1E0ECD070033CBD5 /* VHGithubNotifier */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 378E0AEF1E0ECD070033CBD5 /* Build configuration list for PBXNativeTarget "VHGithubNotifier" */;
+			buildPhases = (
+				3751CDC9D84C7273FC214F40 /* [CP] Check Pods Manifest.lock */,
+				378E0AD71E0ECD070033CBD5 /* Sources */,
+				378E0AD81E0ECD070033CBD5 /* Frameworks */,
+				378E0AD91E0ECD070033CBD5 /* Resources */,
+				6967F9654F27A5A529E7AF2F /* [CP] Embed Pods Frameworks */,
+				05B4C41B0E6D4F6917D5C538 /* [CP] Copy Pods Resources */,
+				37CB05FA1E1C091000E9B924 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				37CB05F91E1C091000E9B924 /* PBXTargetDependency */,
+			);
+			name = VHGithubNotifier;
+			productName = VHGithubNotifier;
+			productReference = 378E0ADB1E0ECD070033CBD5 /* VHGithubNotifier.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		378E0AD31E0ECD060033CBD5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = VH;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "黄伟平";
+				TargetAttributes = {
+					378E0ADA1E0ECD070033CBD5 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = H7B6S6TRXA;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 378E0AD61E0ECD060033CBD5 /* Build configuration list for PBXProject "VHGithubNotifier" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 378E0AD21E0ECD060033CBD5;
+			productRefGroup = 378E0ADC1E0ECD070033CBD5 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 37CB05EB1E1C08FE00E9B924 /* Products */;
+					ProjectRef = 37CB05EA1E1C08FE00E9B924 /* Charts.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				378E0ADA1E0ECD070033CBD5 /* VHGithubNotifier */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		37CB05F11E1C08FE00E9B924 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 37CB05F01E1C08FE00E9B924 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		37CB05F31E1C08FE00E9B924 /* ChartsRealm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ChartsRealm.framework;
+			remoteRef = 37CB05F21E1C08FE00E9B924 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		37CB05F51E1C08FE00E9B924 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 37CB05F41E1C08FE00E9B924 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		378E0AD91E0ECD070033CBD5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				373186321E5F4A1A00926F4F /* VHSettingsVC.xib in Resources */,
+				37531A441E14366800C3EB64 /* VHProfileVC.xib in Resources */,
+				3749CDCF1E59B27C0083CEB1 /* VHPieVC.xib in Resources */,
+				378E0AE81E0ECD070033CBD5 /* Assets.xcassets in Resources */,
+				37E7CD011E5C5D2D00BA8BA9 /* VHStateView.xib in Resources */,
+				3749CDDB1E59B42A0083CEB1 /* VHNotificationVC.xib in Resources */,
+				378E0B291E0FEEE50033CBD5 /* VHBasicInfoView.xib in Resources */,
+				373185F61E5DDB5B00926F4F /* VHTrendingRepositoryCellView.xib in Resources */,
+				37298F3B1E27EEEC003810E8 /* VHTrendVC.xib in Resources */,
+				373186401E60646500926F4F /* VHAccountInfoWC.xib in Resources */,
+				3752DD291E12DB4D000AB94A /* VHTabVC.xib in Resources */,
+				3749CDD61E59B2950083CEB1 /* VHTrendingVC.xib in Resources */,
+				378E0B391E1012A60033CBD5 /* VHRepositoryView.xib in Resources */,
+				378E0AEB1E0ECD070033CBD5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05B4C41B0E6D4F6917D5C538 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VHGithubNotifier/Pods-VHGithubNotifier-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3751CDC9D84C7273FC214F40 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6967F9654F27A5A529E7AF2F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VHGithubNotifier/Pods-VHGithubNotifier-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		378E0AD71E0ECD070033CBD5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				373186521E6084F700926F4F /* VHSecureTextFieldCell.m in Sources */,
+				378CE76A1E1DF6AB00235E5F /* VHGithubNotifierManager+Realm.m in Sources */,
+				378E0B251E0FEEA10033CBD5 /* NSView+Position.m in Sources */,
+				37005C3C1E5C9C1C000AEFF9 /* XPathQuery.m in Sources */,
+				3731863F1E60646500926F4F /* VHAccountInfoWC.m in Sources */,
+				378E0B341E0FFBA60033CBD5 /* VHUtils+Json.m in Sources */,
+				373186071E5E99D300926F4F /* VHScrollerThumb.m in Sources */,
+				3752DD261E12D85E000AB94A /* VHTabVC.m in Sources */,
+				3748DF861E2CEA9800507D9C /* NSDate+Utils.m in Sources */,
+				378CE7651E1DF34400235E5F /* VHRecord.m in Sources */,
+				37005C441E5D96EA000AEFF9 /* VHViewController.m in Sources */,
+				3731865B1E60AFDA00926F4F /* VHSecureTextField.m in Sources */,
+				378E0B271E0FEEA10033CBD5 /* VHStatusBarButton.m in Sources */,
+				3749CDE31E5B17DE0083CEB1 /* VHGithubNotifierManager+Language.m in Sources */,
+				3749CDE61E5B1B140083CEB1 /* VHHTTPResponseSerializer.m in Sources */,
+				3749CDD51E59B2950083CEB1 /* VHTrendingVC.m in Sources */,
+				3752DD091E117B51000AB94A /* VHWindow.m in Sources */,
+				3749CDE01E5B17060083CEB1 /* VHLanguage.m in Sources */,
+				378E0B231E0FEEA10033CBD5 /* VHUtils.m in Sources */,
+				378E0B261E0FEEA10033CBD5 /* VHBasicInfoView.m in Sources */,
+				37005C301E5C83AB000AEFF9 /* VHTrendingRepository.m in Sources */,
+				3731860E1E5EF7D100926F4F /* VHLanguageDotView.m in Sources */,
+				37531A3B1E1406A400C3EB64 /* VHGithubNotifierManager+UserDefault.m in Sources */,
+				3748DF8E1E2F54A300507D9C /* VHTrendTableCellView.m in Sources */,
+				373186491E607D5E00926F4F /* VHTextFieldCell.m in Sources */,
+				3752DD191E12AAAE000AB94A /* VHGithubNotifierManager.m in Sources */,
+				37531A3F1E140C3500C3EB64 /* VHUtils+TransForm.m in Sources */,
+				378E0AE31E0ECD070033CBD5 /* main.m in Sources */,
+				378E0B2F1E0FFA560033CBD5 /* VHRepository.m in Sources */,
+				37CB06001E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.m in Sources */,
+				37005C281E5C6E3E000AEFF9 /* RLMResults+ToArray.m in Sources */,
+				3748DF911E33CCA000507D9C /* VHHorizontalTrendView.m in Sources */,
+				37005C3B1E5C9C1C000AEFF9 /* TFHppleElement.m in Sources */,
+				3731860A1E5EBEA800926F4F /* NSTimer+Pausable.m in Sources */,
+				37005C3A1E5C9C1C000AEFF9 /* TFHpple.m in Sources */,
+				373185FB1E5DE54D00926F4F /* VHTrendingRepositoryCellView.m in Sources */,
+				37531A4A1E14411500C3EB64 /* NSMutableArray+Safe.m in Sources */,
+				373186311E5F4A1A00926F4F /* VHSettingsVC.m in Sources */,
+				37005C3F1E5D285A000AEFF9 /* NSArray+Safe.m in Sources */,
+				3749CDCE1E59B27C0083CEB1 /* VHPieVC.m in Sources */,
+				37E7CCFB1E5C576D00BA8BA9 /* VHStateView.m in Sources */,
+				37005C2D1E5C7EFB000AEFF9 /* VHGithubNotifierManager+Trending.m in Sources */,
+				37531A431E14366800C3EB64 /* VHProfileVC.m in Sources */,
+				3749CDDA1E59B42A0083CEB1 /* VHNotificationVC.m in Sources */,
+				373186581E60A96D00926F4F /* VHTextField.m in Sources */,
+				378E0B2C1E0FEF7B0033CBD5 /* VHUser.m in Sources */,
+				378E0B3F1E103D940033CBD5 /* VHTabVCBackgroundView.m in Sources */,
+				37298F3A1E27EEEC003810E8 /* VHTrendVC.m in Sources */,
+				3748DF831E2CE3E900507D9C /* VHDateValueFormatter.m in Sources */,
+				373186041E5E98F600926F4F /* VHScroller.m in Sources */,
+				378E0B371E1012960033CBD5 /* VHRepositoryView.m in Sources */,
+				378E0AE01E0ECD070033CBD5 /* AppDelegate.m in Sources */,
+				37531A381E1405ED00C3EB64 /* VHTabView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		37CB05F91E1C091000E9B924 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = 37CB05F81E1C091000E9B924 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		378E0AE91E0ECD070033CBD5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				378E0AEA1E0ECD070033CBD5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		378E0AED1E0ECD070033CBD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		378E0AEE1E0ECD070033CBD5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		378E0AF01E0ECD070033CBD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 084497C5227A0B4C7B2B775D /* Pods-VHGithubNotifier.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = H7B6S6TRXA;
+				GCC_PREFIX_HEADER = "VHGithubNotifier/VHGithubNotifier+Prefix.pch";
+				INFOPLIST_FILE = VHGithubNotifier/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nightonke.VHGithubNotifier;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VHGithubNotifier-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		378E0AF11E0ECD070033CBD5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F12D56CE52FBE25F772313B8 /* Pods-VHGithubNotifier.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = H7B6S6TRXA;
+				GCC_PREFIX_HEADER = "VHGithubNotifier/VHGithubNotifier+Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"COCOAPODS=1",
+					"DEBUG=0",
+				);
+				INFOPLIST_FILE = VHGithubNotifier/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nightonke.VHGithubNotifier;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VHGithubNotifier-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		378E0AD61E0ECD060033CBD5 /* Build configuration list for PBXProject "VHGithubNotifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				378E0AED1E0ECD070033CBD5 /* Debug */,
+				378E0AEE1E0ECD070033CBD5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		378E0AEF1E0ECD070033CBD5 /* Build configuration list for PBXNativeTarget "VHGithubNotifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				378E0AF01E0ECD070033CBD5 /* Debug */,
+				378E0AF11E0ECD070033CBD5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 378E0AD31E0ECD060033CBD5 /* Project object */;
+}

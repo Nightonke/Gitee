@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "__43-[VHGithubNotifierManager innerLoadProfile]_block_invoke_3:VHGithubNotifierManager.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[VHTrendingRepositoryCellView setTrendingRepository:]:VHTrendingRepositoryCellView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[self.languageDot getTop]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__52-[VHGithubNotifierManager(Language) updateLanguages]_block_invoke_2:VHGithubNotifierManager+Language.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[VHUser starNumber]:VHUser.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[VHGithubNotifierManager(UserDefault) innerInitializeProperties]:VHGithubNotifierManager+UserDefault.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[[NSUserDefaults standardUserDefaults] integerForKey:@&quot;VHGithubTrendTimeType&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[VHGithubNotifierManager(Trending) trendingRepositoriesFromHtmlString:]:VHGithubNotifierManager+Trending.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "childElement.children.count">
+            </PersistentString>
+            <PersistentString
+               value = "element.children">
+            </PersistentString>
+            <PersistentString
+               value = "childElement.children">
+            </PersistentString>
+            <PersistentString
+               value = "self.repositories">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[VHGithubNotifierManager innerLoadRepositories]:VHGithubNotifierManager.m">
+      </ContextState>
+      <ContextState
+         contextName = "__48-[VHGithubNotifierManager innerLoadRepositories]_block_invoke.173:VHGithubNotifierManager.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[VHStatusBarButton onNotifyRepositoriesLoadedSuccessfully:]:VHStatusBarButton.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[VHTextField performKeyEquivalent:]:VHTextField.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[event charactersIgnoringModifiers]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__52-[VHGithubNotifierManager(Language) updateLanguages]_block_invoke:VHGithubNotifierManager+Language.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

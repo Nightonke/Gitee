@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16C68" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <tableCellView id="scL-IT-eV4" customClass="VHTrendingRepositoryCellView">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="W87-Ap-DQc">
+                    <rect key="frame" x="17" y="71" width="366" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="362" id="Fwb-He-CQd"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="freeCodeCamp / freeCodeCamp" id="ibs-8s-YiN">
+                        <font key="font" metaFont="system" size="15"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qfB-Ah-ksg">
+                    <rect key="frame" x="15" y="34" width="370" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="366" id="I4f-jQ-dpZ"/>
+                    </constraints>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="The https://freeCodeCamp.com open source codebase and curriculum. Learn to code and help nonprofits." id="9qI-To-qhk">
+                        <font key="font" metaFont="system" size="12"/>
+                        <color key="textColor" red="0.46270215511322021" green="0.4627724289894104" blue="0.46268689632415771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GiY-ia-7OG" customClass="VHLanguageDotView">
+                    <rect key="frame" x="17" y="8" width="12" height="12"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0kc-Ie-3go">
+                    <rect key="frame" x="30" y="5" width="37" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="fu9-At-V0C">
+                        <font key="font" metaFont="system" size="12"/>
+                        <color key="textColor" red="0.46270215510000001" green="0.46277242899999999" blue="0.46268689629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WHg-HK-i9v">
+                    <rect key="frame" x="72" y="8" width="13" height="13"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="x1S-V7-nd4"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IhU-0j-SNE">
+                    <rect key="frame" x="86" y="5" width="37" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="YRN-A6-2H2">
+                        <font key="font" metaFont="system" size="12"/>
+                        <color key="textColor" red="0.46270215510000001" green="0.46277242899999999" blue="0.46268689629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3JJ-Lm-4ke">
+                    <rect key="frame" x="128" y="7" width="13" height="13"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="2LU-Ri-ure"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NKN-O5-TBS">
+                    <rect key="frame" x="142" y="5" width="37" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="lgQ-kA-a3o">
+                        <font key="font" metaFont="system" size="12"/>
+                        <color key="textColor" red="0.46270215510000001" green="0.46277242899999999" blue="0.46268689629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S4o-SH-God">
+                    <rect key="frame" x="343" y="5" width="37" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="Bdq-LC-1bM">
+                        <font key="font" metaFont="system" size="12"/>
+                        <color key="textColor" red="0.46270215510000001" green="0.46277242899999999" blue="0.46268689629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1TP-xo-y31">
+                    <rect key="frame" x="330" y="8" width="13" height="13"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="zxX-2a-Yqp"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="W87-Ap-DQc" firstAttribute="top" secondItem="scL-IT-eV4" secondAttribute="top" constant="10" id="K51-3c-kYB"/>
+                <constraint firstItem="qfB-Ah-ksg" firstAttribute="centerX" secondItem="scL-IT-eV4" secondAttribute="centerX" id="Mpo-6V-fuM"/>
+                <constraint firstItem="qfB-Ah-ksg" firstAttribute="centerY" secondItem="scL-IT-eV4" secondAttribute="centerY" id="g3U-Vt-bP5"/>
+                <constraint firstItem="W87-Ap-DQc" firstAttribute="centerX" secondItem="scL-IT-eV4" secondAttribute="centerX" id="ktW-xu-dlI"/>
+            </constraints>
+            <accessibility identifier="VHTrendingRepositoryCellView"/>
+            <connections>
+                <outlet property="forkImage" destination="3JJ-Lm-4ke" id="1Rz-jY-FlP"/>
+                <outlet property="forkText" destination="NKN-O5-TBS" id="XzA-ak-ggV"/>
+                <outlet property="language" destination="0kc-Ie-3go" id="oJQ-Ua-VoU"/>
+                <outlet property="languageDot" destination="GiY-ia-7OG" id="3bQ-cG-KgO"/>
+                <outlet property="name" destination="W87-Ap-DQc" id="UtZ-wF-ImG"/>
+                <outlet property="repositoryDescription" destination="qfB-Ah-ksg" id="PSA-q5-89i"/>
+                <outlet property="starImage" destination="WHg-HK-i9v" id="wcK-Ng-r34"/>
+                <outlet property="starText" destination="IhU-0j-SNE" id="R5J-VI-FLp"/>
+                <outlet property="starTrendingImage" destination="1TP-xo-y31" id="Qbb-po-NoS"/>
+                <outlet property="starTrendingText" destination="S4o-SH-God" id="OY9-pW-BSA"/>
+            </connections>
+            <point key="canvasLocation" x="169" y="121"/>
+        </tableCellView>
+    </objects>
+</document>

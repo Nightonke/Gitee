@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16C68" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="VHRepositoryView">
+            <connections>
+                <outlet property="languageIcon" destination="uyO-7N-244" id="JWy-gd-mrz"/>
+                <outlet property="languageLabel" destination="AI5-UI-Lw7" id="I06-Hc-IqE"/>
+                <outlet property="nameTextField" destination="4sH-OO-aWe" id="LR8-U0-LRK"/>
+                <outlet property="starImageView" destination="bSp-g8-epi" id="3QO-8N-Bbo"/>
+                <outlet property="starTextField" destination="eVd-q2-5iF" id="JkM-sa-ihK"/>
+                <outlet property="view" destination="c22-O7-iKe" id="Er9-rb-Tch"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4sH-OO-aWe">
+                    <rect key="frame" x="8" y="25" width="284" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="gRZ-cE-n6F"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="GithubNotifier" id="axO-vi-1Z9">
+                        <font key="font" metaFont="system" size="15"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="uyO-7N-244">
+                    <rect key="frame" x="10" y="5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="Qsg-p3-5eL"/>
+                        <constraint firstAttribute="height" constant="20" id="iZ2-1S-zlf"/>
+                    </constraints>
+                </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AI5-UI-Lw7">
+                    <rect key="frame" x="33" y="6" width="64" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Language" id="JYx-OD-5pF">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eVd-q2-5iF">
+                    <rect key="frame" x="258" y="5" width="34" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1233" id="8DZ-eb-1ae">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bSp-g8-epi">
+                    <rect key="frame" x="235" y="5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="0sp-AE-1iH"/>
+                        <constraint firstAttribute="width" constant="20" id="JAj-as-7Df"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="IqX-Sr-fwS"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="AI5-UI-Lw7" firstAttribute="leading" secondItem="uyO-7N-244" secondAttribute="trailing" constant="5" id="44d-45-39L"/>
+                <constraint firstItem="4sH-OO-aWe" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="10" id="FTZ-Ft-1d9"/>
+                <constraint firstItem="uyO-7N-244" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="10" id="HhQ-aQ-ntV"/>
+                <constraint firstAttribute="bottom" secondItem="eVd-q2-5iF" secondAttribute="bottom" constant="5" id="Mni-eV-SbY"/>
+                <constraint firstItem="eVd-q2-5iF" firstAttribute="leading" secondItem="bSp-g8-epi" secondAttribute="trailing" constant="5" id="SaG-Ga-umt"/>
+                <constraint firstAttribute="bottom" secondItem="bSp-g8-epi" secondAttribute="bottom" constant="5" id="Sdi-nf-vg0"/>
+                <constraint firstAttribute="trailing" secondItem="eVd-q2-5iF" secondAttribute="trailing" constant="10" id="TpU-0t-idg"/>
+                <constraint firstAttribute="bottom" secondItem="uyO-7N-244" secondAttribute="bottom" constant="5" id="WMi-9f-PFf"/>
+                <constraint firstAttribute="trailing" secondItem="4sH-OO-aWe" secondAttribute="trailing" constant="10" id="cSl-e3-3OR"/>
+                <constraint firstItem="4sH-OO-aWe" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="5" id="oqQ-VG-u8S"/>
+                <constraint firstItem="AI5-UI-Lw7" firstAttribute="centerY" secondItem="uyO-7N-244" secondAttribute="centerY" id="uKp-R8-2I0"/>
+            </constraints>
+            <point key="canvasLocation" x="-224" y="22"/>
+        </customView>
+    </objects>
+</document>

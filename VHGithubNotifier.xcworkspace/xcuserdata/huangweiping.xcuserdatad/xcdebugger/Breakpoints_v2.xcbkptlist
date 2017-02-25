@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VHGithubNotifier/VC/VHTrendVC.m"
+            timestampString = "509351512.474226"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "-dealloc"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VHGithubNotifier/View/VHTrendTableCellView.m"
+            timestampString = "509350517.619583"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "-dateTextFromRecord:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[VHTrendTableCellView dateTextFromRecord:]"
+                  moduleName = "VHGithubNotifier"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/View/VHTrendTableCellView.m"
+                  timestampString = "509723483.484499"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "1440">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[VHTrendTableCellView dateTextFromRecord:]"
+                  moduleName = "VHGithubNotifier"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/View/VHTrendTableCellView.m"
+                  timestampString = "509723483.486131"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "1452">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VHGithubNotifier/Model/Manager/VHGithubNotifierManager+Trending.m"
+            timestampString = "509629235.857963"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
+            landmarkName = "-trendingRepositoriesFromHtmlString:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[VHGithubNotifierManager(Trending) trendingRepositoriesFromHtmlString:]"
+                  moduleName = "VHGithubNotifier"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Model/Manager/VHGithubNotifierManager+Trending.m"
+                  timestampString = "509723483.489339"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
+                  offsetFromSymbolStart = "763">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[VHGithubNotifierManager(Trending) trendingRepositoriesFromHtmlString:]"
+                  moduleName = "VHGithubNotifier"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Model/Manager/VHGithubNotifierManager+Trending.m"
+                  timestampString = "509723483.491034"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
+                  offsetFromSymbolStart = "775">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VHGithubNotifier/Model/Manager/VHGithubNotifierManager.m"
+            timestampString = "509722003.766026"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
+            landmarkName = "-innerLoadProfile"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
