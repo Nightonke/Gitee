@@ -19,7 +19,6 @@
         case VHGithubContentTypeTrend: return [NSImage imageNamed:@"icon_trend"];
         case VHGithubContentTypeTrending: return [NSImage imageNamed:@"icon_trending"];
         case VHGithubContentTypeNotifications: return [NSImage imageNamed:@"icon_notification"];
-        case VHGithubContentTypeSettings: return [NSImage imageNamed:@"icon_settings"];
         default:
             NSAssert(NO, @"Unknown VHGithubContentType");
             break;
@@ -54,6 +53,57 @@
 + (NSString *)encodeToPercentEscapeString:(NSString *)input
 {
     return [input stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+}
+
++ (NSDate *)dateFromGithubTimeString:(NSString *)timeString
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'hh:mm:ss'Z'"];
+    return [dateFormatter dateFromString:timeString];
+}
+
++ (VHNotificationReasonType)notificationReasonTypeFromString:(NSString *)string
+{
+    if ([string isEqualToString:@"assign"])
+    {
+        return VHNotificationReasonTypeAssign;
+    }
+    else if ([string isEqualToString:@"author"])
+    {
+        return VHNotificationReasonTypeAuthor;
+    }
+    else if ([string isEqualToString:@"comment"])
+    {
+        return VHNotificationReasonTypeComment;
+    }
+    else if ([string isEqualToString:@"invitation"])
+    {
+        return VHNotificationReasonTypeInvitation;
+    }
+    else if ([string isEqualToString:@"manual"])
+    {
+        return VHNotificationReasonTypeManual;
+    }
+    else if ([string isEqualToString:@"mention"])
+    {
+        return VHNotificationReasonTypeMention;
+    }
+    else if ([string isEqualToString:@"state_change"])
+    {
+        return VHNotificationReasonTypeStateChange;
+    }
+    else if ([string isEqualToString:@"subscribed"])
+    {
+        return VHNotificationReasonTypeSubscribed;
+    }
+    else if ([string isEqualToString:@"team_mention"])
+    {
+        return VHNotificationReasonTypeTeamMention;
+    }
+    else
+    {
+        return VHNotificationReasonTypeUnknown;
+    }
 }
 
 @end

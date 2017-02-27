@@ -9,7 +9,6 @@
 #import "VHScroller.h"
 #import "VHScrollerThumb.h"
 #import "NSView+Position.h"
-#import "NSTimer+Pausable.h"
 
 @interface VHScroller ()<VHScrollerThumbDelegate>
 

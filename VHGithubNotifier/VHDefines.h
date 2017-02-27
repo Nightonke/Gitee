@@ -12,6 +12,7 @@
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
 #import "VHGithubNotifierEnums.h"
+#import "VHLog.h"
 
 const static CGFloat TAB_VC_ARROW_WIDTH = 20;
 const static CGFloat TAB_VC_ARROW_HEIGHT = 15;
@@ -45,6 +46,8 @@ const static CGFloat TAB_VC_CORNER_RADIUS = 8;
 #define SAFE_CAST(obj, className) ([(obj) isKindOfClass:[(className) class]] ? (obj) : (nil))
 
 #define IN_MAIN_THREAD(code) dispatch_async(dispatch_get_main_queue(), ^{code;})
+
+#define MUST_IN_MAIN_THREAD NSAssert([NSThread isMainThread], @"This methods should be called in main thread!");
 
 #define NOTIFICATION_POST(name) [[NSNotificationCenter defaultCenter] postNotificationName:name object:nil userInfo:nil]
 

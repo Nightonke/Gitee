@@ -82,3 +82,15 @@ static NSString * const kNotifyUserAccountConfirmInternetFailed = @"kNotifyUserA
 // To    : AccountWC
 // Params:
 static NSString * const kNotifyUserAccountConfirmIncorrectUsernameOrPassword = @"kNotifyUserAccountConfirmIncorrectUsernameOrPassword";
+
+// When  : When notifications are updated successfully from github.
+// Who   : Manager
+// To    :
+// Params:
+static NSString * const kNotifyNotificationsLoadedSuccessfully = @"kNotifyNotificationsLoadedSuccessfully";
+
+// When  : When notifications are updated failed from github.
+// Who   : Manager
+// To    :
+// Params:
+static NSString * const kNotifyNotificationsLoadedFailed = @"kNotifyNotificationsLoadedFailed";

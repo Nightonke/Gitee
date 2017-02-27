@@ -14,7 +14,6 @@
 #import "VHTrendVC.h"
 #import "VHTrendingVC.h"
 #import "VHNotificationVC.h"
-#import "VHSettingsVC.h"
 
 @interface VHTabVC ()<VHTabViewDelegate>
 
@@ -28,7 +27,6 @@
 @property (nonatomic, strong) VHTrendVC *trendVC;
 @property (nonatomic, strong) VHTrendingVC *trendingVC;
 @property (nonatomic, strong) VHNotificationVC *notificationVC;
-@property (nonatomic, strong) VHSettingsVC *settingsVC;
 
 @end
 
@@ -62,11 +60,6 @@
     self.notificationVC = [[VHNotificationVC alloc] initWithNibName:@"VHNotificationVC" bundle:nil];
     notificationItem.view = self.notificationVC.view;
     [self.tab addTabViewItem:notificationItem];
-    
-    NSTabViewItem *settingsItem = [[NSTabViewItem alloc] initWithIdentifier:[NSString stringWithFormat:@"%lu", VHGithubContentTypeSettings]];
-    self.settingsVC = [[VHSettingsVC alloc] initWithNibName:@"VHSettingsVC" bundle:nil];
-    settingsItem.view = self.settingsVC.view;
-    [self.tab addTabViewItem:settingsItem];
     
     self.vhTabView.delegate = self;
 }

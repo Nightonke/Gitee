@@ -23,10 +23,7 @@
 		373185FB1E5DE54D00926F4F /* VHTrendingRepositoryCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373185FA1E5DE54D00926F4F /* VHTrendingRepositoryCellView.m */; };
 		373186041E5E98F600926F4F /* VHScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 373186031E5E98F600926F4F /* VHScroller.m */; };
 		373186071E5E99D300926F4F /* VHScrollerThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 373186061E5E99D300926F4F /* VHScrollerThumb.m */; };
-		3731860A1E5EBEA800926F4F /* NSTimer+Pausable.m in Sources */ = {isa = PBXBuildFile; fileRef = 373186091E5EBEA800926F4F /* NSTimer+Pausable.m */; };
 		3731860E1E5EF7D100926F4F /* VHLanguageDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3731860D1E5EF7D100926F4F /* VHLanguageDotView.m */; };
-		373186311E5F4A1A00926F4F /* VHSettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3731862F1E5F4A1A00926F4F /* VHSettingsVC.m */; };
-		373186321E5F4A1A00926F4F /* VHSettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373186301E5F4A1A00926F4F /* VHSettingsVC.xib */; };
 		3731863F1E60646500926F4F /* VHAccountInfoWC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3731863D1E60646500926F4F /* VHAccountInfoWC.m */; };
 		373186401E60646500926F4F /* VHAccountInfoWC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3731863E1E60646500926F4F /* VHAccountInfoWC.xib */; };
 		373186491E607D5E00926F4F /* VHTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 373186481E607D5E00926F4F /* VHTextFieldCell.m */; };
@@ -168,8 +165,11 @@
 		3731878E1E61D95200926F4F /* TransformerHorizontalBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373186F71E61D95200926F4F /* TransformerHorizontalBarChart.swift */; };
 		3731878F1E61D95200926F4F /* ViewPortHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373186F81E61D95200926F4F /* ViewPortHandler.swift */; };
 		3731879B1E61D95200926F4F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 373187091E61D95200926F4F /* Info.plist */; };
-		373187A91E61DB9100926F4F /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373187A01E61D95300926F4F /* Charts.framework */; };
 		373187AA1E61DB9100926F4F /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 373187A01E61D95300926F4F /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		373B96F01E62AF8000AD8E92 /* VHSimpleRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 373B96EF1E62AF8000AD8E92 /* VHSimpleRepository.m */; };
+		373B96F31E62BEF500AD8E92 /* VHNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 373B96F21E62BEF500AD8E92 /* VHNotification.m */; };
+		373B96F61E62D9E500AD8E92 /* VHGithubNotifierManager+Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 373B96F51E62D9E500AD8E92 /* VHGithubNotifierManager+Notification.m */; };
+		373CF0461E62F79200711296 /* VHLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0451E62F79200711296 /* VHLog.m */; };
 		3748DF831E2CE3E900507D9C /* VHDateValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */; };
 		3748DF861E2CEA9800507D9C /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF851E2CEA9800507D9C /* NSDate+Utils.m */; };
 		3748DF8E1E2F54A300507D9C /* VHTrendTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF8D1E2F54A300507D9C /* VHTrendTableCellView.m */; };
@@ -289,13 +289,8 @@
 		373186031E5E98F600926F4F /* VHScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHScroller.m; sourceTree = "<group>"; };
 		373186051E5E99D300926F4F /* VHScrollerThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHScrollerThumb.h; sourceTree = "<group>"; };
 		373186061E5E99D300926F4F /* VHScrollerThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHScrollerThumb.m; sourceTree = "<group>"; };
-		373186081E5EBEA800926F4F /* NSTimer+Pausable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Pausable.h"; sourceTree = "<group>"; };
-		373186091E5EBEA800926F4F /* NSTimer+Pausable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Pausable.m"; sourceTree = "<group>"; };
 		3731860C1E5EF7D100926F4F /* VHLanguageDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHLanguageDotView.h; sourceTree = "<group>"; };
 		3731860D1E5EF7D100926F4F /* VHLanguageDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHLanguageDotView.m; sourceTree = "<group>"; };
-		3731862E1E5F4A1A00926F4F /* VHSettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHSettingsVC.h; sourceTree = "<group>"; };
-		3731862F1E5F4A1A00926F4F /* VHSettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSettingsVC.m; sourceTree = "<group>"; };
-		373186301E5F4A1A00926F4F /* VHSettingsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHSettingsVC.xib; sourceTree = "<group>"; };
 		3731863C1E60646500926F4F /* VHAccountInfoWC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHAccountInfoWC.h; sourceTree = "<group>"; };
 		3731863D1E60646500926F4F /* VHAccountInfoWC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHAccountInfoWC.m; sourceTree = "<group>"; };
 		3731863E1E60646500926F4F /* VHAccountInfoWC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHAccountInfoWC.xib; sourceTree = "<group>"; };
@@ -445,6 +440,14 @@
 		373187071E61D95200926F4F /* Charts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Charts.h; sourceTree = "<group>"; };
 		373187081E61D95200926F4F /* ChartsRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartsRealm.h; sourceTree = "<group>"; };
 		373187091E61D95200926F4F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		373B96EE1E62AF8000AD8E92 /* VHSimpleRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHSimpleRepository.h; sourceTree = "<group>"; };
+		373B96EF1E62AF8000AD8E92 /* VHSimpleRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSimpleRepository.m; sourceTree = "<group>"; };
+		373B96F11E62BEF500AD8E92 /* VHNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHNotification.h; sourceTree = "<group>"; };
+		373B96F21E62BEF500AD8E92 /* VHNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHNotification.m; sourceTree = "<group>"; };
+		373B96F41E62D9E500AD8E92 /* VHGithubNotifierManager+Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VHGithubNotifierManager+Notification.h"; sourceTree = "<group>"; };
+		373B96F51E62D9E500AD8E92 /* VHGithubNotifierManager+Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VHGithubNotifierManager+Notification.m"; sourceTree = "<group>"; };
+		373CF0451E62F79200711296 /* VHLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHLog.m; sourceTree = "<group>"; };
+		373CF0471E62F79A00711296 /* VHLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHLog.h; sourceTree = "<group>"; };
 		3748DF811E2CE3E900507D9C /* VHDateValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHDateValueFormatter.h; sourceTree = "<group>"; };
 		3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHDateValueFormatter.m; sourceTree = "<group>"; };
 		3748DF841E2CEA9800507D9C /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
@@ -538,7 +541,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				373187A91E61DB9100926F4F /* Charts.framework in Frameworks */,
 				37005C321E5C9B88000AEFF9 /* libxml2.2.dylib in Frameworks */,
 				25D4B81FADCFFCA82BBA83A7 /* libPods-VHGithubNotifier.a in Frameworks */,
 			);
@@ -884,6 +886,8 @@
 				3749CDE21E5B17DE0083CEB1 /* VHGithubNotifierManager+Language.m */,
 				37005C2B1E5C7EFB000AEFF9 /* VHGithubNotifierManager+Trending.h */,
 				37005C2C1E5C7EFB000AEFF9 /* VHGithubNotifierManager+Trending.m */,
+				373B96F41E62D9E500AD8E92 /* VHGithubNotifierManager+Notification.h */,
+				373B96F51E62D9E500AD8E92 /* VHGithubNotifierManager+Notification.m */,
 				3752DD1A1E12AAC8000AB94A /* VHGithubNotifierManager_Private.h */,
 			);
 			path = Manager;
@@ -949,6 +953,10 @@
 				378E0B2E1E0FFA560033CBD5 /* VHRepository.m */,
 				37005C2E1E5C83AB000AEFF9 /* VHTrendingRepository.h */,
 				37005C2F1E5C83AB000AEFF9 /* VHTrendingRepository.m */,
+				373B96EE1E62AF8000AD8E92 /* VHSimpleRepository.h */,
+				373B96EF1E62AF8000AD8E92 /* VHSimpleRepository.m */,
+				373B96F11E62BEF500AD8E92 /* VHNotification.h */,
+				373B96F21E62BEF500AD8E92 /* VHNotification.m */,
 				378CE7631E1DF34400235E5F /* VHRecord.h */,
 				378CE7641E1DF34400235E5F /* VHRecord.m */,
 				3749CDDE1E5B17060083CEB1 /* VHLanguage.h */,
@@ -980,8 +988,8 @@
 				3748DF851E2CEA9800507D9C /* NSDate+Utils.m */,
 				37005C261E5C6E3E000AEFF9 /* RLMResults+ToArray.h */,
 				37005C271E5C6E3E000AEFF9 /* RLMResults+ToArray.m */,
-				373186081E5EBEA800926F4F /* NSTimer+Pausable.h */,
-				373186091E5EBEA800926F4F /* NSTimer+Pausable.m */,
+				373CF0471E62F79A00711296 /* VHLog.h */,
+				373CF0451E62F79200711296 /* VHLog.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1009,9 +1017,6 @@
 				3749CDD71E59B42A0083CEB1 /* VHNotificationVC.h */,
 				3749CDD81E59B42A0083CEB1 /* VHNotificationVC.m */,
 				3749CDD91E59B42A0083CEB1 /* VHNotificationVC.xib */,
-				3731862E1E5F4A1A00926F4F /* VHSettingsVC.h */,
-				3731862F1E5F4A1A00926F4F /* VHSettingsVC.m */,
-				373186301E5F4A1A00926F4F /* VHSettingsVC.xib */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -1177,7 +1182,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				373186321E5F4A1A00926F4F /* VHSettingsVC.xib in Resources */,
 				37531A441E14366800C3EB64 /* VHProfileVC.xib in Resources */,
 				3749CDCF1E59B27C0083CEB1 /* VHPieVC.xib in Resources */,
 				378E0AE81E0ECD070033CBD5 /* Assets.xcassets in Resources */,
@@ -1253,7 +1257,9 @@
 				3731872D1E61D95200926F4F /* CandleChartDataEntry.swift in Sources */,
 				373186521E6084F700926F4F /* VHSecureTextFieldCell.m in Sources */,
 				378CE76A1E1DF6AB00235E5F /* VHGithubNotifierManager+Realm.m in Sources */,
+				373B96F61E62D9E500AD8E92 /* VHGithubNotifierManager+Notification.m in Sources */,
 				378E0B251E0FEEA10033CBD5 /* NSView+Position.m in Sources */,
+				373B96F31E62BEF500AD8E92 /* VHNotification.m in Sources */,
 				37005C3C1E5C9C1C000AEFF9 /* XPathQuery.m in Sources */,
 				3731874D1E61D95200926F4F /* DefaultFillFormatter.swift in Sources */,
 				373187831E61D95200926F4F /* XAxisRenderer.swift in Sources */,
@@ -1270,6 +1276,7 @@
 				373187461E61D95200926F4F /* ILineRadarChartDataSet.swift in Sources */,
 				373187101E61D95200926F4F /* ChartViewBase.swift in Sources */,
 				3731877B1E61D95200926F4F /* ChevronUpShapeRenderer.swift in Sources */,
+				373B96F01E62AF8000AD8E92 /* VHSimpleRepository.m in Sources */,
 				373187601E61D95200926F4F /* CandleChartDataProvider.swift in Sources */,
 				3731876B1E61D95200926F4F /* AxisRendererBase.swift in Sources */,
 				373187211E61D95200926F4F /* XAxis.swift in Sources */,
@@ -1337,6 +1344,7 @@
 				373187341E61D95200926F4F /* LineChartData.swift in Sources */,
 				378E0B261E0FEEA10033CBD5 /* VHBasicInfoView.m in Sources */,
 				373187361E61D95200926F4F /* LineRadarChartDataSet.swift in Sources */,
+				373CF0461E62F79200711296 /* VHLog.m in Sources */,
 				3731878E1E61D95200926F4F /* TransformerHorizontalBarChart.swift in Sources */,
 				3731875A1E61D95200926F4F /* PieRadarHighlighter.swift in Sources */,
 				37005C301E5C83AB000AEFF9 /* VHTrendingRepository.m in Sources */,
@@ -1373,7 +1381,6 @@
 				37005C3B1E5C9C1C000AEFF9 /* TFHppleElement.m in Sources */,
 				373187231E61D95200926F4F /* ChartBaseDataSet.swift in Sources */,
 				373187261E61D95200926F4F /* BarChartDataSet.swift in Sources */,
-				3731860A1E5EBEA800926F4F /* NSTimer+Pausable.m in Sources */,
 				373187351E61D95200926F4F /* LineChartDataSet.swift in Sources */,
 				373187541E61D95200926F4F /* ChartHighlighter.swift in Sources */,
 				3731871F1E61D95200926F4F /* MarkerImage.swift in Sources */,
@@ -1391,7 +1398,6 @@
 				37531A4A1E14411500C3EB64 /* NSMutableArray+Safe.m in Sources */,
 				373187571E61D95200926F4F /* HorizontalBarHighlighter.swift in Sources */,
 				3731870F1E61D95200926F4F /* CandleStickChartView.swift in Sources */,
-				373186311E5F4A1A00926F4F /* VHSettingsVC.m in Sources */,
 				373187801E61D95200926F4F /* TriangleShapeRenderer.swift in Sources */,
 				3731870C1E61D95200926F4F /* BarChartView.swift in Sources */,
 				373187301E61D95200926F4F /* ChartDataEntry.swift in Sources */,

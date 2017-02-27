@@ -79,7 +79,7 @@
     
     [self.trendPopupButton.menu addItemWithTitle:[NSString stringWithFormat:@"Followers of %@", [VHGithubNotifierManager sharedManager].user.name] action:nil keyEquivalent:@""];
     [self.trendPopupButton.menu addItemWithTitle:[NSString stringWithFormat:@"Stars of %@", [VHGithubNotifierManager sharedManager].user.name] action:nil keyEquivalent:@""];
-    self.trendDatas = [[VHGithubNotifierManager sharedManager].user.allRepositories sortedResultsUsingProperty:@"starNumber" ascending:NO];
+    self.trendDatas = [[VHGithubNotifierManager sharedManager].user.allRepositories sortedResultsUsingKeyPath:@"starNumber" ascending:NO];
     for (VHRepository *repository in self.trendDatas)
     {
         [self.trendPopupButton.menu addItemWithTitle:repository.name action:nil keyEquivalent:@""];

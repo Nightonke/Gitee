@@ -16,7 +16,6 @@ typedef NS_ENUM(NSUInteger, VHGithubContentType)
     VHGithubContentTypeTrend            = 1 << 2,
     VHGithubContentTypeTrending         = 1 << 3,
     VHGithubContentTypeNotifications    = 1 << 4,
-    VHGithubContentTypeSettings         = 1 << 5,
 };
 
 typedef NS_ENUM(NSUInteger, VHGithubTrendTimeType)

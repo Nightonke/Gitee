@@ -6,8 +6,6 @@
 //  Copyright © 2017年 黄伟平. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface NSDate (Utils)
 
 - (NSDate *)dateOfDay;

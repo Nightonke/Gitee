@@ -7,6 +7,7 @@
 //
 
 #import "VHUtils.h"
+#import "VHNotification.h"
 
 @interface VHUtils (TransForm)
 
@@ -15,5 +16,9 @@
 + (NSColor *)colorFromHexColorCodeInString:(NSString *)string;
 
 + (NSString *)encodeToPercentEscapeString:(NSString *)input;
+
++ (NSDate *)dateFromGithubTimeString:(NSString *)timeString;
+
++ (VHNotificationReasonType)notificationReasonTypeFromString:(NSString *)string;
 
 @end

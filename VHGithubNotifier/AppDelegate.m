@@ -12,6 +12,7 @@
 #import "VHGithubNotifierManager+Realm.h"
 #import "VHGithubNotifierManager+Language.h"
 #import "VHGithubNotifierManager+Trending.h"
+#import "VHGithubNotifierManager+Notification.h"
 #import "VHStatusBarButton.h"
 #import "VHUtils.h"
 #import "VHBasicInfoView.h"
@@ -139,6 +140,7 @@
 - (void)startWorkWhichNeedsUserAccountInfo
 {
     [[VHGithubNotifierManager sharedManager] startTimerOfUpdatingUserAccountInfoAndRepositoriesOfUser];
+    [[VHGithubNotifierManager sharedManager] startTimerOfNotification];
 }
 
 #pragma mark - Notifications

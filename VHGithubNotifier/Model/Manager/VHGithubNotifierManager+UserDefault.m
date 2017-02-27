@@ -99,10 +99,6 @@ static NSUInteger trendingTimeSelectedIndex;
     {
         [images addObject:[VHUtils imageFromGithubContentType:VHGithubContentTypeNotifications]];
     }
-    if (types & VHGithubContentTypeSettings)
-    {
-        [images addObject:[VHUtils imageFromGithubContentType:VHGithubContentTypeSettings]];
-    }
     return images;
 }
 
@@ -129,10 +125,6 @@ static NSUInteger trendingTimeSelectedIndex;
     if (types & VHGithubContentTypeNotifications)
     {
         [numbers addObject:@(VHGithubContentTypeNotifications)];
-    }
-    if (types & VHGithubContentTypeSettings)
-    {
-        [numbers addObject:@(VHGithubContentTypeSettings)];
     }
     return numbers;
 }
@@ -201,8 +193,7 @@ static NSUInteger trendingTimeSelectedIndex;
     VHGithubContentTypeRepositoryPie |
     VHGithubContentTypeTrend |
     VHGithubContentTypeTrending |
-    VHGithubContentTypeNotifications |
-    VHGithubContentTypeSettings;
+    VHGithubContentTypeNotifications;
 }
 
 @end

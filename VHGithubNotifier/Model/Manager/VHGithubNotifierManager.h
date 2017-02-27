@@ -9,6 +9,7 @@
 #import "VHUser.h"
 #import "VHLanguage.h"
 #import "VHTrendingRepository.h"
+#import "UAGithubEngine.h"
 
 @interface VHGithubNotifierManager : NSObject
 
@@ -17,6 +18,8 @@
 @property (nonatomic, strong) NSArray<VHTrendingRepository *> *trendingRepositories;
 
 + (instancetype)sharedManager;
+
+- (UAGithubEngine *)engine;
 
 - (void)startTimerOfUpdatingUserAccountInfoAndRepositoriesOfUser;
 
