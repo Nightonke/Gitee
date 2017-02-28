@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16C68" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="VHNotificationGroupBodyCellView">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WFN-jv-v6e">
+                    <rect key="frame" x="20" y="0.0" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Ng3-ZL-6Uh"/>
+                        <constraint firstAttribute="width" constant="40" id="cRz-79-SJ8"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="sjO-dq-AJp"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Deh-Kn-mla">
+                    <rect key="frame" x="18" y="11" width="310" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="a5c-L5-kUM"/>
+                        <constraint firstAttribute="width" constant="306" id="sff-IO-EVn"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="0cl-IZ-zCq">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="A0S-wZ-PVr">
+                    <rect key="frame" x="358" y="14" width="12" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="12" id="8E3-UP-Nuj"/>
+                        <constraint firstAttribute="width" constant="12" id="UGj-xM-L9Q"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_read" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="aYk-vK-uRj">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="Lhx-Kd-N34">
+                    <rect key="frame" x="334" y="13" width="14" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14" id="AI3-Vz-dtw"/>
+                        <constraint firstAttribute="width" constant="14" id="opL-Hf-ebg"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_unsubscribe" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="MGr-mn-Dbx">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="A0S-wZ-PVr" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="0F5-Of-ECd"/>
+                <constraint firstItem="WFN-jv-v6e" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="7Si-1Q-MCn"/>
+                <constraint firstItem="WFN-jv-v6e" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="Bk5-Ud-zhz"/>
+                <constraint firstItem="Deh-Kn-mla" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="MbK-8w-VqY"/>
+                <constraint firstItem="Deh-Kn-mla" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="Szh-no-ZT3"/>
+                <constraint firstAttribute="trailing" secondItem="A0S-wZ-PVr" secondAttribute="trailing" constant="30" id="Z2d-eP-OY8"/>
+                <constraint firstItem="A0S-wZ-PVr" firstAttribute="leading" secondItem="Lhx-Kd-N34" secondAttribute="trailing" constant="10" id="kbm-0v-R25"/>
+                <constraint firstItem="Lhx-Kd-N34" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="l4g-qy-c9A"/>
+            </constraints>
+            <accessibility identifier="VHNotificationGroupBodyCellView"/>
+            <connections>
+                <outlet property="image" destination="WFN-jv-v6e" id="Ki0-Qx-0Eq"/>
+                <outlet property="readButton" destination="A0S-wZ-PVr" id="ucz-ak-EQw"/>
+                <outlet property="subscribeButton" destination="Lhx-Kd-N34" id="tij-sC-VeQ"/>
+                <outlet property="title" destination="0cl-IZ-zCq" id="Tfw-Pt-KJv"/>
+            </connections>
+        </customView>
+    </objects>
+    <resources>
+        <image name="icon_read" width="48" height="48"/>
+        <image name="icon_unsubscribe" width="48" height="48"/>
+    </resources>
+</document>

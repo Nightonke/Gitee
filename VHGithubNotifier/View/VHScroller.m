@@ -67,14 +67,11 @@
     } completionHandler:^{
         [self.timer invalidate];
         self.timer = nil;
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:3 repeats:NO block:^(NSTimer * _Nonnull timer) {
-            [NSAnimationContext runAnimationGroup:^(NSAnimationContext * _Nonnull context) {
-                [context setDuration:0.5];
-                NSRect frame = self.frame;
-                frame.origin.x = self.originalX + self.width;
-                [[self animator] setFrame:frame];
-            } completionHandler:nil];
-        }];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:3
+                                                      target:self
+                                                    selector:@selector(disappear)
+                                                    userInfo:nil
+                                                     repeats:NO];
     }];
     
     // get the changed content view from the notification
@@ -84,6 +81,16 @@
     CGFloat minY = 0;
     
     [self.thumb setY:(1 - now / max) * (maxY - minY)];
+}
+
+- (void)disappear
+{
+    [NSAnimationContext runAnimationGroup:^(NSAnimationContext * _Nonnull context) {
+        [context setDuration:0.5];
+        NSRect frame = self.frame;
+        frame.origin.x = self.originalX + self.width;
+        [[self animator] setFrame:frame];
+    } completionHandler:nil];
 }
 
 - (void)onThumbScrolled:(CGFloat)progress

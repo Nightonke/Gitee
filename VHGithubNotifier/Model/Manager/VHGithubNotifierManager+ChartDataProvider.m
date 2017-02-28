@@ -42,6 +42,14 @@
     }];
     PieChartDataSet *set = [[PieChartDataSet alloc] initWithValues:array label:@"Repositoies"];
     [VHUtils setRandomColor:set withNumber:[array count]];
+    set.valueTextColor = [NSColor whiteColor];
+    [set setEntryLabelColor:[NSColor grayColor]];
+    set.xValuePosition = PieChartValuePositionOutsideSlice;
+    set.valueLineColor = [NSColor grayColor];
+    set.valueLinePart1OffsetPercentage = 0.7;
+    set.valueLinePart1Length = 0.5;
+    set.valueLinePart2Length = 0;
+    
     PieChartData *data = [[PieChartData alloc] initWithDataSet:set];
     return data;
 }

@@ -88,14 +88,14 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
         {
             NotificationLog(@"Update notification successfully");
             notificationLoadState = VHLoadStateTypeLoadSuccessfully;
-            NOTIFICATION_POST(kNotifyNotificationsLoadedSuccessfully);
+            NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyNotificationsLoadedSuccessfully);
         }
         else
         {
             NotificationLog(@"Update notification failed");
             notificationLoadState = VHLoadStateTypeLoadFailed;
             notificationDic = backupNotificationDic;
-            NOTIFICATION_POST(kNotifyNotificationsLoadedFailed);
+            NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyNotificationsLoadedFailed);
         }
         NotificationLog(@"%@", notificationDic);
     }];

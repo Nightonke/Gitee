@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16C68" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="VHNotificationGroupHeaderCellView">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="46"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vln-4g-3uz">
+                    <rect key="frame" x="20" y="0.0" width="300" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="bZS-q8-5fJ"/>
+                        <constraint firstAttribute="height" constant="36" id="pbn-tt-P1d"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" title="Nightonke/Gitee" bezelStyle="shadowlessSquare" alignment="left" state="on" imageScaling="proportionallyDown" inset="2" id="aXS-Wy-6Yn">
+                        <behavior key="behavior" lightByContents="YES"/>
+                        <font key="font" metaFont="system" size="16"/>
+                    </buttonCell>
+                </button>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="4cU-Ou-glz">
+                    <rect key="frame" x="358" y="12" width="12" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="12" id="ECZ-Ix-zX7"/>
+                        <constraint firstAttribute="width" constant="12" id="rcq-Ks-9zO"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_read" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="LPA-8p-E51">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="4cU-Ou-glz" secondAttribute="bottom" constant="12" id="4g8-jx-TdG"/>
+                <constraint firstItem="Vln-4g-3uz" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="L5q-ML-hp0"/>
+                <constraint firstAttribute="bottom" secondItem="Vln-4g-3uz" secondAttribute="bottom" id="S0i-Mn-vUq"/>
+                <constraint firstAttribute="trailing" secondItem="4cU-Ou-glz" secondAttribute="trailing" constant="30" id="g2w-hN-LLm"/>
+            </constraints>
+            <accessibility identifier="VHNotificationGroupHeaderCellView"/>
+            <connections>
+                <outlet property="readButton" destination="4cU-Ou-glz" id="Rp5-rP-DeF"/>
+                <outlet property="titleButton" destination="Vln-4g-3uz" id="csS-Zs-TcX"/>
+            </connections>
+        </customView>
+    </objects>
+    <resources>
+        <image name="icon_read" width="48" height="48"/>
+    </resources>
+</document>

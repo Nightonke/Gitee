@@ -97,14 +97,14 @@
 {
     self.startButton.title = @"Internet failed!";
     self.confirmProgress.hidden = YES;
-    DELAY_CALL_SELECTOR(1, self.startButton.title = @"Start!";);
+    DELAY_EXECUTE_IN_MAIN(1, self.startButton.title = @"Start!";);
 }
 
 - (void)onNotifyUserAccountConfirmIncorrectUsernameOrPassword:(NSNotification *)notification
 {
     self.startButton.title = @"Incorrect username or password!";
     self.confirmProgress.hidden = YES;
-    DELAY_CALL_SELECTOR(1, self.startButton.title = @"Start!";);
+    DELAY_EXECUTE_IN_MAIN(1, self.startButton.title = @"Start!";);
 }
 
 #pragma mark - Private Methods

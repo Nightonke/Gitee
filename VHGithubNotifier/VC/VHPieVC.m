@@ -11,6 +11,7 @@
 #import "VHGithubNotifier-Bridging-Header.h"
 #import "VHGithubNotifierManager+ChartDataProvider.h"
 #import "VHUtils.h"
+#import "NSView+Position.h"
 
 @interface VHPieVC ()<ChartViewDelegate>
 
@@ -22,12 +23,16 @@
 
 #pragma mark - Life
 
-- (void)loadView
+- (void)viewDidLoad
 {
-    [super loadView];
+    [super viewDidLoad];
     self.pieChart = [[PieChartView alloc] initWithFrame:self.view.bounds];
-    [self.pieChart setDescriptionText:@"Repositories"];
+    self.pieChart.extraLeftOffset = 30;
+    self.pieChart.extraRightOffset = 30;
+    self.pieChart.descriptionText = @"Repositories";
+    self.pieChart.highlightPerTapEnabled = YES;
     self.pieChart.delegate = self;
+    
     [self updateCenterText];
     [self.view addSubview:self.pieChart];
     
@@ -68,6 +73,19 @@
 - (void)chartValueSelected:(ChartViewBase * _Nonnull)chartView entry:(ChartDataEntry * _Nonnull)entry highlight:(ChartHighlight * _Nonnull)highlight
 {
     
+}
+
+#pragma mark - Mouse
+
+- (void)mouseDown:(NSEvent *)event
+{
+    
+}
+
+- (void)mouseUp:(NSEvent *)event
+{
+    NSPoint locationInPieChart = [self.pieChart convertPoint:[event locationInWindow] fromView:nil];
+    [self.pieChart highlightValue:[self.pieChart getHighlightByTouchPoint:locationInPieChart] callDelegate:YES];
 }
 
 #pragma mark - Private Methods

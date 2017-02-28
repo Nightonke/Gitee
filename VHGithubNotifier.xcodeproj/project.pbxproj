@@ -182,6 +182,8 @@
 		373CF06B1E652E5600711296 /* UAGithubURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0601E652E5600711296 /* UAGithubURLConnection.m */; };
 		373CF06C1E652E5600711296 /* UAReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0621E652E5600711296 /* UAReachability.m */; };
 		373CF0721E6553E100711296 /* VHPopUpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0711E6553E100711296 /* VHPopUpButton.m */; };
+		373CF0751E656B1500711296 /* VHNotificationGroupHeaderCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0741E656B1500711296 /* VHNotificationGroupHeaderCellView.m */; };
+		373CF0771E656B2C00711296 /* VHNotificationGroupHeaderCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373CF0761E656B2C00711296 /* VHNotificationGroupHeaderCellView.xib */; };
 		3748DF831E2CE3E900507D9C /* VHDateValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */; };
 		3748DF861E2CEA9800507D9C /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF851E2CEA9800507D9C /* NSDate+Utils.m */; };
 		3748DF8E1E2F54A300507D9C /* VHTrendTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF8D1E2F54A300507D9C /* VHTrendTableCellView.m */; };
@@ -222,6 +224,8 @@
 		378E0B371E1012960033CBD5 /* VHRepositoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0B361E1012960033CBD5 /* VHRepositoryView.m */; };
 		378E0B391E1012A60033CBD5 /* VHRepositoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 378E0B381E1012A60033CBD5 /* VHRepositoryView.xib */; };
 		378E0B3F1E103D940033CBD5 /* VHTabVCBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0B3E1E103D930033CBD5 /* VHTabVCBackgroundView.m */; };
+		379E09B71E659AD80032EB7E /* VHNotificationGroupBodyCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 379E09B61E659AD80032EB7E /* VHNotificationGroupBodyCellView.m */; };
+		379E09BB1E659B240032EB7E /* VHNotificationGroupBodyCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379E09BA1E659B240032EB7E /* VHNotificationGroupBodyCellView.xib */; };
 		37CB06001E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CB05FF1E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.m */; };
 		37E7CCFB1E5C576D00BA8BA9 /* VHStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E7CCFA1E5C576D00BA8BA9 /* VHStateView.m */; };
 		37E7CD011E5C5D2D00BA8BA9 /* VHStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E7CD001E5C5D2D00BA8BA9 /* VHStateView.xib */; };
@@ -485,6 +489,9 @@
 		373CF0621E652E5600711296 /* UAReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAReachability.m; sourceTree = "<group>"; };
 		373CF0701E6553E100711296 /* VHPopUpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHPopUpButton.h; sourceTree = "<group>"; };
 		373CF0711E6553E100711296 /* VHPopUpButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHPopUpButton.m; sourceTree = "<group>"; };
+		373CF0731E656B1500711296 /* VHNotificationGroupHeaderCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHNotificationGroupHeaderCellView.h; sourceTree = "<group>"; };
+		373CF0741E656B1500711296 /* VHNotificationGroupHeaderCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHNotificationGroupHeaderCellView.m; sourceTree = "<group>"; };
+		373CF0761E656B2C00711296 /* VHNotificationGroupHeaderCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHNotificationGroupHeaderCellView.xib; sourceTree = "<group>"; };
 		3748DF811E2CE3E900507D9C /* VHDateValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHDateValueFormatter.h; sourceTree = "<group>"; };
 		3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHDateValueFormatter.m; sourceTree = "<group>"; };
 		3748DF841E2CEA9800507D9C /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
@@ -562,6 +569,9 @@
 		378E0B381E1012A60033CBD5 /* VHRepositoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHRepositoryView.xib; sourceTree = "<group>"; };
 		378E0B3D1E103D930033CBD5 /* VHTabVCBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHTabVCBackgroundView.h; sourceTree = "<group>"; };
 		378E0B3E1E103D930033CBD5 /* VHTabVCBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHTabVCBackgroundView.m; sourceTree = "<group>"; };
+		379E09B51E659AD80032EB7E /* VHNotificationGroupBodyCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHNotificationGroupBodyCellView.h; sourceTree = "<group>"; };
+		379E09B61E659AD80032EB7E /* VHNotificationGroupBodyCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHNotificationGroupBodyCellView.m; sourceTree = "<group>"; };
+		379E09BA1E659B240032EB7E /* VHNotificationGroupBodyCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHNotificationGroupBodyCellView.xib; sourceTree = "<group>"; };
 		37CB05FB1E1C092600E9B924 /* VHGithubNotifier-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VHGithubNotifier-Bridging-Header.h"; sourceTree = "<group>"; };
 		37CB05FE1E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VHGithubNotifierManager+ChartDataProvider.h"; sourceTree = "<group>"; };
 		37CB05FF1E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VHGithubNotifierManager+ChartDataProvider.m"; sourceTree = "<group>"; };
@@ -1132,6 +1142,12 @@
 				373CF0491E644B3A00711296 /* VHNotificationGroupView.m */,
 				373CF0701E6553E100711296 /* VHPopUpButton.h */,
 				373CF0711E6553E100711296 /* VHPopUpButton.m */,
+				373CF0731E656B1500711296 /* VHNotificationGroupHeaderCellView.h */,
+				373CF0741E656B1500711296 /* VHNotificationGroupHeaderCellView.m */,
+				373CF0761E656B2C00711296 /* VHNotificationGroupHeaderCellView.xib */,
+				379E09B51E659AD80032EB7E /* VHNotificationGroupBodyCellView.h */,
+				379E09B61E659AD80032EB7E /* VHNotificationGroupBodyCellView.m */,
+				379E09BA1E659B240032EB7E /* VHNotificationGroupBodyCellView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1257,12 +1273,14 @@
 				3749CDDB1E59B42A0083CEB1 /* VHNotificationVC.xib in Resources */,
 				378E0B291E0FEEE50033CBD5 /* VHBasicInfoView.xib in Resources */,
 				373185F61E5DDB5B00926F4F /* VHTrendingRepositoryCellView.xib in Resources */,
+				379E09BB1E659B240032EB7E /* VHNotificationGroupBodyCellView.xib in Resources */,
 				3731879B1E61D95200926F4F /* Info.plist in Resources */,
 				37298F3B1E27EEEC003810E8 /* VHTrendVC.xib in Resources */,
 				373186401E60646500926F4F /* VHAccountInfoWC.xib in Resources */,
 				3752DD291E12DB4D000AB94A /* VHTabVC.xib in Resources */,
 				3749CDD61E59B2950083CEB1 /* VHTrendingVC.xib in Resources */,
 				378E0B391E1012A60033CBD5 /* VHRepositoryView.xib in Resources */,
+				373CF0771E656B2C00711296 /* VHNotificationGroupHeaderCellView.xib in Resources */,
 				378E0AEB1E0ECD070033CBD5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1364,6 +1382,7 @@
 				378E0B341E0FFBA60033CBD5 /* VHUtils+Json.m in Sources */,
 				3731873C1E61D95200926F4F /* RadarChartDataEntry.swift in Sources */,
 				3731871B1E61D95200926F4F /* Description.swift in Sources */,
+				379E09B71E659AD80032EB7E /* VHNotificationGroupBodyCellView.m in Sources */,
 				373186071E5E99D300926F4F /* VHScrollerThumb.m in Sources */,
 				373187161E61D95200926F4F /* RadarChartView.swift in Sources */,
 				3752DD261E12D85E000AB94A /* VHTabVC.m in Sources */,
@@ -1396,6 +1415,7 @@
 				373187731E61D95200926F4F /* LegendRenderer.swift in Sources */,
 				373187661E61D95200926F4F /* AnimatedViewPortJob.swift in Sources */,
 				3731873F1E61D95200926F4F /* ScatterChartDataSet.swift in Sources */,
+				373CF0751E656B1500711296 /* VHNotificationGroupHeaderCellView.m in Sources */,
 				3731872B1E61D95200926F4F /* BubbleChartDataSet.swift in Sources */,
 				3749CDD51E59B2950083CEB1 /* VHTrendingVC.m in Sources */,
 				3731874C1E61D95200926F4F /* DefaultAxisValueFormatter.swift in Sources */,
@@ -1650,7 +1670,7 @@
 				DEVELOPMENT_TEAM = H7B6S6TRXA;
 				GCC_PREFIX_HEADER = "VHGithubNotifier/VHGithubNotifier+Prefix.pch";
 				INFOPLIST_FILE = VHGithubNotifier/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks $(CONFIGURATION_BUILD_DIR) @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nightonke.VHGithubNotifier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VHGithubNotifier-Bridging-Header.h";
@@ -1674,7 +1694,7 @@
 					"DEBUG=0",
 				);
 				INFOPLIST_FILE = VHGithubNotifier/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks $(CONFIGURATION_BUILD_DIR) @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nightonke.VHGithubNotifier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VHGithubNotifier-Bridging-Header.h";

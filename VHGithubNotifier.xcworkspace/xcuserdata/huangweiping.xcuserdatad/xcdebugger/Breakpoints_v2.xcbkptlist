@@ -42,7 +42,7 @@
                   moduleName = "VHGithubNotifier"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/View/VHTrendTableCellView.m"
-                  timestampString = "509960846.319872"
+                  timestampString = "509997336.79897"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "129"
@@ -57,12 +57,204 @@
                   moduleName = "VHGithubNotifier"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/View/VHTrendTableCellView.m"
-                  timestampString = "509960846.326593"
+                  timestampString = "509997336.800333"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "129"
                   endingLineNumber = "129"
                   offsetFromSymbolStart = "1452">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
+            timestampString = "509986897.445977"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1009"
+            endingLineNumber = "1009"
+            landmarkName = "nsuiTouchesBegan(_:withEvent:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VHGithubNotifier.ChartViewBase.nsuiTouchesBegan (Swift.Set&lt;__ObjC.NSTouch&gt;, withEvent : Swift.Optional&lt;__ObjC.NSEvent&gt;) -&gt; ()"
+                  moduleName = "VHGithubNotifier"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
+                  timestampString = "509997336.803172"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1009"
+                  endingLineNumber = "1009"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Charts.ChartViewBase.nsuiTouchesBegan (Swift.Set&lt;__ObjC.NSTouch&gt;, withEvent : Swift.Optional&lt;__ObjC.NSEvent&gt;) -&gt; ()"
+                  moduleName = "Charts"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
+                  timestampString = "509997336.804955"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1009"
+                  endingLineNumber = "1009"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
+            timestampString = "509986900.527936"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1017"
+            endingLineNumber = "1017"
+            landmarkName = "nsuiTouchesMoved(_:withEvent:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VHGithubNotifier.ChartViewBase.nsuiTouchesMoved (Swift.Set&lt;__ObjC.NSTouch&gt;, withEvent : Swift.Optional&lt;__ObjC.NSEvent&gt;) -&gt; ()"
+                  moduleName = "VHGithubNotifier"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
+                  timestampString = "509997336.809986"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1017"
+                  endingLineNumber = "1017"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Charts.ChartViewBase.nsuiTouchesMoved (Swift.Set&lt;__ObjC.NSTouch&gt;, withEvent : Swift.Optional&lt;__ObjC.NSEvent&gt;) -&gt; ()"
+                  moduleName = "Charts"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
+                  timestampString = "509997336.811406"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1017"
+                  endingLineNumber = "1017"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
+            timestampString = "509986901.636071"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1025"
+            endingLineNumber = "1025"
+            landmarkName = "nsuiTouchesEnded(_:withEvent:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VHGithubNotifier.ChartViewBase.nsuiTouchesEnded (Swift.Set&lt;__ObjC.NSTouch&gt;, withEvent : Swift.Optional&lt;__ObjC.NSEvent&gt;) -&gt; ()"
+                  moduleName = "VHGithubNotifier"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
+                  timestampString = "509997336.814687"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1025"
+                  endingLineNumber = "1025"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Charts.ChartViewBase.nsuiTouchesEnded (Swift.Set&lt;__ObjC.NSTouch&gt;, withEvent : Swift.Optional&lt;__ObjC.NSEvent&gt;) -&gt; ()"
+                  moduleName = "Charts"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
+                  timestampString = "509997336.815988"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1025"
+                  endingLineNumber = "1025"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
+            timestampString = "509986902.833366"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1033"
+            endingLineNumber = "1033"
+            landmarkName = "nsuiTouchesCancelled(_:withEvent:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VHGithubNotifier.ChartViewBase.nsuiTouchesCancelled (Swift.Optional&lt;Swift.Set&lt;__ObjC.NSTouch&gt;&gt;, withEvent : Swift.Optional&lt;__ObjC.NSEvent&gt;) -&gt; ()"
+                  moduleName = "VHGithubNotifier"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
+                  timestampString = "509997336.818792"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1033"
+                  endingLineNumber = "1033"
+                  offsetFromSymbolStart = "34">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Charts.ChartViewBase.nsuiTouchesCancelled (Swift.Optional&lt;Swift.Set&lt;__ObjC.NSTouch&gt;&gt;, withEvent : Swift.Optional&lt;__ObjC.NSEvent&gt;) -&gt; ()"
+                  moduleName = "Charts"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
+                  timestampString = "509997336.82013"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1033"
+                  endingLineNumber = "1033"
+                  offsetFromSymbolStart = "34">
                </Location>
             </Locations>
          </BreakpointContent>

@@ -57,7 +57,9 @@ const static CGFloat TAB_VC_CORNER_RADIUS = 8;
 
 #define GLOBAL_QUEUE dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
-#define DELAY_CALL_SELECTOR(seconds, code) [NSTimer scheduledTimerWithTimeInterval:seconds repeats:NO block:^(NSTimer * _Nonnull timer) {code;}]
+#define DELAY_EXECUTE_IN_MAIN(seconds, code) dispatch_after(dispatch_time(DISPATCH_TIME_NOW, seconds * NSEC_PER_SEC), dispatch_get_main_queue(), ^{ \
+code; \
+}); \
 
 #define QM_STRING_CONCAT(A, B) QM_STRING_CONCAT_(A, B)
 
