@@ -43,7 +43,6 @@ static NSTimer *trendingTimer;
     trendingTimer = [NSTimer scheduledTimerWithTimeInterval:TRENDING_UPDATE_TIME
                                                     repeats:YES
                                                       block:^(NSTimer * _Nonnull timer) {
-        NSLog(@"----------------------------------------------------------------------------------------------------------");
         NSLog(@"[Notifier] Update trending");
         [self innerUpdateTrendingContent];
     }];

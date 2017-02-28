@@ -7,11 +7,18 @@
 //
 
 #import "VHGithubNotifierManager.h"
+#import "VHNotification.h"
 
 @interface VHGithubNotifierManager (Notification)
 
 - (void)startTimerOfNotification;
 
 - (void)stopTimerOfNotification;
+
+- (void)updateNotification;
+
+- (NSDictionary<VHSimpleRepository *, NSArray<VHNotification *> *> *)notificationDic;
+
+- (VHLoadStateType)notificationLoadState;
 
 @end

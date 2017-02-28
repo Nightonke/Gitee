@@ -17,15 +17,13 @@ PODS:
     - Realm/Headers (= 2.4.3)
   - Realm/Headers (2.4.3)
   - SYFlatButton (1.2)
-  - UAGithubEngine (2.3)
   - YAML-Framework (0.0.2):
     - LibYAML (~> 0.1.4)
 
 DEPENDENCIES:
-  - AFNetworking (~> 3.0)
+  - AFNetworking
   - Realm
   - SYFlatButton
-  - UAGithubEngine (~> 2.3)
   - YAML-Framework
 
 SPEC CHECKSUMS:
@@ -33,9 +31,8 @@ SPEC CHECKSUMS:
   LibYAML: 3af2c5adf3a40dff936d087aa6a77edc10036bc5
   Realm: e08d60b0048ccccd3949c8c28a92c4db5712d7e9
   SYFlatButton: cc8b2eb1d123fb196f42b922a47802c03abc602a
-  UAGithubEngine: 774172b0cc0c9fe35c7bcfb7eb3d64787b846d9d
   YAML-Framework: 6fe698e19d39d778829f5937e39d1e6bc12afd7b
 
-PODFILE CHECKSUM: ae3fb3dde044723245889468daf0d178093f0d80
+PODFILE CHECKSUM: f708e8765abd3c8a1c0f92785641e597d559eb97
 
 COCOAPODS: 1.1.0.rc.3

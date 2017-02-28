@@ -7,8 +7,8 @@
 //
 
 #import "VHGithubNotifierManager+Notification.h"
-#import "VHNotification.h"
 #import "VHUtils+Json.h"
+#import "VHGithubNotifierManager+UserDefault.h"
 
 static const NSUInteger MAX_CONCURRENT_NOTIFICATION_HTML_URL_REQUEST = 10;
 
@@ -25,17 +25,18 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
 {
     MUST_IN_MAIN_THREAD;
     NotificationLog(@"Start Timer");
-    notificationTimer = [NSTimer scheduledTimerWithTimeInterval:60 * 10 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        NSLog(@"----------------------------------------------------------------------------------------------------------");
-        NotificationLog(@"Update notification");
-        [self innerUpdateNotification];
-    }];
+    notificationTimer = [NSTimer scheduledTimerWithTimeInterval:[self notificationUpdateTime]
+                                                         target:self
+                                                       selector:@selector(innerUpdateNotification)
+                                                       userInfo:nil
+                                                        repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:notificationTimer forMode:NSDefaultRunLoopMode];
     [notificationTimer fire];
 }
 
 - (void)stopTimerOfNotification
 {
+    MUST_IN_MAIN_THREAD;
     NotificationLog(@"Stop Timer");
     [notificationTimer invalidate];
     notificationTimer = nil;
@@ -55,10 +56,16 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
     return notificationDic;
 }
 
+- (VHLoadStateType)notificationLoadState
+{
+    return notificationLoadState;
+}
+
 #pragma mark - Private Methods
 
 - (void)innerUpdateNotification
 {
+    NotificationLog(@"Update notification");
     dispatch_async(GLOBAL_QUEUE, ^{
         [[self engine] notificationsAll:NO participating:NO success:^(id responseObject) {
             backupNotificationDic = notificationDic;

@@ -41,6 +41,7 @@ const static CGFloat MENU_WINDOW_LEFT_MARGIN = 20;
         [self setOpaque:NO];
         [self setBackgroundColor:[NSColor clearColor]];
         [self setCollectionBehavior:NSWindowCollectionBehaviorStationary];
+        [self setStyleMask:NSWindowStyleMaskFullSizeContentView];
         
         WEAK_SELF(self);
         _mouseEventMonitor = [NSEvent addGlobalMonitorForEventsMatchingMask:(NSEventMaskLeftMouseDown | NSEventMaskRightMouseDown | NSEventMaskOtherMouseDown)
@@ -71,7 +72,7 @@ const static CGFloat MENU_WINDOW_LEFT_MARGIN = 20;
     }
     
     [self setFrame:frame display:NO];
-    VHTabVC *tabVC = SAFE_CAST(self.contentViewController, [VHTabVC class]);
+    VHTabVC *tabVC = (VHTabVC *)SAFE_CAST(self.contentViewController, [VHTabVC class]);
     if (tabVC)
     {
         [tabVC updateArrowWithStatusItemCenterX:centerX];

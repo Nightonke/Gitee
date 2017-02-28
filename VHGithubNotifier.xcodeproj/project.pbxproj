@@ -170,6 +170,17 @@
 		373B96F31E62BEF500AD8E92 /* VHNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 373B96F21E62BEF500AD8E92 /* VHNotification.m */; };
 		373B96F61E62D9E500AD8E92 /* VHGithubNotifierManager+Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 373B96F51E62D9E500AD8E92 /* VHGithubNotifierManager+Notification.m */; };
 		373CF0461E62F79200711296 /* VHLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0451E62F79200711296 /* VHLog.m */; };
+		373CF04A1E644B3A00711296 /* VHNotificationGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0491E644B3A00711296 /* VHNotificationGroupView.m */; };
+		373CF0631E652E5600711296 /* NSArray+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF04F1E652E5600711296 /* NSArray+Utilities.m */; };
+		373CF0641E652E5600711296 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0511E652E5600711296 /* NSData+Base64.m */; };
+		373CF0651E652E5600711296 /* NSInvocation+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0531E652E5600711296 /* NSInvocation+Blocks.m */; };
+		373CF0661E652E5600711296 /* NSString+UAGithubEngineUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0551E652E5600711296 /* NSString+UAGithubEngineUtilities.m */; };
+		373CF0671E652E5600711296 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0571E652E5600711296 /* NSString+UUID.m */; };
+		373CF0681E652E5600711296 /* UAGithubEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0591E652E5600711296 /* UAGithubEngine.m */; };
+		373CF0691E652E5600711296 /* UAGithubEngineConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF05B1E652E5600711296 /* UAGithubEngineConstants.m */; };
+		373CF06A1E652E5600711296 /* UAGithubJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF05E1E652E5600711296 /* UAGithubJSONParser.m */; };
+		373CF06B1E652E5600711296 /* UAGithubURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0601E652E5600711296 /* UAGithubURLConnection.m */; };
+		373CF06C1E652E5600711296 /* UAReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0621E652E5600711296 /* UAReachability.m */; };
 		3748DF831E2CE3E900507D9C /* VHDateValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */; };
 		3748DF861E2CEA9800507D9C /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF851E2CEA9800507D9C /* NSDate+Utils.m */; };
 		3748DF8E1E2F54A300507D9C /* VHTrendTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF8D1E2F54A300507D9C /* VHTrendTableCellView.m */; };
@@ -448,6 +459,29 @@
 		373B96F51E62D9E500AD8E92 /* VHGithubNotifierManager+Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VHGithubNotifierManager+Notification.m"; sourceTree = "<group>"; };
 		373CF0451E62F79200711296 /* VHLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHLog.m; sourceTree = "<group>"; };
 		373CF0471E62F79A00711296 /* VHLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHLog.h; sourceTree = "<group>"; };
+		373CF0481E644B3A00711296 /* VHNotificationGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHNotificationGroupView.h; sourceTree = "<group>"; };
+		373CF0491E644B3A00711296 /* VHNotificationGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHNotificationGroupView.m; sourceTree = "<group>"; };
+		373CF04E1E652E5600711296 /* NSArray+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Utilities.h"; sourceTree = "<group>"; };
+		373CF04F1E652E5600711296 /* NSArray+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Utilities.m"; sourceTree = "<group>"; };
+		373CF0501E652E5600711296 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		373CF0511E652E5600711296 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		373CF0521E652E5600711296 /* NSInvocation+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Blocks.h"; sourceTree = "<group>"; };
+		373CF0531E652E5600711296 /* NSInvocation+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Blocks.m"; sourceTree = "<group>"; };
+		373CF0541E652E5600711296 /* NSString+UAGithubEngineUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UAGithubEngineUtilities.h"; sourceTree = "<group>"; };
+		373CF0551E652E5600711296 /* NSString+UAGithubEngineUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UAGithubEngineUtilities.m"; sourceTree = "<group>"; };
+		373CF0561E652E5600711296 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
+		373CF0571E652E5600711296 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUID.m"; sourceTree = "<group>"; };
+		373CF0581E652E5600711296 /* UAGithubEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubEngine.h; sourceTree = "<group>"; };
+		373CF0591E652E5600711296 /* UAGithubEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubEngine.m; sourceTree = "<group>"; };
+		373CF05A1E652E5600711296 /* UAGithubEngineConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubEngineConstants.h; sourceTree = "<group>"; };
+		373CF05B1E652E5600711296 /* UAGithubEngineConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubEngineConstants.m; sourceTree = "<group>"; };
+		373CF05C1E652E5600711296 /* UAGithubEngineRequestTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubEngineRequestTypes.h; sourceTree = "<group>"; };
+		373CF05D1E652E5600711296 /* UAGithubJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubJSONParser.h; sourceTree = "<group>"; };
+		373CF05E1E652E5600711296 /* UAGithubJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubJSONParser.m; sourceTree = "<group>"; };
+		373CF05F1E652E5600711296 /* UAGithubURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubURLConnection.h; sourceTree = "<group>"; };
+		373CF0601E652E5600711296 /* UAGithubURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubURLConnection.m; sourceTree = "<group>"; };
+		373CF0611E652E5600711296 /* UAReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAReachability.h; sourceTree = "<group>"; };
+		373CF0621E652E5600711296 /* UAReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAReachability.m; sourceTree = "<group>"; };
 		3748DF811E2CE3E900507D9C /* VHDateValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHDateValueFormatter.h; sourceTree = "<group>"; };
 		3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHDateValueFormatter.m; sourceTree = "<group>"; };
 		3748DF841E2CEA9800507D9C /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
@@ -871,6 +905,34 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		373CF04D1E652E5600711296 /* UAGithubEngine */ = {
+			isa = PBXGroup;
+			children = (
+				373CF04E1E652E5600711296 /* NSArray+Utilities.h */,
+				373CF04F1E652E5600711296 /* NSArray+Utilities.m */,
+				373CF0501E652E5600711296 /* NSData+Base64.h */,
+				373CF0511E652E5600711296 /* NSData+Base64.m */,
+				373CF0521E652E5600711296 /* NSInvocation+Blocks.h */,
+				373CF0531E652E5600711296 /* NSInvocation+Blocks.m */,
+				373CF0541E652E5600711296 /* NSString+UAGithubEngineUtilities.h */,
+				373CF0551E652E5600711296 /* NSString+UAGithubEngineUtilities.m */,
+				373CF0561E652E5600711296 /* NSString+UUID.h */,
+				373CF0571E652E5600711296 /* NSString+UUID.m */,
+				373CF0581E652E5600711296 /* UAGithubEngine.h */,
+				373CF0591E652E5600711296 /* UAGithubEngine.m */,
+				373CF05A1E652E5600711296 /* UAGithubEngineConstants.h */,
+				373CF05B1E652E5600711296 /* UAGithubEngineConstants.m */,
+				373CF05C1E652E5600711296 /* UAGithubEngineRequestTypes.h */,
+				373CF05D1E652E5600711296 /* UAGithubJSONParser.h */,
+				373CF05E1E652E5600711296 /* UAGithubJSONParser.m */,
+				373CF05F1E652E5600711296 /* UAGithubURLConnection.h */,
+				373CF0601E652E5600711296 /* UAGithubURLConnection.m */,
+				373CF0611E652E5600711296 /* UAReachability.h */,
+				373CF0621E652E5600711296 /* UAReachability.m */,
+			);
+			path = UAGithubEngine;
+			sourceTree = "<group>";
+		};
 		3752DD161E12AAAE000AB94A /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -971,6 +1033,7 @@
 		378E0B151E0FEEA10033CBD5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				373CF04D1E652E5600711296 /* UAGithubEngine */,
 				37005C331E5C9C1C000AEFF9 /* Hpple */,
 				378E0B161E0FEEA10033CBD5 /* VHUtils.h */,
 				378E0B171E0FEEA10033CBD5 /* VHUtils.m */,
@@ -1064,6 +1127,8 @@
 				373186511E6084F700926F4F /* VHSecureTextFieldCell.m */,
 				373186591E60AFDA00926F4F /* VHSecureTextField.h */,
 				3731865A1E60AFDA00926F4F /* VHSecureTextField.m */,
+				373CF0481E644B3A00711296 /* VHNotificationGroupView.h */,
+				373CF0491E644B3A00711296 /* VHNotificationGroupView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1256,6 +1321,7 @@
 			files = (
 				3731872D1E61D95200926F4F /* CandleChartDataEntry.swift in Sources */,
 				373186521E6084F700926F4F /* VHSecureTextFieldCell.m in Sources */,
+				373CF0681E652E5600711296 /* UAGithubEngine.m in Sources */,
 				378CE76A1E1DF6AB00235E5F /* VHGithubNotifierManager+Realm.m in Sources */,
 				373B96F61E62D9E500AD8E92 /* VHGithubNotifierManager+Notification.m in Sources */,
 				378E0B251E0FEEA10033CBD5 /* NSView+Position.m in Sources */,
@@ -1269,10 +1335,12 @@
 				373187421E61D95200926F4F /* IBubbleChartDataSet.swift in Sources */,
 				373187501E61D95200926F4F /* IFillFormatter.swift in Sources */,
 				3731863F1E60646500926F4F /* VHAccountInfoWC.m in Sources */,
+				373CF0691E652E5600711296 /* UAGithubEngineConstants.m in Sources */,
 				373187581E61D95200926F4F /* IHighlighter.swift in Sources */,
 				3731870B1E61D95200926F4F /* ChartAnimationEasing.swift in Sources */,
 				373187761E61D95200926F4F /* LineScatterCandleRadarRenderer.swift in Sources */,
 				373187481E61D95200926F4F /* IPieChartDataSet.swift in Sources */,
+				373CF06A1E652E5600711296 /* UAGithubJSONParser.m in Sources */,
 				373187461E61D95200926F4F /* ILineRadarChartDataSet.swift in Sources */,
 				373187101E61D95200926F4F /* ChartViewBase.swift in Sources */,
 				3731877B1E61D95200926F4F /* ChevronUpShapeRenderer.swift in Sources */,
@@ -1281,6 +1349,7 @@
 				3731876B1E61D95200926F4F /* AxisRendererBase.swift in Sources */,
 				373187211E61D95200926F4F /* XAxis.swift in Sources */,
 				373187111E61D95200926F4F /* CombinedChartView.swift in Sources */,
+				373CF0651E652E5600711296 /* NSInvocation+Blocks.m in Sources */,
 				373187851E61D95200926F4F /* XAxisRendererRadarChart.swift in Sources */,
 				373187871E61D95200926F4F /* YAxisRendererHorizontalBarChart.swift in Sources */,
 				3731878F1E61D95200926F4F /* ViewPortHandler.swift in Sources */,
@@ -1297,6 +1366,7 @@
 				3752DD261E12D85E000AB94A /* VHTabVC.m in Sources */,
 				3731875F1E61D95200926F4F /* BubbleChartDataProvider.swift in Sources */,
 				373187521E61D95200926F4F /* IValueFormatter.swift in Sources */,
+				373CF04A1E644B3A00711296 /* VHNotificationGroupView.m in Sources */,
 				373187701E61D95200926F4F /* ChartDataRendererBase.swift in Sources */,
 				373187241E61D95200926F4F /* BarChartData.swift in Sources */,
 				373187391E61D95200926F4F /* PieChartDataEntry.swift in Sources */,
@@ -1311,6 +1381,7 @@
 				37005C441E5D96EA000AEFF9 /* VHViewController.m in Sources */,
 				3731873E1E61D95200926F4F /* ScatterChartData.swift in Sources */,
 				373187891E61D95200926F4F /* ChartColorTemplates.swift in Sources */,
+				373CF0631E652E5600711296 /* NSArray+Utilities.m in Sources */,
 				373187811E61D95200926F4F /* XShapeRenderer.swift in Sources */,
 				3731865B1E60AFDA00926F4F /* VHSecureTextField.m in Sources */,
 				378E0B271E0FEEA10033CBD5 /* VHStatusBarButton.m in Sources */,
@@ -1360,10 +1431,12 @@
 				373186491E607D5E00926F4F /* VHTextFieldCell.m in Sources */,
 				3731877D1E61D95200926F4F /* CrossShapeRenderer.swift in Sources */,
 				373187591E61D95200926F4F /* PieHighlighter.swift in Sources */,
+				373CF0671E652E5600711296 /* NSString+UUID.m in Sources */,
 				373187251E61D95200926F4F /* BarChartDataEntry.swift in Sources */,
 				3752DD191E12AAAE000AB94A /* VHGithubNotifierManager.m in Sources */,
 				37531A3F1E140C3500C3EB64 /* VHUtils+TransForm.m in Sources */,
 				378E0AE31E0ECD070033CBD5 /* main.m in Sources */,
+				373CF0661E652E5600711296 /* NSString+UAGithubEngineUtilities.m in Sources */,
 				3731877C1E61D95200926F4F /* CircleShapeRenderer.swift in Sources */,
 				3731873B1E61D95200926F4F /* RadarChartData.swift in Sources */,
 				378E0B2F1E0FFA560033CBD5 /* VHRepository.m in Sources */,
@@ -1401,6 +1474,7 @@
 				373187801E61D95200926F4F /* TriangleShapeRenderer.swift in Sources */,
 				3731870C1E61D95200926F4F /* BarChartView.swift in Sources */,
 				373187301E61D95200926F4F /* ChartDataEntry.swift in Sources */,
+				373CF0641E652E5600711296 /* NSData+Base64.m in Sources */,
 				37005C3F1E5D285A000AEFF9 /* NSArray+Safe.m in Sources */,
 				3749CDCE1E59B27C0083CEB1 /* VHPieVC.m in Sources */,
 				373187311E61D95200926F4F /* ChartDataEntryBase.swift in Sources */,
@@ -1423,6 +1497,7 @@
 				378E0B2C1E0FEF7B0033CBD5 /* VHUser.m in Sources */,
 				378E0B3F1E103D940033CBD5 /* VHTabVCBackgroundView.m in Sources */,
 				37298F3A1E27EEEC003810E8 /* VHTrendVC.m in Sources */,
+				373CF06C1E652E5600711296 /* UAReachability.m in Sources */,
 				373187531E61D95200926F4F /* BarHighlighter.swift in Sources */,
 				3748DF831E2CE3E900507D9C /* VHDateValueFormatter.m in Sources */,
 				3731875E1E61D95200926F4F /* BarLineScatterCandleBubbleChartDataProvider.swift in Sources */,
@@ -1436,6 +1511,7 @@
 				3731871C1E61D95200926F4F /* IMarker.swift in Sources */,
 				373187131E61D95200926F4F /* LineChartView.swift in Sources */,
 				378E0B371E1012960033CBD5 /* VHRepositoryView.m in Sources */,
+				373CF06B1E652E5600711296 /* UAGithubURLConnection.m in Sources */,
 				3731878A1E61D95200926F4F /* ChartUtils.swift in Sources */,
 				373187691E61D95200926F4F /* ViewPortJob.swift in Sources */,
 				378E0AE01E0ECD070033CBD5 /* AppDelegate.m in Sources */,
@@ -1510,7 +1586,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -1553,7 +1629,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};

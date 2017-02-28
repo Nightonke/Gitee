@@ -42,7 +42,7 @@
                   moduleName = "VHGithubNotifier"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/View/VHTrendTableCellView.m"
-                  timestampString = "509882070.77293"
+                  timestampString = "509947830.304524"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "129"
@@ -57,7 +57,7 @@
                   moduleName = "VHGithubNotifier"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/View/VHTrendTableCellView.m"
-                  timestampString = "509882070.775756"
+                  timestampString = "509947830.307461"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "129"
@@ -65,70 +65,6 @@
                   offsetFromSymbolStart = "1452">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VHGithubNotifier/Model/Manager/VHGithubNotifierManager+Trending.m"
-            timestampString = "509629235.857963"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
-            landmarkName = "-trendingRepositoriesFromHtmlString:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[VHGithubNotifierManager(Trending) trendingRepositoriesFromHtmlString:]"
-                  moduleName = "VHGithubNotifier"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Model/Manager/VHGithubNotifierManager+Trending.m"
-                  timestampString = "509882070.781997"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "244"
-                  endingLineNumber = "244"
-                  offsetFromSymbolStart = "763">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[VHGithubNotifierManager(Trending) trendingRepositoriesFromHtmlString:]"
-                  moduleName = "VHGithubNotifier"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Model/Manager/VHGithubNotifierManager+Trending.m"
-                  timestampString = "509882070.783495"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "244"
-                  endingLineNumber = "244"
-                  offsetFromSymbolStart = "775">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VHGithubNotifier/Model/Manager/VHGithubNotifierManager.m"
-            timestampString = "509799460.955906"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
-            landmarkName = "-innerLoadProfile"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

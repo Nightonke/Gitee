@@ -19,60 +19,58 @@ static VHGithubWeekStartFrom weekStartFrom;
 static NSUInteger trendingContentSelectedIndex;
 static NSUInteger trendingTimeSelectedIndex;
 
+static const NSTimeInterval defaultBasicInfoUpdateTime = 60 * 10;
+static const NSTimeInterval defaultTrendingUpdateTime = 60 * 10;
+static const NSTimeInterval defaultNotificationUpdateTime = 60 * 10;
+static NSTimeInterval basicInfoUpdateTime;
+static NSTimeInterval trendingUpdateTime;
+static NSTimeInterval notificationUpdateTime;
+
 @implementation VHGithubNotifierManager (UserDefault)
 
 #pragma mark - Public Methods
 
 - (void)innerInitializeProperties
 {
-//    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userAccount"];
-//    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userPassword"];
-    userAccount = [[NSUserDefaults standardUserDefaults] objectForKey:@"userAccount"];
-    userPassword = [[NSUserDefaults standardUserDefaults] objectForKey:@"userPassword"];
+//    [[self userDefaults] removeObjectForKey:@"userAccount"];
+//    [[self userDefaults] removeObjectForKey:@"userPassword"];
+    userAccount = [[self userDefaults] objectForKey:@"userAccount"];
+    userPassword = [[self userDefaults] objectForKey:@"userPassword"];
     
-    trendTimeType = [[NSUserDefaults standardUserDefaults] integerForKey:@"VHGithubTrendTimeType"];
+    trendTimeType = [[self userDefaults] integerForKey:@"VHGithubTrendTimeType"];
     if (trendTimeType == 0)
     {
         trendTimeType = VHGithubTrendTimeTypeDay;
     }
     
-    trendContentSelectedIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"trendContentSelectedIndex"];
+    trendContentSelectedIndex = [[self userDefaults] integerForKey:@"trendContentSelectedIndex"];
     
-    weekStartFrom = [[NSUserDefaults standardUserDefaults] integerForKey:@"VHGithubWeekStartFrom"];
+    weekStartFrom = [[self userDefaults] integerForKey:@"VHGithubWeekStartFrom"];
     if (weekStartFrom == 0)
     {
         weekStartFrom = VHGithubWeekStartFromMonDay;
     }
     
-    trendingContentSelectedIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"trendingContentSelectedIndex"];
-    trendingTimeSelectedIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"trendingTimeSelectedIndex"];
-}
-
-- (BOOL)isUserAccountNotExist
-{
-    return (userAccount && userPassword) == NO;
-}
-
-- (NSString *)userAccount
-{
-    return userAccount;
-}
-
-- (void)setUserAccount:(NSString *)_userAccount
-{
-    userAccount = _userAccount;
-    [[NSUserDefaults standardUserDefaults] setObject:userAccount forKey:@"userAccount"];
-}
-
-- (NSString *)userPassword
-{
-    return userPassword;
-}
-
-- (void)setUserPassword:(NSString *)_userPassword
-{
-    userPassword = _userPassword;
-    [[NSUserDefaults standardUserDefaults] setObject:userPassword forKey:@"userPassword"];
+    trendingContentSelectedIndex = [[self userDefaults] integerForKey:@"trendingContentSelectedIndex"];
+    trendingTimeSelectedIndex = [[self userDefaults] integerForKey:@"trendingTimeSelectedIndex"];
+    
+    basicInfoUpdateTime = [[self userDefaults] doubleForKey:@"basicInfoUpdateTime"];
+    if (basicInfoUpdateTime == 0)
+    {
+        basicInfoUpdateTime = defaultBasicInfoUpdateTime;
+    }
+    
+    trendingUpdateTime = [[self userDefaults] doubleForKey:@"trendingUpdateTime"];
+    if (trendingUpdateTime == 0)
+    {
+        trendingUpdateTime = defaultTrendingUpdateTime;
+    }
+    
+    notificationUpdateTime = [[self userDefaults] doubleForKey:@"notificationUpdateTime"];
+    if (notificationUpdateTime == 0)
+    {
+        notificationUpdateTime = defaultNotificationUpdateTime;
+    }
 }
 
 - (NSArray<NSImage *> *)imagesForGithubContentTypes;
@@ -129,6 +127,33 @@ static NSUInteger trendingTimeSelectedIndex;
     return numbers;
 }
 
+- (BOOL)isUserAccountNotExist
+{
+    return (userAccount && userPassword) == NO;
+}
+
+- (NSString *)userAccount
+{
+    return userAccount;
+}
+
+- (void)setUserAccount:(NSString *)_userAccount
+{
+    userAccount = _userAccount;
+    [[self userDefaults] setObject:userAccount forKey:@"userAccount"];
+}
+
+- (NSString *)userPassword
+{
+    return userPassword;
+}
+
+- (void)setUserPassword:(NSString *)_userPassword
+{
+    userPassword = _userPassword;
+    [[self userDefaults] setObject:userPassword forKey:@"userPassword"];
+}
+
 - (VHGithubTrendTimeType)trendTimeType
 {
     return trendTimeType;
@@ -137,7 +162,7 @@ static NSUInteger trendingTimeSelectedIndex;
 - (void)setTrendTimeType:(VHGithubTrendTimeType)_trendTimeType
 {
     trendTimeType = _trendTimeType;
-    [[NSUserDefaults standardUserDefaults] setInteger:trendTimeType forKey:@"VHGithubTrendTimeType"];
+    [[self userDefaults] setInteger:trendTimeType forKey:@"VHGithubTrendTimeType"];
 }
 
 - (NSUInteger)trendContentSelectedIndex
@@ -148,7 +173,7 @@ static NSUInteger trendingTimeSelectedIndex;
 - (void)setTrendContentSelectedIndex:(NSUInteger)_trendContentSelectedIndex
 {
     trendContentSelectedIndex = _trendContentSelectedIndex;
-    [[NSUserDefaults standardUserDefaults] setInteger:trendContentSelectedIndex forKey:@"trendContentSelectedIndex"];
+    [[self userDefaults] setInteger:trendContentSelectedIndex forKey:@"trendContentSelectedIndex"];
 }
 
 - (VHGithubWeekStartFrom)weekStartFrom
@@ -159,7 +184,7 @@ static NSUInteger trendingTimeSelectedIndex;
 - (void)setWeekStartFrom:(VHGithubWeekStartFrom)_weekStartFrom
 {
     weekStartFrom = _weekStartFrom;
-    [[NSUserDefaults standardUserDefaults] setInteger:weekStartFrom forKey:@"VHGithubWeekStartFrom"];
+    [[self userDefaults] setInteger:weekStartFrom forKey:@"VHGithubWeekStartFrom"];
 }
 
 - (NSUInteger)trendingContentSelectedIndex
@@ -170,7 +195,7 @@ static NSUInteger trendingTimeSelectedIndex;
 - (void)setTrendingContentSelectedIndex:(NSUInteger)_trendingContentSelectedIndex
 {
     trendingContentSelectedIndex = _trendingContentSelectedIndex;
-    [[NSUserDefaults standardUserDefaults] setInteger:trendingContentSelectedIndex forKey:@"trendingContentSelectedIndex"];
+    [[self userDefaults] setInteger:trendingContentSelectedIndex forKey:@"trendingContentSelectedIndex"];
 }
 
 - (NSUInteger)trendingTimeSelectedIndex
@@ -181,7 +206,40 @@ static NSUInteger trendingTimeSelectedIndex;
 - (void)setTrendingTimeSelectedIndex:(NSUInteger)_trendingTimeSelectedIndex
 {
     trendingTimeSelectedIndex = _trendingTimeSelectedIndex;
-    [[NSUserDefaults standardUserDefaults] setInteger:trendingTimeSelectedIndex forKey:@"trendingTimeSelectedIndex"];
+    [[self userDefaults] setInteger:trendingTimeSelectedIndex forKey:@"trendingTimeSelectedIndex"];
+}
+
+- (NSTimeInterval)basicInfoUpdateTime
+{
+    return basicInfoUpdateTime;
+}
+
+- (void)setBasicInfoUpdateTime:(NSTimeInterval)_basicInfoUpdateTime
+{
+    basicInfoUpdateTime = _basicInfoUpdateTime;
+    [[self userDefaults] setDouble:basicInfoUpdateTime forKey:@"basicInfoUpdateTime"];
+}
+
+- (NSTimeInterval)trendingUpdateTime
+{
+    return trendingUpdateTime;
+}
+
+- (void)setTrendingUpdateTime:(NSTimeInterval)_trendingUpdateTime
+{
+    trendingUpdateTime = _trendingUpdateTime;
+    [[self userDefaults] setDouble:trendingUpdateTime forKey:@"trendingUpdateTime"];
+}
+
+- (NSTimeInterval)notificationUpdateTime
+{
+    return notificationUpdateTime;
+}
+
+- (void)setNotificationUpdateTime:(NSTimeInterval)_notificationUpdateTime
+{
+    notificationUpdateTime = _notificationUpdateTime;
+    [[self userDefaults] setDouble:notificationUpdateTime forKey:@"notificationUpdateTime"];
 }
 
 #pragma mark - Private Methods
@@ -194,6 +252,11 @@ static NSUInteger trendingTimeSelectedIndex;
     VHGithubContentTypeTrend |
     VHGithubContentTypeTrending |
     VHGithubContentTypeNotifications;
+}
+
+- (NSUserDefaults *)userDefaults
+{
+    return [NSUserDefaults standardUserDefaults];
 }
 
 @end

@@ -45,8 +45,8 @@
         _justAddRepositories = NO;
         
         [[VHGithubNotifierManager sharedManager] persistUser:self];
-        NSLog(@"Total follower number: %lu", (unsigned long)[self followerNumber]);
-        NSLog(@"Total repository number: %lu", (unsigned long)[self repositoryNumber]);
+        BasicInfoLog(@"Total follower number: %lu", (unsigned long)[self followerNumber]);
+        BasicInfoLog(@"Total repository number: %lu", (unsigned long)[self repositoryNumber]);
         NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyProfileLoadedSuccessfully);
     }
     return self;
@@ -75,8 +75,8 @@
     [realm addOrUpdateObject:self];
     [realm commitWriteTransaction];
     
-    NSLog(@"Total follower number: %lu", (unsigned long)[self followerNumber]);
-    NSLog(@"Total repository number: %lu", (unsigned long)[self repositoryNumber]);
+    BasicInfoLog(@"Total follower number: %lu", (unsigned long)[self followerNumber]);
+    BasicInfoLog(@"Total repository number: %lu", (unsigned long)[self repositoryNumber]);
     NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyProfileLoadedSuccessfully);
 }
 

@@ -21,9 +21,11 @@
 
 - (UAGithubEngine *)engine;
 
-- (void)startTimerOfUpdatingUserAccountInfoAndRepositoriesOfUser;
+- (void)startTimerOfBasicInfo;
 
-- (void)stop;
+- (void)stopTimerOfBasicInfo;
+
+- (void)updateBasicInfo;
 
 - (void)redirectLogToDocuments;
 

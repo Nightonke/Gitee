@@ -7,14 +7,22 @@
 //
 
 #import "VHNotificationVC.h"
+#import "VHStateView.h"
 
-@interface VHNotificationVC ()
+@interface VHNotificationVC ()<NSTableViewDelegate, NSTableViewDataSource, VHStateViewDelegate>
+
+@property (weak) IBOutlet NSScrollView *scrollView;
+@property (weak) IBOutlet NSTableView *tableView;
+@property (weak) IBOutlet VHStateView *stateView;
 
 @end
 
 @implementation VHNotificationVC
 
-- (void)viewDidLoad {
+#pragma mark - Life
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do view setup here.
 }

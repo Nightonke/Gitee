@@ -83,7 +83,8 @@
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
-    [[VHGithubNotifierManager sharedManager] stop];
+    [[VHGithubNotifierManager sharedManager] stopTimerOfBasicInfo];
+    [[VHGithubNotifierManager sharedManager] stopTimerOfNotification];
 }
 
 - (void)dealloc
@@ -132,14 +133,13 @@
     {
         [[NSAnimationContext currentContext] setDuration:0.15];
         [[self.menuWindow animator] setAlphaValue:0.0];
-        
         [self.menuWindow performSelector:@selector(orderOut:) withObject:self afterDelay:0.3];
     }
 }
 
 - (void)startWorkWhichNeedsUserAccountInfo
 {
-    [[VHGithubNotifierManager sharedManager] startTimerOfUpdatingUserAccountInfoAndRepositoriesOfUser];
+    [[VHGithubNotifierManager sharedManager] startTimerOfBasicInfo];
     [[VHGithubNotifierManager sharedManager] startTimerOfNotification];
 }
 

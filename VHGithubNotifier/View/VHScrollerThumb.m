@@ -46,34 +46,34 @@
 
 - (void)mouseDragged:(NSEvent *)event
 {
-    // We're working only in the superview's coordinate space, so we always convert.
-    NSPoint newDragLocation = [[self superview] convertPoint:[event locationInWindow] fromView:nil];
-    NSPoint thisOrigin = [self frame].origin;
-    
-    switch (self.dragDirection)
-    {
-        case VHDragDirectionTypeNeither:
-            break;
-        case VHDragDirectionTypeHorizontal:
-            thisOrigin.x += (-self.lastDragLocation.x + newDragLocation.x);
-            break;
-        case VHDragDirectionTypeVertical:
-            thisOrigin.y += (-self.lastDragLocation.y + newDragLocation.y);
-            break;
-        case VHDragDirectionTypeBoth:
-            thisOrigin.x += (-self.lastDragLocation.x + newDragLocation.x);
-            thisOrigin.y += (-self.lastDragLocation.y + newDragLocation.y);
-            break;
-    }
-    
-    thisOrigin.x = MIN(self.maxX, thisOrigin.x);
-    thisOrigin.x = MAX(0, thisOrigin.x);
-    thisOrigin.y = MIN(self.maxY, thisOrigin.y);
-    thisOrigin.y = MAX(0, thisOrigin.y);
-    [self setFrameOrigin:thisOrigin];
-    self.lastDragLocation = newDragLocation;
-    
-    [self updateProgress];
+//    // We're working only in the superview's coordinate space, so we always convert.
+//    NSPoint newDragLocation = [[self superview] convertPoint:[event locationInWindow] fromView:nil];
+//    NSPoint thisOrigin = [self frame].origin;
+//    
+//    switch (self.dragDirection)
+//    {
+//        case VHDragDirectionTypeNeither:
+//            break;
+//        case VHDragDirectionTypeHorizontal:
+//            thisOrigin.x += (-self.lastDragLocation.x + newDragLocation.x);
+//            break;
+//        case VHDragDirectionTypeVertical:
+//            thisOrigin.y += (-self.lastDragLocation.y + newDragLocation.y);
+//            break;
+//        case VHDragDirectionTypeBoth:
+//            thisOrigin.x += (-self.lastDragLocation.x + newDragLocation.x);
+//            thisOrigin.y += (-self.lastDragLocation.y + newDragLocation.y);
+//            break;
+//    }
+//    
+//    thisOrigin.x = MIN(self.maxX, thisOrigin.x);
+//    thisOrigin.x = MAX(0, thisOrigin.x);
+//    thisOrigin.y = MIN(self.maxY, thisOrigin.y);
+//    thisOrigin.y = MAX(0, thisOrigin.y);
+//    [self setFrameOrigin:thisOrigin];
+//    self.lastDragLocation = newDragLocation;
+//    
+//    [self updateProgress];
 }
 
 - (void)updateProgress

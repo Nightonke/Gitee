@@ -17,7 +17,6 @@
 @interface VHGithubNotifierManager ()
 
 @property (nonatomic, strong) NSTimer *basicInfoTimer;
-@property (nonatomic, strong) NSTimer *trendingTimer;
 @property NSMutableArray<VHRepository*> *updateRepositories;
 
 
@@ -27,42 +26,38 @@
 
 #pragma mark - Public Methods
 
-+ (instancetype)sharedManager
+- (void)startTimerOfBasicInfo
 {
-    static VHGithubNotifierManager *sharedManager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] init];
-        
-    });
-    return sharedManager;
-}
-
-- (void)startTimerOfUpdatingUserAccountInfoAndRepositoriesOfUser
-{
-    NSLog(@"[Notifier] Start Timer of updating user account info and repositories of user");
-    self.basicInfoTimer = [NSTimer scheduledTimerWithTimeInterval:BASIC_INFO_UPDATE_TIME
-                                                          repeats:YES
-                                                            block:^(NSTimer * _Nonnull timer) {
-        NSLog(@"----------------------------------------------------------------------------------------------------------");
-        NSLog(@"[Notifier] Update basic info");
-        [self innerLoadProfile];
-    }];
+    MUST_IN_MAIN_THREAD;
+    BasicInfoLog(@"Start Timer");
+    self.basicInfoTimer = [NSTimer scheduledTimerWithTimeInterval:[self basicInfoUpdateTime]
+                                                           target:self
+                                                         selector:@selector(innerUpdateBasicInfo)
+                                                         userInfo:nil
+                                                          repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.basicInfoTimer forMode:NSDefaultRunLoopMode];
     [self.basicInfoTimer fire];
 }
 
-- (void)stop
+- (void)stopTimerOfBasicInfo
 {
+    MUST_IN_MAIN_THREAD;
     [self.basicInfoTimer invalidate];
     self.basicInfoTimer = nil;
-    [self.trendingTimer invalidate];
-    self.trendingTimer = nil;
+}
+
+- (void)updateBasicInfo
+{
+    IN_MAIN_THREAD({
+        BasicInfoLog(@"Update basic info");
+        [self stopTimerOfBasicInfo];
+        [self startTimerOfBasicInfo];
+    });
 }
 
 - (void)redirectLogToDocuments
 {
-//    RELEASE_CODE(freopen([[[self logFileURL] path] cStringUsingEncoding:NSUTF8StringEncoding], "a+", stderr));
+    RELEASE_CODE(freopen([[[self logFileURL] path] cStringUsingEncoding:NSUTF8StringEncoding], "a+", stderr));
 }
 
 - (void)confirmUserAccount:(NSString *)username withPassword:(NSString *)password
@@ -79,7 +74,7 @@
         } failure:^(NSError *error) {
             if (error.code == NSURLErrorUserCancelledAuthentication)
             {
-                NSLog(@"[confirmUserAccount] Incorrect user name or password");
+                ConfirmLog(@"Incorrect username or password");
                 NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyUserAccountConfirmIncorrectUsernameOrPassword);
             }
             else
@@ -96,6 +91,17 @@
     return [self userAccount] && [self userPassword];
 }
 
++ (instancetype)sharedManager
+{
+    static VHGithubNotifierManager *sharedManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedManager = [[self alloc] init];
+        
+    });
+    return sharedManager;
+}
+
 #pragma mark - Private Methods
 
 - (instancetype)init
@@ -104,7 +110,7 @@
     if (self)
     {
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(innerLoadRepositories)
+                                                 selector:@selector(innerUpdateRepositories)
                                                      name:kNotifyProfileLoadedSuccessfully
                                                    object:nil];
         [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
@@ -129,9 +135,9 @@
 
 - (void)resetFromWakeNotification
 {
-    NSLog(@"[Notifier] Wake up");
-    [self stop];
-    [self startTimerOfUpdatingUserAccountInfoAndRepositoriesOfUser];
+    SystemLog(@"Wake up");
+    [self stopTimerOfBasicInfo];
+    [self startTimerOfBasicInfo];
 }
 
 - (NSURL *)logFileURL
@@ -151,7 +157,7 @@
     return [[UAGithubEngine alloc] initWithUsername:[self userAccount] password:[self userPassword] withReachability:YES];
 }
 
-- (void)innerLoadRepositories
+- (void)innerUpdateRepositories
 {
     NSUInteger repositoryPages;
     NSUInteger repositoryNumber = [[self user] repositoryNumber];
@@ -172,8 +178,8 @@
         dispatch_group_async(requestGroup, queue, ^{
             dispatch_group_enter(requestGroup);
             [[self engine] repositoriesForUser:[self userAccount] includeWatched:NO page:page success:^(id responseObject) {
-                RELEASE_CODE(NSLog(@"Repositories in page %d successed: %@", page, responseObject));
-                DEBUG_CODE(NSLog(@"Repositories in page %d successed", page));
+                RELEASE_CODE(BasicInfoLog(@"Update repositories in page %d successed: %@", page, responseObject));
+                DEBUG_CODE(BasicInfoLog(@"Update repositories in page %d successed", page));
                 allSuccessful = YES;
                 NSArray *array = SAFE_CAST(responseObject, [NSArray class]);
                 if (array != nil)
@@ -187,17 +193,17 @@
                         {
                             VHRepository *repository = [[VHRepository alloc] initWithDataDictionary:dictionary];
                             [newRepositories addObject:repository];
-                            NSLog(@"%@: %@ %@ ",
-                                  [NSString stringWithFormat:@"% 3d", ++i + (page - 1) * 30],
-                                  [NSString stringWithFormat:@"% 5lld", repository.starNumber],
-                                  repository.name);
+                            BasicInfoLog(@"%@: %@ %@ ",
+                                         [NSString stringWithFormat:@"% 3d", ++i + (page - 1) * 30],
+                                         [NSString stringWithFormat:@"% 5lld", repository.starNumber],
+                                         repository.name);
                         }
                     }
                     [self.updateRepositories addObjectsFromArray:newRepositories];
                 }
                 dispatch_group_leave(requestGroup);
             } failure:^(NSError *error) {
-                NSLog(@"Repositories failed: %@", error);
+                BasicInfoLog(@"Update repositories in page %d failed with error: %@", page, error);
                 allSuccessful = NO;
                 dispatch_group_leave(requestGroup);
             }];
@@ -216,7 +222,7 @@
                 RLMRealm *realm = [self realm];
                 VHUser *user = [realm resolveThreadSafeReference:userRef];
                 [user addRepositories:self.updateRepositories];
-                NSLog(@"Repositories total star number: %lu", (unsigned long)[user starNumber]);
+                BasicInfoLog(@"Repositories total star number: %lu", (unsigned long)[user starNumber]);
                 // We need to reset star counter here.
                 // Although the user above has updated the star count. Don't forget that
                 // the starNumber is an ignored-property in RLMObject.
@@ -227,13 +233,14 @@
         }
         else
         {
-            NSLog(@"One of repository request failed.");
+            BasicInfoLog(@"Not all of page of repositories updated successfully");
         }
     });
 }
 
-- (void)innerLoadProfile
+- (void)innerUpdateBasicInfo
 {
+    BasicInfoLog(@"Update basic info");
     RLMThreadSafeReference *userRef = nil;
     if (self.user)
     {
@@ -242,8 +249,8 @@
     dispatch_async(GLOBAL_QUEUE, ^{
         // userWithSuccess spends a long time
         [[self engine] userWithSuccess:^(id responseObject) {
-            RELEASE_CODE(NSLog(@"Profile successed: %@", responseObject));
-            DEBUG_CODE(NSLog(@"Profile successed"));
+            RELEASE_CODE(BasicInfoLog(@"Update basic info successfully: %@", responseObject));
+            DEBUG_CODE(BasicInfoLog(@"Update basic info successfully"));
             NSArray *array = SAFE_CAST(responseObject, [NSArray class]);
             if ([array count] != 0)
             {
@@ -252,9 +259,7 @@
                 {
                     if (self.user == nil)
                     {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            self.user = [[VHUser alloc] initWithDataDictionary:dictionary];
-                        });
+                        IN_MAIN_THREAD(self.user = [[VHUser alloc] initWithDataDictionary:dictionary];);
                     }
                     else
                     {
@@ -268,7 +273,7 @@
                 }
             }
         } failure:^(NSError *error) {
-            NSLog(@"Profile failed: %@", error);
+            BasicInfoLog(@"Update basic info failed with error: %@", error);
         }];
     });
 }
