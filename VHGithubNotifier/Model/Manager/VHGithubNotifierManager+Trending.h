@@ -10,7 +10,11 @@
 
 @interface VHGithubNotifierManager (Trending)
 
-- (void)updateTrendingContent;
+- (void)startTimerOfTrending;
+
+- (void)stopTimerOfTrending;
+
+- (void)updateTrending;
 
 - (VHLoadStateType)trendingContentLoadState;
 

@@ -63,7 +63,7 @@
     
     [[VHGithubNotifierManager sharedManager] loadUser];
     [[VHGithubNotifierManager sharedManager] redirectLogToDocuments];
-    [[VHGithubNotifierManager sharedManager] updateLanguages];
+    [[VHGithubNotifierManager sharedManager] startTimerOfLanguage];
     [self createStatusBarButton];
     self.repositoriesMenu.delegate = self;
     
@@ -84,6 +84,8 @@
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
     [[VHGithubNotifierManager sharedManager] stopTimerOfBasicInfo];
+    [[VHGithubNotifierManager sharedManager] stopTimerOfLanguage];
+    [[VHGithubNotifierManager sharedManager] stopTimerOfTrending];
     [[VHGithubNotifierManager sharedManager] stopTimerOfNotification];
 }
 
@@ -125,6 +127,7 @@
         [[NSAnimationContext currentContext] setDuration:0.15];
         [[self.menuWindow animator] setAlphaValue:1.0];
     }
+    [[NSRunningApplication currentApplication] activateWithOptions:NSApplicationActivateIgnoringOtherApps];
 }
 
 - (void)hideMenu

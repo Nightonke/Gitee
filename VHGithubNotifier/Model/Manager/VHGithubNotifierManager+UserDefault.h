@@ -107,6 +107,10 @@
 
 - (void)setBasicInfoUpdateTime:(NSTimeInterval)_basicInfoUpdateTime;
 
+- (NSTimeInterval)languageUpdateTime;
+
+- (void)setLanguageUpdateTime:(NSTimeInterval)_languageUpdateTime;
+
 - (NSTimeInterval)trendingUpdateTime;
 
 - (void)setTrendingUpdateTime:(NSTimeInterval)_trendingUpdateTime;

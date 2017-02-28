@@ -10,6 +10,10 @@
 
 @interface VHGithubNotifierManager (Language)
 
+- (void)startTimerOfLanguage;
+
+- (void)stopTimerOfLanguage;
+
 - (void)updateLanguages;
 
 - (VHLoadStateType)languagesLoadState;

@@ -54,4 +54,8 @@
 // 设置水平方向的中心点
 - (void) setHCenter:(CGFloat)hCenter;
 
+- (NSRect)frameRelativeToWindow;
+
+- (NSRect)frameRelativeToScreen;
+
 @end

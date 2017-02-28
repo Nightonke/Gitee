@@ -20,9 +20,11 @@ static NSUInteger trendingContentSelectedIndex;
 static NSUInteger trendingTimeSelectedIndex;
 
 static const NSTimeInterval defaultBasicInfoUpdateTime = 60 * 10;
+static const NSTimeInterval defaultLanguageUpdateTime = 12 * 60 * 60;
 static const NSTimeInterval defaultTrendingUpdateTime = 60 * 10;
 static const NSTimeInterval defaultNotificationUpdateTime = 60 * 10;
 static NSTimeInterval basicInfoUpdateTime;
+static NSTimeInterval languageUpdateTime;
 static NSTimeInterval trendingUpdateTime;
 static NSTimeInterval notificationUpdateTime;
 
@@ -58,6 +60,12 @@ static NSTimeInterval notificationUpdateTime;
     if (basicInfoUpdateTime == 0)
     {
         basicInfoUpdateTime = defaultBasicInfoUpdateTime;
+    }
+    
+    languageUpdateTime = [[self userDefaults] doubleForKey:@"languageUpdateTime"];
+    if (languageUpdateTime == 0)
+    {
+        languageUpdateTime = defaultLanguageUpdateTime;
     }
     
     trendingUpdateTime = [[self userDefaults] doubleForKey:@"trendingUpdateTime"];
@@ -218,6 +226,17 @@ static NSTimeInterval notificationUpdateTime;
 {
     basicInfoUpdateTime = _basicInfoUpdateTime;
     [[self userDefaults] setDouble:basicInfoUpdateTime forKey:@"basicInfoUpdateTime"];
+}
+
+- (NSTimeInterval)languageUpdateTime
+{
+    return languageUpdateTime;
+}
+
+- (void)setLanguageUpdateTime:(NSTimeInterval)_languageUpdateTime
+{
+    languageUpdateTime = _languageUpdateTime;
+    [[self userDefaults] setDouble:languageUpdateTime forKey:@"languageUpdateTime"];
 }
 
 - (NSTimeInterval)trendingUpdateTime

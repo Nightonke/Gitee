@@ -14,7 +14,6 @@
 #import "NSMutableArray+Safe.h"
 #import "NSArray+Safe.h"
 #import "VHGithubNotifierManager+UserDefault.h"
-#import "VHGithubNotifierUserDefaults.h"
 
 static const NSUInteger REPOSITORIES_IN_ONE_PAGE = 25;
 static VHLoadStateType trendingContentLoadState = VHLoadStateTypeDidNotLoad;
@@ -24,9 +23,34 @@ static NSTimer *trendingTimer;
 
 #pragma mark - Public Methods
 
-- (void)updateTrendingContent
+- (void)startTimerOfTrending
 {
-    IN_MAIN_THREAD([self resetTrendingTimer]);
+    MUST_IN_MAIN_THREAD;
+    TrendingLog(@"Start Trending");
+    trendingTimer = [NSTimer scheduledTimerWithTimeInterval:[self trendingUpdateTime]
+                                                     target:self
+                                                   selector:@selector(innerUpdateTrending)
+                                                   userInfo:nil
+                                                    repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:trendingTimer forMode:NSDefaultRunLoopMode];
+    [trendingTimer fire];
+}
+
+- (void)stopTimerOfTrending
+{
+    MUST_IN_MAIN_THREAD;
+    TrendingLog(@"Stop Timer");
+    [trendingTimer invalidate];
+    trendingTimer = nil;
+}
+
+- (void)updateTrending
+{
+    IN_MAIN_THREAD({
+        TrendingLog(@"Update notification");
+        [self stopTimerOfTrending];
+        [self startTimerOfTrending];
+    });
 }
 
 - (VHLoadStateType)trendingContentLoadState
@@ -36,21 +60,7 @@ static NSTimer *trendingTimer;
 
 #pragma mark - Private Methods
 
-- (void)resetTrendingTimer
-{
-    [trendingTimer invalidate];
-    trendingTimer = nil;
-    trendingTimer = [NSTimer scheduledTimerWithTimeInterval:TRENDING_UPDATE_TIME
-                                                    repeats:YES
-                                                      block:^(NSTimer * _Nonnull timer) {
-        NSLog(@"[Notifier] Update trending");
-        [self innerUpdateTrendingContent];
-    }];
-    [[NSRunLoop currentRunLoop] addTimer:trendingTimer forMode:NSDefaultRunLoopMode];
-    [trendingTimer fire];
-}
-
-- (void)innerUpdateTrendingContent
+- (void)innerUpdateTrending
 {
     [self updateTrendingContentByLanguageIndex:[[VHGithubNotifierManager sharedManager] trendingContentSelectedIndex]
                                      timeIndex:[[VHGithubNotifierManager sharedManager] trendingTimeSelectedIndex]];
@@ -86,13 +96,13 @@ static NSTimer *trendingTimer;
     NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"https://github.com/trending/%@?since=%@",
                                        languageString,
                                        timeString]];
-    NSLog(@"[Notifier] Update trending with URL: %@", URL);
+    TrendingLog(@"Update trending with URL: %@", URL);
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error)
         {
-            NSLog(@"[Notifier] Update trending failed with error: %@", error);
+            TrendingLog(@"Update trending failed with error: %@", error);
             trendingContentLoadState = VHLoadStateTypeLoadFailed;
             NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyTrendingLoadedFailed);
         }
@@ -102,13 +112,13 @@ static NSTimer *trendingTimer;
             self.trendingRepositories = [self trendingRepositoriesFromHtmlString:responseObject];
             if (self.trendingRepositories.count == 0)
             {
-                NSLog(@"[Notifier] Update trending failed because trending repositories results are currently being dissected.");
+                TrendingLog(@"Update trending failed because trending repositories results are currently being dissected");
                 trendingContentLoadState = VHLoadStateTypeLoadFailed;
                 NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyTrendingLoadedFailed);
             }
             else
             {
-                NSLog(@"[Notifier] Update trending successfully with repositories number: %zd", self.trendingRepositories.count);
+                TrendingLog(@"Update trending successfully with repositories number: %zd", self.trendingRepositories.count);
                 trendingContentLoadState = VHLoadStateTypeLoadSuccessfully;
                 NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyTrendingLoadedSuccessfully);
             }

@@ -20,8 +20,8 @@
 	//dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
         @autoreleasepool 
-        {    
-            NSLog(@"New %@ connection: %@", request.HTTPMethod, request);
+        {
+            NetLog(@"%@ %@", request.HTTPMethod, request.URL);
 
             NSURLResponse *response = nil;
             NSError *error = nil;
@@ -44,7 +44,7 @@
     
     @autoreleasepool 
     {
-        NSLog(@"New %@ connection: %@", request.HTTPMethod, request);
+        NetLog(@"%@ %@", request.HTTPMethod, request.URL);
         
         NSURLResponse *response = nil;
         NSError *connectionError = nil;

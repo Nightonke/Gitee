@@ -93,9 +93,10 @@ const static CGFloat BUTTON_SELECTED_ALPHA = 1;
 {
     image.template = NO;
     image.size = NSMakeSize(20, 20);
-    NSButton *button = [NSButton buttonWithImage:image
-                                          target:self
-                                          action:@selector(onIconClicked:)];
+    NSButton *button = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, 0, 0)];
+    button.image = image;
+    button.target = self;
+    button.action = @selector(onIconClicked:);
     button.tag = tag;
     button.bordered = NO;
     [button setButtonType:NSButtonTypeMomentaryChange];

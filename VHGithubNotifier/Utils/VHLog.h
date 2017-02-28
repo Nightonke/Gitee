@@ -25,10 +25,13 @@ extern "C"
 #endif
 
 #define PermanentLog(category,format,...) VHLog(category,format,##__VA_ARGS__)
+#define NetLog(format,...) PermanentLog(@"Net",format,##__VA_ARGS__)
 #define SystemLog(format,...) PermanentLog(@"System",format,##__VA_ARGS__)
 #define BasicInfoLog(format,...) PermanentLog(@"BasicInfo",format,##__VA_ARGS__)
 #define ConfirmLog(format,...) PermanentLog(@"Confirm",format,##__VA_ARGS__)
+#define LanguageLog(format,...) PermanentLog(@"Language",format,##__VA_ARGS__)
 #define TrendingLog(format,...) PermanentLog(@"Trending",format,##__VA_ARGS__)
 #define NotificationLog(format,...) PermanentLog(@"Notification",format,##__VA_ARGS__)
+#define ViewLog(format,...) PermanentLog(@"View",format,##__VA_ARGS__)
 
 #endif /* VHLog_h */

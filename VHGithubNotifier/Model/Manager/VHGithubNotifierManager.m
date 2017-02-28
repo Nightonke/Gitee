@@ -8,7 +8,6 @@
 
 #import "VHGithubNotifierManager.h"
 #import "UAGithubEngine.h"
-#import "VHGithubNotifierUserDefaults.h"
 #import "VHGithubNotifierManager_Private.h"
 #import "VHGithubNotifierManager+UserDefault.h"
 #import "VHGithubNotifierManager+Trending.h"
@@ -18,7 +17,6 @@
 
 @property (nonatomic, strong) NSTimer *basicInfoTimer;
 @property NSMutableArray<VHRepository*> *updateRepositories;
-
 
 @end
 
@@ -79,7 +77,7 @@
             }
             else
             {
-                NSLog(@"[confirmUserAccount] Other error: %@", error);
+                ConfirmLog(@"Other error: %@", error);
                 NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyUserAccountConfirmInternetFailed);
             }
         }];

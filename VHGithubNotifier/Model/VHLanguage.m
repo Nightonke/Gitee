@@ -30,7 +30,7 @@
                                                                    error:&yamlSerializationError];
     if (yamlSerializationError != nil)
     {
-        NSLog(@"Languagesa serialized failed with error: %@", yamlSerializationError);
+        LanguageLog(@"Languagesa serialized failed with error: %@", yamlSerializationError);
     }
     else
     {

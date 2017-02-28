@@ -66,12 +66,14 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
 - (void)innerUpdateNotification
 {
     NotificationLog(@"Update notification");
+    notificationLoadState = VHLoadStateTypeLoading;
     dispatch_async(GLOBAL_QUEUE, ^{
         [[self engine] notificationsAll:NO participating:NO success:^(id responseObject) {
             backupNotificationDic = notificationDic;
             notificationDic = [VHNotification dictionaryFromResponse:responseObject];
             [self innerRequestHtmlUrlForEachNotification];
         } failure:^(NSError *error) {
+            notificationLoadState = VHLoadStateTypeLoadFailed;
             NotificationLog(@"Update notification failed with error: %@", error);
         }];
     });
@@ -85,15 +87,16 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
         if ([self allNotificationsAreValid])
         {
             NotificationLog(@"Update notification successfully");
+            notificationLoadState = VHLoadStateTypeLoadSuccessfully;
             NOTIFICATION_POST(kNotifyNotificationsLoadedSuccessfully);
         }
         else
         {
             NotificationLog(@"Update notification failed");
+            notificationLoadState = VHLoadStateTypeLoadFailed;
             notificationDic = backupNotificationDic;
             NOTIFICATION_POST(kNotifyNotificationsLoadedFailed);
         }
-        NSLog(@"%@", notificationDic);
         NotificationLog(@"%@", notificationDic);
     }];
     
@@ -102,7 +105,7 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
         {
             NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
                 [[self engine] sendRequest:notification.lastCommentUrl success:^(id responseObject) {
-                    NotificationLog(@"%@", responseObject);
+//                    NotificationLog(@"%@", responseObject);
                     NSArray *responseArray = SAFE_CAST(responseObject, [NSArray class]);
                     NSDictionary *responseDic = SAFE_CAST([responseArray firstObject], [NSDictionary class]);
                     notification.htmlUrl = [VHUtils getStringFromDictionaryWithDefaultNil:responseDic forKey:@"html_url"];

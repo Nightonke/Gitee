@@ -16,11 +16,12 @@
 #import "NSArray+Safe.h"
 #import "NSView+Position.h"
 #import "VHScroller.h"
+#import "VHPopUpButton.h"
 
 @interface VHTrendingVC ()<NSTableViewDelegate, NSTableViewDataSource, VHStateViewDelegate, VHTrendingRepositoryCellViewDelegate>
 
-@property (weak) IBOutlet NSPopUpButton *languagePopupButton;
-@property (weak) IBOutlet NSPopUpButton *timePopupButton;
+@property (weak) IBOutlet VHPopUpButton *languagePopupButton;
+@property (weak) IBOutlet VHPopUpButton *timePopupButton;
 @property (weak) IBOutlet NSScrollView *scrollView;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet VHStateView *stateView;
@@ -39,7 +40,15 @@
 {
     [super viewDidLoad];
     
+    [self.languagePopupButton setMenuWindowRelativeFrame:NSMakeRect(-200,
+                                                                    self.languagePopupButton.height - 300,
+                                                                    200,
+                                                                    300)];
     self.languageSelectedIndex = [[VHGithubNotifierManager sharedManager] trendingContentSelectedIndex];
+    [self.timePopupButton setMenuWindowRelativeFrame:NSMakeRect(self.timePopupButton.width,
+                                                                self.timePopupButton.height - 300,
+                                                                200,
+                                                                300)];
     self.timeSelectedIndex = [[VHGithubNotifierManager sharedManager] trendingTimeSelectedIndex];
     
     [self addNotifications];
@@ -168,7 +177,6 @@
     [self.languagePopupButton setHidden:NO];
     [self.timePopupButton setHidden:NO];
     [self.scrollView setHidden:NO];
-    
     [self.tableView reloadData];
     [self.scrollView.documentView scrollPoint:NSMakePoint(0, 0)];
 }
@@ -193,7 +201,7 @@
     }
     else
     {
-        [[VHGithubNotifierManager sharedManager] updateTrendingContent];
+        [[VHGithubNotifierManager sharedManager] updateTrending];
         [self setUIStateForTrendingContent];
     }
 }
@@ -203,14 +211,14 @@
 - (IBAction)onTrendingContentSelected:(NSPopUpButton *)sender
 {
     [[VHGithubNotifierManager sharedManager] setTrendingContentSelectedIndex:sender.indexOfSelectedItem];
-    [[VHGithubNotifierManager sharedManager] updateTrendingContent];
+    [[VHGithubNotifierManager sharedManager] updateTrending];
     [self setLoadingUIStateForTrending];
 }
 
 - (IBAction)onTrendingTimeSelected:(NSPopUpButton *)sender
 {
     [[VHGithubNotifierManager sharedManager] setTrendingTimeSelectedIndex:sender.indexOfSelectedItem];
-    [[VHGithubNotifierManager sharedManager] updateTrendingContent];
+    [[VHGithubNotifierManager sharedManager] updateTrending];
     [self setLoadingUIStateForTrending];
 }
 

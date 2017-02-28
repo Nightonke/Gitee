@@ -181,6 +181,7 @@
 		373CF06A1E652E5600711296 /* UAGithubJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF05E1E652E5600711296 /* UAGithubJSONParser.m */; };
 		373CF06B1E652E5600711296 /* UAGithubURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0601E652E5600711296 /* UAGithubURLConnection.m */; };
 		373CF06C1E652E5600711296 /* UAReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0621E652E5600711296 /* UAReachability.m */; };
+		373CF0721E6553E100711296 /* VHPopUpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0711E6553E100711296 /* VHPopUpButton.m */; };
 		3748DF831E2CE3E900507D9C /* VHDateValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */; };
 		3748DF861E2CEA9800507D9C /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF851E2CEA9800507D9C /* NSDate+Utils.m */; };
 		3748DF8E1E2F54A300507D9C /* VHTrendTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF8D1E2F54A300507D9C /* VHTrendTableCellView.m */; };
@@ -482,6 +483,8 @@
 		373CF0601E652E5600711296 /* UAGithubURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubURLConnection.m; sourceTree = "<group>"; };
 		373CF0611E652E5600711296 /* UAReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAReachability.h; sourceTree = "<group>"; };
 		373CF0621E652E5600711296 /* UAReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAReachability.m; sourceTree = "<group>"; };
+		373CF0701E6553E100711296 /* VHPopUpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHPopUpButton.h; sourceTree = "<group>"; };
+		373CF0711E6553E100711296 /* VHPopUpButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHPopUpButton.m; sourceTree = "<group>"; };
 		3748DF811E2CE3E900507D9C /* VHDateValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHDateValueFormatter.h; sourceTree = "<group>"; };
 		3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHDateValueFormatter.m; sourceTree = "<group>"; };
 		3748DF841E2CEA9800507D9C /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
@@ -536,7 +539,6 @@
 		378E0AE71E0ECD070033CBD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		378E0AEA1E0ECD070033CBD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		378E0AEC1E0ECD070033CBD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		378E0AF81E0EE8030033CBD5 /* VHGithubNotifierUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHGithubNotifierUserDefaults.h; sourceTree = "<group>"; };
 		378E0AF91E0EE9D00033CBD5 /* VHDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHDefines.h; sourceTree = "<group>"; };
 		378E0AFA1E0EE9EC0033CBD5 /* VHGithubNotifier+Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VHGithubNotifier+Prefix.pch"; sourceTree = "<group>"; };
 		378E0AFB1E0EF3560033CBD5 /* VHGithubNotifierNotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHGithubNotifierNotifications.h; sourceTree = "<group>"; };
@@ -985,7 +987,6 @@
 				378E0B1B1E0FEEA10033CBD5 /* View */,
 				378E0ADE1E0ECD070033CBD5 /* AppDelegate.h */,
 				378E0ADF1E0ECD070033CBD5 /* AppDelegate.m */,
-				378E0AF81E0EE8030033CBD5 /* VHGithubNotifierUserDefaults.h */,
 				378E0AF91E0EE9D00033CBD5 /* VHDefines.h */,
 				378E0AFA1E0EE9EC0033CBD5 /* VHGithubNotifier+Prefix.pch */,
 				378E0AFB1E0EF3560033CBD5 /* VHGithubNotifierNotifications.h */,
@@ -1129,6 +1130,8 @@
 				3731865A1E60AFDA00926F4F /* VHSecureTextField.m */,
 				373CF0481E644B3A00711296 /* VHNotificationGroupView.h */,
 				373CF0491E644B3A00711296 /* VHNotificationGroupView.m */,
+				373CF0701E6553E100711296 /* VHPopUpButton.h */,
+				373CF0711E6553E100711296 /* VHPopUpButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1443,6 +1446,7 @@
 				37CB06001E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.m in Sources */,
 				373187451E61D95200926F4F /* ILineChartDataSet.swift in Sources */,
 				3731871D1E61D95200926F4F /* Legend.swift in Sources */,
+				373CF0721E6553E100711296 /* VHPopUpButton.m in Sources */,
 				3731876C1E61D95200926F4F /* BarChartRenderer.swift in Sources */,
 				373187561E61D95200926F4F /* Highlight.swift in Sources */,
 				37005C281E5C6E3E000AEFF9 /* RLMResults+ToArray.m in Sources */,

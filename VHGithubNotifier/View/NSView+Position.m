@@ -150,4 +150,14 @@
     self.frame = frame;
 }
 
+- (NSRect)frameRelativeToWindow
+{
+    return [self convertRect:self.bounds toView:nil];
+}
+
+- (NSRect)frameRelativeToScreen
+{
+    return [self.window convertRectToScreen:[self frameRelativeToWindow]];
+}
+
 @end

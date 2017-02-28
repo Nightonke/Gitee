@@ -26,7 +26,7 @@ const static CGFloat MENU_WINDOW_LEFT_MARGIN = 20;
 
 - (instancetype)initWithStatusItem:(NSStatusItem *)statusBarButton withDelegate:(id<VHWindowProtocol>)delegate
 {
-    NSLog(@"[VHWindow] init");
+    ViewLog(@"Init");
     NSRect frame = NSMakeRect(0, 0, 400, 600);
     
     self = [super initWithContentRect:frame styleMask:NSWindowStyleMaskBorderless backing:NSBackingStoreBuffered defer:NO];
@@ -83,7 +83,7 @@ const static CGFloat MENU_WINDOW_LEFT_MARGIN = 20;
 
 - (void)dealloc
 {
-    NSLog(@"[VHWindow] dealloc");
+    ViewLog(@"Dealloc");
     [NSEvent removeMonitor:self.mouseEventMonitor];
 }
 
