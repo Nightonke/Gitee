@@ -42,7 +42,7 @@
                   moduleName = "VHGithubNotifier"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/View/VHTrendTableCellView.m"
-                  timestampString = "509997336.79897"
+                  timestampString = "510057825.777097"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "129"
@@ -57,7 +57,7 @@
                   moduleName = "VHGithubNotifier"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/View/VHTrendTableCellView.m"
-                  timestampString = "509997336.800333"
+                  timestampString = "510057825.778989"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "129"
@@ -90,7 +90,7 @@
                   moduleName = "VHGithubNotifier"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
-                  timestampString = "509997336.803172"
+                  timestampString = "510057825.782623"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1009"
@@ -105,7 +105,7 @@
                   moduleName = "Charts"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
-                  timestampString = "509997336.804955"
+                  timestampString = "510057825.784367"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1009"
@@ -138,7 +138,7 @@
                   moduleName = "VHGithubNotifier"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
-                  timestampString = "509997336.809986"
+                  timestampString = "510057825.788467"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1017"
@@ -153,7 +153,7 @@
                   moduleName = "Charts"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
-                  timestampString = "509997336.811406"
+                  timestampString = "510057825.791208"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1017"
@@ -186,7 +186,7 @@
                   moduleName = "VHGithubNotifier"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
-                  timestampString = "509997336.814687"
+                  timestampString = "510057825.795515"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1025"
@@ -201,7 +201,7 @@
                   moduleName = "Charts"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
-                  timestampString = "509997336.815988"
+                  timestampString = "510057825.797598"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1025"
@@ -234,7 +234,7 @@
                   moduleName = "VHGithubNotifier"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
-                  timestampString = "509997336.818792"
+                  timestampString = "510057825.801539"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1033"
@@ -249,7 +249,7 @@
                   moduleName = "Charts"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangweiping/Desktop/iOS/VHGithubNotifier/VHGithubNotifier/Charts/Source/Charts/Charts/ChartViewBase.swift"
-                  timestampString = "509997336.82013"
+                  timestampString = "510057825.804548"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1033"
@@ -257,6 +257,22 @@
                   offsetFromSymbolStart = "34">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VHGithubNotifier/View/VHNotificationBodyTitleView.m"
+            timestampString = "510033988.975842"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "-mouseUp:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

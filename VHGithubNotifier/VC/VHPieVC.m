@@ -77,11 +77,6 @@
 
 #pragma mark - Mouse
 
-- (void)mouseDown:(NSEvent *)event
-{
-    
-}
-
 - (void)mouseUp:(NSEvent *)event
 {
     NSPoint locationInPieChart = [self.pieChart convertPoint:[event locationInWindow] fromView:nil];

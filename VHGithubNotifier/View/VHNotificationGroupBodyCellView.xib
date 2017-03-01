@@ -20,19 +20,7 @@
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="sjO-dq-AJp"/>
                 </imageView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Deh-Kn-mla">
-                    <rect key="frame" x="18" y="11" width="310" height="17"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="17" id="a5c-L5-kUM"/>
-                        <constraint firstAttribute="width" constant="306" id="sff-IO-EVn"/>
-                    </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="0cl-IZ-zCq">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <button translatesAutoresizingMaskIntoConstraints="NO" id="A0S-wZ-PVr">
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="A0S-wZ-PVr" customClass="VHCursorButton">
                     <rect key="frame" x="358" y="14" width="12" height="12"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="12" id="8E3-UP-Nuj"/>
@@ -42,8 +30,11 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="onReadButtonClicked:" target="c22-O7-iKe" id="Bqn-jm-6Ra"/>
+                    </connections>
                 </button>
-                <button translatesAutoresizingMaskIntoConstraints="NO" id="Lhx-Kd-N34">
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="Lhx-Kd-N34" customClass="VHCursorButton">
                     <rect key="frame" x="334" y="13" width="14" height="14"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="AI3-Vz-dtw"/>
@@ -53,14 +44,26 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="onSubscribeButtonClicked:" target="c22-O7-iKe" id="nuH-Wn-icy"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AVI-6p-IcR" customClass="VHCursorButton">
+                    <rect key="frame" x="20" y="4" width="297" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" title="Button" bezelStyle="shadowlessSquare" alignment="left" lineBreakMode="truncatingTail" truncatesLastVisibleLine="YES" state="on" imageScaling="proportionallyDown" inset="2" id="Zu1-Na-Nfi">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onTitleClicked:" target="c22-O7-iKe" id="Ms3-Qu-A7o"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>
                 <constraint firstItem="A0S-wZ-PVr" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="0F5-Of-ECd"/>
                 <constraint firstItem="WFN-jv-v6e" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="7Si-1Q-MCn"/>
                 <constraint firstItem="WFN-jv-v6e" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="Bk5-Ud-zhz"/>
-                <constraint firstItem="Deh-Kn-mla" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="MbK-8w-VqY"/>
-                <constraint firstItem="Deh-Kn-mla" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="Szh-no-ZT3"/>
                 <constraint firstAttribute="trailing" secondItem="A0S-wZ-PVr" secondAttribute="trailing" constant="30" id="Z2d-eP-OY8"/>
                 <constraint firstItem="A0S-wZ-PVr" firstAttribute="leading" secondItem="Lhx-Kd-N34" secondAttribute="trailing" constant="10" id="kbm-0v-R25"/>
                 <constraint firstItem="Lhx-Kd-N34" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="l4g-qy-c9A"/>
@@ -68,9 +71,9 @@
             <accessibility identifier="VHNotificationGroupBodyCellView"/>
             <connections>
                 <outlet property="image" destination="WFN-jv-v6e" id="Ki0-Qx-0Eq"/>
-                <outlet property="readButton" destination="A0S-wZ-PVr" id="ucz-ak-EQw"/>
-                <outlet property="subscribeButton" destination="Lhx-Kd-N34" id="tij-sC-VeQ"/>
-                <outlet property="title" destination="0cl-IZ-zCq" id="Tfw-Pt-KJv"/>
+                <outlet property="readButton" destination="A0S-wZ-PVr" id="gYV-mg-LVg"/>
+                <outlet property="subscribeButton" destination="Lhx-Kd-N34" id="tkf-8t-d9N"/>
+                <outlet property="title" destination="AVI-6p-IcR" id="2EV-vc-ljq"/>
             </connections>
         </customView>
     </objects>

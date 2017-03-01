@@ -94,3 +94,21 @@ static NSString * const kNotifyNotificationsLoadedSuccessfully = @"kNotifyNotifi
 // To    :
 // Params:
 static NSString * const kNotifyNotificationsLoadedFailed = @"kNotifyNotificationsLoadedFailed";
+
+// When  : When the window is going to show
+// Who   : AppDelegate
+// To    :
+// Params:
+static NSString * const kNotifyWindowWillShow = @"kNotifyWindowWillShow";
+
+// When  : When the window is going to hide
+// Who   : AppDelegate
+// To    :
+// Params:
+static NSString * const kNotifyWindowWillHide = @"kNotifyWindowWillHide";
+
+// When  : When notifications are updated(read/subscribe).
+// Who   : Manager
+// To    :
+// Params:
+static NSString * const kNotifyNotificationsChanged = @"kNotifyNotificationsChanged";

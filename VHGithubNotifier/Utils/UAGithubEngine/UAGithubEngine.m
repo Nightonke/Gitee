@@ -104,7 +104,7 @@
 - (id)sendRequest:(NSString *)path requestType:(UAGithubRequestType)requestType responseType:(UAGithubResponseType)responseType withParameters:(id)params page:(NSInteger)page pathNeedsPrefix:(BOOL)pathNeedsPrefix error:(NSError **)error
 {
     
-    NSMutableString *urlString = pathNeedsPrefix ? [NSMutableString stringWithFormat:@"%@%@/%@", API_PROTOCOL, API_DOMAIN, path] : path;
+    NSMutableString *urlString = pathNeedsPrefix ? [NSMutableString stringWithFormat:@"%@%@/%@", API_PROTOCOL, API_DOMAIN, path] : [NSMutableString stringWithString:path];
     NSData *jsonData = nil;
     NSError *serializationError = nil;
     
@@ -144,7 +144,7 @@
         }
         else
         {
-            querystring = [NSString stringWithFormat:@"?page=%ld", page];
+            querystring = [NSMutableString stringWithFormat:@"?page=%ld", page];
         }
     }
 
@@ -220,8 +220,9 @@
         case UAGithubGistCommentUpdateRequest:
         case UAGithubPullRequestUpdateRequest:
         case UAGithubPullRequestCommentUpdateRequest:
-        case UAGithubOrganizationUpdateRequest: 
+        case UAGithubOrganizationUpdateRequest:
         case UAGithubTeamUpdateRequest:
+        case UAGithubNotificationMarkReadRequest:
         {
             [urlRequest setHTTPMethod:@"PATCH"];
         }
@@ -294,7 +295,12 @@
                                         
                                         return (id)[NSNull null];
                                                                                 
-                                    } 
+                                    }
+                                    
+                                    else if (statusCode == UAGithubResetContentResponse)
+                                    {
+                                        return (id)[NSNumber numberWithInteger:UAGithubResetContentResponse];
+                                    }
                                     
                                     else if (statusCode == 204)
                                     {
@@ -1501,12 +1507,19 @@
     } success:successBlock failure:failureBlock];
 }
 
-- (void)notificationTestSuccess:(UAGithubEngineSuccessBlock)successBlock failure:(UAGithubEngineFailureBlock)failureBlock
+- (void)markNotificationAsRead:(long long)notificationId success:(UAGithubEngineSuccessBlock)successBlock failure:(UAGithubEngineFailureBlock)failureBlock
 {
     [self invoke:^(id self) {
-        NSString *url = [NSString stringWithFormat:@"repos/Nightonke/BoomMenu/issues/comments/282487589"];
-        [self sendRequest:url requestType:UAGithubNotificationListRequest responseType:UAGithubNotificationResponse error:nil];
-        
+        NSString *url = [NSString stringWithFormat:@"notifications/threads/%lld", notificationId];
+        [self sendRequest:url requestType:UAGithubNotificationMarkReadRequest responseType:UAGithubNotificationResponse error:nil];
+    } success:successBlock failure:failureBlock];
+}
+
+- (void)threadSubscription:(long long)notificationId success:(UAGithubEngineSuccessBlock)successBlock failure:(UAGithubEngineFailureBlock)failureBlock
+{
+    [self invoke:^(id self) {
+        NSString *url = [NSString stringWithFormat:@"notifications/threads/%lld/subscription", notificationId];
+        [self sendRequest:url requestType:UAGithubNotificationThreadGetSubscriptionRequest responseType:UAGithubNotificationResponse error:nil];
     } success:successBlock failure:failureBlock];
 }
 

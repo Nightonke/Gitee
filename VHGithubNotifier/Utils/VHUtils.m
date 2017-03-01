@@ -71,4 +71,11 @@
     return text;
 }
 
++ (void)openUrl:(NSString *)url
+{
+    MUST_IN_MAIN_THREAD;
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
+    NOTIFICATION_POST(kNotifyWindowShouldHide);
+}
+
 @end

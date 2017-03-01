@@ -332,6 +332,10 @@ typedef void (^UAGithubEngineFailureBlock)(NSError *error);
                  success:(UAGithubEngineSuccessBlock)successBlock
                  failure:(UAGithubEngineFailureBlock)failureBlock;
 
+- (void)markNotificationAsRead:(long long)notificationId success:(UAGithubEngineSuccessBlock)successBlock failure:(UAGithubEngineFailureBlock)failureBlock;
+
+- (void)threadSubscription:(long long)notificationId success:(UAGithubEngineSuccessBlock)successBlock failure:(UAGithubEngineFailureBlock)failureBlock;
+
 #pragma mark -
 #pragma mark Git Database API
 #pragma mark -

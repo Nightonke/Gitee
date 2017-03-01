@@ -8,16 +8,22 @@
 
 #import "VHNotificationGroupBodyCellView.h"
 #import "NSView+Position.h"
+#import "VHUtils.h"
 #import "VHUtils+TransForm.h"
+#import "VHCursorButton.h"
+#import "VHGithubNotifierManager+Notification.h"
 
 static const CGFloat CORNER_RADIUS = 5;
 
 @interface VHNotificationGroupBodyCellView ()
 
 @property (weak) IBOutlet NSImageView *image;
-@property (weak) IBOutlet NSTextFieldCell *title;
-@property (weak) IBOutlet NSButton *subscribeButton;
-@property (weak) IBOutlet NSButton *readButton;
+@property (weak) IBOutlet VHCursorButton *title;
+@property (weak) IBOutlet VHCursorButton *subscribeButton;
+@property (weak) IBOutlet VHCursorButton *readButton;
+
+@property (nonatomic, strong) NSColor *backgroundColor;
+@property (nonatomic, strong) NSTrackingArea *trackingArea;
 
 @end
 
@@ -26,14 +32,47 @@ static const CGFloat CORNER_RADIUS = 5;
 - (void)awakeFromNib
 {
     self.wantsLayer = YES;
+    self.title.cursor = [NSCursor pointingHandCursor];
     self.subscribeButton.image.template = YES;
+    self.subscribeButton.cursor = [NSCursor pointingHandCursor];
     self.readButton.image.template = YES;
+    self.readButton.cursor = [NSCursor pointingHandCursor];
+    self.backgroundColor = [VHUtils colorFromHexColorCodeInString:@"#ffffff"];
 }
 
 - (void)setNotification:(VHNotification *)notification
 {
     _notification = notification;
-    self.title.title = notification.title;
+    self.title.title = _notification.title;
+    if ([VHUtils widthOfString:_notification.title withFont:self.title.font] > self.title.width)
+    {
+        
+    }
+    else
+    {
+        CGFloat height = self.title.height;
+        [self.title sizeToFit];
+        [self.title setHeight:height];
+    }
+    
+    self.title.toolTip = _notification.title;
+    self.subscribeButton.toolTip = @"TODO";
+    self.readButton.toolTip = @"Mark as read";
+}
+
+- (IBAction)onTitleClicked:(id)sender
+{
+    [VHUtils openUrl:self.notification.htmlUrl];
+}
+
+- (IBAction)onSubscribeButtonClicked:(id)sender
+{
+    
+}
+
+- (IBAction)onReadButtonClicked:(id)sender
+{
+    [[VHGithubNotifierManager sharedManager] markNotificationAsRead:self.notification];
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -64,8 +103,44 @@ static const CGFloat CORNER_RADIUS = 5;
     }
     [path stroke];
     
-    [[VHUtils colorFromHexColorCodeInString:@"#ffffff"] set];
+    [self.backgroundColor set];
     [path fill];
+}
+
+- (void)mouseEntered:(NSEvent *)event
+{
+    [super mouseEntered:event];
+    self.backgroundColor = [VHUtils colorFromHexColorCodeInString:@"#f5f9fc"];
+    [self setNeedsDisplay:YES];
+}
+
+- (void)mouseExited:(NSEvent *)event
+{
+    [super mouseExited:event];
+    self.backgroundColor = [VHUtils colorFromHexColorCodeInString:@"#ffffff"];
+    [self setNeedsDisplay:YES];
+}
+
+- (void)scrollWheel:(NSEvent *)event
+{
+    [super scrollWheel:event];
+    self.backgroundColor = [VHUtils colorFromHexColorCodeInString:@"#ffffff"];
+    [self setNeedsDisplay:YES];
+}
+
+- (void)updateTrackingAreas
+{
+    if(self.trackingArea != nil)
+    {
+        [self removeTrackingArea:self.trackingArea];
+    }
+    
+    int opts = (NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways);
+    self.trackingArea = [[NSTrackingArea alloc] initWithRect:[self bounds]
+                                                     options:opts
+                                                       owner:self
+                                                    userInfo:nil];
+    [self addTrackingArea:self.trackingArea];
 }
 
 @end

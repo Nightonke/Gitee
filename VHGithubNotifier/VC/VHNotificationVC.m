@@ -73,6 +73,7 @@
 {
     [self addNotification:kNotifyNotificationsLoadedSuccessfully forSelector:@selector(onNotifyNotificationsLoadedSuccessfully:)];
     [self addNotification:kNotifyNotificationsLoadedFailed forSelector:@selector(onNotifyNotificationsLoadedFailed:)];
+    [self addNotification:kNotifyNotificationsChanged forSelector:@selector(onNotifyNotificationsChanged:)];
 }
 
 - (void)onNotifyNotificationsLoadedSuccessfully:(NSNotification *)notification
@@ -89,6 +90,12 @@
     [self.stateView setState:VHStateViewStateTypeLoadFailed];
     [self.stateView setRetryText:@"Notifications loaded failed!"];
     [self.scrollView setHidden:YES];
+}
+
+- (void)onNotifyNotificationsChanged:(NSNotification *)notification
+{
+    [self createDataArray];
+    [self.tableView reloadData];
 }
 
 #pragma mark - VHStateViewDelegate

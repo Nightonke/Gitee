@@ -40,6 +40,7 @@
 - (void)stopTimerOfBasicInfo
 {
     MUST_IN_MAIN_THREAD;
+    BasicInfoLog(@"Stop Timer");
     [self.basicInfoTimer invalidate];
     self.basicInfoTimer = nil;
 }

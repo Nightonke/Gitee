@@ -107,6 +107,7 @@
 
 - (void)showMenu
 {
+    NOTIFICATION_POST(kNotifyWindowWillShow);
     if ([self.menuWindow isVisible])
     {
         [[NSAnimationContext currentContext] setDuration:0.15];
@@ -132,6 +133,7 @@
 
 - (void)hideMenu
 {
+    NOTIFICATION_POST(kNotifyWindowWillHide);
     if ([self.menuWindow isVisible])
     {
         [[NSAnimationContext currentContext] setDuration:0.15];

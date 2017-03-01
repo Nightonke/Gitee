@@ -131,7 +131,7 @@
         self.starTrendingText.hidden = YES;
     }
     
-    NSString *toolTip = [NSString stringWithFormat:@"Click to visit %@ in browser.", self.repository.name];
+    NSString *toolTip = BROWSE_STRING(self.repository.name);
     [self setToolTip:toolTip];
     [self.languageDot setToolTip:toolTip];
     [self.language setToolTip:toolTip];

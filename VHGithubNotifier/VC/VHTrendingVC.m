@@ -17,6 +17,7 @@
 #import "NSView+Position.h"
 #import "VHScroller.h"
 #import "VHPopUpButton.h"
+#import "VHUtils.h"
 
 @interface VHTrendingVC ()<NSTableViewDelegate, NSTableViewDataSource, VHStateViewDelegate, VHTrendingRepositoryCellViewDelegate>
 
@@ -226,8 +227,7 @@
 
 - (void)onTrendingClicked:(VHTrendingRepository *)repository
 {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:repository.url]];
-    NOTIFICATION_POST(kNotifyWindowShouldHide);
+    [VHUtils openUrl:repository.url];
 }
 
 #pragma mark - NSTableViewDelegate, NSTableViewDataSource

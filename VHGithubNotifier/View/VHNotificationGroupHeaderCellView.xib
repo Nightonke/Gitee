@@ -12,18 +12,21 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="46"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vln-4g-3uz">
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vln-4g-3uz" customClass="VHCursorButton">
                     <rect key="frame" x="20" y="0.0" width="300" height="36"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="300" id="bZS-q8-5fJ"/>
                         <constraint firstAttribute="height" constant="36" id="pbn-tt-P1d"/>
                     </constraints>
-                    <buttonCell key="cell" type="square" title="Nightonke/Gitee" bezelStyle="shadowlessSquare" alignment="left" state="on" imageScaling="proportionallyDown" inset="2" id="aXS-Wy-6Yn">
+                    <buttonCell key="cell" type="square" title="Nightonke/Gitee" bezelStyle="shadowlessSquare" alignment="left" lineBreakMode="truncatingTail" truncatesLastVisibleLine="YES" state="on" imageScaling="proportionallyDown" inset="2" id="aXS-Wy-6Yn">
                         <behavior key="behavior" lightByContents="YES"/>
-                        <font key="font" metaFont="system" size="16"/>
+                        <font key="font" metaFont="system" size="15"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="onTitleClicked:" target="c22-O7-iKe" id="LHq-ka-wzM"/>
+                    </connections>
                 </button>
-                <button translatesAutoresizingMaskIntoConstraints="NO" id="4cU-Ou-glz">
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="4cU-Ou-glz" customClass="VHCursorButton">
                     <rect key="frame" x="358" y="12" width="12" height="12"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="12" id="ECZ-Ix-zX7"/>
@@ -33,6 +36,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="onReadButtonClicked:" target="c22-O7-iKe" id="Rcy-zz-EWm"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>
@@ -43,8 +49,8 @@
             </constraints>
             <accessibility identifier="VHNotificationGroupHeaderCellView"/>
             <connections>
-                <outlet property="readButton" destination="4cU-Ou-glz" id="Rp5-rP-DeF"/>
-                <outlet property="titleButton" destination="Vln-4g-3uz" id="csS-Zs-TcX"/>
+                <outlet property="readButton" destination="4cU-Ou-glz" id="yc2-6H-BdL"/>
+                <outlet property="title" destination="Vln-4g-3uz" id="12Y-m6-434"/>
             </connections>
         </customView>
     </objects>

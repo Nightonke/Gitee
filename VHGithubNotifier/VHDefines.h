@@ -43,6 +43,8 @@ const static CGFloat TAB_VC_CORNER_RADIUS = 8;
 
 #define IF_NIL_ATTRIBUTE_STRING_THEN_TIP(x) ((x) ? (x) : [[NSMutableAttributedString alloc] initWithString:@""])
 
+#define BROWSE_STRING(name) [NSString stringWithFormat:@"Click to visit %@ in browser.", name]
+
 #define SAFE_CAST(obj, className) ([(obj) isKindOfClass:[(className) class]] ? (obj) : (nil))
 
 #define IN_MAIN_THREAD(code) dispatch_async(dispatch_get_main_queue(), ^{code;})

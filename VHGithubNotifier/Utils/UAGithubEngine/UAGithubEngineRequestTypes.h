@@ -175,11 +175,11 @@ typedef enum UAGithubRequestType
 
 typedef enum UAGithubResponseType 
 {
-    UAGithubNoContentResponse = 0,                  // No content expected
+    UAGithubNoContentResponse = 0,// No content expected
 	UAGithubUsersResponse,                          // One or more users
 	UAGithubUserResponse,							// Exactly one user
     UAGithubEmailsResponse,                         // One or more email addresses
-	UAGithubRepositoriesResponse,					// One or more repositories 
+	UAGithubRepositoriesResponse,					// One or more repositories
 	UAGithubRepositoryResponse,						// Exactly one repository
     UAGithubRepositoryTeamsResponse,                // One or more teams
     UAGithubDeployKeysResponse,                     // One or more deploy keys
@@ -204,9 +204,9 @@ typedef enum UAGithubResponseType
 	UAGithubRepositoryLabelsResponse,				// One or more repository-wide issue labels
     UAGithubRepositoryLabelResponse,                // Exactly one repository-wide issue label
 	UAGithubBlobsResponse,							// Name and SHA for all files in given tree SHA
-	UAGithubBlobResponse,							// Metadata and file data for given tree SHA and path 
+	UAGithubBlobResponse,							// Metadata and file data for given tree SHA and path
     UAGithubFollowingResponse,                      // Following
-    UAGithubFollowersResponse,                      // Followers  
+    UAGithubFollowersResponse,                      // Followers
     UAGithubFollowedResponse,                       // User was followed
     UAGithubUnfollowedResponse,                     // User was unfollowed
     UAGithubMilestonesResponse,                     // One or more milestones
@@ -240,4 +240,6 @@ typedef enum UAGithubResponseType
     UAGithubTeamsResponse,                          // One or more organization teams
     UAGithubTeamResponse,                           // Exactly one team
     UAGithubNotificationResponse,                   // For notifications
+
+    UAGithubResetContentResponse = 205,             // Reset content
 } UAGithubResponseType;

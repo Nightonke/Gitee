@@ -207,6 +207,8 @@
 		37531A431E14366800C3EB64 /* VHProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37531A411E14366800C3EB64 /* VHProfileVC.m */; };
 		37531A441E14366800C3EB64 /* VHProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37531A421E14366800C3EB64 /* VHProfileVC.xib */; };
 		37531A4A1E14411500C3EB64 /* NSMutableArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 37531A491E14411500C3EB64 /* NSMutableArray+Safe.m */; };
+		375A7E271E668707001A2A3B /* VHCursorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 375A7E261E668707001A2A3B /* VHCursorButton.m */; };
+		375A7E2A1E66BB17001A2A3B /* VHNotificationRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 375A7E291E66BB17001A2A3B /* VHNotificationRecord.m */; };
 		378CE7651E1DF34400235E5F /* VHRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 378CE7641E1DF34400235E5F /* VHRecord.m */; };
 		378CE76A1E1DF6AB00235E5F /* VHGithubNotifierManager+Realm.m in Sources */ = {isa = PBXBuildFile; fileRef = 378CE7691E1DF6AB00235E5F /* VHGithubNotifierManager+Realm.m */; };
 		378E0AE01E0ECD070033CBD5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0ADF1E0ECD070033CBD5 /* AppDelegate.m */; };
@@ -535,6 +537,10 @@
 		37531A421E14366800C3EB64 /* VHProfileVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHProfileVC.xib; sourceTree = "<group>"; };
 		37531A481E14411500C3EB64 /* NSMutableArray+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Safe.h"; sourceTree = "<group>"; };
 		37531A491E14411500C3EB64 /* NSMutableArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Safe.m"; sourceTree = "<group>"; };
+		375A7E251E668707001A2A3B /* VHCursorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHCursorButton.h; sourceTree = "<group>"; };
+		375A7E261E668707001A2A3B /* VHCursorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHCursorButton.m; sourceTree = "<group>"; };
+		375A7E281E66BB17001A2A3B /* VHNotificationRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHNotificationRecord.h; sourceTree = "<group>"; };
+		375A7E291E66BB17001A2A3B /* VHNotificationRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHNotificationRecord.m; sourceTree = "<group>"; };
 		378CE7631E1DF34400235E5F /* VHRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHRecord.h; sourceTree = "<group>"; };
 		378CE7641E1DF34400235E5F /* VHRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHRecord.m; sourceTree = "<group>"; };
 		378CE7681E1DF6AB00235E5F /* VHGithubNotifierManager+Realm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VHGithubNotifierManager+Realm.h"; sourceTree = "<group>"; };
@@ -1030,6 +1036,8 @@
 				373B96EF1E62AF8000AD8E92 /* VHSimpleRepository.m */,
 				373B96F11E62BEF500AD8E92 /* VHNotification.h */,
 				373B96F21E62BEF500AD8E92 /* VHNotification.m */,
+				375A7E281E66BB17001A2A3B /* VHNotificationRecord.h */,
+				375A7E291E66BB17001A2A3B /* VHNotificationRecord.m */,
 				378CE7631E1DF34400235E5F /* VHRecord.h */,
 				378CE7641E1DF34400235E5F /* VHRecord.m */,
 				3749CDDE1E5B17060083CEB1 /* VHLanguage.h */,
@@ -1148,6 +1156,8 @@
 				379E09B51E659AD80032EB7E /* VHNotificationGroupBodyCellView.h */,
 				379E09B61E659AD80032EB7E /* VHNotificationGroupBodyCellView.m */,
 				379E09BA1E659B240032EB7E /* VHNotificationGroupBodyCellView.xib */,
+				375A7E251E668707001A2A3B /* VHCursorButton.h */,
+				375A7E261E668707001A2A3B /* VHCursorButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1349,6 +1359,7 @@
 				373B96F31E62BEF500AD8E92 /* VHNotification.m in Sources */,
 				37005C3C1E5C9C1C000AEFF9 /* XPathQuery.m in Sources */,
 				3731874D1E61D95200926F4F /* DefaultFillFormatter.swift in Sources */,
+				375A7E2A1E66BB17001A2A3B /* VHNotificationRecord.m in Sources */,
 				373187831E61D95200926F4F /* XAxisRenderer.swift in Sources */,
 				3731877A1E61D95200926F4F /* ChevronDownShapeRenderer.swift in Sources */,
 				3731876F1E61D95200926F4F /* CandleStickChartRenderer.swift in Sources */,
@@ -1490,6 +1501,7 @@
 				3731872C1E61D95200926F4F /* CandleChartData.swift in Sources */,
 				37005C3A1E5C9C1C000AEFF9 /* TFHpple.m in Sources */,
 				373187381E61D95200926F4F /* PieChartData.swift in Sources */,
+				375A7E271E668707001A2A3B /* VHCursorButton.m in Sources */,
 				373185FB1E5DE54D00926F4F /* VHTrendingRepositoryCellView.m in Sources */,
 				373187121E61D95200926F4F /* HorizontalBarChartView.swift in Sources */,
 				37531A4A1E14411500C3EB64 /* NSMutableArray+Safe.m in Sources */,

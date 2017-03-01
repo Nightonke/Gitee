@@ -9,13 +9,14 @@
 #import "VHNotificationGroupHeaderCellView.h"
 #import "NSView+Position.h"
 #import "VHUtils+TransForm.h"
+#import "VHCursorButton.h"
 
 static const CGFloat CORNER_RADIUS = 5;
 
 @interface VHNotificationGroupHeaderCellView ()
 
-@property (weak) IBOutlet NSButton *titleButton;
-@property (weak) IBOutlet NSButton *readButton;
+@property (weak) IBOutlet VHCursorButton *title;
+@property (weak) IBOutlet VHCursorButton *readButton;
 
 @end
 
@@ -24,15 +25,28 @@ static const CGFloat CORNER_RADIUS = 5;
 - (void)awakeFromNib
 {
     self.wantsLayer = YES;
+    self.title.cursor = [NSCursor pointingHandCursor];
     self.readButton.image.template = YES;
+    self.readButton.cursor = [NSCursor pointingHandCursor];
 }
 
 - (void)setRepository:(VHSimpleRepository *)repository
 {
     _repository = repository;
-    self.titleButton.title = repository.fullName;
-    [self.titleButton sizeToFit];
-    [self.titleButton setHeight:40];
+    self.title.title = _repository.fullName;
+    if ([VHUtils widthOfString:_repository.fullName withFont:self.title.font] > self.title.width)
+    {
+        
+    }
+    else
+    {
+        CGFloat height = self.title.height;
+        [self.title sizeToFit];
+        [self.title setHeight:height];
+    }
+    
+    self.title.toolTip = BROWSE_STRING(self.repository.fullName);
+    self.readButton.toolTip = [NSString stringWithFormat:@"Mark all %@ notifications as read", self.repository.fullName];
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -56,6 +70,16 @@ static const CGFloat CORNER_RADIUS = 5;
     
     [[VHUtils colorFromHexColorCodeInString:@"#f5f5f5"] set];
     [path fill];
+}
+
+- (IBAction)onTitleClicked:(id)sender
+{
+    [VHUtils openUrl:self.repository.htmlUrl];
+}
+
+- (IBAction)onReadButtonClicked:(id)sender
+{
+    
 }
 
 @end

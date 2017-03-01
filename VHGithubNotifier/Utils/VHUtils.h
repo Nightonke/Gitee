@@ -26,4 +26,6 @@
 
 + (NSTextField *)labelWithFrame:(NSRect)frame;
 
++ (void)openUrl:(NSString *)url;
+
 @end
