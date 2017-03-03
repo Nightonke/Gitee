@@ -88,6 +88,19 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
     NOTIFICATION_POST(kNotifyNotificationsChanged);
 }
 
+- (void)markNotificationAsReadInRepository:(VHSimpleRepository *)repository
+{
+    MUST_IN_MAIN_THREAD;
+    
+    // 1. Delete the key-value model in notificationDic.
+    [self deleteRepository:repository];
+    
+    // 2. Send a mark-all-as-read request to github.
+    [self sendRequestToMarkAsReadInRepository:repository];
+    
+    NOTIFICATION_POST(kNotifyNotificationsChanged);
+}
+
 - (void)unsubscribeThread:(VHNotification *)notification
 {
     MUST_IN_MAIN_THREAD;
@@ -234,6 +247,13 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
     notificationDic = [newNotificationDic copy];
 }
 
+- (void)deleteRepository:(VHSimpleRepository *)repository
+{
+    NSMutableDictionary<VHSimpleRepository *, NSArray<VHNotification *> *> *newNotificationDic = [NSMutableDictionary dictionaryWithDictionary:notificationDic];
+    [newNotificationDic removeObjectForKey:repository];
+    notificationDic = [newNotificationDic copy];
+}
+
 - (void)sendRequestToMarkAsReadNotification:(VHNotification *)notification
 {
     dispatch_async(GLOBAL_QUEUE, ^{
@@ -248,6 +268,24 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
             }
         } failure:^(NSError *error) {
             NotificationLog(@"Mark notification(%@) as read failed with error:%@", notification, error);
+        }];
+    });
+}
+
+- (void)sendRequestToMarkAsReadInRepository:(VHSimpleRepository *)repository
+{
+    dispatch_async(GLOBAL_QUEUE, ^{
+        [[self engine] markNotificationAsReadInRepository:repository.name ofOwner:repository.ownerName success:^(id responseObject) {
+            if ([responseObject intValue] == UAGithubResetContentResponse)
+            {
+                NotificationLog(@"Mark all notification in repository(%@) as read successfully", repository);
+            }
+            else
+            {
+                NotificationLog(@"Mark all notification in repository(%@) as read failed with error:%@", repository, responseObject);
+            }
+        } failure:^(NSError *error) {
+            NotificationLog(@"Mark all notification in repository(%@) as read failed with error:%@", repository, error);
         }];
     });
 }

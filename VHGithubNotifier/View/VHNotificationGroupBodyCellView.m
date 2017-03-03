@@ -56,7 +56,7 @@ static const CGFloat CORNER_RADIUS = 5;
     }
     
     self.title.toolTip = _notification.title;
-    self.subscribeButton.toolTip = @"TODO";
+    self.subscribeButton.toolTip = @"Unsubscribe from this thread";
     self.readButton.toolTip = @"Mark as read";
 }
 

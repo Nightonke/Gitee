@@ -149,6 +149,7 @@
     {
         VHNotificationGroupHeaderCellView *cell = [tableView makeViewWithIdentifier:@"VHNotificationGroupHeaderCellView" owner:self];
         [cell setRepository:repository];
+        [cell setNotificationNumber:[[VHGithubNotifierManager sharedManager].notificationDic objectForKey:repository].count];
         return cell;
     }
     else if (notification)

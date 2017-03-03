@@ -12,10 +12,9 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="46"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vln-4g-3uz" customClass="VHCursorButton">
-                    <rect key="frame" x="20" y="0.0" width="300" height="36"/>
+                <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vln-4g-3uz" customClass="VHCursorButton">
+                    <rect key="frame" x="20" y="0.0" width="290" height="36"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="300" id="bZS-q8-5fJ"/>
                         <constraint firstAttribute="height" constant="36" id="pbn-tt-P1d"/>
                     </constraints>
                     <buttonCell key="cell" type="square" title="Nightonke/Gitee" bezelStyle="shadowlessSquare" alignment="left" lineBreakMode="truncatingTail" truncatesLastVisibleLine="YES" state="on" imageScaling="proportionallyDown" inset="2" id="aXS-Wy-6Yn">
@@ -40,15 +39,30 @@
                         <action selector="onReadButtonClicked:" target="c22-O7-iKe" id="Rcy-zz-EWm"/>
                     </connections>
                 </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gGl-pC-PZJ">
+                    <rect key="frame" x="321" y="11" width="40" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="36" id="XfQ-Ss-KdU"/>
+                        <constraint firstAttribute="height" constant="14" id="waV-4h-eHo"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="Tyg-i8-G5p">
+                        <font key="font" metaFont="system" size="11"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="4cU-Ou-glz" secondAttribute="bottom" constant="12" id="4g8-jx-TdG"/>
+                <constraint firstAttribute="bottom" secondItem="gGl-pC-PZJ" secondAttribute="bottom" constant="11" id="DwJ-4n-RzA"/>
                 <constraint firstItem="Vln-4g-3uz" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="L5q-ML-hp0"/>
                 <constraint firstAttribute="bottom" secondItem="Vln-4g-3uz" secondAttribute="bottom" id="S0i-Mn-vUq"/>
+                <constraint firstAttribute="trailing" secondItem="gGl-pC-PZJ" secondAttribute="trailing" constant="41" id="bKk-9n-vCs"/>
                 <constraint firstAttribute="trailing" secondItem="4cU-Ou-glz" secondAttribute="trailing" constant="30" id="g2w-hN-LLm"/>
             </constraints>
             <accessibility identifier="VHNotificationGroupHeaderCellView"/>
             <connections>
+                <outlet property="notificationNumberLabel" destination="gGl-pC-PZJ" id="FcN-BF-FUe"/>
                 <outlet property="readButton" destination="4cU-Ou-glz" id="yc2-6H-BdL"/>
                 <outlet property="title" destination="Vln-4g-3uz" id="12Y-m6-434"/>
             </connections>

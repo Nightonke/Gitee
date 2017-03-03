@@ -19,6 +19,7 @@
 #import "NSString+UUID.h"
 
 #import "NSInvocation+Blocks.h"
+#import "VHUtils+TransForm.h"
 
 #define API_PROTOCOL @"https://"
 #define API_DOMAIN @"api.github.com"
@@ -204,6 +205,7 @@
         case UAGithubTeamMemberAddRequest:
         case UAGithubTeamRepositoryManagershipAddRequest:
         case UAGithubNotificationThreadSetSubscriptionRequest:
+        case UAGithubNotificationMarkReadForRepositoryRequest:
         {
             [urlRequest setHTTPMethod:@"PUT"];
         }
@@ -1534,8 +1536,19 @@
            withParameters:[NSDictionary dictionaryWithObjectsAndKeys:@(NO), @"subscribed", @(YES), @"ignored", nil]
                     error:nil];
     } success:successBlock failure:failureBlock];
-//    @{@"subscribed":@(NO),
-//      @"ignored":@(NO)}
+}
+
+- (void)markNotificationAsReadInRepository:(NSString *)repositoryName ofOwner:(NSString *)ownerName success:(UAGithubEngineSuccessBlock)successBlock failure:(UAGithubEngineFailureBlock)failureBlock
+{
+    NetLog(@"%@", [VHUtils githubTimeStringFromDate:[NSDate date]]);
+    [self invoke:^(id self) {
+        NSString *url = [NSString stringWithFormat:@"repos/%@/%@/notifications", ownerName, repositoryName];
+        [self sendRequest:url
+              requestType:UAGithubNotificationMarkReadForRepositoryRequest
+             responseType:UAGithubNotificationResponse
+           withParameters:[NSDictionary dictionaryWithObjectsAndKeys:[VHUtils githubTimeStringFromDate:[NSDate date]], @"last_read_at", nil]
+                    error:nil];
+    } success:successBlock failure:failureBlock];
 }
 
 #pragma mark -

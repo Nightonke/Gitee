@@ -39,6 +39,15 @@
 - (void)markNotificationAsRead:(VHNotification *)notification;
 
 /**
+ This methods does:
+ 1. Delete the key-value model in notificationDic.
+ 2. Send a mark-all-as-read request to github.
+
+ @param repository repository
+ */
+- (void)markNotificationAsReadInRepository:(VHSimpleRepository *)repository;
+
+/**
  1. Delete the notification model in notificationDic.
  2. Send a unsubscribe request to github.
  3. Send a mark-as-read request to github.

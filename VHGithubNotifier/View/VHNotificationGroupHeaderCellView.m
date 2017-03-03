@@ -10,12 +10,14 @@
 #import "NSView+Position.h"
 #import "VHUtils+TransForm.h"
 #import "VHCursorButton.h"
+#import "VHGithubNotifierManager+Notification.h"
 
 static const CGFloat CORNER_RADIUS = 5;
 
 @interface VHNotificationGroupHeaderCellView ()
 
 @property (weak) IBOutlet VHCursorButton *title;
+@property (weak) IBOutlet NSTextField *notificationNumberLabel;
 @property (weak) IBOutlet VHCursorButton *readButton;
 
 @end
@@ -49,6 +51,19 @@ static const CGFloat CORNER_RADIUS = 5;
     self.readButton.toolTip = [NSString stringWithFormat:@"Mark all %@ notifications as read", self.repository.fullName];
 }
 
+- (void)setNotificationNumber:(NSUInteger)notificationNumber
+{
+    if (notificationNumber <= 0)
+    {
+        self.notificationNumberLabel.hidden = YES;
+    }
+    else
+    {
+        self.notificationNumberLabel.hidden = NO;
+        self.notificationNumberLabel.stringValue = [NSString stringWithFormat:@"%zd", notificationNumber];
+    }
+}
+
 - (void)drawRect:(NSRect)dirtyRect
 {
     [[VHUtils colorFromHexColorCodeInString:@"#d8d8d8"] set];
@@ -79,7 +94,7 @@ static const CGFloat CORNER_RADIUS = 5;
 
 - (IBAction)onReadButtonClicked:(id)sender
 {
-    
+    [[VHGithubNotifierManager sharedManager] markNotificationAsReadInRepository:self.repository];
 }
 
 @end

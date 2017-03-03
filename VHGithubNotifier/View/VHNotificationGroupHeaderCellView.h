@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) VHSimpleRepository *repository;
 
+- (void)setNotificationNumber:(NSUInteger)notificationNumber;
+
 @end

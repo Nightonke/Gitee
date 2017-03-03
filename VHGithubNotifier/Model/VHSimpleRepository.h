@@ -11,6 +11,8 @@
 @property (nonatomic, assign) long long repositoryId;
 @property (nonatomic, strong) NSString *fullName;
 @property (nonatomic, strong) NSString *htmlUrl;
+@property (nonatomic, strong) NSString *ownerName;
+@property (nonatomic, strong) NSString *name;
 
 - (instancetype)initFromResponseDictionary:(NSDictionary *)dic;
 

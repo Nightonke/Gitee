@@ -21,6 +21,9 @@
         _repositoryId = [VHUtils getIntegerFromDictionary:dic forKey:@"id" withDefault:-1];
         _fullName = [VHUtils getStringFromDictionaryWithDefaultNil:dic forKey:@"full_name"];
         _htmlUrl = [VHUtils getStringFromDictionaryWithDefaultNil:dic forKey:@"html_url"];
+        NSDictionary *userDic = [VHUtils getDicFromDictionaryWithDefaultNil:dic forKey:@"owner"];
+        _ownerName = [VHUtils getStringFromDictionaryWithDefaultNil:userDic forKey:@"login"];
+        _name = [VHUtils getStringFromDictionaryWithDefaultNil:dic forKey:@"name"];
     }
     return self;
 }
@@ -43,6 +46,8 @@
     repository.repositoryId = self.repositoryId;
     repository.fullName = [self.fullName copy];
     repository.htmlUrl = [self.htmlUrl copy];
+    repository.ownerName = [self.ownerName copy];
+    repository.name = [self.name copy];
     return repository;
 }
 

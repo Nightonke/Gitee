@@ -27,4 +27,6 @@
 
 + (NSImage *)imageFromNotificationType:(VHNotificationType)type;
 
++ (NSString *)githubTimeStringFromDate:(NSDate *)date;
+
 @end
