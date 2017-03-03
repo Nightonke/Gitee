@@ -20,6 +20,7 @@ static NSTimer *notificationTimer;
 static NSDictionary<VHSimpleRepository *, NSArray<VHNotification *> *> *notificationDic;
 static NSDictionary<VHSimpleRepository *, NSArray<VHNotification *> *> *backupNotificationDic;
 static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
+static NSUInteger notificationNumber;
 
 @implementation VHGithubNotifierManager (Notification)
 
@@ -58,6 +59,11 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
 - (NSDictionary<VHSimpleRepository *, NSArray<VHNotification *> *> *)notificationDic
 {
     return notificationDic;
+}
+
+- (NSUInteger)notificationNumber
+{
+    return notificationNumber;
 }
 
 - (VHLoadStateType)notificationLoadState
@@ -101,6 +107,21 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
     NOTIFICATION_POST(kNotifyNotificationsChanged);
 }
 
+- (void)markAllNotificationAsRead
+{
+    MUST_IN_MAIN_THREAD;
+    
+    // 1. Send a mark-all-as-read request to github for all repositories.
+    [notificationDic enumerateKeysAndObjectsUsingBlock:^(VHSimpleRepository * _Nonnull repository, NSArray<VHNotification *> * _Nonnull notifications, BOOL * _Nonnull stop) {
+        [self sendRequestToMarkAsReadInRepository:repository];
+    }];
+    
+    // 2. Clear notificationDic
+    notificationDic = [NSDictionary dictionary];
+    
+    NOTIFICATION_POST(kNotifyNotificationsChanged);
+}
+
 - (void)unsubscribeThread:(VHNotification *)notification
 {
     MUST_IN_MAIN_THREAD;
@@ -135,6 +156,14 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
     });
 }
 
+- (void)calculateNotificationNumber
+{
+    notificationNumber = 0;
+    [notificationDic enumerateKeysAndObjectsUsingBlock:^(VHSimpleRepository * _Nonnull repository, NSArray<VHNotification *> * _Nonnull notifications, BOOL * _Nonnull stop) {
+        notificationNumber += notifications.count;
+    }];
+}
+
 - (void)innerRequestHtmlUrlForEachNotification
 {
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
@@ -144,6 +173,7 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
         {
             NotificationLog(@"Update notification successfully");
             notificationLoadState = VHLoadStateTypeLoadSuccessfully;
+            [self calculateNotificationNumber];
             NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyNotificationsLoadedSuccessfully);
             [self remindNotificatons];
         }

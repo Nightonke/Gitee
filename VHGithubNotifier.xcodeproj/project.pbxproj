@@ -172,6 +172,8 @@
 		373BA6EF1E68888100653C92 /* VHWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 373BA6ED1E68888100653C92 /* VHWindow.m */; };
 		373BA6F21E68893800653C92 /* VHUserNotificationWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 373BA6F11E68893800653C92 /* VHUserNotificationWindow.m */; };
 		373BA6F41E6959C600653C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 373BA6F31E6959C600653C92 /* Assets.xcassets */; };
+		373BA6F71E6993CD00653C92 /* VHNotificationHeaderCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373BA6F61E6993CD00653C92 /* VHNotificationHeaderCellView.m */; };
+		373BA6F91E6993FA00653C92 /* VHNotificationHeaderCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373BA6F81E6993FA00653C92 /* VHNotificationHeaderCellView.xib */; };
 		373CF0461E62F79200711296 /* VHLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0451E62F79200711296 /* VHLog.m */; };
 		373CF04A1E644B3A00711296 /* VHNotificationGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0491E644B3A00711296 /* VHNotificationGroupView.m */; };
 		373CF0631E652E5600711296 /* NSArray+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF04F1E652E5600711296 /* NSArray+Utilities.m */; };
@@ -480,6 +482,9 @@
 		373BA6F01E68893800653C92 /* VHUserNotificationWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHUserNotificationWindow.h; sourceTree = "<group>"; };
 		373BA6F11E68893800653C92 /* VHUserNotificationWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHUserNotificationWindow.m; sourceTree = "<group>"; };
 		373BA6F31E6959C600653C92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		373BA6F51E6993CD00653C92 /* VHNotificationHeaderCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHNotificationHeaderCellView.h; sourceTree = "<group>"; };
+		373BA6F61E6993CD00653C92 /* VHNotificationHeaderCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHNotificationHeaderCellView.m; sourceTree = "<group>"; };
+		373BA6F81E6993FA00653C92 /* VHNotificationHeaderCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHNotificationHeaderCellView.xib; sourceTree = "<group>"; };
 		373CF0451E62F79200711296 /* VHLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHLog.m; sourceTree = "<group>"; };
 		373CF0471E62F79A00711296 /* VHLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHLog.h; sourceTree = "<group>"; };
 		373CF0481E644B3A00711296 /* VHNotificationGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHNotificationGroupView.h; sourceTree = "<group>"; };
@@ -1219,6 +1224,9 @@
 				379E09B51E659AD80032EB7E /* VHNotificationGroupBodyCellView.h */,
 				379E09B61E659AD80032EB7E /* VHNotificationGroupBodyCellView.m */,
 				379E09BA1E659B240032EB7E /* VHNotificationGroupBodyCellView.xib */,
+				373BA6F51E6993CD00653C92 /* VHNotificationHeaderCellView.h */,
+				373BA6F61E6993CD00653C92 /* VHNotificationHeaderCellView.m */,
+				373BA6F81E6993FA00653C92 /* VHNotificationHeaderCellView.xib */,
 				375A7E251E668707001A2A3B /* VHCursorButton.h */,
 				375A7E261E668707001A2A3B /* VHCursorButton.m */,
 			);
@@ -1345,6 +1353,7 @@
 				3749CDDB1E59B42A0083CEB1 /* VHNotificationVC.xib in Resources */,
 				378E0B291E0FEEE50033CBD5 /* VHBasicInfoView.xib in Resources */,
 				373185F61E5DDB5B00926F4F /* VHTrendingRepositoryCellView.xib in Resources */,
+				373BA6F91E6993FA00653C92 /* VHNotificationHeaderCellView.xib in Resources */,
 				373BA6F41E6959C600653C92 /* Assets.xcassets in Resources */,
 				379E09BB1E659B240032EB7E /* VHNotificationGroupBodyCellView.xib in Resources */,
 				3731879B1E61D95200926F4F /* Info.plist in Resources */,
@@ -1608,6 +1617,7 @@
 				373CF06C1E652E5600711296 /* UAReachability.m in Sources */,
 				373187531E61D95200926F4F /* BarHighlighter.swift in Sources */,
 				3748DF831E2CE3E900507D9C /* VHDateValueFormatter.m in Sources */,
+				373BA6F71E6993CD00653C92 /* VHNotificationHeaderCellView.m in Sources */,
 				3731875E1E61D95200926F4F /* BarLineScatterCandleBubbleChartDataProvider.swift in Sources */,
 				3731871A1E61D95200926F4F /* ComponentBase.swift in Sources */,
 				373187331E61D95200926F4F /* CombinedChartData.swift in Sources */,

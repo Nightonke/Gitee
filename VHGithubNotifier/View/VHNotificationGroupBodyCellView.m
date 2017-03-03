@@ -46,16 +46,16 @@ static const CGFloat CORNER_RADIUS = 5;
     self.title.title = _notification.title;
     if ([VHUtils widthOfString:_notification.title withFont:self.title.font] > self.title.width)
     {
-        
+        self.title.toolTip = [NSString stringWithFormat:@"%@  %@", _notification.title, [VHUtils timeStringToNowFromTime:self.notification.updateDate]];
     }
     else
     {
         CGFloat height = self.title.height;
         [self.title sizeToFit];
         [self.title setHeight:height];
+        self.title.toolTip = [NSString stringWithFormat:@"%@", [VHUtils timeStringToNowFromTime:self.notification.updateDate]];
     }
     
-    self.title.toolTip = _notification.title;
     self.subscribeButton.toolTip = @"Unsubscribe from this thread";
     self.readButton.toolTip = @"Mark as read";
 }

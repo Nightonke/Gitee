@@ -19,6 +19,8 @@
 
 - (NSDictionary<VHSimpleRepository *, NSArray<VHNotification *> *> *)notificationDic;
 
+- (NSUInteger)notificationNumber;
+
 - (VHLoadStateType)notificationLoadState;
 
 /**
@@ -46,6 +48,11 @@
  @param repository repository
  */
 - (void)markNotificationAsReadInRepository:(VHSimpleRepository *)repository;
+
+/**
+ This methods does 'markNotificationAsReadInRepository' as a loop for all repositories in notificationDic.
+ */
+- (void)markAllNotificationAsRead;
 
 /**
  1. Delete the notification model in notificationDic.

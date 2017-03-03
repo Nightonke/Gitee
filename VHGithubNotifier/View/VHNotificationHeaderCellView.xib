@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16C68" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="VHNotificationHeaderCellView">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="46"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="dFl-PR-11A" customClass="VHCursorButton">
+                    <rect key="frame" x="358" y="12" width="12" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="12" id="9eh-Ko-slA"/>
+                        <constraint firstAttribute="width" constant="12" id="gpU-FU-R1U"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_read" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="CfQ-ug-mCx">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onReadButtonClicked:" target="c22-O7-iKe" id="77x-Md-IfR"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bNK-rC-AFq">
+                    <rect key="frame" x="18" y="9" width="332" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="328" id="Guf-1J-Fa9"/>
+                        <constraint firstAttribute="height" constant="19" id="ojM-Zz-wj5"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="emz-f1-jtb">
+                        <font key="font" metaFont="system" size="15"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="dFl-PR-11A" secondAttribute="bottom" constant="12" id="6r4-s4-JKZ"/>
+                <constraint firstAttribute="trailing" secondItem="dFl-PR-11A" secondAttribute="trailing" constant="30" id="Avp-2e-ra4"/>
+                <constraint firstItem="bNK-rC-AFq" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="18" id="vgy-Ln-atG"/>
+                <constraint firstItem="bNK-rC-AFq" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="zmd-BI-JXq"/>
+            </constraints>
+            <accessibility identifier="VHNotificationHeaderCellView"/>
+            <connections>
+                <outlet property="notificationTip" destination="bNK-rC-AFq" id="bkW-6N-uX4"/>
+                <outlet property="readButton" destination="dFl-PR-11A" id="rOn-t7-toq"/>
+            </connections>
+        </customView>
+    </objects>
+    <resources>
+        <image name="icon_read" width="48" height="48"/>
+    </resources>
+</document>

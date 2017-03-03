@@ -12,6 +12,7 @@
 #import "NSArray+Safe.h"
 #import "VHNotificationGroupHeaderCellView.h"
 #import "VHNotificationGroupBodyCellView.h"
+#import "VHNotificationHeaderCellView.h"
 
 @interface VHNotificationVC ()<NSTableViewDelegate, NSTableViewDataSource, VHStateViewDelegate>
 
@@ -44,6 +45,8 @@
                   forIdentifier:@"VHNotificationGroupHeaderCellView"];
     [self.tableView registerNib:[[NSNib alloc] initWithNibNamed:@"VHNotificationGroupBodyCellView" bundle:nil]
                   forIdentifier:@"VHNotificationGroupBodyCellView"];
+    [self.tableView registerNib:[[NSNib alloc] initWithNibNamed:@"VHNotificationHeaderCellView" bundle:nil]
+                  forIdentifier:@"VHNotificationHeaderCellView"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleNone];
@@ -106,7 +109,17 @@
 - (void)onNotifyNotificationsChanged:(NSNotification *)notification
 {
     [self createDataArray];
-    [self.tableView reloadData];
+    if (self.dataArray.count == 0)
+    {
+        [self.stateView setState:VHStateViewStateTypeEmpty];
+        [self.scrollView setHidden:YES];
+    }
+    else
+    {
+        [self.stateView setState:VHStateViewStateTypeLoadSuccessfully];
+        [self.scrollView setHidden:NO];
+        [self.tableView reloadData];
+    }
 }
 
 #pragma mark - VHStateViewDelegate
@@ -120,7 +133,7 @@
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
-    return self.dataArray.count;
+    return self.dataArray.count + 1;
 }
 
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
@@ -129,10 +142,10 @@
     {
         return 46;
     }
-    VHSimpleRepository *repository = SAFE_CAST([self.dataArray safeObjectAtIndex:row], [VHSimpleRepository class]);
+    VHSimpleRepository *repository = SAFE_CAST([self.dataArray safeObjectAtIndex:row - 1], [VHSimpleRepository class]);
     if (repository)
     {
-        return 60;
+        return 46;
     }
     else
     {
@@ -142,9 +155,15 @@
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    VHSimpleRepository *repository = SAFE_CAST([self.dataArray safeObjectAtIndex:row], [VHSimpleRepository class]);
-    VHNotification *notification = SAFE_CAST([self.dataArray safeObjectAtIndex:row], [VHNotification class]);
-    NSNumber *isLastBody = SAFE_CAST([self.isLastBody safeObjectAtIndex:row], [NSNumber class]);
+    if (row == 0)
+    {
+        VHNotificationHeaderCellView *cell = [tableView makeViewWithIdentifier:@"VHNotificationHeaderCellView" owner:self];
+        [cell setNotificationNumber:[[VHGithubNotifierManager sharedManager] notificationNumber]];
+        return cell;
+    }
+    VHSimpleRepository *repository = SAFE_CAST([self.dataArray safeObjectAtIndex:row - 1], [VHSimpleRepository class]);
+    VHNotification *notification = SAFE_CAST([self.dataArray safeObjectAtIndex:row - 1], [VHNotification class]);
+    NSNumber *isLastBody = SAFE_CAST([self.isLastBody safeObjectAtIndex:row - 1], [NSNumber class]);
     if (repository)
     {
         VHNotificationGroupHeaderCellView *cell = [tableView makeViewWithIdentifier:@"VHNotificationGroupHeaderCellView" owner:self];
