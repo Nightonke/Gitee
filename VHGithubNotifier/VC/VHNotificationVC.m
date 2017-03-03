@@ -35,6 +35,9 @@
     [self addNotifications];
     
     self.stateView.delegate = self;
+    [self.stateView setLoadingText:@"Loading notifications..."];
+    [self.stateView setEmptyText:@"No new notifications"];
+    [self.stateView setEmptyImage:@"image_empty_notification"];
     [self setUIState];
     
     [self.tableView registerNib:[[NSNib alloc] initWithNibNamed:@"VHNotificationGroupHeaderCellView" bundle:nil]
@@ -78,11 +81,19 @@
 
 - (void)onNotifyNotificationsLoadedSuccessfully:(NSNotification *)notification
 {
-    [self.stateView setState:VHStateViewStateTypeLoadSuccessfully];
-    [self.scrollView setHidden:NO];
     [self createDataArray];
-    [self.tableView reloadData];
-    [self.scrollView.documentView scrollPoint:NSMakePoint(0, 0)];
+    if (self.dataArray.count == 0)
+    {
+        [self.stateView setState:VHStateViewStateTypeEmpty];
+        [self.scrollView setHidden:YES];
+    }
+    else
+    {
+        [self.stateView setState:VHStateViewStateTypeLoadSuccessfully];
+        [self.scrollView setHidden:NO];
+        [self.tableView reloadData];
+        [self.scrollView.documentView scrollPoint:NSMakePoint(0, 0)];        
+    }
 }
 
 - (void)onNotifyNotificationsLoadedFailed:(NSNotification *)notification

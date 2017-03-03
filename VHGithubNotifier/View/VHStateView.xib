@@ -7,10 +7,10 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="VHStateView">
             <connections>
+                <outlet property="button" destination="3xw-Yy-BNS" id="cBg-lh-0C7"/>
+                <outlet property="image" destination="g22-1S-3aT" id="sgW-4h-qZp"/>
+                <outlet property="label" destination="XrM-F5-tuJ" id="Nej-eN-Mcl"/>
                 <outlet property="progress" destination="qb8-WV-xqu" id="Xlh-9s-U4u"/>
-                <outlet property="retryButton" destination="3xw-Yy-BNS" id="BrA-Pe-Ygw"/>
-                <outlet property="retryImage" destination="g22-1S-3aT" id="CM2-g4-bBh"/>
-                <outlet property="retryLabel" destination="XrM-F5-tuJ" id="W4l-6V-QwL"/>
                 <outlet property="view" destination="c22-O7-iKe" id="ltO-LL-8de"/>
             </connections>
         </customObject>
@@ -21,17 +21,13 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="qb8-WV-xqu">
-                    <rect key="frame" x="142" y="52" width="16" height="16"/>
+                    <rect key="frame" x="142" y="70" width="16" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </progressIndicator>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g22-1S-3aT">
-                    <rect key="frame" x="150" y="72" width="0.0" height="0.0"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="X3a-3g-3Dy"/>
-                </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XrM-F5-tuJ">
                     <rect key="frame" x="-2" y="53" width="304" height="14"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="6iF-1t-Zg4">
-                        <font key="font" metaFont="system" size="11"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -43,17 +39,25 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="onRetryButtonClicked:" target="-2" id="N70-OH-Akm"/>
+                        <action selector="onButtonClicked:" target="-2" id="WAI-Kw-ZIb"/>
                     </connections>
                 </button>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g22-1S-3aT">
+                    <rect key="frame" x="125" y="58" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="8Qb-mj-r3T"/>
+                        <constraint firstAttribute="width" constant="50" id="zMS-ce-Vo9"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="X3a-3g-3Dy"/>
+                </imageView>
             </subviews>
             <constraints>
-                <constraint firstItem="XrM-F5-tuJ" firstAttribute="top" secondItem="g22-1S-3aT" secondAttribute="bottom" constant="5" id="0NE-qp-7X4"/>
                 <constraint firstItem="3xw-Yy-BNS" firstAttribute="top" secondItem="XrM-F5-tuJ" secondAttribute="bottom" constant="5" id="Ile-zq-98u"/>
+                <constraint firstItem="g22-1S-3aT" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="12" id="KdC-IM-aEm"/>
                 <constraint firstItem="XrM-F5-tuJ" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="TCD-H4-JZt"/>
+                <constraint firstItem="g22-1S-3aT" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="ZLC-3d-MLo"/>
                 <constraint firstItem="XrM-F5-tuJ" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="eX5-pm-rhr"/>
                 <constraint firstItem="XrM-F5-tuJ" firstAttribute="width" secondItem="c22-O7-iKe" secondAttribute="width" id="jLw-e9-Jfs"/>
-                <constraint firstItem="g22-1S-3aT" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="koA-26-Kxe"/>
                 <constraint firstItem="3xw-Yy-BNS" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="txO-Xd-BWS"/>
             </constraints>
         </customView>

@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icon_error.png",
+      "filename" : "image_empty_notification.png",
       "scale" : "1x"
     },
     {

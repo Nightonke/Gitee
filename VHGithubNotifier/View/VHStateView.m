@@ -12,10 +12,14 @@
 @interface VHStateView ()
 
 @property (weak) IBOutlet NSProgressIndicator *progress;
-@property (weak) IBOutlet NSButton *retryButton;
-@property (weak) IBOutlet NSImageView *retryImage;
-@property (weak) IBOutlet NSTextField *retryLabel;
+@property (weak) IBOutlet NSButton *button;
+@property (weak) IBOutlet NSImageView *image;
+@property (weak) IBOutlet NSTextField *label;
 
+@property (nonatomic, strong) NSString *retryText;
+@property (nonatomic, strong) NSString *emptyImage;
+@property (nonatomic, strong) NSString *emptyText;
+@property (nonatomic, strong) NSString *loadingText;
 
 @end
 
@@ -36,10 +40,13 @@
             
             [_progress startAnimation:nil];
             
-            _retryImage.image = [NSImage imageNamed:@"icon_error"];
-            _retryImage.imageScaling = NSImageScaleAxesIndependently;
+            _image.imageScaling = NSImageScaleAxesIndependently;
+            _label.alignment = NSTextAlignmentCenter;
             
-            _retryLabel.alignment = NSTextAlignmentCenter;
+            _retryText = @"";
+            _emptyImage = @"icon_error";
+            _emptyText = @"";
+            _loadingText = @"Loading...";
             
             [self setState:VHStateViewStateTypeLoading];
         }
@@ -48,7 +55,7 @@
     return nil;
 }
 
-- (IBAction)onRetryButtonClicked:(id)sender
+- (IBAction)onButtonClicked:(id)sender
 {
     [self setState:VHStateViewStateTypeLoading];
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(onRetryButtonClicked)])
@@ -64,31 +71,83 @@
     {
         case VHStateViewStateTypeLoading:
             self.progress.hidden = NO;
-            self.retryImage.hidden = YES;
-            self.retryLabel.hidden = YES;
-            self.retryButton.hidden = YES;
+            self.image.hidden = YES;
+            self.label.hidden = NO;
+            self.label.stringValue = self.loadingText;
+            self.button.hidden = YES;
             self.hidden = NO;
             break;
         case VHStateViewStateTypeLoadFailed:
             self.progress.hidden = YES;
-            self.retryImage.hidden = NO;
-            self.retryLabel.hidden = NO;
-            self.retryButton.hidden = NO;
+            self.image.hidden = NO;
+            self.image.image = [NSImage imageNamed:@"icon_error"];
+            self.label.hidden = NO;
+            self.label.stringValue = self.retryText;
+            self.button.hidden = NO;
             self.hidden = NO;
             break;
         case VHStateViewStateTypeLoadSuccessfully:
             self.progress.hidden = YES;
-            self.retryImage.hidden = YES;
-            self.retryLabel.hidden = YES;
-            self.retryButton.hidden = YES;
+            self.image.hidden = YES;
+            self.label.hidden = YES;
+            self.button.hidden = YES;
             self.hidden = YES;
+            break;
+        case VHStateViewStateTypeEmpty:
+            self.progress.hidden = YES;
+            self.image.hidden = NO;
+            self.image.image = [NSImage imageNamed:self.emptyImage];
+            self.label.hidden = NO;
+            self.label.stringValue = self.emptyText;
+            self.button.hidden = YES;
+            self.hidden = NO;
             break;
     }
 }
 
 - (void)setRetryText:(NSString *)retryText
 {
-    [self.retryLabel setStringValue:retryText];
+    if (retryText)
+    {
+        _retryText = retryText;
+        [self.label setStringValue:retryText];
+    }
+    else
+    {
+        NSAssert(NO, @"Retry text is null!");
+    }
+}
+
+- (void)setEmptyText:(NSString *)emptyText
+{
+    if (emptyText)
+    {
+        _emptyText = emptyText;
+        [self.label setStringValue:emptyText];
+    }
+    else
+    {
+        NSAssert(NO, @"Empty text is null!");
+    }
+}
+
+- (void)setLoadingText:(NSString *)loadingText
+{
+    if (loadingText)
+    {
+        _loadingText = loadingText;
+        [self.label setStringValue:loadingText];
+    }
+    else
+    {
+        NSAssert(NO, @"Loading text is null!");
+    }
+}
+
+- (void)setEmptyImage:(NSString *)emptyImage
+{
+    _emptyImage = emptyImage;
+    [self setState:self.state];
 }
 
 @end

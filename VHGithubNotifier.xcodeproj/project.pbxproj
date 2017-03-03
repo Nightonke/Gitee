@@ -171,6 +171,7 @@
 		373B96F61E62D9E500AD8E92 /* VHGithubNotifierManager+Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 373B96F51E62D9E500AD8E92 /* VHGithubNotifierManager+Notification.m */; };
 		373BA6EF1E68888100653C92 /* VHWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 373BA6ED1E68888100653C92 /* VHWindow.m */; };
 		373BA6F21E68893800653C92 /* VHUserNotificationWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 373BA6F11E68893800653C92 /* VHUserNotificationWindow.m */; };
+		373BA6F41E6959C600653C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 373BA6F31E6959C600653C92 /* Assets.xcassets */; };
 		373CF0461E62F79200711296 /* VHLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0451E62F79200711296 /* VHLog.m */; };
 		373CF04A1E644B3A00711296 /* VHNotificationGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0491E644B3A00711296 /* VHNotificationGroupView.m */; };
 		373CF0631E652E5600711296 /* NSArray+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF04F1E652E5600711296 /* NSArray+Utilities.m */; };
@@ -224,7 +225,6 @@
 		378CE76A1E1DF6AB00235E5F /* VHGithubNotifierManager+Realm.m in Sources */ = {isa = PBXBuildFile; fileRef = 378CE7691E1DF6AB00235E5F /* VHGithubNotifierManager+Realm.m */; };
 		378E0AE01E0ECD070033CBD5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0ADF1E0ECD070033CBD5 /* AppDelegate.m */; };
 		378E0AE31E0ECD070033CBD5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0AE21E0ECD070033CBD5 /* main.m */; };
-		378E0AE81E0ECD070033CBD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378E0AE71E0ECD070033CBD5 /* Assets.xcassets */; };
 		378E0AEB1E0ECD070033CBD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378E0AE91E0ECD070033CBD5 /* Main.storyboard */; };
 		378E0B231E0FEEA10033CBD5 /* VHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0B171E0FEEA10033CBD5 /* VHUtils.m */; };
 		378E0B251E0FEEA10033CBD5 /* NSView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0B1D1E0FEEA10033CBD5 /* NSView+Position.m */; };
@@ -479,6 +479,7 @@
 		373BA6EE1E68888100653C92 /* VHWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHWindow.h; sourceTree = "<group>"; };
 		373BA6F01E68893800653C92 /* VHUserNotificationWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHUserNotificationWindow.h; sourceTree = "<group>"; };
 		373BA6F11E68893800653C92 /* VHUserNotificationWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHUserNotificationWindow.m; sourceTree = "<group>"; };
+		373BA6F31E6959C600653C92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		373CF0451E62F79200711296 /* VHLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHLog.m; sourceTree = "<group>"; };
 		373CF0471E62F79A00711296 /* VHLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHLog.h; sourceTree = "<group>"; };
 		373CF0481E644B3A00711296 /* VHNotificationGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHNotificationGroupView.h; sourceTree = "<group>"; };
@@ -582,7 +583,6 @@
 		378E0ADE1E0ECD070033CBD5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		378E0ADF1E0ECD070033CBD5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		378E0AE21E0ECD070033CBD5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		378E0AE71E0ECD070033CBD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		378E0AEA1E0ECD070033CBD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		378E0AEC1E0ECD070033CBD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		378E0AF91E0EE9D00033CBD5 /* VHDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHDefines.h; sourceTree = "<group>"; };
@@ -1068,8 +1068,8 @@
 				378E0AF91E0EE9D00033CBD5 /* VHDefines.h */,
 				378E0AFA1E0EE9EC0033CBD5 /* VHGithubNotifier+Prefix.pch */,
 				378E0AFB1E0EF3560033CBD5 /* VHGithubNotifierNotifications.h */,
-				378E0AE71E0ECD070033CBD5 /* Assets.xcassets */,
 				378E0AE91E0ECD070033CBD5 /* Main.storyboard */,
+				373BA6F31E6959C600653C92 /* Assets.xcassets */,
 				378E0AEC1E0ECD070033CBD5 /* Info.plist */,
 				378E0AE11E0ECD070033CBD5 /* Supporting Files */,
 			);
@@ -1341,11 +1341,11 @@
 			files = (
 				37531A441E14366800C3EB64 /* VHProfileVC.xib in Resources */,
 				3749CDCF1E59B27C0083CEB1 /* VHPieVC.xib in Resources */,
-				378E0AE81E0ECD070033CBD5 /* Assets.xcassets in Resources */,
 				37E7CD011E5C5D2D00BA8BA9 /* VHStateView.xib in Resources */,
 				3749CDDB1E59B42A0083CEB1 /* VHNotificationVC.xib in Resources */,
 				378E0B291E0FEEE50033CBD5 /* VHBasicInfoView.xib in Resources */,
 				373185F61E5DDB5B00926F4F /* VHTrendingRepositoryCellView.xib in Resources */,
+				373BA6F41E6959C600653C92 /* Assets.xcassets in Resources */,
 				379E09BB1E659B240032EB7E /* VHNotificationGroupBodyCellView.xib in Resources */,
 				3731879B1E61D95200926F4F /* Info.plist in Resources */,
 				37298F3B1E27EEEC003810E8 /* VHTrendVC.xib in Resources */,

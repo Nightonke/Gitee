@@ -11,6 +11,7 @@ typedef NS_ENUM(NSUInteger, VHStateViewStateType)
     VHStateViewStateTypeLoading          = 1,
     VHStateViewStateTypeLoadFailed       = 2,
     VHStateViewStateTypeLoadSuccessfully = 3,
+    VHStateViewStateTypeEmpty            = 4,
 };
 
 @protocol VHStateViewDelegate <NSObject>
@@ -29,5 +30,11 @@ typedef NS_ENUM(NSUInteger, VHStateViewStateType)
 @property (nonatomic, weak) id<VHStateViewDelegate> delegate;
 
 - (void)setRetryText:(NSString *)retryText;
+
+- (void)setEmptyText:(NSString *)emptyText;
+
+- (void)setLoadingText:(NSString *)loadingText;
+
+- (void)setEmptyImage:(NSString *)emptyImage;
 
 @end

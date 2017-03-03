@@ -55,6 +55,9 @@
     [self addNotifications];
     
     self.stateView.delegate = self;
+    [self.stateView setLoadingText:@"Loading trending..."];
+    [self.stateView setEmptyImage:@"icon_empty_trending"];
+    [self.stateView setEmptyText:@"Trending repositories are currently being dissected"];
     [self setUIState];
     
     [self.tableView registerNib:[[NSNib alloc] initWithNibNamed:@"VHTrendingRepositoryCellView" bundle:nil]
@@ -174,12 +177,20 @@
 
 - (void)onNotifyTrendingLoadedSuccessfully:(NSNotification *)notification
 {
-    [self.stateView setState:VHStateViewStateTypeLoadSuccessfully];
-    [self.languagePopupButton setHidden:NO];
-    [self.timePopupButton setHidden:NO];
-    [self.scrollView setHidden:NO];
-    [self.tableView reloadData];
-    [self.scrollView.documentView scrollPoint:NSMakePoint(0, 0)];
+    if ([VHGithubNotifierManager sharedManager].trendingRepositories.count == 0)
+    {
+        [self.stateView setState:VHStateViewStateTypeEmpty];
+        [self.scrollView setHidden:YES];
+    }
+    else
+    {
+        [self.stateView setState:VHStateViewStateTypeLoadSuccessfully];
+        [self.languagePopupButton setHidden:NO];
+        [self.timePopupButton setHidden:NO];
+        [self.scrollView setHidden:NO];
+        [self.tableView reloadData];
+        [self.scrollView.documentView scrollPoint:NSMakePoint(0, 0)];
+    }
 }
 
 - (void)onNotifyTrendingLoadedFailed:(NSNotification *)notification
