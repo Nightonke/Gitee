@@ -7,10 +7,12 @@
 //
 
 #import "VHGithubNotifierManager+UserNotification.h"
+#import "VHGithubNotifierManager+Realm.h"
 #import "NSMutableArray+Queue.h"
 #import "VHUtils.h"
 #import "CNUserNotification.h"
 #import "VHUtils+TransForm.h"
+#import "VHNotificationRecord.h"
 
 static NSMutableArray<CNUserNotification *> *userNotifications;
 
@@ -34,7 +36,9 @@ static NSMutableArray<CNUserNotification *> *userNotifications;
             userNotification.subtitle = notification.title;
             userNotification.informativeText = [notification toNowTimeString];
             userNotification.userInfo = @{@"type":@(VHGithubUserNotificationTypeNotification),
-                                          @"url":notification.htmlUrl};
+                                          @"url":notification.htmlUrl,
+                                          @"notificationId":@(notification.notificationId),
+                                          @"latestUpdateTime":notification.updateDate};
             userNotification.hasActionButton = NO;
             userNotification.feature.bannerImage = [VHUtils imageFromNotificationType:notification.type];
             [[self userNotifications] push:userNotification];
@@ -51,6 +55,7 @@ static NSMutableArray<CNUserNotification *> *userNotifications;
         CNUserNotification *userNotification = [[self userNotifications] pop];
         if (userNotification)
         {
+            [self storeRecordOfNotification:userNotification];
             [[CNUserNotificationCenter customUserNotificationCenter] deliverNotification:userNotification];
         }
     });
@@ -63,6 +68,25 @@ static NSMutableArray<CNUserNotification *> *userNotifications;
         userNotifications = [NSMutableArray array];
     }
     return userNotifications;
+}
+
+- (void)storeRecordOfNotification:(CNUserNotification *)userNotification
+{
+    dispatch_async(GLOBAL_QUEUE, ^{
+        @autoreleasepool
+        {
+            RLMRealm *realm = [self realm];
+            VHNotificationRecord *record = [[VHNotificationRecord alloc] init];
+            record.notificationId = [[userNotification.userInfo objectForKey:@"notificationId"] longLongValue];
+            record.latestUpdateTime = [userNotification.userInfo objectForKey:@"latestUpdateTime"];
+            if (record.notificationId != 0 && record.latestUpdateTime)
+            {
+                [realm beginWriteTransaction];
+                [realm addOrUpdateObject:record];
+                [realm commitWriteTransaction];
+            }
+        }
+    });
 }
 
 #pragma mark - NSUserNotificationCenterDelegate

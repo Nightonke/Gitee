@@ -208,6 +208,7 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
                     }
                 }
             }];
+            NotificationLog(@"Notifications need to remind: %@", notificatonsNeedToRemind);
             [self addNotifications:notificatonsNeedToRemind];
         }
     });

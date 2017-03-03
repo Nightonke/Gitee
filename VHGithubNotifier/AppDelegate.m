@@ -61,6 +61,10 @@
     // will automatically perform the migration
     [RLMRealm defaultRealm];
     
+//    NSURL *desktopUrl = [[NSFileManager defaultManager] URLForDirectory:NSDesktopDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:nil];
+//    NSURL *parentUrl = [desktopUrl URLByAppendingPathComponent:[NSString stringWithFormat:@"default.realm"]];
+//    [[RLMRealm defaultRealm] writeCopyToURL:parentUrl encryptionKey:nil error:nil];
+    
     [[VHGithubNotifierManager sharedManager] loadUser];
     [[VHGithubNotifierManager sharedManager] redirectLogToDocuments];
     [[VHGithubNotifierManager sharedManager] startTimerOfLanguage];
@@ -87,11 +91,6 @@
     [[VHGithubNotifierManager sharedManager] stopTimerOfLanguage];
     [[VHGithubNotifierManager sharedManager] stopTimerOfTrending];
     [[VHGithubNotifierManager sharedManager] stopTimerOfNotification];
-}
-
-- (void)applicationWillResignActive:(NSNotification *)notification
-{
-    SystemLog(@"applicationWillResignActive");
 }
 
 - (void)dealloc

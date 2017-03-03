@@ -176,21 +176,24 @@
     VHRecord *starRecord = [[VHRecord alloc] initWithNumber:_starNumber];
     RLMThreadSafeReference *starRecordRef = [RLMThreadSafeReference referenceWithThreadConfined:self.starRecords];
     dispatch_async(GLOBAL_QUEUE, ^{
-        RLMRealm *realm = [[VHGithubNotifierManager sharedManager] realm];
-        RLMArray<VHRecord *><VHRecord> *starRecords = [realm resolveThreadSafeReference:starRecordRef];
-        [realm beginWriteTransaction];
-        if ([starRecords count] == 0)
+        @autoreleasepool
         {
-            [starRecords addObject:starRecord];
-        }
-        else
-        {
-            if (starRecord.number != [starRecords lastObject].number)
+            RLMRealm *realm = [[VHGithubNotifierManager sharedManager] realm];
+            RLMArray<VHRecord *><VHRecord> *starRecords = [realm resolveThreadSafeReference:starRecordRef];
+            [realm beginWriteTransaction];
+            if ([starRecords count] == 0)
             {
                 [starRecords addObject:starRecord];
             }
+            else
+            {
+                if (starRecord.number != [starRecords lastObject].number)
+                {
+                    [starRecords addObject:starRecord];
+                }
+            }
+            [realm commitWriteTransaction];
         }
-        [realm commitWriteTransaction];
     });
 }
 
