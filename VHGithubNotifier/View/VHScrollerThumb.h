@@ -26,6 +26,8 @@ typedef NS_ENUM(NSUInteger, VHDragDirectionType)
 @property (nonatomic, assign) VHDragDirectionType dragDirection;
 @property (nonatomic, weak) id<VHScrollerThumbDelegate> delegate;
 
-- (instancetype)initWithFrame:(NSRect)frameRect withImageName:(NSString *)imageName;
+- (instancetype)initWithFrame:(NSRect)frameRect
+                withImageName:(NSString *)imageName
+         withPressedImageName:(NSString *)pressedImageName;
 
 @end

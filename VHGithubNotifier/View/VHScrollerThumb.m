@@ -7,6 +7,7 @@
 //
 
 #import "VHScrollerThumb.h"
+#import "NSView+Position.h"
 
 @interface VHScrollerThumb ()
 
@@ -14,17 +15,26 @@
 @property (nonatomic, assign) CGFloat maxX;
 @property (nonatomic, assign) CGFloat maxY;
 
+@property (nonatomic, strong) NSString *imageName;
+@property (nonatomic, strong) NSString *pressedImageName;
+
+@property (nonatomic, assign) BOOL mouseDown;
+
 @end
 
 @implementation VHScrollerThumb
 
-- (instancetype)initWithFrame:(NSRect)frameRect withImageName:(NSString *)imageName
+- (instancetype)initWithFrame:(NSRect)frameRect
+                withImageName:(NSString *)imageName
+         withPressedImageName:(NSString *)pressedImageName
 {
     self = [super initWithFrame:frameRect];
     if (self)
     {
-        [self setImage:[NSImage imageNamed:imageName]];
         _dragDirection = VHDragDirectionTypeVertical;
+        _imageName = imageName;
+        _pressedImageName = pressedImageName;
+        [self setImage:[NSImage imageNamed:_imageName]];
     }
     return self;
 }
@@ -39,41 +49,60 @@
 - (void)mouseDown:(NSEvent *)event
 {
     // Convert to superview's coordinate space
-    self.lastDragLocation = [[self superview] convertPoint:[event locationInWindow] fromView:nil];
+    self.lastDragLocation = [[self window] convertRectToScreen:CGRectMake(event.locationInWindow.x, event.locationInWindow.y, 0, 0)].origin;
     self.maxX = [self superview].bounds.size.width - self.frame.size.width;
     self.maxY = [self superview].bounds.size.height - self.frame.size.height;
+    [self setImage:[NSImage imageNamed:self.pressedImageName]];
+    self.mouseDown = YES;
+    
+    while (1)
+    {
+        event = [[self window] nextEventMatchingMask: (NSLeftMouseDraggedMask | NSLeftMouseUpMask)];
+        
+        NSPoint newDragLocation = [[self window] convertRectToScreen:CGRectMake(event.locationInWindow.x, event.locationInWindow.y, 0, 0)].origin;
+
+        NSPoint thisOrigin = [self frame].origin;
+        
+        switch (self.dragDirection)
+        {
+            case VHDragDirectionTypeNeither:
+                break;
+            case VHDragDirectionTypeHorizontal:
+                thisOrigin.x += (-self.lastDragLocation.x + newDragLocation.x);
+                break;
+            case VHDragDirectionTypeVertical:
+                thisOrigin.y += (-self.lastDragLocation.y + newDragLocation.y);
+                break;
+            case VHDragDirectionTypeBoth:
+                thisOrigin.x += (-self.lastDragLocation.x + newDragLocation.x);
+                thisOrigin.y += (-self.lastDragLocation.y + newDragLocation.y);
+                break;
+        }
+        
+        thisOrigin.x = MIN(self.maxX, thisOrigin.x);
+        thisOrigin.x = MAX(0, thisOrigin.x);
+        thisOrigin.y = MIN(self.maxY, thisOrigin.y);
+        thisOrigin.y = MAX(0, thisOrigin.y);
+        [self setFrameOrigin:thisOrigin];
+        self.lastDragLocation = newDragLocation;
+        
+        [self updateProgress];
+        
+        if ([event type] == NSLeftMouseUp)
+        {
+            [self setImage:[NSImage imageNamed:self.imageName]];
+            self.mouseDown = NO;
+            break;
+        }
+    }
 }
 
-- (void)mouseDragged:(NSEvent *)event
+- (void)setY:(CGFloat)y
 {
-//    // We're working only in the superview's coordinate space, so we always convert.
-//    NSPoint newDragLocation = [[self superview] convertPoint:[event locationInWindow] fromView:nil];
-//    NSPoint thisOrigin = [self frame].origin;
-//    
-//    switch (self.dragDirection)
-//    {
-//        case VHDragDirectionTypeNeither:
-//            break;
-//        case VHDragDirectionTypeHorizontal:
-//            thisOrigin.x += (-self.lastDragLocation.x + newDragLocation.x);
-//            break;
-//        case VHDragDirectionTypeVertical:
-//            thisOrigin.y += (-self.lastDragLocation.y + newDragLocation.y);
-//            break;
-//        case VHDragDirectionTypeBoth:
-//            thisOrigin.x += (-self.lastDragLocation.x + newDragLocation.x);
-//            thisOrigin.y += (-self.lastDragLocation.y + newDragLocation.y);
-//            break;
-//    }
-//    
-//    thisOrigin.x = MIN(self.maxX, thisOrigin.x);
-//    thisOrigin.x = MAX(0, thisOrigin.x);
-//    thisOrigin.y = MIN(self.maxY, thisOrigin.y);
-//    thisOrigin.y = MAX(0, thisOrigin.y);
-//    [self setFrameOrigin:thisOrigin];
-//    self.lastDragLocation = newDragLocation;
-//    
-//    [self updateProgress];
+    if (self.mouseDown == NO)
+    {
+        [super setY:y];
+    }
 }
 
 - (void)updateProgress

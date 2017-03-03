@@ -11,6 +11,7 @@
 - (instancetype)initWithFrame:(NSRect)frameRect
                withImageFrame:(NSRect)imageFrame
                 withImageName:(NSString *)imageName
+         withPressedImageName:(NSString *)pressedImageName
                withScrollView:(NSScrollView *)scrollView;
 
 @end

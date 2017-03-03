@@ -26,12 +26,13 @@
 - (instancetype)initWithFrame:(NSRect)frameRect
                withImageFrame:(NSRect)imageFrame
                 withImageName:(NSString *)imageName
+         withPressedImageName:(NSString *)pressedImageName
                withScrollView:(NSScrollView *)scrollView
 {
     self = [super initWithFrame:frameRect];
     if (self)
     {
-        _thumb = [[VHScrollerThumb alloc] initWithFrame:imageFrame withImageName:imageName];
+        _thumb = [[VHScrollerThumb alloc] initWithFrame:imageFrame withImageName:imageName withPressedImageName:pressedImageName];
         _thumb.delegate = self;
         [self addSubview:_thumb];
         
@@ -79,8 +80,9 @@
     CGFloat now = self.scrollView.contentView.bounds.origin.y;
     CGFloat maxY = self.height - self.thumb.height;
     CGFloat minY = 0;
+    CGFloat process = MIN(1, MAX(0, (1 - now / max)));
     
-    [self.thumb setY:(1 - now / max) * (maxY - minY)];
+    [self.thumb setY:process * (maxY - minY)];
 }
 
 - (void)disappear

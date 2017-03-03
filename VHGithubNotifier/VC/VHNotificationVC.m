@@ -13,12 +13,15 @@
 #import "VHNotificationGroupHeaderCellView.h"
 #import "VHNotificationGroupBodyCellView.h"
 #import "VHNotificationHeaderCellView.h"
+#import "VHScroller.h"
+#import "NSView+Position.h"
 
 @interface VHNotificationVC ()<NSTableViewDelegate, NSTableViewDataSource, VHStateViewDelegate>
 
 @property (weak) IBOutlet NSScrollView *scrollView;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet VHStateView *stateView;
+@property (nonatomic, strong) VHScroller *scroller;
 
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) NSArray *isLastBody;
@@ -53,6 +56,15 @@
     [self.tableView setIntercellSpacing:NSMakeSize(0, 0)];
     self.scrollView.automaticallyAdjustsContentInsets = NO;
     [self.scrollView setContentInsets:NSEdgeInsetsMake(0, 0, 10, 0)];
+    
+    self.scroller = [[VHScroller alloc] initWithFrame:NSMakeRect(self.view.width - 2, 10, 6, self.scrollView.height - 10)
+                                       withImageFrame:NSMakeRect(0, self.scrollView.height - 60, 6, 60)
+                                        withImageName:@"image_scroller"
+                                 withPressedImageName:@"image_scroller_pressed"
+                                       withScrollView:self.scrollView];
+    self.scroller.wantsLayer = YES;
+    self.scroller.layer.backgroundColor = [NSColor whiteColor].CGColor;
+    [self.view addSubview:self.scroller];
 }
 
 - (void)setUIState

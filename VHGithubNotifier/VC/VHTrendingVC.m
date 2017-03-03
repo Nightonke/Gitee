@@ -67,10 +67,13 @@
     [self.tableView setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleNone];
     [self.tableView setIntercellSpacing:NSMakeSize(0, 0)];
     
-    self.scroller = [[VHScroller alloc] initWithFrame:NSMakeRect(self.view.width - 44, 0, 48, self.scrollView.height)
-                                       withImageFrame:NSMakeRect(0, self.scrollView.height - 48, 48, 48)
-                                        withImageName:@"icon_scroller"
+    self.scroller = [[VHScroller alloc] initWithFrame:NSMakeRect(self.view.width - 2, 10, 6, self.scrollView.height - 10)
+                                       withImageFrame:NSMakeRect(0, self.scrollView.height - 60, 6, 60)
+                                        withImageName:@"image_scroller"
+                                 withPressedImageName:@"image_scroller_pressed"
                                        withScrollView:self.scrollView];
+    self.scroller.wantsLayer = YES;
+    self.scroller.layer.backgroundColor = [NSColor whiteColor].CGColor;
     [self.view addSubview:self.scroller];
 }
 
