@@ -14,7 +14,7 @@
  Intialize properties when manager is initialized.
  Don't call this methods outside manager.
  */
-- (void)innerInitializeProperties;
+- (void)innerInitializePropertiesForUserDefault;
 
 /**
  Get the icons of contents that need to show.

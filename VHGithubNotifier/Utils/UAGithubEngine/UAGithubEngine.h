@@ -327,14 +327,13 @@ typedef void (^UAGithubEngineFailureBlock)(NSError *error);
 #pragma mark Notification
 #pragma mark -
 
-- (void)notificationsAll:(BOOL)all
-           participating:(BOOL)participating
-                 success:(UAGithubEngineSuccessBlock)successBlock
-                 failure:(UAGithubEngineFailureBlock)failureBlock;
+- (void)notificationsAll:(BOOL)all participating:(BOOL)participating success:(UAGithubEngineSuccessBlock)successBlock failure:(UAGithubEngineFailureBlock)failureBlock;
 
 - (void)markNotificationAsRead:(long long)notificationId success:(UAGithubEngineSuccessBlock)successBlock failure:(UAGithubEngineFailureBlock)failureBlock;
 
 - (void)threadSubscription:(long long)notificationId success:(UAGithubEngineSuccessBlock)successBlock failure:(UAGithubEngineFailureBlock)failureBlock;
+
+- (void)setThreadSubscription:(long long)notificationId subscribed:(BOOL)subscribed success:(UAGithubEngineSuccessBlock)successBlock failure:(UAGithubEngineFailureBlock)failureBlock;
 
 #pragma mark -
 #pragma mark Git Database API

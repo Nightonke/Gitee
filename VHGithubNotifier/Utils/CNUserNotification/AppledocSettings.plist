@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>--project-name</key>
+		<string>CNUserNotification</string>
+		<key>--project-company</key>
+		<string>cocoa:naut</string>
+		<key>--project-version</key>
+		<string>0.1.4</string>
+		<key>--company-id</key>
+		<string>com.cocoanaut</string>
+		<key>--ignore</key>
+    	<array>
+    		<string>*.m</string>
+    		<string>CNAppDelegate.*</string>
+    	</array>
+		<key>--docset-platform-family</key>
+		<string>osx</string>
+		<key>--create-docset</key>
+		<false/>
+		<key>--install-docset</key>
+		<false/>
+		<key>--create-html</key>
+		<true/>
+		<key>--index-desc</key>
+		<string>../DocIndex.md</string>
+		<key>--output</key>
+		<string>../Documentation/</string>
+    	<key>include</key>
+    	<string>../Documentation/Images</string>
+		<key>--warn-empty-description</key>
+		<false/>
+		<key>--warn-missing-arg</key>
+		<false/>
+		<key>--warn-unknown-directive</key>
+		<false/>
+		<key>--logformat</key>
+		<string>xcode</string>
+		<key>--exit-threshold</key>
+		<integer>2</integer>
+		<key>--repeat-first-par</key>
+		<false/>
+	</dict>
+</plist>

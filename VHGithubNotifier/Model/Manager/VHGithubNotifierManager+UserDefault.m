@@ -32,7 +32,7 @@ static NSTimeInterval notificationUpdateTime;
 
 #pragma mark - Public Methods
 
-- (void)innerInitializeProperties
+- (void)innerInitializePropertiesForUserDefault
 {
 //    [[self userDefaults] removeObjectForKey:@"userAccount"];
 //    [[self userDefaults] removeObjectForKey:@"userPassword"];

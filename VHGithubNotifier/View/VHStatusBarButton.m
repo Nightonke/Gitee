@@ -10,6 +10,7 @@
 #import "NSView+Position.h"
 #import "VHUtils.h"
 #import "VHGithubNotifierManager.h"
+#import "VHUserNotificationWindow.h"
 
 const static CGFloat STATUS_ICON_WIDTH = 22;
 const static CGFloat STATUS_BAR_HEIGHT = 22;
@@ -131,7 +132,7 @@ const static CGFloat TEXT_EXTRA_PADDING = 5;
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotifyRepositoriesLoadedSuccessfully:) name:kNotifyRepositoriesLoadedSuccessfully object:nil];
     [[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(darkModeChanged:) name:@"AppleInterfaceThemeChangedNotification" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotifyWindowDidMove) name:NSWindowDidMoveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotifyWindowDidMove:) name:NSWindowDidMoveNotification object:nil];
 }
 
 - (void)removeNotifications
@@ -147,8 +148,12 @@ const static CGFloat TEXT_EXTRA_PADDING = 5;
     [self updateStringsAndPositions];
 }
 
-- (void)onNotifyWindowDidMove
+- (void)onNotifyWindowDidMove:(NSNotification *)notification
 {
+    if ([notification.object isKindOfClass:[VHUserNotificationWindow class]])
+    {
+        return;
+    }
     if (self.statusBarButtonDelegate != nil && [self.statusBarButtonDelegate respondsToSelector:@selector(onStatusBarButtonMoved)] && self.isFirstMove == NO)
     {
         [self.statusBarButtonDelegate onStatusBarButtonMoved];

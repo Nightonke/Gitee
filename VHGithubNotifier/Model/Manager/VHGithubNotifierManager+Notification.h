@@ -23,8 +23,7 @@
 
 /**
  This method does:
- 1. Record the notification as read in database.
- 2. Delete the notification model in notificationDic.
+ 1. Delete the notification model in notificationDic.
 
  @param notification notification
  */
@@ -32,12 +31,20 @@
 
 /**
  This method does:
- 1. Record the notification as read in database.
- 2. Delete the notification model in notificationDic.
- 3. Send a mark-as-read request to github.
+ 1. Delete the notification model in notificationDic.
+ 2. Send a mark-as-read request to github.
 
  @param notification notification
  */
 - (void)markNotificationAsRead:(VHNotification *)notification;
+
+/**
+ 1. Delete the notification model in notificationDic.
+ 2. Send a unsubscribe request to github.
+ 3. Send a mark-as-read request to github.
+
+ @param notification notification
+ */
+- (void)unsubscribeThread:(VHNotification *)notification;
 
 @end

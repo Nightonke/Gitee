@@ -12,6 +12,7 @@
 #import "VHGithubNotifierManager+UserDefault.h"
 #import "VHGithubNotifierManager+Trending.h"
 #import "VHGithubNotifierManager+Realm.h"
+#import "VHGithubNotifierManager+UserNotification.h"
 
 @interface VHGithubNotifierManager ()
 
@@ -116,7 +117,8 @@
                                                                selector:@selector(resetFromWakeNotification)
                                                                    name:NSWorkspaceDidWakeNotification
                                                                  object: NULL];
-        [self innerInitializeProperties];
+        [self innerInitializePropertiesForUserDefault];
+        [self innerInitializePropertiesForUserNotification];
     }
     return self;
 }

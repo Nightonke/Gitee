@@ -21,4 +21,10 @@
 
 + (VHNotificationReasonType)notificationReasonTypeFromString:(NSString *)string;
 
++ (NSString *)timeStringToNowFromTime:(NSDate *)time;
+
++ (VHNotificationType)notificationTypeFromString:(NSString *)string;
+
++ (NSImage *)imageFromNotificationType:(VHNotificationType)type;
+
 @end

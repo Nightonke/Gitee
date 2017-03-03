@@ -22,6 +22,13 @@ typedef NS_ENUM(NSUInteger, VHNotificationReasonType)
     VHNotificationReasonTypeTeamMention = 8,  // You were on a team that was mentioned.
 };
 
+typedef NS_ENUM(NSUInteger, VHNotificationType)
+{
+    VHNotificationTypeUnknown     = 0,
+    VHNotificationTypeIssue       = 1,
+    VHNotificationTypePullRequest = 2,
+};
+
 @interface VHNotification : NSObject
 
 @property (nonatomic, assign) long long notificationId;
@@ -34,6 +41,7 @@ typedef NS_ENUM(NSUInteger, VHNotificationReasonType)
 @property (nonatomic, assign) BOOL unread;
 @property (nonatomic, strong) NSDate *updateDate;
 @property (nonatomic, strong) NSString *htmlUrl;
+@property (nonatomic, assign) VHNotificationType type;
 
 + (NSDictionary<VHSimpleRepository *, NSArray<VHNotification *> *> *)dictionaryFromResponse:(id)responseObject;
 
@@ -42,5 +50,7 @@ typedef NS_ENUM(NSUInteger, VHNotificationReasonType)
 - (instancetype)initFromResponseDiction:(NSDictionary *)dic;
 
 - (BOOL)isValid;
+
+- (NSString *)toNowTimeString;
 
 @end

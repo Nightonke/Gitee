@@ -68,6 +68,7 @@
         _url = [VHUtils getStringFromDictionaryWithDefaultNil:subjectDic forKey:@"url"];
         _unread = [VHUtils getIntegerFromDictionary:dic forKey:@"unread"];
         _updateDate = [VHUtils dateFromGithubTimeString:[VHUtils getStringFromDictionaryWithDefaultNil:dic forKey:@"updated_at"]];
+        _type = [VHUtils notificationTypeFromString:[VHUtils getStringFromDictionaryWithDefaultNil:subjectDic forKey:@"type"]];
     }
     return self;
 }
@@ -78,6 +79,11 @@
     && self.reason != VHNotificationReasonTypeUnknown
     && [self.title length]
     && self.lastCommentUrl;
+}
+
+- (NSString *)toNowTimeString
+{
+    return [VHUtils timeStringToNowFromTime:self.updateDate];
 }
 
 #pragma mark - Private Methods

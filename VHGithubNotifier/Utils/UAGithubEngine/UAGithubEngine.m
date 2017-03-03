@@ -203,6 +203,7 @@
         case UAGithubOrganizationMembershipPublicizeRequest:
         case UAGithubTeamMemberAddRequest:
         case UAGithubTeamRepositoryManagershipAddRequest:
+        case UAGithubNotificationThreadSetSubscriptionRequest:
         {
             [urlRequest setHTTPMethod:@"PUT"];
         }
@@ -1521,6 +1522,20 @@
         NSString *url = [NSString stringWithFormat:@"notifications/threads/%lld/subscription", notificationId];
         [self sendRequest:url requestType:UAGithubNotificationThreadGetSubscriptionRequest responseType:UAGithubNotificationResponse error:nil];
     } success:successBlock failure:failureBlock];
+}
+
+- (void)setThreadSubscription:(long long)notificationId subscribed:(BOOL)subscribed success:(UAGithubEngineSuccessBlock)successBlock failure:(UAGithubEngineFailureBlock)failureBlock
+{
+    [self invoke:^(id self) {
+        NSString *url = [NSString stringWithFormat:@"notifications/threads/%lld/subscription", notificationId];
+        [self sendRequest:url
+              requestType:UAGithubNotificationThreadSetSubscriptionRequest
+             responseType:UAGithubNotificationResponse
+           withParameters:[NSDictionary dictionaryWithObjectsAndKeys:@(NO), @"subscribed", @(YES), @"ignored", nil]
+                    error:nil];
+    } success:successBlock failure:failureBlock];
+//    @{@"subscribed":@(NO),
+//      @"ignored":@(NO)}
 }
 
 #pragma mark -

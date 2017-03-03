@@ -11,6 +11,6 @@
 @interface VHNotificationRecord : RLMObject
 
 @property long long notificationId;
-@property BOOL read;
+@property NSDate *latestUpdateTime;
 
 @end

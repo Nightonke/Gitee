@@ -41,4 +41,11 @@ typedef NS_ENUM(NSUInteger, VHLoadStateType)
     VHLoadStateTypeLoadFailed       = 3,
 };
 
+typedef NS_ENUM(NSUInteger, VHGithubUserNotificationType)
+{
+    VHGithubUserNotificationTypeUnknown      = 0,
+    VHGithubUserNotificationTypeNotification = 1,
+    VHGithubUserNotificationTypeTrendToday   = 2,
+};
+
 #endif /* VHGithubNotifierEnums_h */

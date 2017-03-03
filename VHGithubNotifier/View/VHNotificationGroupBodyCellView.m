@@ -67,7 +67,7 @@ static const CGFloat CORNER_RADIUS = 5;
 
 - (IBAction)onSubscribeButtonClicked:(id)sender
 {
-    
+    [[VHGithubNotifierManager sharedManager] unsubscribeThread:self.notification];
 }
 
 - (IBAction)onReadButtonClicked:(id)sender

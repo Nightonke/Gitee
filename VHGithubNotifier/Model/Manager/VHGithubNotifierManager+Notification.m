@@ -12,6 +12,7 @@
 #import "VHGithubNotifierManager+Realm.h"
 #import "VHNotificationRecord.h"
 #import "UAGithubEngineRequestTypes.h"
+#import "VHGithubNotifierManager+UserNotification.h"
 
 static const NSUInteger MAX_CONCURRENT_NOTIFICATION_HTML_URL_REQUEST = 10;
 
@@ -68,10 +69,7 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
 {
     MUST_IN_MAIN_THREAD;
     
-    // 1. Record the notification as read in database.
-    [self storeNotificationRecord:notification read:YES];
-    
-    // 2. Delete the notification model in notificationDic.
+    // 1. Delete the notification model in notificationDic.
     [self deleteNotification:notification];
     
     NOTIFICATION_POST(kNotifyNotificationsChanged);
@@ -80,12 +78,25 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
 - (void)markNotificationAsRead:(VHNotification *)notification
 {
     MUST_IN_MAIN_THREAD;
-    
-    // 1. Record the notification as read in database.
-    [self storeNotificationRecord:notification read:YES];
-    
-    // 2. Delete the notification model in notificationDic.
+
+    // 1. Delete the notification model in notificationDic.
     [self deleteNotification:notification];
+    
+    // 2. Send a mark-as-read request to github.
+    [self sendRequestToMarkAsReadNotification:notification];
+    
+    NOTIFICATION_POST(kNotifyNotificationsChanged);
+}
+
+- (void)unsubscribeThread:(VHNotification *)notification
+{
+    MUST_IN_MAIN_THREAD;
+    
+    // 1. Delete the notification model in notificationDic.
+    [self deleteNotification:notification];
+    
+    // 2. Send a unsubscribe request to github.
+    [self sendRequestToUnsubscribeThread:notification];
     
     // 3. Send a mark-as-read request to github.
     [self sendRequestToMarkAsReadNotification:notification];
@@ -121,6 +132,7 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
             NotificationLog(@"Update notification successfully");
             notificationLoadState = VHLoadStateTypeLoadSuccessfully;
             NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyNotificationsLoadedSuccessfully);
+            [self remindNotificatons];
         }
         else
         {
@@ -170,18 +182,33 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
     return allValid;
 }
 
-- (void)storeNotificationRecord:(VHNotification *)notification read:(BOOL)read
+- (void)remindNotificatons
 {
     dispatch_async(GLOBAL_QUEUE, ^{
         @autoreleasepool
         {
-            RLMRealm *realm = [self realm];
-            [realm beginWriteTransaction];
-            VHNotificationRecord *record = [[VHNotificationRecord alloc] init];
-            record.notificationId = notification.notificationId;
-            record.read = read;
-            [realm addOrUpdateObject:record];
-            [realm commitWriteTransaction];
+            __block NSMutableArray<VHNotification *> *notificatonsNeedToRemind = [NSMutableArray array];
+            [notificationDic enumerateKeysAndObjectsUsingBlock:^(VHSimpleRepository * _Nonnull repository, NSArray<VHNotification *> * _Nonnull notifications, BOOL * _Nonnull stop) {
+                for (VHNotification *notificaton in notifications)
+                {
+                    RLMResults<VHNotificationRecord *> *records = [VHNotificationRecord objectsWhere:[NSString stringWithFormat:@"notificationId = %lld", notificaton.notificationId]];
+                    VHNotificationRecord *record = [records firstObject];
+                    if (record)
+                    {
+                        if ([notificaton.updateDate compare:record.latestUpdateTime] == NSOrderedDescending)
+                        {
+                            // This is a new notification in a same thread!
+                            [notificatonsNeedToRemind addObject:notificaton];
+                        }
+                    }
+                    else
+                    {
+                        // This is a new notification
+                        [notificatonsNeedToRemind addObject:notificaton];
+                    }
+                }
+            }];
+            [self addNotifications:notificatonsNeedToRemind];
         }
     });
 }
@@ -220,6 +247,17 @@ static VHLoadStateType notificationLoadState = VHLoadStateTypeDidNotLoad;
             }
         } failure:^(NSError *error) {
             NotificationLog(@"Mark notification(%@) as read failed with error:%@", notification, error);
+        }];
+    });
+}
+
+- (void)sendRequestToUnsubscribeThread:(VHNotification *)notification
+{
+    dispatch_async(GLOBAL_QUEUE, ^{
+        [[self engine] setThreadSubscription:notification.notificationId subscribed:NO success:^(id responseObject) {
+            NotificationLog(@"Unsubscribe notification(%@) thread successfully", notification);
+        } failure:^(NSError *error) {
+            NotificationLog(@"Unsubscribe notification(%@) thread failed with error: %@", notification, error);
         }];
     });
 }
