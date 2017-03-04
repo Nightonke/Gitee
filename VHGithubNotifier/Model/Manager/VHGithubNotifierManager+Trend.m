@@ -11,6 +11,7 @@
 #import "VHGithubNotifierManager+UserDefault.h"
 #import "VHTrendChartParser.h"
 #import "VHRepository.h"
+#import "VHUtils.h"
 
 static RLMResults *trendDatas;
 
@@ -35,6 +36,7 @@ static RLMResults *trendDatas;
 
 - (BOOL)loadTrendChartInWebView:(WKWebView *)webView withTrendContentIndex:(NSUInteger)contentIndex withTitle:(NSString *)title
 {
+    [VHUtils resetWKWebView];
     [self copyJsFiles];
     [self writeHtmlWithTrendContentIndex:contentIndex withTitle:title];
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[self htmlPath]]]];

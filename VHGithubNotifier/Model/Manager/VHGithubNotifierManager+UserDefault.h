@@ -119,4 +119,10 @@
 
 - (void)setNotificationUpdateTime:(NSTimeInterval)_notificationUpdateTime;
 
+#pragma mark - Pie
+
+- (NSUInteger)minimumStarNumberInPie;
+
+- (void)setMinimumStarNumberInPie:(NSUInteger)_minimumStarNumberInPie;
+
 @end

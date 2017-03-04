@@ -25,7 +25,7 @@
         _name = [VHUtils getStringFromDictionaryWithDefaultNil:dictionary forKey:@"name"];
         _repositoryDescription = [VHUtils getStringFromDictionaryWithDefaultNil:dictionary forKey:@"description"];
         _language = [VHUtils getStringFromDictionaryWithDefaultNil:dictionary forKey:@"language"];
-        _url = [VHUtils getStringFromDictionaryWithDefaultNil:dictionary forKey:@"url"];
+        _url = [VHUtils getStringFromDictionaryWithDefaultNil:dictionary forKey:@"html_url"];
         _starNumber = [VHUtils getUnsignedIntegerFromDictionary:dictionary forKey:@"stargazers_count"];
         _forkNumber = [VHUtils getUnsignedIntegerFromDictionary:dictionary forKey:@"forks"];
         _isPrivate = [VHUtils getIntegerFromDictionary:dictionary forKey:@"private"];

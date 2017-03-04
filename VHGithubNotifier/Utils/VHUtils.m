@@ -7,6 +7,11 @@
 //
 
 #import "VHUtils.h"
+#import "VHUtils+TransForm.h"
+#import <WebKit/WebKit.h>
+
+static NSArray<NSString *> *colorStrings = nil;
+static NSArray<NSColor *> *colors = nil;
 
 @implementation VHUtils
 
@@ -36,20 +41,12 @@
 
 + (void)setRandomColor:(ChartDataSet *)chartDataSet withNumber:(NSInteger)count
 {
-    NSMutableArray<NSColor *> *colors = [NSMutableArray arrayWithCapacity:count];
-    for (int i = 0; i < count; i++)
-    {
-        [colors addObject:[VHUtils randomColor]];
-    }
-    [chartDataSet setColors:[colors copy]];
+    [chartDataSet setColors:[VHUtils colors]];
 }
 
 + (NSColor *)randomColor
 {
-    CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
-    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
-    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
-    return [NSColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
+    return [[VHUtils colors] objectAtIndex:arc4random() % [VHUtils colors].count];
 }
 
 + (NSColor *)trendColor:(NSColor *)color withCount:(NSUInteger)count withRow:(NSUInteger)row;
@@ -80,6 +77,57 @@
     MUST_IN_MAIN_THREAD;
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
     NOTIFICATION_POST(kNotifyWindowShouldHide);
+}
+
++ (void)resetWKWebView
+{
+    NSSet *websiteDataTypes = [WKWebsiteDataStore allWebsiteDataTypes];
+    NSDate *dateFrom = [NSDate dateWithTimeIntervalSince1970:0];
+    [[WKWebsiteDataStore defaultDataStore] removeDataOfTypes:websiteDataTypes modifiedSince:dateFrom completionHandler:^{
+        
+    }];
+}
+
++ (NSArray<NSString *> *)colorStrings
+{
+    if (colorStrings == nil)
+    {
+        colorStrings = @[@"#F44336",
+                         @"#3F51B5",
+                         @"#673AB7",
+                         @"#E91E63",
+                         @"#9C27B0",
+                         @"#03A9F4",
+                         @"#009688",
+                         @"#4CAF50",
+                         @"#00BCD4",
+                         @"#2196F3",
+                         @"#CDDC39",
+                         @"#009688",
+                         @"#8BC34A",
+                         @"#FF9800",
+                         @"#FFEB3B",
+                         @"#795548",
+                         @"#FFC107",
+                         @"#9E9E9E",
+                         @"#FF5722",
+                         @"#607D8B"];
+    }
+    return colorStrings;
+}
+
++ (NSArray<NSColor *> *)colors
+{
+    if (colors == nil)
+    {
+        NSMutableArray<NSColor *> *mColors = [NSMutableArray arrayWithCapacity:[VHUtils colorStrings].count];
+        for (NSString *colorString in colorStrings)
+        {
+            [mColors addObject:[VHUtils colorFromHexColorCodeInString:colorString]];
+        }
+        colors = [mColors copy];
+    }
+    return colors;
 }
 
 @end

@@ -115,10 +115,7 @@
     NOTIFICATION_POST(kNotifyWindowWillShow);
     if ([self.menuWindow isVisible])
     {
-        [[NSAnimationContext currentContext] setDuration:0.15];
-        [[self.menuWindow animator] setAlphaValue:0.0];
-        
-        [self.menuWindow performSelector:@selector(orderOut:) withObject:self afterDelay:0.3];
+        [self hideMenu];
     }
     else
     {

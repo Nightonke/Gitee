@@ -28,4 +28,6 @@
 
 + (void)openUrl:(NSString *)url;
 
++ (void)resetWKWebView;
+
 @end

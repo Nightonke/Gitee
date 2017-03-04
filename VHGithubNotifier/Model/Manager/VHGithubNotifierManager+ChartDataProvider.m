@@ -7,6 +7,7 @@
 //
 
 #import "VHGithubNotifierManager+ChartDataProvider.h"
+#import "VHGithubNotifierManager+UserDefault.h"
 #import "VHUtils.h"
 
 @implementation VHGithubNotifierManager (ChartDataProvider)
@@ -17,7 +18,7 @@
     __block PieChartDataEntry *entry;
     for (VHRepository *repository in self.user.ownerRepositories)
     {
-        if (repository.starNumber >= self.user.starNumber / 100.0f)
+        if (repository.starNumber >= [[VHGithubNotifierManager sharedManager] minimumStarNumberInPie])
         {
             entry = [[PieChartDataEntry alloc] initWithValue:repository.starNumber label:repository.name];
             [array addObject:entry];
@@ -40,7 +41,7 @@
             return NSOrderedAscending;
         }
     }];
-    PieChartDataSet *set = [[PieChartDataSet alloc] initWithValues:array label:@"Repositoies"];
+    PieChartDataSet *set = [[PieChartDataSet alloc] initWithValues:array label:@""];
     [VHUtils setRandomColor:set withNumber:[array count]];
     set.valueTextColor = [NSColor whiteColor];
     [set setEntryLabelColor:[NSColor grayColor]];
@@ -52,6 +53,18 @@
     
     PieChartData *data = [[PieChartData alloc] initWithDataSet:set];
     return data;
+}
+
+- (NSString *)urlFromRepositoryName:(NSString *)name
+{
+    for (VHRepository *repository in self.user.allRepositories)
+    {
+        if ([repository.name isEqualToString:name])
+        {
+            return repository.url;
+        }
+    }
+    return nil;
 }
 
 @end

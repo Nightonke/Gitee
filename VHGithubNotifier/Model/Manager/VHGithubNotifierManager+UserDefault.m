@@ -28,6 +28,9 @@ static NSTimeInterval languageUpdateTime;
 static NSTimeInterval trendingUpdateTime;
 static NSTimeInterval notificationUpdateTime;
 
+static const NSUInteger defaultMinimumStarNumberInPie = 50;
+static NSUInteger minimumStarNumberInPie;
+
 @implementation VHGithubNotifierManager (UserDefault)
 
 #pragma mark - Public Methods
@@ -78,6 +81,12 @@ static NSTimeInterval notificationUpdateTime;
     if (notificationUpdateTime == 0)
     {
         notificationUpdateTime = defaultNotificationUpdateTime;
+    }
+    
+    minimumStarNumberInPie = [[self userDefaults] integerForKey:@"minimumStarNumberInPie"];
+    if (minimumStarNumberInPie == 0)
+    {
+        minimumStarNumberInPie = defaultMinimumStarNumberInPie;
     }
 }
 
@@ -259,6 +268,17 @@ static NSTimeInterval notificationUpdateTime;
 {
     notificationUpdateTime = _notificationUpdateTime;
     [[self userDefaults] setDouble:notificationUpdateTime forKey:@"notificationUpdateTime"];
+}
+
+- (NSUInteger)minimumStarNumberInPie
+{
+    return minimumStarNumberInPie;
+}
+
+- (void)setMinimumStarNumberInPie:(NSUInteger)_minimumStarNumberInPie
+{
+    minimumStarNumberInPie = _minimumStarNumberInPie;
+    [[self userDefaults] setInteger:minimumStarNumberInPie forKey:@"minimumStarNumberInPie"];
 }
 
 #pragma mark - Private Methods

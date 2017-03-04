@@ -13,4 +13,6 @@
 
 - (PieChartData *)userRepositoriesPieDataSet;
 
+- (NSString *)urlFromRepositoryName:(NSString *)name;
+
 @end
