@@ -51,6 +51,32 @@
     return result;
 }
 
++ (NSString *)hexadecimalValueFromColor:(NSColor *)color
+{
+    
+    double redFloatValue, greenFloatValue, blueFloatValue;
+    int redIntValue, greenIntValue, blueIntValue;
+    NSString *redHexValue, *greenHexValue, *blueHexValue;
+    
+    NSColor *convertedColor = [color colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+    
+    if(convertedColor) {
+        [convertedColor getRed:&redFloatValue green:&greenFloatValue blue:&blueFloatValue alpha:NULL];
+        
+        redIntValue = redFloatValue*255.99999f;
+        greenIntValue = greenFloatValue*255.99999f;
+        blueIntValue = blueFloatValue*255.99999f;
+        
+        redHexValue = [NSString stringWithFormat:@"%02x", redIntValue];
+        greenHexValue = [NSString stringWithFormat:@"%02x", greenIntValue];
+        blueHexValue = [NSString stringWithFormat:@"%02x", blueIntValue];
+        
+        return [NSString stringWithFormat:@"#%@%@%@", redHexValue, greenHexValue, blueHexValue];
+    }
+    
+    return nil;
+}
+
 + (NSString *)encodeToPercentEscapeString:(NSString *)input
 {
     return [input stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];

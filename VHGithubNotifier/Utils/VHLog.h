@@ -30,6 +30,7 @@ extern "C"
 #define BasicInfoLog(format,...) PermanentLog(@"BasicInfo",format,##__VA_ARGS__)
 #define ConfirmLog(format,...) PermanentLog(@"Confirm",format,##__VA_ARGS__)
 #define LanguageLog(format,...) PermanentLog(@"Language",format,##__VA_ARGS__)
+#define TrendLog(format,...) PermanentLog(@"Trend",format,##__VA_ARGS__)
 #define TrendingLog(format,...) PermanentLog(@"Trending",format,##__VA_ARGS__)
 #define NotificationLog(format,...) PermanentLog(@"Notification",format,##__VA_ARGS__)
 #define ViewLog(format,...) PermanentLog(@"View",format,##__VA_ARGS__)

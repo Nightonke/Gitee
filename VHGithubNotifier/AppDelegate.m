@@ -13,6 +13,7 @@
 #import "VHGithubNotifierManager+Language.h"
 #import "VHGithubNotifierManager+Trending.h"
 #import "VHGithubNotifierManager+Notification.h"
+#import "VHGithubNotifierManager+Trend.h"
 #import "VHStatusBarButton.h"
 #import "VHUtils.h"
 #import "VHBasicInfoView.h"

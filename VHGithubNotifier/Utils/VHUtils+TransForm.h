@@ -15,6 +15,8 @@
 
 + (NSColor *)colorFromHexColorCodeInString:(NSString *)string;
 
++ (NSString *)hexadecimalValueFromColor:(NSColor *)color;
+
 + (NSString *)encodeToPercentEscapeString:(NSString *)input;
 
 + (NSDate *)dateFromGithubTimeString:(NSString *)timeString;

@@ -174,6 +174,10 @@
 		373BA6F41E6959C600653C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 373BA6F31E6959C600653C92 /* Assets.xcassets */; };
 		373BA6F71E6993CD00653C92 /* VHNotificationHeaderCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373BA6F61E6993CD00653C92 /* VHNotificationHeaderCellView.m */; };
 		373BA6F91E6993FA00653C92 /* VHNotificationHeaderCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373BA6F81E6993FA00653C92 /* VHNotificationHeaderCellView.xib */; };
+		373BA70A1E6AB8D900653C92 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373BA7091E6AB8D900653C92 /* WebKit.framework */; };
+		373BA70F1E6ABD6F00653C92 /* VHGithubNotifierManager+Trend.m in Sources */ = {isa = PBXBuildFile; fileRef = 373BA70E1E6ABD6F00653C92 /* VHGithubNotifierManager+Trend.m */; };
+		373BA7131E6AC9D700653C92 /* echarts.js in Resources */ = {isa = PBXBuildFile; fileRef = 373BA7111E6AC9D700653C92 /* echarts.js */; };
+		373BA7171E6AF21200653C92 /* VHTrendChartParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 373BA7161E6AF21200653C92 /* VHTrendChartParser.m */; };
 		373CF0461E62F79200711296 /* VHLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0451E62F79200711296 /* VHLog.m */; };
 		373CF04A1E644B3A00711296 /* VHNotificationGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0491E644B3A00711296 /* VHNotificationGroupView.m */; };
 		373CF0631E652E5600711296 /* NSArray+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF04F1E652E5600711296 /* NSArray+Utilities.m */; };
@@ -485,6 +489,12 @@
 		373BA6F51E6993CD00653C92 /* VHNotificationHeaderCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHNotificationHeaderCellView.h; sourceTree = "<group>"; };
 		373BA6F61E6993CD00653C92 /* VHNotificationHeaderCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHNotificationHeaderCellView.m; sourceTree = "<group>"; };
 		373BA6F81E6993FA00653C92 /* VHNotificationHeaderCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHNotificationHeaderCellView.xib; sourceTree = "<group>"; };
+		373BA7091E6AB8D900653C92 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		373BA70D1E6ABD6F00653C92 /* VHGithubNotifierManager+Trend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VHGithubNotifierManager+Trend.h"; sourceTree = "<group>"; };
+		373BA70E1E6ABD6F00653C92 /* VHGithubNotifierManager+Trend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VHGithubNotifierManager+Trend.m"; sourceTree = "<group>"; };
+		373BA7111E6AC9D700653C92 /* echarts.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = echarts.js; path = "../ModernLook-OSX/ModernLookSample/ModernLookOSXSample/echarts.js"; sourceTree = "<group>"; };
+		373BA7151E6AF21200653C92 /* VHTrendChartParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHTrendChartParser.h; sourceTree = "<group>"; };
+		373BA7161E6AF21200653C92 /* VHTrendChartParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHTrendChartParser.m; sourceTree = "<group>"; };
 		373CF0451E62F79200711296 /* VHLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHLog.m; sourceTree = "<group>"; };
 		373CF0471E62F79A00711296 /* VHLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHLog.h; sourceTree = "<group>"; };
 		373CF0481E644B3A00711296 /* VHNotificationGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHNotificationGroupView.h; sourceTree = "<group>"; };
@@ -631,6 +641,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				373BA70A1E6AB8D900653C92 /* WebKit.framework in Frameworks */,
 				37005C321E5C9B88000AEFF9 /* libxml2.2.dylib in Frameworks */,
 				25D4B81FADCFFCA82BBA83A7 /* libPods-VHGithubNotifier.a in Frameworks */,
 			);
@@ -965,6 +976,14 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		373BA7101E6AC9AC00653C92 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				373BA7111E6AC9D700653C92 /* echarts.js */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		373CF04D1E652E5600711296 /* UAGithubEngine */ = {
 			isa = PBXGroup;
 			children = (
@@ -1006,6 +1025,8 @@
 				378CE7691E1DF6AB00235E5F /* VHGithubNotifierManager+Realm.m */,
 				3749CDE11E5B17DE0083CEB1 /* VHGithubNotifierManager+Language.h */,
 				3749CDE21E5B17DE0083CEB1 /* VHGithubNotifierManager+Language.m */,
+				373BA70D1E6ABD6F00653C92 /* VHGithubNotifierManager+Trend.h */,
+				373BA70E1E6ABD6F00653C92 /* VHGithubNotifierManager+Trend.m */,
 				37005C2B1E5C7EFB000AEFF9 /* VHGithubNotifierManager+Trending.h */,
 				37005C2C1E5C7EFB000AEFF9 /* VHGithubNotifierManager+Trending.m */,
 				373B96F41E62D9E500AD8E92 /* VHGithubNotifierManager+Notification.h */,
@@ -1043,6 +1064,7 @@
 		378E0AD21E0ECD060033CBD5 = {
 			isa = PBXGroup;
 			children = (
+				373BA7101E6AC9AC00653C92 /* Assets */,
 				378E0ADD1E0ECD070033CBD5 /* VHGithubNotifier */,
 				378E0ADC1E0ECD070033CBD5 /* Products */,
 				C0CEE69334124DF6AA58F7A8 /* Pods */,
@@ -1111,6 +1133,8 @@
 				3749CDDF1E5B17060083CEB1 /* VHLanguage.m */,
 				3749CDE41E5B1B140083CEB1 /* VHHTTPResponseSerializer.h */,
 				3749CDE51E5B1B140083CEB1 /* VHHTTPResponseSerializer.m */,
+				373BA7151E6AF21200653C92 /* VHTrendChartParser.h */,
+				373BA7161E6AF21200653C92 /* VHTrendChartParser.m */,
 				37531A3C1E1408FC00C3EB64 /* VHGithubNotifierEnums.h */,
 			);
 			path = Model;
@@ -1245,6 +1269,7 @@
 		F59CE8E1C63E9FE780573A3A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				373BA7091E6AB8D900653C92 /* WebKit.framework */,
 				37005C311E5C9B88000AEFF9 /* libxml2.2.dylib */,
 				A9FD0823EF354958CE567028 /* libPods-VHGithubNotifier.a */,
 			);
@@ -1363,6 +1388,7 @@
 				3749CDD61E59B2950083CEB1 /* VHTrendingVC.xib in Resources */,
 				375CD0561E67D71100566B58 /* AppledocSettings.plist in Resources */,
 				378E0B391E1012A60033CBD5 /* VHRepositoryView.xib in Resources */,
+				373BA7131E6AC9D700653C92 /* echarts.js in Resources */,
 				373CF0771E656B2C00711296 /* VHNotificationGroupHeaderCellView.xib in Resources */,
 				378E0AEB1E0ECD070033CBD5 /* Main.storyboard in Resources */,
 			);
@@ -1528,6 +1554,7 @@
 				3731878E1E61D95200926F4F /* TransformerHorizontalBarChart.swift in Sources */,
 				3731875A1E61D95200926F4F /* PieRadarHighlighter.swift in Sources */,
 				37005C301E5C83AB000AEFF9 /* VHTrendingRepository.m in Sources */,
+				373BA7171E6AF21200653C92 /* VHTrendChartParser.m in Sources */,
 				373187141E61D95200926F4F /* PieChartView.swift in Sources */,
 				3731860E1E5EF7D100926F4F /* VHLanguageDotView.m in Sources */,
 				3731874B1E61D95200926F4F /* DataApproximator.swift in Sources */,
@@ -1624,6 +1651,7 @@
 				373186041E5E98F600926F4F /* VHScroller.m in Sources */,
 				375CD0431E67086C00566B58 /* NSMutableArray+Queue.m in Sources */,
 				373187771E61D95200926F4F /* PieChartRenderer.swift in Sources */,
+				373BA70F1E6ABD6F00653C92 /* VHGithubNotifierManager+Trend.m in Sources */,
 				373187841E61D95200926F4F /* XAxisRendererHorizontalBarChart.swift in Sources */,
 				373187751E61D95200926F4F /* LineRadarRenderer.swift in Sources */,
 				3731872E1E61D95200926F4F /* CandleChartDataSet.swift in Sources */,

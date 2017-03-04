@@ -13,6 +13,7 @@
 #import "VHGithubNotifierManager+Trending.h"
 #import "VHGithubNotifierManager+Realm.h"
 #import "VHGithubNotifierManager+UserNotification.h"
+#import "VHGithubNotifierManager+Trend.h"
 
 @interface VHGithubNotifierManager ()
 
@@ -119,6 +120,7 @@
                                                                  object: NULL];
         [self innerInitializePropertiesForUserDefault];
         [self innerInitializePropertiesForUserNotification];
+        [self innerInitializePropertiesForTrend];
     }
     return self;
 }
