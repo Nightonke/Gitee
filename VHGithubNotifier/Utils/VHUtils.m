@@ -34,7 +34,7 @@ static NSArray<NSColor *> *colors = nil;
     return [[[NSAttributedString alloc] initWithString:string attributes:attributes] size].height;
 }
 
-+ (BOOL)CGPoint:(CGPoint)point notOutOfRect:(CGRect)rect
++ (BOOL)point:(CGPoint)point notOutOfRect:(CGRect)rect
 {
     return rect.origin.x <= point.x && point.x <= rect.origin.x + rect.size.width && rect.origin.y <= point.y && point.y <= rect.origin.y + rect.size.height;
 }

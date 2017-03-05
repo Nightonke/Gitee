@@ -58,4 +58,6 @@
 
 - (NSRect)frameRelativeToScreen;
 
+- (void)removeAllSubViews;
+
 @end

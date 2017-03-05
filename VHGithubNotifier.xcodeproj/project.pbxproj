@@ -195,8 +195,6 @@
 		373CF0771E656B2C00711296 /* VHNotificationGroupHeaderCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373CF0761E656B2C00711296 /* VHNotificationGroupHeaderCellView.xib */; };
 		3748DF831E2CE3E900507D9C /* VHDateValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */; };
 		3748DF861E2CEA9800507D9C /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF851E2CEA9800507D9C /* NSDate+Utils.m */; };
-		3748DF8E1E2F54A300507D9C /* VHTrendTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF8D1E2F54A300507D9C /* VHTrendTableCellView.m */; };
-		3748DF911E33CCA000507D9C /* VHHorizontalTrendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF901E33CCA000507D9C /* VHHorizontalTrendView.m */; };
 		3749CDCE1E59B27C0083CEB1 /* VHPieVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3749CDCC1E59B27C0083CEB1 /* VHPieVC.m */; };
 		3749CDCF1E59B27C0083CEB1 /* VHPieVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3749CDCD1E59B27C0083CEB1 /* VHPieVC.xib */; };
 		3749CDD51E59B2950083CEB1 /* VHTrendingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3749CDD31E59B2950083CEB1 /* VHTrendingVC.m */; };
@@ -529,10 +527,6 @@
 		3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHDateValueFormatter.m; sourceTree = "<group>"; };
 		3748DF841E2CEA9800507D9C /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
 		3748DF851E2CEA9800507D9C /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
-		3748DF8C1E2F54A300507D9C /* VHTrendTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHTrendTableCellView.h; sourceTree = "<group>"; };
-		3748DF8D1E2F54A300507D9C /* VHTrendTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHTrendTableCellView.m; sourceTree = "<group>"; };
-		3748DF8F1E33CCA000507D9C /* VHHorizontalTrendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHHorizontalTrendView.h; sourceTree = "<group>"; };
-		3748DF901E33CCA000507D9C /* VHHorizontalTrendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHHorizontalTrendView.m; sourceTree = "<group>"; };
 		3749CDCB1E59B27C0083CEB1 /* VHPieVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHPieVC.h; sourceTree = "<group>"; };
 		3749CDCC1E59B27C0083CEB1 /* VHPieVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHPieVC.m; sourceTree = "<group>"; };
 		3749CDCD1E59B27C0083CEB1 /* VHPieVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHPieVC.xib; sourceTree = "<group>"; };
@@ -1214,10 +1208,6 @@
 				378E0B3E1E103D930033CBD5 /* VHTabVCBackgroundView.m */,
 				37531A361E1405ED00C3EB64 /* VHTabView.h */,
 				37531A371E1405ED00C3EB64 /* VHTabView.m */,
-				3748DF8C1E2F54A300507D9C /* VHTrendTableCellView.h */,
-				3748DF8D1E2F54A300507D9C /* VHTrendTableCellView.m */,
-				3748DF8F1E33CCA000507D9C /* VHHorizontalTrendView.h */,
-				3748DF901E33CCA000507D9C /* VHHorizontalTrendView.m */,
 				373185F91E5DE54D00926F4F /* VHTrendingRepositoryCellView.h */,
 				373185FA1E5DE54D00926F4F /* VHTrendingRepositoryCellView.m */,
 				373185F51E5DDB5B00926F4F /* VHTrendingRepositoryCellView.xib */,
@@ -1560,7 +1550,6 @@
 				3731874B1E61D95200926F4F /* DataApproximator.swift in Sources */,
 				373187191E61D95200926F4F /* ChartLimitLine.swift in Sources */,
 				37531A3B1E1406A400C3EB64 /* VHGithubNotifierManager+UserDefault.m in Sources */,
-				3748DF8E1E2F54A300507D9C /* VHTrendTableCellView.m in Sources */,
 				3731873A1E61D95200926F4F /* PieChartDataSet.swift in Sources */,
 				3731870E1E61D95200926F4F /* BubbleChartView.swift in Sources */,
 				3731874E1E61D95200926F4F /* DefaultValueFormatter.swift in Sources */,
@@ -1585,7 +1574,6 @@
 				373187561E61D95200926F4F /* Highlight.swift in Sources */,
 				37005C281E5C6E3E000AEFF9 /* RLMResults+ToArray.m in Sources */,
 				373187641E61D95200926F4F /* ScatterChartDataProvider.swift in Sources */,
-				3748DF911E33CCA000507D9C /* VHHorizontalTrendView.m in Sources */,
 				373BA6F21E68893800653C92 /* VHUserNotificationWindow.m in Sources */,
 				3731870D1E61D95200926F4F /* BarLineChartViewBase.swift in Sources */,
 				373187791E61D95200926F4F /* Renderer.swift in Sources */,

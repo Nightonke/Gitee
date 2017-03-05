@@ -134,7 +134,7 @@
     }
     else
     {
-        self.pieChart.descriptionText = [NSString stringWithFormat:@"%zd repository whose stargazers number is greater than %zd", repositoryNumber, [[VHGithubNotifierManager sharedManager] minimumStarNumberInPie]];
+        self.pieChart.descriptionText = [NSString stringWithFormat:@"%zd repositories whose stargazers number is greater than %zd", repositoryNumber, [[VHGithubNotifierManager sharedManager] minimumStarNumberInPie]];
     }
 }
 

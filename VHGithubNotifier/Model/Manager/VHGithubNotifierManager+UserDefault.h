@@ -125,4 +125,14 @@
 
 - (void)setMinimumStarNumberInPie:(NSUInteger)_minimumStarNumberInPie;
 
+#pragma mark - Status bar button
+
+- (NSUInteger)statusBarButtonContents;
+
+- (void)setStatusBarButtonContents:(NSUInteger)_statusBarButtonContents;
+
+- (BOOL)statusBarButtonContainsEmptyContent;
+
+- (void)setStatusBarButtonContainsEmptyContent:(BOOL)_statusBarButtonContainsEmptyContent;
+
 @end

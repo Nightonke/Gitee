@@ -112,3 +112,9 @@ static NSString * const kNotifyWindowWillHide = @"kNotifyWindowWillHide";
 // To    :
 // Params:
 static NSString * const kNotifyNotificationsChanged = @"kNotifyNotificationsChanged";
+
+// When  : When contents in status button are changed.
+// Who   : Manager + UserDefaults
+// To    :
+// Params:
+static NSString * const kNotifyStatusBarButtonContentChanged = @"kNotifyStatusBarButtonContentChanged";

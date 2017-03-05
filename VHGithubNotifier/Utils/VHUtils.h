@@ -16,7 +16,7 @@
 
 + (CGFloat)heightOfString:(NSString *)string withFont:(NSFont *)font;
 
-+ (BOOL)CGPoint:(CGPoint)point notOutOfRect:(CGRect)rect;
++ (BOOL)point:(CGPoint)point notOutOfRect:(CGRect)rect;
 
 + (void)setRandomColor:(ChartDataSet *)chartDataSet withNumber:(NSInteger)count;
 

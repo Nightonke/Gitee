@@ -31,9 +31,12 @@ static NSTimeInterval notificationUpdateTime;
 static const NSUInteger defaultMinimumStarNumberInPie = 50;
 static NSUInteger minimumStarNumberInPie;
 
-@implementation VHGithubNotifierManager (UserDefault)
+static const NSUInteger defaultStatusBarButtonContents = VHStatusBarButtonContentTypeStargazers | VHStatusBarButtonContentTypeFollowers | VHStatusBarButtonContentTypeNotifications;
+static NSUInteger statusBarButtonContents;
+static const BOOL defaultStatusBarButtonContainsEmptyContent = NO;
+static BOOL statusBarButtonContainsEmptyContent;
 
-#pragma mark - Public Methods
+@implementation VHGithubNotifierManager (UserDefault)
 
 - (void)innerInitializePropertiesForUserDefault
 {
@@ -88,6 +91,14 @@ static NSUInteger minimumStarNumberInPie;
     {
         minimumStarNumberInPie = defaultMinimumStarNumberInPie;
     }
+    
+    statusBarButtonContents = [[self userDefaults] integerForKey:@"statusBarButtonContents"];
+    if (statusBarButtonContents == 0)
+    {
+        statusBarButtonContents = defaultStatusBarButtonContents;
+    }
+    
+    statusBarButtonContainsEmptyContent = [[self userDefaults] boolForKey:@"statusBarButtonContainsEmptyContent"];
 }
 
 - (NSArray<NSImage *> *)imagesForGithubContentTypes;
@@ -144,6 +155,8 @@ static NSUInteger minimumStarNumberInPie;
     return numbers;
 }
 
+#pragma mark - Github Account
+
 - (BOOL)isUserAccountNotExist
 {
     return (userAccount && userPassword) == NO;
@@ -170,6 +183,8 @@ static NSUInteger minimumStarNumberInPie;
     userPassword = _userPassword;
     [[self userDefaults] setObject:userPassword forKey:@"userPassword"];
 }
+
+#pragma mark - Trend
 
 - (VHGithubTrendTimeType)trendTimeType
 {
@@ -204,6 +219,8 @@ static NSUInteger minimumStarNumberInPie;
     [[self userDefaults] setInteger:weekStartFrom forKey:@"VHGithubWeekStartFrom"];
 }
 
+#pragma mark - Trending
+
 - (NSUInteger)trendingContentSelectedIndex
 {
     return trendingContentSelectedIndex;
@@ -225,6 +242,8 @@ static NSUInteger minimumStarNumberInPie;
     trendingTimeSelectedIndex = _trendingTimeSelectedIndex;
     [[self userDefaults] setInteger:trendingTimeSelectedIndex forKey:@"trendingTimeSelectedIndex"];
 }
+
+#pragma mark - Update Time
 
 - (NSTimeInterval)basicInfoUpdateTime
 {
@@ -270,6 +289,8 @@ static NSUInteger minimumStarNumberInPie;
     [[self userDefaults] setDouble:notificationUpdateTime forKey:@"notificationUpdateTime"];
 }
 
+#pragma mark - Pie
+
 - (NSUInteger)minimumStarNumberInPie
 {
     return minimumStarNumberInPie;
@@ -279,6 +300,30 @@ static NSUInteger minimumStarNumberInPie;
 {
     minimumStarNumberInPie = _minimumStarNumberInPie;
     [[self userDefaults] setInteger:minimumStarNumberInPie forKey:@"minimumStarNumberInPie"];
+}
+
+#pragma mark - Status bar button
+
+- (NSUInteger)statusBarButtonContents
+{
+    return statusBarButtonContents;
+}
+
+- (void)setStatusBarButtonContents:(NSUInteger)_statusBarButtonContents
+{
+    statusBarButtonContents = _statusBarButtonContents;
+    [[self userDefaults] setInteger:statusBarButtonContents forKey:@"statusBarButtonContents"];
+}
+
+- (BOOL)statusBarButtonContainsEmptyContent
+{
+    return statusBarButtonContainsEmptyContent;
+}
+
+- (void)setStatusBarButtonContainsEmptyContent:(BOOL)_statusBarButtonContainsEmptyContent
+{
+    statusBarButtonContainsEmptyContent = _statusBarButtonContainsEmptyContent;
+    [[self userDefaults] setBool:statusBarButtonContainsEmptyContent forKey:@"statusBarButtonContainsEmptyContent"];
 }
 
 #pragma mark - Private Methods

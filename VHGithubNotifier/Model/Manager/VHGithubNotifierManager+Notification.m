@@ -118,6 +118,7 @@ static NSUInteger notificationNumber;
     
     // 2. Clear notificationDic
     notificationDic = [NSDictionary dictionary];
+    [self calculateNotificationNumber];
     
     NOTIFICATION_POST(kNotifyNotificationsChanged);
 }
@@ -182,6 +183,7 @@ static NSUInteger notificationNumber;
             NotificationLog(@"Update notification failed");
             notificationLoadState = VHLoadStateTypeLoadFailed;
             notificationDic = backupNotificationDic;
+            [self calculateNotificationNumber];
             NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyNotificationsLoadedFailed);
         }
         NotificationLog(@"%@", notificationDic);
@@ -275,6 +277,7 @@ static NSUInteger notificationNumber;
         }
     }];
     notificationDic = [newNotificationDic copy];
+    [self calculateNotificationNumber];
 }
 
 - (void)deleteRepository:(VHSimpleRepository *)repository
@@ -282,6 +285,7 @@ static NSUInteger notificationNumber;
     NSMutableDictionary<VHSimpleRepository *, NSArray<VHNotification *> *> *newNotificationDic = [NSMutableDictionary dictionaryWithDictionary:notificationDic];
     [newNotificationDic removeObjectForKey:repository];
     notificationDic = [newNotificationDic copy];
+    [self calculateNotificationNumber];
 }
 
 - (void)sendRequestToMarkAsReadNotification:(VHNotification *)notification

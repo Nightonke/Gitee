@@ -13,12 +13,11 @@
 #import "VHGithubNotifierManager+Trend.h"
 #import "VHGithubNotifier-Bridging-Header.h"
 #import "VHDateValueFormatter.h"
-#import "VHTrendTableCellView.h"
 #import "VHUtils.h"
 #import <WebKit/WebKit.h>
 #import "NSView+Position.h"
 
-@interface VHTrendVC()<NSTableViewDelegate, NSTableViewDataSource>
+@interface VHTrendVC()<NSTableViewDelegate, NSTableViewDataSource, WKUIDelegate>
 
 @property (weak) IBOutlet NSPopUpButton *trendPopupButton;
 @property (weak) IBOutlet NSButton *anyTimeRadioButton;
@@ -49,6 +48,7 @@
     WKWebViewConfiguration *theConfiguration = [[WKWebViewConfiguration alloc] init];
     
     self.webView = [[WKWebView alloc] initWithFrame:NSMakeRect(5, -10, self.view.width, self.anyTimeRadioButton.y - 5) configuration:theConfiguration];
+    self.webView.UIDelegate = self;
     [self.view addSubview:self.webView];
     
     [self onNotifyRepositoriesLoadedSuccessfully:nil];
@@ -108,6 +108,8 @@
     [[VHGithubNotifierManager sharedManager] setTrendTimeType:radioButton.tag];
     [self onTrendDataSelected:nil];
 }
+
+
 
 #pragma mark - Private Methods
 

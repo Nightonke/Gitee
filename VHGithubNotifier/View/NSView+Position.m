@@ -160,4 +160,12 @@
     return [self.window convertRectToScreen:[self frameRelativeToWindow]];
 }
 
+- (void)removeAllSubViews
+{
+    for (NSView *view in self.subviews)
+    {
+        [view removeFromSuperview];
+    }
+}
+
 @end
