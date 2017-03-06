@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner"/>
@@ -29,7 +30,7 @@
                         <constraint firstAttribute="width" constant="366" id="I4f-jQ-dpZ"/>
                     </constraints>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="The https://freeCodeCamp.com open source codebase and curriculum. Learn to code and help nonprofits." id="9qI-To-qhk">
-                        <font key="font" metaFont="cellTitle"/>
+                        <font key="font" metaFont="systemLight" size="12"/>
                         <color key="textColor" red="0.46270215511322021" green="0.4627724289894104" blue="0.46268689632415771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -42,7 +43,7 @@
                     <rect key="frame" x="30" y="5" width="37" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="fu9-At-V0C">
-                        <font key="font" metaFont="cellTitle"/>
+                        <font key="font" metaFont="systemLight" size="12"/>
                         <color key="textColor" red="0.46270215510000001" green="0.46277242899999999" blue="0.46268689629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -56,7 +57,7 @@
                     <rect key="frame" x="86" y="5" width="37" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="YRN-A6-2H2">
-                        <font key="font" metaFont="cellTitle"/>
+                        <font key="font" metaFont="systemLight" size="12"/>
                         <color key="textColor" red="0.46270215510000001" green="0.46277242899999999" blue="0.46268689629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -70,7 +71,7 @@
                     <rect key="frame" x="142" y="5" width="37" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="lgQ-kA-a3o">
-                        <font key="font" metaFont="cellTitle"/>
+                        <font key="font" metaFont="systemLight" size="12"/>
                         <color key="textColor" red="0.46270215510000001" green="0.46277242899999999" blue="0.46268689629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -79,7 +80,7 @@
                     <rect key="frame" x="343" y="5" width="37" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="Bdq-LC-1bM">
-                        <font key="font" metaFont="cellTitle"/>
+                        <font key="font" metaFont="systemLight" size="12"/>
                         <color key="textColor" red="0.46270215510000001" green="0.46277242899999999" blue="0.46268689629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

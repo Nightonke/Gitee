@@ -19,10 +19,13 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
             <rect key="frame" x="0.0" y="0.0" width="400" height="545"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q6C-F9-l80" customClass="VHPopUpButton">
                     <rect key="frame" x="18" y="501" width="175" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="170" id="0Ev-bc-X9Y"/>
+                    </constraints>
                     <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="2Mj-1A-315" id="2rG-Ag-Fxy">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
@@ -38,16 +41,15 @@
                         <action selector="onTrendingContentSelected:" target="-2" id="L8J-I8-Abb"/>
                     </connections>
                 </popUpButton>
-                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="102" horizontalPageScroll="10" verticalLineScroll="102" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbJ-b5-UxK">
+                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="100" horizontalPageScroll="10" verticalLineScroll="100" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbJ-b5-UxK">
                     <rect key="frame" x="0.0" y="0.0" width="400" height="496"/>
                     <clipView key="contentView" id="Zua-uv-oUG">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="496"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="100" viewBased="YES" id="ffk-Nz-h5o">
-                                <rect key="frame" x="0.0" y="0.0" width="403" height="496"/>
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="496"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
@@ -104,32 +106,17 @@
                         <constraint firstAttribute="width" constant="300" id="eMx-Hy-3bo"/>
                     </constraints>
                 </customView>
-                <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GC7-XV-p6q">
-                    <rect key="frame" x="145" y="518" width="99" height="26"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="c4g-AW-Hlo">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        <objectValues>
-                            <string>Item 1</string>
-                            <string>Item 2</string>
-                            <string>Item 3</string>
-                        </objectValues>
-                    </comboBoxCell>
-                </comboBox>
             </subviews>
             <constraints>
                 <constraint firstItem="xp5-ki-0kg" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="19A-mj-AjU"/>
                 <constraint firstAttribute="trailing" secondItem="j6M-mg-JZS" secondAttribute="trailing" constant="20" id="1WA-lx-5jW"/>
+                <constraint firstItem="bbJ-b5-UxK" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ANu-DG-QA9"/>
                 <constraint firstItem="Q6C-F9-l80" firstAttribute="width" secondItem="j6M-mg-JZS" secondAttribute="width" id="LjX-4R-jCr"/>
                 <constraint firstItem="xp5-ki-0kg" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="O4e-f9-Y3h"/>
-                <constraint firstItem="bbJ-b5-UxK" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Uek-Nn-AmX"/>
                 <constraint firstItem="bbJ-b5-UxK" firstAttribute="top" secondItem="Q6C-F9-l80" secondAttribute="bottom" constant="8" id="X11-tV-0RG"/>
                 <constraint firstItem="j6M-mg-JZS" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="c2p-Vg-Tzj"/>
                 <constraint firstAttribute="bottom" secondItem="bbJ-b5-UxK" secondAttribute="bottom" id="jRp-mc-M20"/>
                 <constraint firstItem="Q6C-F9-l80" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="jqn-9e-QUU"/>
-                <constraint firstItem="j6M-mg-JZS" firstAttribute="leading" secondItem="Q6C-F9-l80" secondAttribute="trailing" constant="20" id="mop-0o-o6A"/>
                 <constraint firstItem="Q6C-F9-l80" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="sLi-e3-TRI"/>
             </constraints>
             <point key="canvasLocation" x="117" y="168.5"/>

@@ -95,9 +95,7 @@ static NSArray<NSColor *> *colors = nil;
     if ([scrollView hasVerticalScroller]) {
         scrollView.verticalScroller.floatValue = 0;
     }
-    
-    NSPoint origin = NSMakePoint(0.0, scrollView.documentView.bounds.size.height - scrollView.documentVisibleRect.size.height);
-    [scrollView.documentView scrollPoint:origin];
+    [scrollView.documentView scrollPoint:NSMakePoint(0, 0)];
 }
 
 #pragma mark - Private methods

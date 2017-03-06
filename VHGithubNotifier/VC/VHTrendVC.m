@@ -35,13 +35,6 @@
 
 #pragma mark - Life
 
-- (void)loadView
-{
-    [super loadView];
-    self.view.wantsLayer = YES;
-    self.view.layer.backgroundColor = [NSColor whiteColor].CGColor;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -56,6 +49,10 @@
     
     self.webView = [[WKWebView alloc] initWithFrame:NSMakeRect(5, -10, self.view.width, self.anyTimeRadioButton.y - 5) configuration:theConfiguration];
     self.webView.UIDelegate = self;
+    self.webView.wantsLayer = YES;
+    self.webView.layer.backgroundColor = [NSColor clearColor].CGColor;
+    self.webView.enclosingScrollView.backgroundColor = [NSColor clearColor];
+    [self.webView setValue:@(YES) forKey:@"drawsTransparentBackground"];
     [self.view addSubview:self.webView];
     
     [self onNotifyRepositoriesLoadedSuccessfully:nil];

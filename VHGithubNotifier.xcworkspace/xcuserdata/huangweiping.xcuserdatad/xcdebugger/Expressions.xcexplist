@@ -3,12 +3,7 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[VHTextField performKeyEquivalent:]:VHTextField.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "[event charactersIgnoringModifiers]">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "__48-[VHGithubNotifierManager innerLoadRepositories]_block_invoke.173:VHGithubNotifierManager.m">
       </ContextState>
       <ContextState
          contextName = "-[VHGithubNotifierManager(Trending) trendingRepositoriesFromHtmlString:]:VHGithubNotifierManager+Trending.m">
@@ -31,13 +26,10 @@
          contextName = "-[VHStatusBarButton onNotifyRepositoriesLoadedSuccessfully:]:VHStatusBarButton.m">
       </ContextState>
       <ContextState
-         contextName = "__52-[VHGithubNotifierManager(Language) updateLanguages]_block_invoke_2:VHGithubNotifierManager+Language.m">
+         contextName = "__43-[VHGithubNotifierManager innerLoadProfile]_block_invoke_3:VHGithubNotifierManager.m">
       </ContextState>
       <ContextState
-         contextName = "-[VHUser starNumber]:VHUser.m">
-      </ContextState>
-      <ContextState
-         contextName = "__52-[VHGithubNotifierManager(Language) updateLanguages]_block_invoke:VHGithubNotifierManager+Language.m">
+         contextName = "__41+[VHNotification dictionaryFromResponse:]_block_invoke:VHNotification.m">
       </ContextState>
       <ContextState
          contextName = "+[VHUtils scrollViewToTop:]:VHUtils.m">
@@ -54,12 +46,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[VHSettingsWC onStatusBarContentChanged:]:VHSettingsWC.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.followersNumberButton.state &amp; VHStatusBarButtonContentTypeFollowers">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "__52-[VHGithubNotifierManager(Language) updateLanguages]_block_invoke:VHGithubNotifierManager+Language.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[VHGithubNotifierManager innerLoadRepositories]:VHGithubNotifierManager.m">
       </ContextState>
       <ContextState
          contextName = "-[VHTrendingRepositoryCellView setTrendingRepository:]:VHTrendingRepositoryCellView.m">
@@ -78,6 +68,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[VHTabVCBackgroundView drawRect:]:VHTabVCBackgroundView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.window.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "+[VHNotification dictionaryFromResponse:]:VHNotification.m">
       </ContextState>
       <ContextState
@@ -89,16 +87,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "__48-[VHGithubNotifierManager innerLoadRepositories]_block_invoke.173:VHGithubNotifierManager.m">
+         contextName = "-[VHSettingsWC onStatusBarContentChanged:]:VHSettingsWC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.followersNumberButton.state &amp; VHStatusBarButtonContentTypeFollowers">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "__43-[VHGithubNotifierManager innerLoadProfile]_block_invoke_3:VHGithubNotifierManager.m">
+         contextName = "-[VHUser starNumber]:VHUser.m">
       </ContextState>
       <ContextState
-         contextName = "__41+[VHNotification dictionaryFromResponse:]_block_invoke:VHNotification.m">
+         contextName = "__52-[VHGithubNotifierManager(Language) updateLanguages]_block_invoke_2:VHGithubNotifierManager+Language.m">
       </ContextState>
       <ContextState
-         contextName = "-[VHGithubNotifierManager innerLoadRepositories]:VHGithubNotifierManager.m">
+         contextName = "-[VHTextField performKeyEquivalent:]:VHTextField.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[event charactersIgnoringModifiers]">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

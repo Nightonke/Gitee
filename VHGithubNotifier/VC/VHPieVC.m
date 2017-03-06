@@ -26,13 +26,6 @@
 
 #pragma mark - Life
 
-- (void)loadView
-{
-    [super loadView];
-    self.view.wantsLayer = YES;
-    self.view.layer.backgroundColor = [NSColor whiteColor].CGColor;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -41,11 +34,17 @@
     self.pieChart.extraRightOffset = 30;
     self.pieChart.highlightPerTapEnabled = YES;
     self.pieChart.delegate = self;
+    self.pieChart.holeColor = nil;
     
     [self updateCenterText];
     [self.view addSubview:self.pieChart];
     
     [self addNotifications];
+    
+    if ([[VHGithubNotifierManager sharedManager] repositoriesLoadState] == VHLoadStateTypeLoadSuccessfully)
+    {
+        [self onNotifyRepositoriesLoadedSuccessfully:nil];
+    }
 }
 
 #pragma mark - Notifications
@@ -67,6 +66,11 @@
     
     // update description text
     [self updateDescriptionText];
+    
+    if (self.pieChart.isEmpty)
+    {
+        NSAssert(NO, @"Pie chart data is empty.");
+    }
 }
 
 - (void)onNotifyWindowWillHide:(NSNotification *)notification

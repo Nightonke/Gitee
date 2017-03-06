@@ -16,19 +16,23 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY" customClass="VHTabVCBackgroundView">
             <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <tabView type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="2n8-6A-LQy">
-                    <rect key="frame" x="0.0" y="0.0" width="400" height="545"/>
-                    <font key="font" metaFont="system"/>
-                    <tabViewItems/>
-                </tabView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="l22-Qg-2wk" customClass="VHTabView">
                     <rect key="frame" x="0.0" y="545" width="400" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Ndt-pe-xG2"/>
                     </constraints>
                 </customView>
+                <visualEffectView appearanceType="vibrantLight" fixedFrame="YES" blendingMode="behindWindow" material="appearanceBased" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="NDM-Kv-IIA">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="545"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </visualEffectView>
+                <tabView type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="2n8-6A-LQy">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="545"/>
+                    <font key="font" metaFont="system"/>
+                    <tabViewItems/>
+                </tabView>
             </subviews>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="2n8-6A-LQy" secondAttribute="trailing" id="Bpx-hU-hFc"/>

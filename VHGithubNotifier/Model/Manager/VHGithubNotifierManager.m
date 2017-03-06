@@ -15,6 +15,8 @@
 #import "VHGithubNotifierManager+UserNotification.h"
 #import "VHGithubNotifierManager+Trend.h"
 
+static VHLoadStateType repositoriesLoadState = VHLoadStateTypeDidNotLoad;
+
 @interface VHGithubNotifierManager ()
 
 @property (nonatomic, strong) NSTimer *basicInfoTimer;
@@ -85,6 +87,11 @@
             }
         }];
     });
+}
+
+- (VHLoadStateType)repositoriesLoadState
+{
+    return repositoriesLoadState;
 }
 
 - (BOOL)userAccountInfoExist
@@ -162,6 +169,7 @@
 
 - (void)innerUpdateRepositories
 {
+    repositoriesLoadState = VHLoadStateTypeLoading;
     NSUInteger repositoryPages;
     NSUInteger repositoryNumber = [[self user] repositoryNumber];
     if (repositoryNumber % 30 == 0)
@@ -207,6 +215,7 @@
                 dispatch_group_leave(requestGroup);
             } failure:^(NSError *error) {
                 BasicInfoLog(@"Update repositories in page %d failed with error: %@", page, error);
+                repositoriesLoadState = VHLoadStateTypeLoadFailed;
                 allSuccessful = NO;
                 dispatch_group_leave(requestGroup);
             }];
@@ -222,6 +231,7 @@
         {
             @autoreleasepool
             {
+                repositoriesLoadState = VHLoadStateTypeLoadSuccessfully;
                 RLMRealm *realm = [self realm];
                 VHUser *user = [realm resolveThreadSafeReference:userRef];
                 [user addRepositories:self.updateRepositories];

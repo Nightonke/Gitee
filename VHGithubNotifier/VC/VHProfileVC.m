@@ -26,8 +26,6 @@
 - (void)loadView
 {
     [super loadView];
-    self.view.wantsLayer = YES;
-    self.view.layer.backgroundColor = [NSColor whiteColor].CGColor;
     
     self.settingsButton.image.template = YES;
     self.settingsButton.toolTip = @"Settings";

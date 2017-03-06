@@ -37,7 +37,7 @@ static const CGFloat CORNER_RADIUS = 5;
     self.subscribeButton.cursor = [NSCursor pointingHandCursor];
     self.readButton.image.template = YES;
     self.readButton.cursor = [NSCursor pointingHandCursor];
-    self.backgroundColor = [VHUtils colorFromHexColorCodeInString:@"#ffffff"];
+    self.backgroundColor = RGBA(255, 255, 255, 0.5);
 }
 
 - (void)setNotification:(VHNotification *)notification
@@ -117,14 +117,14 @@ static const CGFloat CORNER_RADIUS = 5;
 - (void)mouseExited:(NSEvent *)event
 {
     [super mouseExited:event];
-    self.backgroundColor = [VHUtils colorFromHexColorCodeInString:@"#ffffff"];
+    self.backgroundColor = RGBA(255, 255, 255, 0.5);
     [self setNeedsDisplay:YES];
 }
 
 - (void)scrollWheel:(NSEvent *)event
 {
     [super scrollWheel:event];
-    self.backgroundColor = [VHUtils colorFromHexColorCodeInString:@"#ffffff"];
+    self.backgroundColor = RGBA(255, 255, 255, 0.5);
     [self setNeedsDisplay:YES];
 }
 

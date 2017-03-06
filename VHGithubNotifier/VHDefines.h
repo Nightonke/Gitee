@@ -27,7 +27,7 @@ const static CGFloat TAB_VC_CORNER_RADIUS = 8;
 
 #define RGB(R,G,B) [NSColor colorWithRed:R/255.0f green:G/255.0f blue:B/255.0f alpha:1.0f]
 
-#define RGBA(R,G,B,A) [NSColor colorWithRed:R/255.0f green:G/255.0f blue:B/255.0f alpha:A/255.0f]
+#define RGBA(R,G,B,A) [NSColor colorWithRed:R/255.0f green:G/255.0f blue:B/255.0f alpha:A]
 
 #define STATUS_ITEM_PRESSED_LIGHT RGB(45, 102, 239)
 

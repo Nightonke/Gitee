@@ -31,6 +31,8 @@
 
 - (void)confirmUserAccount:(NSString *)username withPassword:(NSString *)password;
 
+- (VHLoadStateType)repositoriesLoadState;
+
 - (BOOL)userAccountInfoExist;
 
 @end

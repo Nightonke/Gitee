@@ -33,13 +33,6 @@
 
 #pragma mark - Life
 
-- (void)loadView
-{
-    [super loadView];
-    self.view.wantsLayer = YES;
-    self.view.layer.backgroundColor = [NSColor whiteColor].CGColor;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -60,8 +53,10 @@
                   forIdentifier:@"VHNotificationHeaderCellView"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.backgroundColor = [NSColor clearColor];
     [self.tableView setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleNone];
     [self.tableView setIntercellSpacing:NSMakeSize(0, 0)];
+    self.scrollView.drawsBackground = NO;
     self.scrollView.automaticallyAdjustsContentInsets = NO;
     [self.scrollView setContentInsets:NSEdgeInsetsMake(0, 0, 10, 0)];
     
@@ -70,8 +65,6 @@
                                         withImageName:@"image_scroller"
                                  withPressedImageName:@"image_scroller_pressed"
                                        withScrollView:self.scrollView];
-    self.scroller.wantsLayer = YES;
-    self.scroller.layer.backgroundColor = [NSColor whiteColor].CGColor;
     [self.view addSubview:self.scroller];
 }
 

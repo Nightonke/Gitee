@@ -37,13 +37,6 @@
 
 #pragma mark - Life
 
-- (void)loadView
-{
-    [super loadView];
-    self.view.wantsLayer = YES;
-    self.view.layer.backgroundColor = [NSColor whiteColor].CGColor;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -71,16 +64,17 @@
                   forIdentifier:@"VHTrendingRepositoryCellView"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.backgroundColor = [NSColor clearColor];
     [self.tableView setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleNone];
     [self.tableView setIntercellSpacing:NSMakeSize(0, 0)];
     
-    self.scroller = [[VHScroller alloc] initWithFrame:NSMakeRect(self.view.width - 2, 10, 6, self.scrollView.height - 10)
+    self.scrollView.drawsBackground = NO;
+    
+    self.scroller = [[VHScroller alloc] initWithFrame:NSMakeRect(self.view.width - 6, 10, 6, self.scrollView.height - 10)
                                        withImageFrame:NSMakeRect(0, self.scrollView.height - 60, 6, 60)
                                         withImageName:@"image_scroller"
                                  withPressedImageName:@"image_scroller_pressed"
                                        withScrollView:self.scrollView];
-    self.scroller.wantsLayer = YES;
-    self.scroller.layer.backgroundColor = [NSColor whiteColor].CGColor;
     [self.view addSubview:self.scroller];
 }
 

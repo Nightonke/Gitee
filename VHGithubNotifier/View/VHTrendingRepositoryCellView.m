@@ -24,7 +24,6 @@
 
 - (void)awakeFromNib
 {
-    self.wantsLayer = YES;
     [self.repositoryDescription.cell setLineBreakMode:NSLineBreakByWordWrapping];
     [self.repositoryDescription.cell setTruncatesLastVisibleLine:YES];
     [self.repositoryDescription setMaximumNumberOfLines:2];
@@ -40,13 +39,13 @@
     
     NSMutableAttributedString *nameString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ / %@", self.repository.ownerAccount, self.repository.name]];
     [nameString addAttribute:NSFontAttributeName
-                       value:[NSFont systemFontOfSize:16]
+                       value:[NSFont systemFontOfSize:16 weight:NSFontWeightUltraLight]
                        range:NSMakeRange(0, self.repository.ownerAccount.length + 3)];
     [nameString addAttribute:NSForegroundColorAttributeName
                        value:[VHUtils colorFromHexColorCodeInString:@"#4078c0"]
                        range:NSMakeRange(0, self.repository.ownerAccount.length + 3)];
     [nameString addAttribute:NSFontAttributeName
-                       value:[NSFont boldSystemFontOfSize:16]
+                       value:[NSFont systemFontOfSize:16 weight:NSFontWeightLight]
                        range:NSMakeRange(self.repository.ownerAccount.length + 3, self.repository.name.length)];
     [nameString addAttribute:NSForegroundColorAttributeName
                        value:[VHUtils colorFromHexColorCodeInString:@"#4078c0"]
@@ -150,8 +149,8 @@
         NSBezierPath *line = [NSBezierPath bezierPath];
         [line moveToPoint:NSMakePoint(15, 0)];
         [line lineToPoint:NSMakePoint(NSMaxX([self bounds]) - 15, 0)];
-        [line setLineWidth:1.0];
-        [[VHUtils colorFromHexColorCodeInString:@"#dfdfdf"] set];
+        [line setLineWidth:0.5];
+        [[VHUtils colorFromHexColorCodeInString:@"#aaaaaa"] set];
         [line stroke];        
     }
 }
@@ -163,7 +162,7 @@
 
 - (void)mouseUp:(NSEvent *)event
 {
-    self.layer.backgroundColor = [NSColor whiteColor].CGColor;
+    self.layer.backgroundColor = [NSColor clearColor].CGColor;
     if (self.hasPressedDown && self.delegate && [self.delegate respondsToSelector:@selector(onTrendingClicked:)])
     {
         [self.delegate onTrendingClicked:self.repository];
@@ -173,13 +172,13 @@
 
 - (void)mouseDown:(NSEvent *)event
 {
-    self.layer.backgroundColor = [VHUtils colorFromHexColorCodeInString:@"#eeeeee"].CGColor;
+    self.layer.backgroundColor = RGBA(238, 238, 238, 0.5).CGColor;
     self.hasPressedDown = YES;
 }
 
 - (void)mouseExited:(NSEvent *)event
 {
-    self.layer.backgroundColor = [NSColor whiteColor].CGColor;
+    self.layer.backgroundColor = [NSColor clearColor].CGColor;
 }
 
 - (void)updateTrackingAreas
