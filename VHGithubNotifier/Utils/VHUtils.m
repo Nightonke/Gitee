@@ -15,6 +15,8 @@ static NSArray<NSColor *> *colors = nil;
 
 @implementation VHUtils
 
+#pragma mark - Public Methods
+
 + (BOOL)isDarkMode
 {
     NSDictionary *dict = [[NSUserDefaults standardUserDefaults] persistentDomainForName:NSGlobalDomain];
@@ -87,6 +89,18 @@ static NSArray<NSColor *> *colors = nil;
         
     }];
 }
+
++ (void)scrollViewToTop:(NSScrollView *)scrollView
+{
+    if ([scrollView hasVerticalScroller]) {
+        scrollView.verticalScroller.floatValue = 0;
+    }
+    
+    NSPoint origin = NSMakePoint(0.0, scrollView.documentView.bounds.size.height - scrollView.documentVisibleRect.size.height);
+    [scrollView.documentView scrollPoint:origin];
+}
+
+#pragma mark - Private methods
 
 + (NSArray<NSString *> *)colorStrings
 {

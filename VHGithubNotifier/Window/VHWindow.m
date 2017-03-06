@@ -29,7 +29,7 @@ const static CGFloat MENU_WINDOW_LEFT_MARGIN = 20;
     ViewLog(@"Init");
     NSRect frame = NSMakeRect(0, 0, 400, 600);
     
-    self = [super initWithContentRect:frame styleMask:NSWindowStyleMaskBorderless backing:NSBackingStoreBuffered defer:NO];
+    self = [super initWithContentRect:frame styleMask:NSWindowStyleMaskBorderless | NSWindowStyleMaskFullSizeContentView backing:NSBackingStoreBuffered defer:NO];
     if (self)
     {
         VHTabVC *vc = [[VHTabVC alloc] initWithNibName:@"VHTabVC" bundle:[NSBundle mainBundle]];
@@ -41,7 +41,6 @@ const static CGFloat MENU_WINDOW_LEFT_MARGIN = 20;
         [self setOpaque:NO];
         [self setBackgroundColor:[NSColor clearColor]];
         [self setCollectionBehavior:NSWindowCollectionBehaviorStationary];
-        [self setStyleMask:NSWindowStyleMaskFullSizeContentView];
         
         WEAK_SELF(self);
         _mouseEventMonitor = [NSEvent addGlobalMonitorForEventsMatchingMask:(NSEventMaskLeftMouseDown | NSEventMaskRightMouseDown | NSEventMaskOtherMouseDown)

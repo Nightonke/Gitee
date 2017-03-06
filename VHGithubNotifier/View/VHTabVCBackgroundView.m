@@ -55,7 +55,7 @@
         self.layer = _layer;
         self.wantsLayer = YES;
         self.layer.masksToBounds = YES;
-        self.layer.cornerRadius = _cornerRadius;
+        self.layer.cornerRadius = _cornerRadius / 2;
     }
     return self;
 }
@@ -63,11 +63,6 @@
 - (BOOL)opaque
 {
     return NO;
-}
-
-- (void)layout
-{
-    [super layout];
 }
 
 - (void)drawRect:(NSRect)dirtyRect

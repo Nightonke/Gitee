@@ -108,6 +108,10 @@ const static CGFloat TEXT_EXTRA_PADDING = 5;
         [self addSubview:self.githubIcon];
         width = [self.githubIcon getRight];
     }
+    else
+    {
+        self.githubIcon = nil;
+    }
     if (contents & VHStatusBarButtonContentTypeStargazers)
     {
         self.starImage = [[NSImageView alloc] initWithFrame:CGRectMake(width, 0, STATUS_ICON_WIDTH, STATUS_BAR_HEIGHT)];
@@ -116,6 +120,11 @@ const static CGFloat TEXT_EXTRA_PADDING = 5;
         self.starText = [self textFieldWithFrame:CGRectMake(width + STATUS_ICON_STAR_TEXT_HORIZONTAL_OFFSET, 2, 0, STATUS_BAR_HEIGHT)];
         [self addSubview:self.starText];
         width = [self.starText getRight];
+    }
+    else
+    {
+        self.starImage = nil;
+        self.starText = nil;
     }
     if (contents & VHStatusBarButtonContentTypeFollowers)
     {
@@ -126,6 +135,11 @@ const static CGFloat TEXT_EXTRA_PADDING = 5;
         [self addSubview:self.followerText];
         width = [self.followerText getRight];
     }
+    else
+    {
+        self.followerImage = nil;
+        self.followerText = nil;
+    }
     if (contents & VHStatusBarButtonContentTypeNotifications)
     {
         self.notificationImage = [[NSImageView alloc] initWithFrame:CGRectMake(width, 0, STATUS_ICON_WIDTH, STATUS_BAR_HEIGHT)];
@@ -135,14 +149,22 @@ const static CGFloat TEXT_EXTRA_PADDING = 5;
         [self addSubview:self.notificationText];
         width = [self.notificationText getRight];
     }
+    else
+    {
+        self.notificationImage = nil;
+        self.notificationText = nil;
+    }
 }
 
 - (void)updateStringsAndPositions
 {
-    BOOL statusBarButtonContainsEmptyContent = [[VHGithubNotifierManager sharedManager] statusBarButtonContainsEmptyContent];
+    BOOL onlyShowsValidContentsInStatusBar = [[VHGithubNotifierManager sharedManager] onlyShowsValidContentsInStatusBar];
+    NSUInteger contents = [[VHGithubNotifierManager sharedManager] statusBarButtonContents];
     CGFloat width = 0;
     
-    if ([self.starString isEqualToString:@"0"] && statusBarButtonContainsEmptyContent)
+    BOOL hideStars = ([self.starString isEqualToString:@"0"] && onlyShowsValidContentsInStatusBar)
+                  || ((contents & VHStatusBarButtonContentTypeStargazers) == 0);
+    if (hideStars)
     {
         self.starImage.hidden = YES;
         self.starText.hidden = YES;
@@ -159,7 +181,9 @@ const static CGFloat TEXT_EXTRA_PADDING = 5;
         width = [self.starText getRight];
     }
     
-    if ([self.followerString isEqualToString:@"0"] && statusBarButtonContainsEmptyContent)
+    BOOL hideFollowers = ([self.followerString isEqualToString:@"0"] && onlyShowsValidContentsInStatusBar)
+                      || ((contents & VHStatusBarButtonContentTypeFollowers) == 0);
+    if (hideFollowers)
     {
         self.followerImage.hidden = YES;
         self.followerText.hidden = YES;
@@ -176,7 +200,9 @@ const static CGFloat TEXT_EXTRA_PADDING = 5;
         width = [self.followerText getRight];
     }
     
-    if ([self.notificationString isEqualToString:@"0"] && statusBarButtonContainsEmptyContent)
+    BOOL hideNotifications = ([self.notificationString isEqualToString:@"0"] && onlyShowsValidContentsInStatusBar)
+                          || ((contents & VHStatusBarButtonContentTypeNotifications) == 0);
+    if (hideNotifications)
     {
         self.notificationImage.hidden = YES;
         self.notificationText.hidden = YES;
@@ -201,8 +227,8 @@ const static CGFloat TEXT_EXTRA_PADDING = 5;
         {
             self.githubIcon = [[NSImageView alloc] initWithFrame:CGRectMake(width, 0, STATUS_ICON_WIDTH, STATUS_BAR_HEIGHT)];
             [self addSubview:self.githubIcon];
-            width = [self.githubIcon getRight];
         }
+        width = [self.githubIcon getRight];
     }
     else
     {
@@ -306,7 +332,9 @@ const static CGFloat TEXT_EXTRA_PADDING = 5;
 
 - (void)onNotifyStatusBarButtonContentChanged:(NSNotification *)notification
 {
-    
+    [self loadViews];
+    [self updateValues];
+    [self updateColorsWithPressed:_isPressed];
 }
 
 #pragma mark - Touches

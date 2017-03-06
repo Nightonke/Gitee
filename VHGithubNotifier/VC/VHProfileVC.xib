@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="VHProfileVC">
             <connections>
+                <outlet property="settingsButton" destination="GCr-c8-DM9" id="KTg-GL-A9Y"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -16,17 +17,22 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="545"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qNZ-mw-FNP">
-                    <rect key="frame" x="179" y="264" width="43" height="17"/>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GCr-c8-DM9">
+                    <rect key="frame" x="362" y="9" width="28" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Profile" id="oP4-5Y-rfi">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_settings" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="7yV-FL-hCw">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onSettingsButtonClicked:" target="-2" id="g0a-Oa-pL1"/>
+                    </connections>
+                </button>
             </subviews>
             <point key="canvasLocation" x="132" y="168.5"/>
         </customView>
     </objects>
+    <resources>
+        <image name="icon_settings" width="24" height="24"/>
+    </resources>
 </document>

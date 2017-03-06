@@ -15,6 +15,7 @@
 #import "VHNotificationHeaderCellView.h"
 #import "VHScroller.h"
 #import "NSView+Position.h"
+#import "VHUtils.h"
 
 @interface VHNotificationVC ()<NSTableViewDelegate, NSTableViewDataSource, VHStateViewDelegate>
 
@@ -31,6 +32,13 @@
 @implementation VHNotificationVC
 
 #pragma mark - Life
+
+- (void)loadView
+{
+    [super loadView];
+    self.view.wantsLayer = YES;
+    self.view.layer.backgroundColor = [NSColor whiteColor].CGColor;
+}
 
 - (void)viewDidLoad
 {
@@ -107,7 +115,7 @@
         [self.stateView setState:VHStateViewStateTypeLoadSuccessfully];
         [self.scrollView setHidden:NO];
         [self.tableView reloadData];
-        [self.scrollView.documentView scrollPoint:NSMakePoint(0, 0)];        
+        [VHUtils scrollViewToTop:self.scrollView];
     }
 }
 

@@ -33,8 +33,7 @@ static NSUInteger minimumStarNumberInPie;
 
 static const NSUInteger defaultStatusBarButtonContents = VHStatusBarButtonContentTypeStargazers | VHStatusBarButtonContentTypeFollowers | VHStatusBarButtonContentTypeNotifications;
 static NSUInteger statusBarButtonContents;
-static const BOOL defaultStatusBarButtonContainsEmptyContent = NO;
-static BOOL statusBarButtonContainsEmptyContent;
+static BOOL onlyShowsValidContentsInStatusBar;
 
 @implementation VHGithubNotifierManager (UserDefault)
 
@@ -98,7 +97,7 @@ static BOOL statusBarButtonContainsEmptyContent;
         statusBarButtonContents = defaultStatusBarButtonContents;
     }
     
-    statusBarButtonContainsEmptyContent = [[self userDefaults] boolForKey:@"statusBarButtonContainsEmptyContent"];
+    onlyShowsValidContentsInStatusBar = [[self userDefaults] boolForKey:@"onlyShowsValidContentsInStatusBar"];
 }
 
 - (NSArray<NSImage *> *)imagesForGithubContentTypes;
@@ -315,15 +314,15 @@ static BOOL statusBarButtonContainsEmptyContent;
     [[self userDefaults] setInteger:statusBarButtonContents forKey:@"statusBarButtonContents"];
 }
 
-- (BOOL)statusBarButtonContainsEmptyContent
+- (BOOL)onlyShowsValidContentsInStatusBar
 {
-    return statusBarButtonContainsEmptyContent;
+    return onlyShowsValidContentsInStatusBar;
 }
 
-- (void)setStatusBarButtonContainsEmptyContent:(BOOL)_statusBarButtonContainsEmptyContent
+- (void)setOnlyShowsValidContentsInStatusBar:(BOOL)_onlyShowsValidContentsInStatusBar
 {
-    statusBarButtonContainsEmptyContent = _statusBarButtonContainsEmptyContent;
-    [[self userDefaults] setBool:statusBarButtonContainsEmptyContent forKey:@"statusBarButtonContainsEmptyContent"];
+    onlyShowsValidContentsInStatusBar = _onlyShowsValidContentsInStatusBar;
+    [[self userDefaults] setBool:onlyShowsValidContentsInStatusBar forKey:@"onlyShowsValidContentsInStatusBar"];
 }
 
 #pragma mark - Private Methods

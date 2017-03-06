@@ -162,7 +162,8 @@
 
 - (void)removeAllSubViews
 {
-    for (NSView *view in self.subviews)
+    NSArray<NSView *> *subViews = [self.subviews copy];
+    for (NSView *view in subViews)
     {
         [view removeFromSuperview];
     }

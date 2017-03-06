@@ -6,8 +6,8 @@
 //  Copyright © 2016年 黄伟平. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "VHViewController.h"
 
-@interface VHProfileVC : NSViewController
+@interface VHProfileVC : VHViewController
 
 @end

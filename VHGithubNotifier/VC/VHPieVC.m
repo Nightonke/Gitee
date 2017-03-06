@@ -26,6 +26,13 @@
 
 #pragma mark - Life
 
+- (void)loadView
+{
+    [super loadView];
+    self.view.wantsLayer = YES;
+    self.view.layer.backgroundColor = [NSColor whiteColor].CGColor;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

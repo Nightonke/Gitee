@@ -37,6 +37,13 @@
 
 #pragma mark - Life
 
+- (void)loadView
+{
+    [super loadView];
+    self.view.wantsLayer = YES;
+    self.view.layer.backgroundColor = [NSColor whiteColor].CGColor;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -192,7 +199,7 @@
         [self.timePopupButton setHidden:NO];
         [self.scrollView setHidden:NO];
         [self.tableView reloadData];
-        [self.scrollView.documentView scrollPoint:NSMakePoint(0, 0)];
+        [VHUtils scrollViewToTop:self.scrollView];
     }
 }
 

@@ -30,4 +30,6 @@
 
 + (void)resetWKWebView;
 
++ (void)scrollViewToTop:(NSScrollView *)scrollView;
+
 @end

@@ -131,8 +131,8 @@
 
 - (void)setStatusBarButtonContents:(NSUInteger)_statusBarButtonContents;
 
-- (BOOL)statusBarButtonContainsEmptyContent;
+- (BOOL)onlyShowsValidContentsInStatusBar;
 
-- (void)setStatusBarButtonContainsEmptyContent:(BOOL)_statusBarButtonContainsEmptyContent;
+- (void)setOnlyShowsValidContentsInStatusBar:(BOOL)_onlyShowsValidContentsInStatusBar;
 
 @end
