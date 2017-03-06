@@ -38,7 +38,7 @@ static NSArray<NSString *> *colors = nil;
     
     [htmlContent appendString:[NSString stringWithFormat:@"%@\",textStyle:{fontWeight:\'normal\',fontFamily:\'sans-serif\',fontSize:", title]];
     
-    [htmlContent appendString:[NSString stringWithFormat:@"%zd,},subtextStyle:{fontSize:0,},itemGap:0,},tooltip : {trigger: \'item\'},toolbox: {show : false,},calculable : true,legend: {show: false,},grid: {top: \'8%%\',left: \'1%%\',right: \'10%%\',containLabel: true},yAxis: [{type : \'value\',min : %zd,max : \'dataMax\'}],dataZoom: [{type: \'inside\',startValue: ", titleFontSize, minValue]];
+    [htmlContent appendString:[NSString stringWithFormat:@"%zd,},subtextStyle:{fontSize:0,},itemGap:0,},tooltip : {trigger: \'item\'},toolbox:{show:true,feature:{magicType:{show:true,type:[\'line\', \'bar\'],title:[\'\', \'\']},},right: 20},calculable : true,legend: {show: false,},grid: {top: \'8%%\',left: \'1%%\',right: \'10%%\',containLabel: true},yAxis: [{type : \'value\',min : %zd,max : \'dataMax\'}],dataZoom: [{type: \'inside\',startValue: ", titleFontSize, minValue]];
     
     [htmlContent appendString:[NSString stringWithFormat:@"%zd,endValue:", startValue]];
     [htmlContent appendString:[NSString stringWithFormat:@"%zd,},{type: \'slider\',show: true,startValue: ", endValue]];
