@@ -10,6 +10,16 @@
 
 @implementation VHCursorButton
 
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self)
+    {
+        _cursor = [NSCursor pointingHandCursor];
+    }
+    return self;
+}
+
 - (void)resetCursorRects
 {
     if (self.cursor)

@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="VHProfileVC">
             <connections>
+                <outlet property="exitButton" destination="OU1-rz-E78" id="Ceb-B8-ygG"/>
                 <outlet property="settingsButton" destination="GCr-c8-DM9" id="KTg-GL-A9Y"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -17,8 +18,19 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="545"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GCr-c8-DM9">
-                    <rect key="frame" x="362" y="9" width="28" height="28"/>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OU1-rz-E78" customClass="VHCursorButton">
+                    <rect key="frame" x="364" y="8" width="28" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_exit" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="uzg-5H-KSp">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onExitButtonClicked:" target="-2" id="U3y-qf-BkL"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GCr-c8-DM9" customClass="VHCursorButton">
+                    <rect key="frame" x="337" y="8" width="28" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_settings" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="7yV-FL-hCw">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -33,6 +45,7 @@
         </customView>
     </objects>
     <resources>
+        <image name="icon_exit" width="24" height="24"/>
         <image name="icon_settings" width="24" height="24"/>
     </resources>
 </document>

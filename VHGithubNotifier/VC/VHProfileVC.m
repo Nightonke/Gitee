@@ -8,10 +8,12 @@
 
 #import "VHProfileVC.h"
 #import "VHSettingsWC.h"
+#import "VHCursorButton.h"
 
 @interface VHProfileVC ()
 
-@property (weak) IBOutlet NSButton *settingsButton;
+@property (weak) IBOutlet VHCursorButton *settingsButton;
+@property (weak) IBOutlet VHCursorButton *exitButton;
 
 @property (nonatomic, strong) VHSettingsWC *settingsWC;
 
@@ -28,6 +30,9 @@
     self.view.layer.backgroundColor = [NSColor whiteColor].CGColor;
     
     self.settingsButton.image.template = YES;
+    self.settingsButton.toolTip = @"Settings";
+    self.exitButton.image.template = YES;
+    self.exitButton.toolTip = @"Quit Gitee";
 }
 
 #pragma mark - Actions
@@ -41,5 +46,12 @@
     }
     [self.settingsWC showWindow:self];
 }
+
+- (IBAction)onExitButtonClicked:(id)sender
+{
+    SystemLog(@"Terminate in profile vc");
+    [NSApp terminate:nil];
+}
+
 
 @end

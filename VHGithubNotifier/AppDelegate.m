@@ -20,7 +20,6 @@
 #import "VHRepositoryView.h"
 #import "VHWindow.h"
 #import "VHAccountInfoWC.h"
-#import "VHSettingsWC.h"
 
 @interface AppDelegate ()<VHStatusBarButtonProtocol, NSMenuDelegate, VHWindowProtocol, VHAccountInfoWCDelegate>
 
@@ -31,7 +30,6 @@
 
 @property (nonatomic, strong) VHWindow *menuWindow;
 @property (nonatomic, strong) VHAccountInfoWC *infoWC;
-@property (nonatomic, strong) VHSettingsWC *settingsWC;
 
 @end
 
@@ -86,13 +84,6 @@
         self.infoWC.accountInfoDelegate = self;
         [self.infoWC showWindow:self];        
     }
-    
-    NOTIFICATION_POST(kNotifyWindowShouldHide);
-    if (self.settingsWC == nil)
-    {
-        self.settingsWC = [[VHSettingsWC alloc] initWithWindowNibName:@"VHSettingsWC"];
-    }
-    [self.settingsWC showWindow:self];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
@@ -273,6 +264,7 @@
 {
     if ([[VHGithubNotifierManager sharedManager] userAccountInfoExist] == NO)
     {
+        SystemLog(@"Terminate in onAccountInfoWindowClosed method");
         [NSApp terminate:nil];
     }
 }
