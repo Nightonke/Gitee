@@ -36,14 +36,14 @@ static NSArray<NSString *> *colors = nil;
     [htmlContent appendString:[NSString stringWithFormat:@"%zdpx;height:%zdpx;", chartWidth, chartHeight]];
     [htmlContent appendString:[NSString stringWithFormat:@"margin-top:%zdpx;\"></div><script type=\"text/javascript\">var myChart=echarts.init(document.getElementById(\'main\'));option=null;option={title:{text:\"", marginTop]];
     
-    [htmlContent appendString:[NSString stringWithFormat:@"%@\",textStyle:{fontWeight:\'normal\',fontFamily:\'sans-serif\',fontSize:", title]];
+    [htmlContent appendString:[NSString stringWithFormat:@"%@\",textStyle:{fontWeight:\'lighter\',fontFamily:\'sans-serif\',fontSize:", title]];
     
-    [htmlContent appendString:[NSString stringWithFormat:@"%zd,},subtextStyle:{fontSize:0,},itemGap:0,},tooltip : {trigger: \'item\'},toolbox:{show:true,feature:{magicType:{show:true,type:[\'line\', \'bar\'],title:[\'\', \'\']},},right: 20},calculable : true,legend: {show: false,},grid: {top: \'8%%\',left: \'1%%\',right: \'10%%\',containLabel: true},yAxis: [{type : \'value\',min : %zd,max : \'dataMax\'}],dataZoom: [{type: \'inside\',startValue: ", titleFontSize, minValue]];
+    [htmlContent appendString:[NSString stringWithFormat:@"%zd,},subtextStyle:{fontSize:0,},itemGap:0,},tooltip : {textStyle:{fontWeight:\'lighter\'},trigger: \'item\'},toolbox:{show:true,feature:{magicType:{show:true,type:[\'line\', \'bar\'],title:[\'\', \'\'],iconStyle:{normal:{color:\'#03A9F4\',borderColor:\'#03A9F4\'},emphasis:{color:\'#03A9F4\',borderColor:\'#03A9F4\'}}},},right: 20},calculable : true,legend: {show: false,},grid: {top: \'8%%\',left: \'1%%\',right: \'10%%\',containLabel: true},yAxis: [{axisLabel:{textStyle:{fontWeight:'lighter'}},type : \'value\',min : %zd,max : \'dataMax\'}],dataZoom: [{type: \'inside\',startValue: ", titleFontSize, minValue]];
     
     [htmlContent appendString:[NSString stringWithFormat:@"%zd,endValue:", startValue]];
-    [htmlContent appendString:[NSString stringWithFormat:@"%zd,},{type: \'slider\',show: true,startValue: ", endValue]];
+    [htmlContent appendString:[NSString stringWithFormat:@"%zd,},{type: \'slider\',show: true,startValue: ", endValue - 1]];
     [htmlContent appendString:[NSString stringWithFormat:@"%zd,endValue:", startValue]];
-    [htmlContent appendString:[NSString stringWithFormat:@"%zd,filterMode: \'filter\'},],xAxis: [{axisTick: {alignWithLabel: true},type : \'category\',boundaryGap: true,data : [", endValue]];
+    [htmlContent appendString:[NSString stringWithFormat:@"%zd,filterMode: \'filter\',borderColor:\'rgba(0,0,0,0)\',fillerColor:\'rgba(3,169,244,0.2)\',dataBackground:{lineStyle: {color:\'#03A9F4\'},areaStyle:{color:\'#03A9F4\'}},handleStyle:{color:\'rgba(3,169,244,1)\'},textStyle:{fontWeight: \'lighter\'},left:'25'}],xAxis: [{axisLabel:{textStyle:{fontWeight:\'lighter\'}},axisTick: {alignWithLabel: true},type : \'category\',boundaryGap: true,data : [", endValue]];
     
     for (VHRecord *record in records)
     {
@@ -140,26 +140,27 @@ static NSArray<NSString *> *colors = nil;
 {
     if (colors == nil)
     {
-        colors = @[@"#F44336",
-                   @"#3F51B5",
-                   @"#673AB7",
-                   @"#E91E63",
-                   @"#9C27B0",
-                   @"#03A9F4",
-                   @"#009688",
-                   @"#4CAF50",
-                   @"#00BCD4",
-                   @"#2196F3",
-                   @"#CDDC39",
-                   @"#009688",
-                   @"#8BC34A",
-                   @"#FF9800",
-                   @"#FFEB3B",
-                   @"#795548",
-                   @"#FFC107",
-                   @"#9E9E9E",
-                   @"#FF5722",
-                   @"#607D8B"];
+//        colors = @[@"#F44336",
+//                   @"#3F51B5",
+//                   @"#673AB7",
+//                   @"#E91E63",
+//                   @"#9C27B0",
+//                   @"#03A9F4",
+//                   @"#009688",
+//                   @"#4CAF50",
+//                   @"#00BCD4",
+//                   @"#2196F3",
+//                   @"#CDDC39",
+//                   @"#009688",
+//                   @"#8BC34A",
+//                   @"#FF9800",
+//                   @"#FFEB3B",
+//                   @"#795548",
+//                   @"#FFC107",
+//                   @"#9E9E9E",
+//                   @"#FF5722",
+//                   @"#607D8B"];
+        colors = @[@"#03A9F4"];
     }
     return colors;
 }

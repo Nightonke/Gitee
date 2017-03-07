@@ -3,14 +3,19 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="VHTrendVC">
             <connections>
                 <outlet property="anyTimeRadioButton" destination="yTz-W1-8ig" id="Knu-sQ-ZCX"/>
                 <outlet property="dayRadioButton" destination="oKF-Ct-LGn" id="ibE-FE-VeZ"/>
+                <outlet property="horizontalLine" destination="718-rl-q2l" id="UUy-Ck-aHV"/>
                 <outlet property="monthRadioButton" destination="fEn-NY-EhE" id="5vG-KI-6Rq"/>
+                <outlet property="trendContentButton" destination="OHy-hK-cza" id="7XY-oe-A7n"/>
                 <outlet property="trendPopupButton" destination="666-Ac-4xq" id="wWv-Jx-Q6k"/>
+                <outlet property="trendTimeImageView" destination="2cv-Lp-OPu" id="Vp3-6F-u8l"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
                 <outlet property="weekRadioButton" destination="OVC-kg-XQn" id="kSE-K0-jj6"/>
                 <outlet property="yearRadioButton" destination="09f-Ye-OJG" id="BgD-ZA-qi5"/>
@@ -22,12 +27,26 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="545"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="666-Ac-4xq">
-                    <rect key="frame" x="18" y="501" width="365" height="26"/>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="OHy-hK-cza" customClass="VHCursorButton">
+                    <rect key="frame" x="15" y="515" width="20" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="360" id="flJ-ht-duT"/>
+                        <constraint firstAttribute="width" constant="20" id="6qe-0V-Xai"/>
+                        <constraint firstAttribute="height" constant="20" id="nqV-Ja-16E"/>
                     </constraints>
-                    <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="I4i-Dm-GEM" id="u4S-Ph-3jv">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_trend_repository" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="vDw-et-ooW">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onTrendContentButtonClicked:" target="-2" id="kjO-eh-WlX"/>
+                    </connections>
+                </button>
+                <popUpButton translatesAutoresizingMaskIntoConstraints="NO" id="666-Ac-4xq" customClass="VHPopUpButton">
+                    <rect key="frame" x="30" y="515" width="354" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="354" id="7hu-fF-5Hw"/>
+                    </constraints>
+                    <popUpButtonCell key="cell" type="bevel" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" arrowPosition="noArrow" selectedItem="I4i-Dm-GEM" id="u4S-Ph-3jv" customClass="VHPopUpButtonCell">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
                         <menu key="menu" id="fMB-Vn-4dH">
@@ -42,68 +61,108 @@
                         <action selector="onTrendDataSelected:" target="-2" id="hfn-mD-qBn"/>
                     </connections>
                 </popUpButton>
-                <button fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="yTz-W1-8ig">
-                    <rect key="frame" x="19" y="479" width="72" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="radio" title="Anytime" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="tFf-6b-0GD">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="onTimeTypeChanged:" target="-2" id="9uG-rc-b9x"/>
-                    </connections>
-                </button>
-                <button fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="oKF-Ct-LGn">
-                    <rect key="frame" x="96" y="479" width="46" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="radio" title="Day" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="XFz-48-oeM">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="onTimeTypeChanged:" target="-2" id="W5N-a2-AQ6"/>
-                    </connections>
-                </button>
-                <button fixedFrame="YES" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="OVC-kg-XQn">
-                    <rect key="frame" x="147" y="479" width="56" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="radio" title="Week" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="uU0-Pi-vGt">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="onTimeTypeChanged:" target="-2" id="vwP-Q5-Db1"/>
-                    </connections>
-                </button>
-                <button fixedFrame="YES" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="fEn-NY-EhE">
-                    <rect key="frame" x="208" y="479" width="61" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="radio" title="Month" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="DAG-JN-OCK">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="onTimeTypeChanged:" target="-2" id="cvx-hx-kiz"/>
-                    </connections>
-                </button>
-                <button fixedFrame="YES" tag="5" translatesAutoresizingMaskIntoConstraints="NO" id="09f-Ye-OJG">
-                    <rect key="frame" x="274" y="479" width="49" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="radio" title="Year" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="bIe-4i-kPq">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="onTimeTypeChanged:" target="-2" id="08X-Sv-cqj"/>
-                    </connections>
-                </button>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2cv-Lp-OPu">
+                    <rect key="frame" x="15" y="489" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="XhW-ZQ-bVv"/>
+                        <constraint firstAttribute="width" constant="20" id="m4D-xo-aqS"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon_time" id="uNq-Wn-DBK"/>
+                </imageView>
+                <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ax-Uz-nFZ">
+                    <rect key="frame" x="40" y="491" width="299" height="16"/>
+                    <subviews>
+                        <button tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="yTz-W1-8ig">
+                            <rect key="frame" x="-1" y="-1" width="71" height="18"/>
+                            <buttonCell key="cell" type="radio" title="Anytime" bezelStyle="regularSquare" imagePosition="left" alignment="center" inset="2" id="tFf-6b-0GD">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="systemLight" size="13"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="onTimeTypeChanged:" target="-2" id="9uG-rc-b9x"/>
+                            </connections>
+                        </button>
+                        <button tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="oKF-Ct-LGn">
+                            <rect key="frame" x="75" y="-1" width="45" height="18"/>
+                            <buttonCell key="cell" type="radio" title="Day" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="XFz-48-oeM">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="systemLight" size="13"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="onTimeTypeChanged:" target="-2" id="W5N-a2-AQ6"/>
+                            </connections>
+                        </button>
+                        <button tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="OVC-kg-XQn">
+                            <rect key="frame" x="125" y="-1" width="56" height="18"/>
+                            <buttonCell key="cell" type="radio" title="Week" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="uU0-Pi-vGt">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="systemLight" size="13"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="onTimeTypeChanged:" target="-2" id="vwP-Q5-Db1"/>
+                            </connections>
+                        </button>
+                        <button tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="fEn-NY-EhE">
+                            <rect key="frame" x="186" y="-1" width="61" height="18"/>
+                            <buttonCell key="cell" type="radio" title="Month" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="DAG-JN-OCK">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="systemLight" size="13"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="onTimeTypeChanged:" target="-2" id="cvx-hx-kiz"/>
+                            </connections>
+                        </button>
+                        <button tag="5" translatesAutoresizingMaskIntoConstraints="NO" id="09f-Ye-OJG">
+                            <rect key="frame" x="252" y="-1" width="49" height="18"/>
+                            <buttonCell key="cell" type="radio" title="Year" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="bIe-4i-kPq">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="systemLight" size="13"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="onTimeTypeChanged:" target="-2" id="08X-Sv-cqj"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="718-rl-q2l" customClass="VHHorizontalLine">
+                    <rect key="frame" x="15" y="483" width="370" height="1"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="370" id="TgH-ej-vCt"/>
+                        <constraint firstAttribute="height" constant="1" id="qGC-YZ-Y7t"/>
+                    </constraints>
+                </customView>
             </subviews>
             <constraints>
-                <constraint firstItem="666-Ac-4xq" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="ImX-d6-h7j"/>
-                <constraint firstAttribute="trailing" secondItem="666-Ac-4xq" secondAttribute="trailing" constant="20" id="rVm-0p-bLx"/>
-                <constraint firstItem="666-Ac-4xq" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="vV5-KP-K9J"/>
+                <constraint firstItem="666-Ac-4xq" firstAttribute="bottom" secondItem="OHy-hK-cza" secondAttribute="bottom" id="ASE-Xw-ZwM"/>
+                <constraint firstItem="OHy-hK-cza" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="10" id="Ltr-SP-eH4"/>
+                <constraint firstItem="OHy-hK-cza" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="15" id="NVa-MQ-vSb"/>
+                <constraint firstItem="2cv-Lp-OPu" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="15" id="Nmj-4W-9hA"/>
+                <constraint firstItem="1ax-Uz-nFZ" firstAttribute="leading" secondItem="2cv-Lp-OPu" secondAttribute="trailing" constant="5" id="PVJ-CF-cew"/>
+                <constraint firstItem="666-Ac-4xq" firstAttribute="leading" secondItem="OHy-hK-cza" secondAttribute="trailing" constant="-5" id="Pea-zM-Ei2"/>
+                <constraint firstItem="718-rl-q2l" firstAttribute="top" secondItem="2cv-Lp-OPu" secondAttribute="bottom" constant="5" id="Rtx-do-cM7"/>
+                <constraint firstItem="718-rl-q2l" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Ueu-Xc-bkg"/>
+                <constraint firstItem="1ax-Uz-nFZ" firstAttribute="centerY" secondItem="2cv-Lp-OPu" secondAttribute="centerY" id="b1r-fk-9zm"/>
+                <constraint firstItem="2cv-Lp-OPu" firstAttribute="top" secondItem="OHy-hK-cza" secondAttribute="bottom" constant="6" id="ews-dt-3kc"/>
             </constraints>
             <point key="canvasLocation" x="132" y="167.5"/>
         </customView>
     </objects>
+    <resources>
+        <image name="icon_time" width="24" height="24"/>
+        <image name="icon_trend_repository" width="24" height="24"/>
+    </resources>
 </document>

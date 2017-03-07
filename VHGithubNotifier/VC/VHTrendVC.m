@@ -16,15 +16,21 @@
 #import "VHUtils.h"
 #import <WebKit/WebKit.h>
 #import "NSView+Position.h"
+#import "VHPopUpButton.h"
+#import "VHCursorButton.h"
+#import "VHHorizontalLine.h"
 
 @interface VHTrendVC()<NSTableViewDelegate, NSTableViewDataSource, WKUIDelegate>
 
-@property (weak) IBOutlet NSPopUpButton *trendPopupButton;
+@property (weak) IBOutlet VHCursorButton *trendContentButton;
+@property (weak) IBOutlet VHPopUpButton *trendPopupButton;
 @property (weak) IBOutlet NSButton *anyTimeRadioButton;
 @property (weak) IBOutlet NSButton *dayRadioButton;
 @property (weak) IBOutlet NSButton *weekRadioButton;
 @property (weak) IBOutlet NSButton *monthRadioButton;
 @property (weak) IBOutlet NSButton *yearRadioButton;
+@property (weak) IBOutlet NSImageView *trendTimeImageView;
+@property (weak) IBOutlet VHHorizontalLine *horizontalLine;
 
 @property (nonatomic, assign) NSUInteger selectedIndex;
 @property (nonatomic, strong) WKWebView *webView;
@@ -39,6 +45,11 @@
 {
     [super viewDidLoad];
     
+    [self.trendPopupButton setMenuWindowRelativeFrame:NSMakeRect(10,
+                                                                 -400,
+                                                                 400,
+                                                                 400)];
+    
     self.selectedIndex = [[VHGithubNotifierManager sharedManager] trendContentSelectedIndex];
     
     [self setSelectedTimeTypeRadioButton];
@@ -47,7 +58,7 @@
     
     WKWebViewConfiguration *theConfiguration = [[WKWebViewConfiguration alloc] init];
     
-    self.webView = [[WKWebView alloc] initWithFrame:NSMakeRect(5, -10, self.view.width, self.anyTimeRadioButton.y - 5) configuration:theConfiguration];
+    self.webView = [[WKWebView alloc] initWithFrame:NSMakeRect(5, -10, self.view.width, self.horizontalLine.y - 5) configuration:theConfiguration];
     self.webView.UIDelegate = self;
     self.webView.wantsLayer = YES;
     self.webView.layer.backgroundColor = [NSColor clearColor].CGColor;
@@ -56,6 +67,8 @@
     [self.view addSubview:self.webView];
     
     [self onNotifyRepositoriesLoadedSuccessfully:nil];
+    
+    [self.horizontalLine setLineWidth:0.5];
 }
 
 - (void)dealloc
@@ -105,6 +118,7 @@
     [[VHGithubNotifierManager sharedManager] loadTrendChartInWebView:self.webView
                                                withTrendContentIndex:self.selectedIndex
                                                            withTitle:[self.trendPopupButton.menu itemAtIndex:self.selectedIndex].title];
+    [self changeTrendContentImage];
 }
 
 - (IBAction)onTimeTypeChanged:(NSButton *)radioButton
@@ -113,7 +127,10 @@
     [self onTrendDataSelected:nil];
 }
 
-
+- (IBAction)onTrendContentButtonClicked:(id)sender
+{
+    [self.trendPopupButton performClick:nil];
+}
 
 #pragma mark - Private Methods
 
@@ -133,6 +150,19 @@
             *stop = YES;
         }
     }];
+}
+
+- (void)changeTrendContentImage
+{
+    NSUInteger index = [[VHGithubNotifierManager sharedManager] trendContentSelectedIndex];
+    if (index == 0)
+    {
+        self.trendContentButton.image = [NSImage imageNamed:@"icon_trend_followers"];
+    }
+    else
+    {
+        self.trendContentButton.image = [NSImage imageNamed:@"icon_trend_repository"];
+    }
 }
 
 @end
