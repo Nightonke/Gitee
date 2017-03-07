@@ -196,6 +196,8 @@
 		373CF0751E656B1500711296 /* VHNotificationGroupHeaderCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0741E656B1500711296 /* VHNotificationGroupHeaderCellView.m */; };
 		373CF0771E656B2C00711296 /* VHNotificationGroupHeaderCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373CF0761E656B2C00711296 /* VHNotificationGroupHeaderCellView.xib */; };
 		373EAB0F1E6EA1C2005B5E86 /* NSImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB0E1E6EA1C2005B5E86 /* NSImage+Tint.m */; };
+		373EAB141E6ECAE7005B5E86 /* VHPopUpButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB131E6ECAE7005B5E86 /* VHPopUpButtonCell.m */; };
+		373EAB171E6EDCFC005B5E86 /* VHHorizontalLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB161E6EDCFC005B5E86 /* VHHorizontalLine.m */; };
 		3748DF831E2CE3E900507D9C /* VHDateValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */; };
 		3748DF861E2CEA9800507D9C /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF851E2CEA9800507D9C /* NSDate+Utils.m */; };
 		3749CDCE1E59B27C0083CEB1 /* VHPieVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3749CDCC1E59B27C0083CEB1 /* VHPieVC.m */; };
@@ -527,6 +529,10 @@
 		373CF0761E656B2C00711296 /* VHNotificationGroupHeaderCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHNotificationGroupHeaderCellView.xib; sourceTree = "<group>"; };
 		373EAB0D1E6EA1C2005B5E86 /* NSImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Tint.h"; sourceTree = "<group>"; };
 		373EAB0E1E6EA1C2005B5E86 /* NSImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Tint.m"; sourceTree = "<group>"; };
+		373EAB121E6ECAE7005B5E86 /* VHPopUpButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHPopUpButtonCell.h; sourceTree = "<group>"; };
+		373EAB131E6ECAE7005B5E86 /* VHPopUpButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHPopUpButtonCell.m; sourceTree = "<group>"; };
+		373EAB151E6EDCFC005B5E86 /* VHHorizontalLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHHorizontalLine.h; sourceTree = "<group>"; };
+		373EAB161E6EDCFC005B5E86 /* VHHorizontalLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHHorizontalLine.m; sourceTree = "<group>"; };
 		3748DF811E2CE3E900507D9C /* VHDateValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHDateValueFormatter.h; sourceTree = "<group>"; };
 		3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHDateValueFormatter.m; sourceTree = "<group>"; };
 		3748DF841E2CEA9800507D9C /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
@@ -1240,6 +1246,10 @@
 				373BA6F81E6993FA00653C92 /* VHNotificationHeaderCellView.xib */,
 				375A7E251E668707001A2A3B /* VHCursorButton.h */,
 				375A7E261E668707001A2A3B /* VHCursorButton.m */,
+				373EAB121E6ECAE7005B5E86 /* VHPopUpButtonCell.h */,
+				373EAB131E6ECAE7005B5E86 /* VHPopUpButtonCell.m */,
+				373EAB151E6EDCFC005B5E86 /* VHHorizontalLine.h */,
+				373EAB161E6EDCFC005B5E86 /* VHHorizontalLine.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1561,10 +1571,12 @@
 				3731877C1E61D95200926F4F /* CircleShapeRenderer.swift in Sources */,
 				3731873B1E61D95200926F4F /* RadarChartData.swift in Sources */,
 				378E0B2F1E0FFA560033CBD5 /* VHRepository.m in Sources */,
+				373EAB141E6ECAE7005B5E86 /* VHPopUpButtonCell.m in Sources */,
 				37CB06001E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.m in Sources */,
 				373187451E61D95200926F4F /* ILineChartDataSet.swift in Sources */,
 				3731871D1E61D95200926F4F /* Legend.swift in Sources */,
 				373CF0721E6553E100711296 /* VHPopUpButton.m in Sources */,
+				373EAB171E6EDCFC005B5E86 /* VHHorizontalLine.m in Sources */,
 				3731876C1E61D95200926F4F /* BarChartRenderer.swift in Sources */,
 				373187561E61D95200926F4F /* Highlight.swift in Sources */,
 				37005C281E5C6E3E000AEFF9 /* RLMResults+ToArray.m in Sources */,

@@ -7,10 +7,13 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="VHTrendingVC">
             <connections>
+                <outlet property="horizontalLine" destination="iJ1-7Q-iCh" id="R0x-1p-XnP"/>
+                <outlet property="languageImageButton" destination="qT2-ha-q5v" id="vVI-TH-IQp"/>
                 <outlet property="languagePopupButton" destination="Q6C-F9-l80" id="gK8-xx-ChJ"/>
                 <outlet property="scrollView" destination="bbJ-b5-UxK" id="B7Y-hK-bqY"/>
                 <outlet property="stateView" destination="xp5-ki-0kg" id="Rp7-Qr-eXT"/>
                 <outlet property="tableView" destination="ffk-Nz-h5o" id="Fo1-8i-fji"/>
+                <outlet property="timeImageButton" destination="FAQ-GV-qWZ" id="SD5-Qb-p8Z"/>
                 <outlet property="timePopupButton" destination="j6M-mg-JZS" id="Rp0-ue-sWj"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -21,14 +24,14 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="545"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q6C-F9-l80" customClass="VHPopUpButton">
-                    <rect key="frame" x="18" y="501" width="175" height="26"/>
+                <popUpButton translatesAutoresizingMaskIntoConstraints="NO" id="Q6C-F9-l80" customClass="VHPopUpButton">
+                    <rect key="frame" x="30" y="515" width="170" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="170" id="0Ev-bc-X9Y"/>
                     </constraints>
-                    <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="2Mj-1A-315" id="2rG-Ag-Fxy">
+                    <popUpButtonCell key="cell" type="bevel" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" arrowPosition="noArrow" selectedItem="2Mj-1A-315" id="2rG-Ag-Fxy" customClass="VHPopUpButtonCell">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="menu"/>
+                        <font key="font" metaFont="system"/>
                         <menu key="menu" id="FBW-at-i5o">
                             <items>
                                 <menuItem title="Item 1" state="on" id="2Mj-1A-315"/>
@@ -42,13 +45,13 @@
                     </connections>
                 </popUpButton>
                 <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="100" horizontalPageScroll="10" verticalLineScroll="100" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbJ-b5-UxK">
-                    <rect key="frame" x="0.0" y="0.0" width="400" height="496"/>
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="507"/>
                     <clipView key="contentView" id="Zua-uv-oUG">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="496"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="507"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="100" viewBased="YES" id="ffk-Nz-h5o">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="496"/>
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="507"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
@@ -72,6 +75,7 @@
                     </clipView>
                     <constraints>
                         <constraint firstAttribute="width" constant="400" id="Jdh-pP-bbe"/>
+                        <constraint firstAttribute="height" constant="507" id="RiW-Fu-5BU"/>
                     </constraints>
                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="9ul-Lg-iiQ">
                         <rect key="frame" x="-100" y="-100" width="223" height="15"/>
@@ -82,11 +86,49 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
-                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="j6M-mg-JZS" customClass="VHPopUpButton">
-                    <rect key="frame" x="208" y="501" width="175" height="26"/>
-                    <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="dY1-mt-5i6" id="8V3-Jl-BwC">
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="xp5-ki-0kg" customClass="VHStateView">
+                    <rect key="frame" x="50" y="213" width="300" height="120"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="S3W-z4-jUL"/>
+                        <constraint firstAttribute="width" constant="300" id="eMx-Hy-3bo"/>
+                    </constraints>
+                </customView>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="qT2-ha-q5v" customClass="VHCursorButton">
+                    <rect key="frame" x="15" y="515" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="14Q-Gc-ydt"/>
+                        <constraint firstAttribute="width" constant="20" id="xA2-Je-1lW"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_language" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="hSh-IQ-ZzU">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onLanguageImageButtonClicked:" target="-2" id="rbK-4U-2jc"/>
+                    </connections>
+                </button>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="FAQ-GV-qWZ" customClass="VHCursorButton">
+                    <rect key="frame" x="200" y="515" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="JXO-qU-B5U"/>
+                        <constraint firstAttribute="height" constant="20" id="Xp9-cV-9aO"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_time" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="ecb-eI-ar4">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onTimeImageButtonClicked:" target="-2" id="yma-C1-f2f"/>
+                    </connections>
+                </button>
+                <popUpButton translatesAutoresizingMaskIntoConstraints="NO" id="j6M-mg-JZS" customClass="VHPopUpButton">
+                    <rect key="frame" x="215" y="515" width="170" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="170" id="JsR-lC-f5B"/>
+                    </constraints>
+                    <popUpButtonCell key="cell" type="bevel" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" arrowPosition="noArrow" selectedItem="dY1-mt-5i6" id="8V3-Jl-BwC" customClass="VHPopUpButtonCell">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="menu"/>
+                        <font key="font" metaFont="system"/>
                         <menu key="menu" id="ytz-OB-Ujt">
                             <items>
                                 <menuItem title="Item 1" state="on" id="dY1-mt-5i6"/>
@@ -99,27 +141,35 @@
                         <action selector="onTrendingTimeSelected:" target="-2" id="up4-kG-cxo"/>
                     </connections>
                 </popUpButton>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="xp5-ki-0kg" customClass="VHStateView">
-                    <rect key="frame" x="50" y="213" width="300" height="120"/>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="iJ1-7Q-iCh" customClass="VHHorizontalLine">
+                    <rect key="frame" x="15" y="507" width="370" height="1"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="120" id="S3W-z4-jUL"/>
-                        <constraint firstAttribute="width" constant="300" id="eMx-Hy-3bo"/>
+                        <constraint firstAttribute="width" constant="370" id="5yi-Vn-d2C"/>
+                        <constraint firstAttribute="height" constant="1" id="CMd-bh-mjZ"/>
                     </constraints>
                 </customView>
             </subviews>
             <constraints>
                 <constraint firstItem="xp5-ki-0kg" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="19A-mj-AjU"/>
-                <constraint firstAttribute="trailing" secondItem="j6M-mg-JZS" secondAttribute="trailing" constant="20" id="1WA-lx-5jW"/>
                 <constraint firstItem="bbJ-b5-UxK" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ANu-DG-QA9"/>
-                <constraint firstItem="Q6C-F9-l80" firstAttribute="width" secondItem="j6M-mg-JZS" secondAttribute="width" id="LjX-4R-jCr"/>
+                <constraint firstAttribute="trailing" secondItem="j6M-mg-JZS" secondAttribute="trailing" constant="15" id="ARJ-pk-bN8"/>
+                <constraint firstItem="j6M-mg-JZS" firstAttribute="leading" secondItem="FAQ-GV-qWZ" secondAttribute="trailing" constant="-5" id="CtM-jl-9KK"/>
                 <constraint firstItem="xp5-ki-0kg" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="O4e-f9-Y3h"/>
-                <constraint firstItem="bbJ-b5-UxK" firstAttribute="top" secondItem="Q6C-F9-l80" secondAttribute="bottom" constant="8" id="X11-tV-0RG"/>
-                <constraint firstItem="j6M-mg-JZS" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="c2p-Vg-Tzj"/>
+                <constraint firstItem="bbJ-b5-UxK" firstAttribute="top" secondItem="iJ1-7Q-iCh" secondAttribute="bottom" id="P4i-vR-bHt"/>
+                <constraint firstItem="iJ1-7Q-iCh" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="S7V-8d-bYO"/>
+                <constraint firstItem="qT2-ha-q5v" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="15" id="WeL-P3-N7V"/>
+                <constraint firstItem="Q6C-F9-l80" firstAttribute="bottom" secondItem="qT2-ha-q5v" secondAttribute="bottom" id="Ybr-dq-xdt"/>
+                <constraint firstItem="qT2-ha-q5v" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="10" id="aoi-fc-nue"/>
+                <constraint firstItem="FAQ-GV-qWZ" firstAttribute="bottom" secondItem="j6M-mg-JZS" secondAttribute="bottom" id="hxC-h7-IQ0"/>
                 <constraint firstAttribute="bottom" secondItem="bbJ-b5-UxK" secondAttribute="bottom" id="jRp-mc-M20"/>
-                <constraint firstItem="Q6C-F9-l80" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="jqn-9e-QUU"/>
-                <constraint firstItem="Q6C-F9-l80" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="sLi-e3-TRI"/>
+                <constraint firstItem="Q6C-F9-l80" firstAttribute="leading" secondItem="qT2-ha-q5v" secondAttribute="trailing" constant="-5" id="lvQ-65-Nsc"/>
+                <constraint firstItem="j6M-mg-JZS" firstAttribute="bottom" secondItem="Q6C-F9-l80" secondAttribute="bottom" id="rsS-4y-Ee5"/>
             </constraints>
             <point key="canvasLocation" x="117" y="168.5"/>
         </customView>
     </objects>
+    <resources>
+        <image name="icon_language" width="24" height="24"/>
+        <image name="icon_time" width="24" height="24"/>
+    </resources>
 </document>

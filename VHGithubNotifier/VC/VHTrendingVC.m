@@ -18,11 +18,18 @@
 #import "VHScroller.h"
 #import "VHPopUpButton.h"
 #import "VHUtils.h"
+#import "VHCursorButton.h"
+#import "NSImage+Tint.h"
+#import "VHUtils+TransForm.h"
+#import "VHHorizontalLine.h"
 
 @interface VHTrendingVC ()<NSTableViewDelegate, NSTableViewDataSource, VHStateViewDelegate, VHTrendingRepositoryCellViewDelegate>
 
+@property (weak) IBOutlet VHCursorButton *languageImageButton;
 @property (weak) IBOutlet VHPopUpButton *languagePopupButton;
+@property (weak) IBOutlet VHCursorButton *timeImageButton;
 @property (weak) IBOutlet VHPopUpButton *timePopupButton;
+@property (weak) IBOutlet VHHorizontalLine *horizontalLine;
 @property (weak) IBOutlet NSScrollView *scrollView;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet VHStateView *stateView;
@@ -41,13 +48,13 @@
 {
     [super viewDidLoad];
     
-    [self.languagePopupButton setMenuWindowRelativeFrame:NSMakeRect(-200,
+    [self.languagePopupButton setMenuWindowRelativeFrame:NSMakeRect(-220,
                                                                     self.languagePopupButton.height - 300,
                                                                     200,
                                                                     300)];
     self.languageSelectedIndex = [[VHGithubNotifierManager sharedManager] trendingContentSelectedIndex];
-    [self.timePopupButton setMenuWindowRelativeFrame:NSMakeRect(self.timePopupButton.width,
-                                                                self.timePopupButton.height - 300,
+    [self.timePopupButton setMenuWindowRelativeFrame:NSMakeRect(60,
+                                                                self.timePopupButton.height - 300 + 21,
                                                                 200,
                                                                 300)];
     self.timeSelectedIndex = [[VHGithubNotifierManager sharedManager] trendingTimeSelectedIndex];
@@ -76,6 +83,8 @@
                                  withPressedImageName:@"image_scroller_pressed"
                                        withScrollView:self.scrollView];
     [self.view addSubview:self.scroller];
+    
+    [self.horizontalLine setLineWidth:0.5];
 }
 
 - (void)setUIState
@@ -97,6 +106,7 @@
         case VHLoadStateTypeLoadSuccessfully:
             [self onNotifyLanguageLoadedSuccessfully:nil];
             [self setUIStateForTrendingContent];
+            [self colorLanguageIcon];
             break;
     }
 }
@@ -154,7 +164,10 @@
     [self.languagePopupButton.menu addItemWithTitle:@"All languages" action:nil keyEquivalent:@""];
     [self.languagePopupButton.menu addItemWithTitle:@"Unknown languages" action:nil keyEquivalent:@""];
     [[VHGithubNotifierManager sharedManager].languages enumerateObjectsUsingBlock:^(VHLanguage * _Nonnull language, NSUInteger idx, BOOL * _Nonnull stop) {
-        [self.languagePopupButton.menu addItemWithTitle:language.name action:nil keyEquivalent:@""];
+        NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:language.name action:nil keyEquivalent:@""];
+        [item setImage:[[NSImage imageNamed:@"icon_language_dot"] imageTintedWithColor:language.color]];
+        item.image.size = NSMakeSize(8, 8);
+        [self.languagePopupButton.menu addItem:item];
     }];
     
     if (self.languageSelectedIndex >= self.languagePopupButton.numberOfItems)
@@ -168,6 +181,8 @@
         self.timeSelectedIndex = 0;
     }
     [self.timePopupButton selectItemAtIndex:self.timeSelectedIndex];
+    
+    [self colorLanguageIcon];
 }
 
 - (void)onNotifyLanguageLoadedFailed:(NSNotification *)notification
@@ -229,6 +244,7 @@
     [[VHGithubNotifierManager sharedManager] setTrendingContentSelectedIndex:sender.indexOfSelectedItem];
     [[VHGithubNotifierManager sharedManager] updateTrending];
     [self setLoadingUIStateForTrending];
+    [self colorLanguageIcon];
 }
 
 - (IBAction)onTrendingTimeSelected:(NSPopUpButton *)sender
@@ -236,6 +252,16 @@
     [[VHGithubNotifierManager sharedManager] setTrendingTimeSelectedIndex:sender.indexOfSelectedItem];
     [[VHGithubNotifierManager sharedManager] updateTrending];
     [self setLoadingUIStateForTrending];
+}
+
+- (IBAction)onLanguageImageButtonClicked:(id)sender
+{
+    [self.languagePopupButton performClick:nil];
+}
+
+- (IBAction)onTimeImageButtonClicked:(id)sender
+{
+    [self.timePopupButton performClick:nil];
 }
 
 #pragma mark - VHTrendingRepositoryCellViewDelegate
@@ -259,6 +285,22 @@
     [cell setIsLastRow:row == [self numberOfRowsInTableView:tableView] - 1];
     [cell setDelegate:self];
     return cell;
+}
+
+#pragma mark - Private Methods
+
+- (void)colorLanguageIcon
+{
+    NSUInteger index = [[VHGithubNotifierManager sharedManager] trendingContentSelectedIndex];
+    if (index < 2)
+    {
+        self.languageImageButton.image = [[NSImage imageNamed:@"icon_language"] imageTintedWithColor:[VHUtils colorFromHexColorCodeInString:@"#03A9F4"]];
+    }
+    else
+    {
+        VHLanguage *language = [[VHGithubNotifierManager sharedManager].languages safeObjectAtIndex:index - 2];
+        self.languageImageButton.image = [[NSImage imageNamed:@"icon_language"] imageTintedWithColor:language.color];
+    }
 }
 
 @end

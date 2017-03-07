@@ -24,8 +24,41 @@
         _menuWindowYOffset = CGFLOAT_MIN;
         _menuWindowWidth   = CGFLOAT_MIN;
         _menuWindowHeight  = CGFLOAT_MIN;
+        _cursor = [NSCursor pointingHandCursor];
     }
     return self;
+}
+
+- (instancetype)initWithFrame:(NSRect)frameRect
+{
+    self = [super initWithFrame:frameRect];
+    if (self)
+    {
+        _cursor = [NSCursor pointingHandCursor];
+    }
+    return self;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self)
+    {
+        _cursor = [NSCursor pointingHandCursor];
+    }
+    return self;
+}
+
+- (void)resetCursorRects
+{
+    if (self.cursor)
+    {
+        [self addCursorRect:[self bounds] cursor: self.cursor];
+    }
+    else
+    {
+        [super resetCursorRects];
+    }
 }
 
 #pragma mark - Setters
@@ -68,10 +101,6 @@
 - (NSRect)confinementRectForMenu:(NSMenu *)menu onScreen:(nullable NSScreen *)screen
 {
     NSRect inScreenFrame = [self frameRelativeToScreen];
-//    return NSMakeRect(inScreenFrame.origin.x - 200,
-//                      inScreenFrame.origin.y - (300 - self.height),
-//                      200,
-//                      300);
     return NSMakeRect(inScreenFrame.origin.x + self.menuWindowXOffset,
                       inScreenFrame.origin.y + self.menuWindowYOffset,
                       self.menuWindowWidth,

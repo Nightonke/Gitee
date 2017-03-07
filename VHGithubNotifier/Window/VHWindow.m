@@ -37,7 +37,7 @@ const static CGFloat MENU_WINDOW_LEFT_MARGIN = 20;
         
         _windowDelegate = delegate;
         [self setHasShadow:YES];
-        [self setLevel:NSStatusWindowLevel];
+        [self setLevel:NSPopUpMenuWindowLevel];
         [self setOpaque:NO];
         [self setBackgroundColor:[NSColor clearColor]];
         [self setCollectionBehavior:NSWindowCollectionBehaviorStationary];

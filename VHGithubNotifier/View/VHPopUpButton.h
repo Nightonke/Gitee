@@ -13,6 +13,8 @@
 @property (nonatomic, assign) CGFloat menuWindowWidth;
 @property (nonatomic, assign) CGFloat menuWindowHeight;
 
+@property (nonatomic, strong) NSCursor *cursor;
+
 - (void)setMenuWindowRelativeFrame:(NSRect)frame;
 
 @end

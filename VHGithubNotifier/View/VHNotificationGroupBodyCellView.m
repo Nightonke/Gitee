@@ -110,22 +110,22 @@ static const CGFloat CORNER_RADIUS = 5;
 - (void)mouseEntered:(NSEvent *)event
 {
     [super mouseEntered:event];
-    self.backgroundColor = [VHUtils colorFromHexColorCodeInString:@"#f5f9fc"];
-    [self setNeedsDisplay:YES];
+//    self.backgroundColor = [VHUtils colorFromHexColorCodeInString:@"#f5f9fc"];
+//    [self setNeedsDisplay:YES];
 }
 
 - (void)mouseExited:(NSEvent *)event
 {
     [super mouseExited:event];
-    self.backgroundColor = RGBA(255, 255, 255, 0.5);
-    [self setNeedsDisplay:YES];
+//    self.backgroundColor = RGBA(255, 255, 255, 0.5);
+//    [self setNeedsDisplay:YES];
 }
 
 - (void)scrollWheel:(NSEvent *)event
 {
     [super scrollWheel:event];
-    self.backgroundColor = RGBA(255, 255, 255, 0.5);
-    [self setNeedsDisplay:YES];
+//    self.backgroundColor = RGBA(255, 255, 255, 0.5);
+//    [self setNeedsDisplay:YES];
 }
 
 - (void)updateTrackingAreas
