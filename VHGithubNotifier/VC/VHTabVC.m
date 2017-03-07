@@ -14,6 +14,10 @@
 #import "VHTrendVC.h"
 #import "VHTrendingVC.h"
 #import "VHNotificationVC.h"
+#import "VHCursorButton.h"
+#import "VHSettingsWC.h"
+#import "NSView+Position.h"
+#import "NSImage+Tint.h"
 
 @interface VHTabVC ()<VHTabViewDelegate>
 
@@ -28,6 +32,11 @@
 @property (nonatomic, strong) VHTrendingVC *trendingVC;
 @property (nonatomic, strong) VHNotificationVC *notificationVC;
 
+@property (nonatomic, strong) VHCursorButton *settingsButton;
+@property (nonatomic, strong) VHCursorButton *exitButton;
+
+@property (nonatomic, strong) VHSettingsWC *settingsWC;
+
 @end
 
 @implementation VHTabVC
@@ -35,6 +44,8 @@
 - (void)loadView
 {
     [super loadView];
+    
+    [self addIcons];
     
     NSTabViewItem *profileItem = [[NSTabViewItem alloc] initWithIdentifier:[NSString stringWithFormat:@"%lu", VHGithubContentTypeProfile]];
     self.profileVC = [[VHProfileVC alloc] initWithNibName:@"VHProfileVC" bundle:nil];
@@ -64,6 +75,19 @@
     self.vhTabView.delegate = self;
 }
 
+- (void)addIcons
+{
+    CGFloat iconWidth = 30;
+    self.settingsButton = [self iconWithImage:[NSImage imageNamed:@"icon_settings"] withTag:0];
+    self.settingsButton.toolTip = @"Settings";
+    self.exitButton = [self iconWithImage:[NSImage imageNamed:@"icon_exit"] withTag:0];
+    self.exitButton.toolTip = @"Quit Gitee";
+    self.exitButton.frame = NSMakeRect(self.vhTabView.getRight - iconWidth - 5, self.vhTabView.getTop, iconWidth, self.vhTabView.height);
+    [self.view addSubview:self.exitButton];
+    self.settingsButton.frame = NSMakeRect(self.exitButton.getLeft - iconWidth, self.exitButton.getTop, iconWidth, self.exitButton.height);
+    [self.view addSubview:self.settingsButton];
+}
+
 - (void)updateArrowWithStatusItemCenterX:(CGFloat)centerX
 {
     self.statusItemCenterX = centerX;
@@ -80,6 +104,54 @@
 - (void)didSelectGithubContentType:(VHGithubContentType)type
 {
     [self.tab selectTabViewItemAtIndex:log(type) / log(2)];
+}
+
+#pragma mark - Actions
+
+- (void)onSettingsButtonClicked:(id)sender
+{
+    NOTIFICATION_POST(kNotifyWindowShouldHide);
+    if (self.settingsWC == nil)
+    {
+        self.settingsWC = [[VHSettingsWC alloc] initWithWindowNibName:@"VHSettingsWC"];
+    }
+    [self.settingsWC showWindow:self];
+}
+
+- (void)onExitButtonClicked:(id)sender
+{
+    SystemLog(@"Terminate in profile vc");
+    [NSApp terminate:nil];
+}
+
+- (void)onIconClicked:(VHCursorButton *)button
+{
+    if (button == self.settingsButton)
+    {
+        [self onSettingsButtonClicked:button];
+    }
+    else if (button == self.exitButton)
+    {
+        [self onExitButtonClicked:button];
+    }
+}
+
+#pragma mark - Private Methods
+
+- (VHCursorButton *)iconWithImage:(NSImage *)image withTag:(NSInteger)tag
+{
+    image = [image imageTintedWithColor:[NSColor whiteColor]];
+    image.template = NO;
+    image.size = NSMakeSize(20, 20);
+    VHCursorButton *button = [[VHCursorButton alloc] initWithFrame:NSMakeRect(0, 0, 0, 0)];
+    [button setButtonType:NSButtonTypeMomentaryChange];
+    button.bezelStyle = NSRoundRectBezelStyle;
+    button.image = image;
+    button.target = self;
+    button.action = @selector(onIconClicked:);
+    button.tag = tag;
+    button.bordered = NO;
+    return button;
 }
 
 @end

@@ -14,8 +14,8 @@
 #import "VHGithubNotifierEnums.h"
 #import "VHLog.h"
 
-const static CGFloat TAB_VC_ARROW_WIDTH = 20;
-const static CGFloat TAB_VC_ARROW_HEIGHT = 15;
+const static CGFloat TAB_VC_ARROW_WIDTH = 14;
+const static CGFloat TAB_VC_ARROW_HEIGHT = 7;
 const static CGFloat TAB_VC_TITLE_HEIGHT = 40;
 const static CGFloat TAB_VC_CORNER_RADIUS = 8;
 

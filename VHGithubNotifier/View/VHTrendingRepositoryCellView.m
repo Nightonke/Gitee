@@ -24,6 +24,7 @@
 
 - (void)awakeFromNib
 {
+    self.wantsLayer = YES;
     [self.repositoryDescription.cell setLineBreakMode:NSLineBreakByWordWrapping];
     [self.repositoryDescription.cell setTruncatesLastVisibleLine:YES];
     [self.repositoryDescription setMaximumNumberOfLines:2];
@@ -172,13 +173,14 @@
 
 - (void)mouseDown:(NSEvent *)event
 {
-    self.layer.backgroundColor = RGBA(238, 238, 238, 0.5).CGColor;
+    self.layer.backgroundColor = RGBA(208, 208, 208, 0.5).CGColor;
     self.hasPressedDown = YES;
 }
 
 - (void)mouseExited:(NSEvent *)event
 {
     self.layer.backgroundColor = [NSColor clearColor].CGColor;
+    self.hasPressedDown = NO;
 }
 
 - (void)updateTrackingAreas

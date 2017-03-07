@@ -20,6 +20,26 @@
     return self;
 }
 
+- (instancetype)initWithFrame:(NSRect)frameRect
+{
+    self = [super initWithFrame:frameRect];
+    if (self)
+    {
+        _cursor = [NSCursor pointingHandCursor];
+    }
+    return self;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self)
+    {
+        _cursor = [NSCursor pointingHandCursor];
+    }
+    return self;
+}
+
 - (void)resetCursorRects
 {
     if (self.cursor)

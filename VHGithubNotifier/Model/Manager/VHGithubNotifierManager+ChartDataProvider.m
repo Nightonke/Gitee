@@ -44,11 +44,14 @@
     PieChartDataSet *set = [[PieChartDataSet alloc] initWithValues:array label:@""];
     [VHUtils setRandomColor:set withNumber:[array count]];
     set.valueTextColor = [NSColor whiteColor];
+    set.valueFont = [NSFont systemFontOfSize:12 weight:NSFontWeightLight];
     [set setEntryLabelColor:[NSColor grayColor]];
+    [set setEntryLabelFont:[NSFont systemFontOfSize:12 weight:NSFontWeightLight]];
     set.xValuePosition = PieChartValuePositionOutsideSlice;
     set.valueLineColor = [NSColor grayColor];
-    set.valueLinePart1OffsetPercentage = 0.7;
-    set.valueLinePart1Length = 0.5;
+    set.valueLineWidth = 0.5;
+    set.valueLinePart1OffsetPercentage = 0.9;
+    set.valueLinePart1Length = 0.6;
     set.valueLinePart2Length = 0;
     
     PieChartData *data = [[PieChartData alloc] initWithDataSet:set];

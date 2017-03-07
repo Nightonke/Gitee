@@ -16,8 +16,6 @@
 #import "VHGithubNotifierManager+Trend.h"
 #import "VHStatusBarButton.h"
 #import "VHUtils.h"
-#import "VHBasicInfoView.h"
-#import "VHRepositoryView.h"
 #import "VHWindow.h"
 #import "VHAccountInfoWC.h"
 
@@ -189,32 +187,6 @@
 }
 
 #pragma mark - Actions
-
-#pragma mark - NSMenuDelegate
-
-- (NSInteger)numberOfItemsInMenu:(NSMenu*)menu
-{
-    if (menu == self.repositoriesMenu)
-    {
-        return [[[[VHGithubNotifierManager sharedManager] user] allRepositories] count];
-    }
-    return 0;
-}
-
-- (BOOL)menu:(NSMenu*)menu updateItem:(NSMenuItem *)item atIndex:(NSInteger)index shouldCancel:(BOOL)shouldCancel
-{
-    if (menu == self.repositoriesMenu)
-    {
-        VHRepositoryView *repositoryView = (VHRepositoryView *)SAFE_CAST(item.view, [VHRepositoryView class]);
-        if (repositoryView == nil)
-        {
-            repositoryView = [[VHRepositoryView alloc] initWithFrame:CGRectMake(0, 0, 300, 50)];
-        }
-        [repositoryView setRepository:[[VHGithubNotifierManager sharedManager].user.allRepositories objectAtIndex:index]];
-        item.view = repositoryView;
-    }
-    return YES;
-}
 
 #pragma mark - VHWindowProtocol
 

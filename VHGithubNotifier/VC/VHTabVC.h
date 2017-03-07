@@ -6,7 +6,9 @@
 //  Copyright © 2016年 黄伟平. All rights reserved.
 //
 
-@interface VHTabVC : NSTabViewController
+#import "VHViewController.h"
+
+@interface VHTabVC : VHViewController
 
 - (void)updateArrowWithStatusItemCenterX:(CGFloat)centerX;
 

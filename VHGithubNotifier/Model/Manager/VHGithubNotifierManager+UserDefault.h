@@ -30,6 +30,13 @@
  */
 - (NSArray<NSNumber *> *)githubContentTypes;
 
+/**
+ Get the tooltips of contents that need to show.
+
+ @return VHGithubContentType tooltips
+ */
+- (NSArray<NSString *> *)tooltipsForGithubContentTypes;
+
 #pragma mark - Github Account
 
 /**

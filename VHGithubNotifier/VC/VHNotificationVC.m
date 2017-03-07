@@ -60,7 +60,7 @@
     self.scrollView.automaticallyAdjustsContentInsets = NO;
     [self.scrollView setContentInsets:NSEdgeInsetsMake(0, 0, 10, 0)];
     
-    self.scroller = [[VHScroller alloc] initWithFrame:NSMakeRect(self.view.width - 2, 10, 6, self.scrollView.height - 10)
+    self.scroller = [[VHScroller alloc] initWithFrame:NSMakeRect(self.view.width - 6, 10, 6, self.scrollView.height - 10)
                                        withImageFrame:NSMakeRect(0, self.scrollView.height - 60, 6, 60)
                                         withImageName:@"image_scroller"
                                  withPressedImageName:@"image_scroller_pressed"

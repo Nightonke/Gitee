@@ -154,6 +154,33 @@ static BOOL onlyShowsValidContentsInStatusBar;
     return numbers;
 }
 
+- (NSArray<NSString *> *)tooltipsForGithubContentTypes
+{
+    NSMutableArray<NSString *> *tooltips = [NSMutableArray array];
+    NSUInteger types = [self githubContentTypeInteger];
+    if (types & VHGithubContentTypeProfile)
+    {
+        [tooltips addObject:@"Profile"];
+    }
+    if (types & VHGithubContentTypeRepositoryPie)
+    {
+        [tooltips addObject:@"Pie chart of repositories"];
+    }
+    if (types & VHGithubContentTypeTrend)
+    {
+        [tooltips addObject:@"Trend of followers of user and stargazers of repositories"];
+    }
+    if (types & VHGithubContentTypeTrending)
+    {
+        [tooltips addObject:@"Trending"];
+    }
+    if (types & VHGithubContentTypeNotifications)
+    {
+        [tooltips addObject:@"Notifications"];
+    }
+    return tooltips;
+}
+
 #pragma mark - Github Account
 
 - (BOOL)isUserAccountNotExist

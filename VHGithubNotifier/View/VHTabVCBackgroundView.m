@@ -7,6 +7,9 @@
 //
 
 #import "VHTabVCBackgroundView.h"
+#import "VHUtils+TransForm.h"
+
+static const CGFloat TAB_VC_MARGIN_TOP = 15;
 
 @interface VHTabVCBackgroundView ()
 
@@ -71,53 +74,44 @@
     NSRect frameOnScreen = [[self window] convertRectToScreen:self.frame];
     CGFloat arrowTopX = self.statusItemCenterX - frameOnScreen.origin.x;
     
-    [[NSColor whiteColor] set];
-    
-    NSRectFill(NSMakeRect(0, 0, self.bounds.size.width, self.bounds.size.height - self.arrowHeight - self.cornerRadius));
-    
     NSBezierPath *path = [[NSBezierPath alloc] init];
     
-    [path moveToPoint:NSMakePoint(0, self.bounds.size.height - self.arrowHeight - self.cornerRadius)];
-    [path curveToPoint:NSMakePoint(self.cornerRadius, self.bounds.size.height - self.arrowHeight)
-         controlPoint1:NSMakePoint(0, self.bounds.size.height - self.arrowHeight)
-         controlPoint2:NSMakePoint(0, self.bounds.size.height - self.arrowHeight)];
-    [path lineToPoint:NSMakePoint(arrowTopX - self.arrowWidth / 2, self.bounds.size.height - self.arrowHeight)];
-    [path lineToPoint:NSMakePoint(arrowTopX, self.bounds.size.height)];
-    [path lineToPoint:NSMakePoint(arrowTopX + self.arrowWidth / 2, self.bounds.size.height - self.arrowHeight)];
-    [path lineToPoint:NSMakePoint(self.bounds.size.width - self.cornerRadius, self.bounds.size.height - self.arrowHeight)];
-    [path curveToPoint:NSMakePoint(self.bounds.size.width, self.bounds.size.height - self.arrowHeight - self.cornerRadius)
-         controlPoint1:NSMakePoint(self.bounds.size.width, self.bounds.size.height - self.arrowHeight)
-         controlPoint2:NSMakePoint(self.bounds.size.width, self.bounds.size.height - self.arrowHeight)];
-    [path lineToPoint:NSMakePoint(self.bounds.size.width, self.bounds.size.height - self.titleHeight - self.arrowHeight)];
-    [path lineToPoint:NSMakePoint(0, self.bounds.size.height - self.titleHeight - self.arrowHeight)];
+    [path moveToPoint:NSMakePoint(0, self.bounds.size.height - TAB_VC_MARGIN_TOP - self.cornerRadius)];
+    [path curveToPoint:NSMakePoint(self.cornerRadius, self.bounds.size.height - TAB_VC_MARGIN_TOP)
+         controlPoint1:NSMakePoint(0, self.bounds.size.height - TAB_VC_MARGIN_TOP)
+         controlPoint2:NSMakePoint(0, self.bounds.size.height - TAB_VC_MARGIN_TOP)];
+    [path lineToPoint:NSMakePoint(arrowTopX - self.arrowWidth / 2, self.bounds.size.height - TAB_VC_MARGIN_TOP)];
+    [path lineToPoint:NSMakePoint(arrowTopX, self.bounds.size.height - TAB_VC_MARGIN_TOP + self.arrowHeight)];
+    [path lineToPoint:NSMakePoint(arrowTopX + self.arrowWidth / 2, self.bounds.size.height - TAB_VC_MARGIN_TOP)];
+    [path lineToPoint:NSMakePoint(self.bounds.size.width - self.cornerRadius, self.bounds.size.height - TAB_VC_MARGIN_TOP)];
+    [path curveToPoint:NSMakePoint(self.bounds.size.width, self.bounds.size.height - TAB_VC_MARGIN_TOP - self.cornerRadius)
+         controlPoint1:NSMakePoint(self.bounds.size.width, self.bounds.size.height - TAB_VC_MARGIN_TOP)
+         controlPoint2:NSMakePoint(self.bounds.size.width, self.bounds.size.height - TAB_VC_MARGIN_TOP)];
+    [path lineToPoint:NSMakePoint(self.bounds.size.width, self.bounds.size.height - self.titleHeight - TAB_VC_MARGIN_TOP)];
+    [path lineToPoint:NSMakePoint(0, self.bounds.size.height - self.titleHeight - TAB_VC_MARGIN_TOP)];
+//    [path closePath];
     
-    [[NSColor colorWithCalibratedWhite:1 alpha:1] set];
-    
-    NSColor *aColor = [NSColor colorWithCalibratedWhite:0.946 alpha:1];
-    NSColor *bColor = [NSColor colorWithCalibratedWhite:0.790 alpha:1];
-    
-    NSGradient *grad = [[NSGradient alloc] initWithColors:[NSArray arrayWithObjects:aColor, bColor, nil]];
-    
-    [grad drawInBezierPath:path angle:-90];
-    [NSGraphicsContext saveGraphicsState];
+    [[VHUtils colorFromHexColorCodeInString:@"#03A9F4"] set];
+    [path fill];
+//    [NSGraphicsContext saveGraphicsState];
     
     // Shadow
-    [[NSColor colorWithCalibratedWhite:1 alpha:0.1] set];
-    path = [[NSBezierPath alloc] init];
-    [path setLineWidth:0];
-    [path moveToPoint:NSMakePoint(0, self.bounds.size.height - self.titleHeight - self.arrowHeight)];
-    [path curveToPoint:NSMakePoint(self.bounds.size.width, self.bounds.size.height - self.titleHeight - self.arrowHeight)
-         controlPoint1:NSMakePoint(self.bounds.size.width / 8, self.bounds.size.height - self.titleHeight - self.arrowHeight - 5)
-         controlPoint2:NSMakePoint(7 * self.bounds.size.width / 8, self.bounds.size.height - self.titleHeight - self.arrowHeight - 5)];
-    [path closePath];
-    NSShadow *shadow = [[NSShadow alloc] init];
-    [shadow setShadowColor:[NSColor blackColor]];
-    [shadow setShadowBlurRadius:10.0];
-    [shadow set];
-    [path fill];
-    
-    // Restore the graphics state
-    [NSGraphicsContext restoreGraphicsState];
+//    [[NSColor colorWithCalibratedWhite:1 alpha:0.1] set];
+//    path = [[NSBezierPath alloc] init];
+//    [path setLineWidth:0];
+//    [path moveToPoint:NSMakePoint(0, self.bounds.size.height - self.titleHeight - self.arrowHeight)];
+//    [path curveToPoint:NSMakePoint(self.bounds.size.width, self.bounds.size.height - self.titleHeight - self.arrowHeight)
+//         controlPoint1:NSMakePoint(self.bounds.size.width / 8, self.bounds.size.height - self.titleHeight - self.arrowHeight - 5)
+//         controlPoint2:NSMakePoint(7 * self.bounds.size.width / 8, self.bounds.size.height - self.titleHeight - self.arrowHeight - 5)];
+//    [path closePath];
+//    NSShadow *shadow = [[NSShadow alloc] init];
+//    [shadow setShadowColor:[NSColor blackColor]];
+//    [shadow setShadowBlurRadius:10.0];
+//    [shadow set];
+//    [path fill];
+//    
+////     Restore the graphics state
+//    [NSGraphicsContext restoreGraphicsState];
 }
 
 @end

@@ -28,7 +28,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="400" height="545"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </visualEffectView>
-                <tabView type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="2n8-6A-LQy">
+                <tabView drawsBackground="NO" type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="2n8-6A-LQy">
                     <rect key="frame" x="0.0" y="0.0" width="400" height="545"/>
                     <font key="font" metaFont="system"/>
                     <tabViewItems/>

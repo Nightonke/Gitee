@@ -10,17 +10,19 @@
 #import "VHGithubNotifierManager+UserDefault.h"
 #import "NSView+Position.h"
 #import "NSMutableArray+Safe.h"
+#import "VHCursorButton.h"
+#import "VHUtils.h"
 
 const static CGFloat BOTTOM_MARGIN = 0;
-const static CGFloat ICON_WIDTH = 40;
+const static CGFloat ICON_WIDTH = 30;
 const static CGFloat ICON_HEIGHT = 40;
 const static CGFloat ICONS_MARGIN = 5;
-const static CGFloat BUTTON_UNSELECTED_ALPHA = 0.3;
+const static CGFloat BUTTON_UNSELECTED_ALPHA = 0.7;
 const static CGFloat BUTTON_SELECTED_ALPHA = 1;
 
 @interface VHTabView ()
 
-@property (nonatomic, strong) NSMutableArray<NSButton *> *buttons;
+@property (nonatomic, strong) NSMutableArray<VHCursorButton *> *buttons;
 
 @end
 
@@ -65,20 +67,14 @@ const static CGFloat BUTTON_SELECTED_ALPHA = 1;
 {
     NSArray<NSImage *> *images = [[VHGithubNotifierManager sharedManager] imagesForGithubContentTypes];
     NSArray<NSNumber *> *tags = [[VHGithubNotifierManager sharedManager] githubContentTypes];
+    NSArray<NSString *> *tooltips = [[VHGithubNotifierManager sharedManager] tooltipsForGithubContentTypes];
     self.buttons = [NSMutableArray arrayWithCapacity:tags.count];
-    CGFloat startX;
-    if (images.count % 2 == 1)
-    {
-        startX = self.width / 2 - images.count / 2 * (ICONS_MARGIN + ICON_WIDTH) - ICON_WIDTH / 2;
-    }
-    else
-    {
-        startX = self.width / 2 - images.count / 2 * (ICONS_MARGIN + ICON_WIDTH) + ICONS_MARGIN / 2;
-    }
+    CGFloat startX = 10;
     for (int i = 0; i < images.count; i++)
     {
-        NSButton *button = [self iconWithImage:[images objectAtIndex:i]
-                                       withTag:[[tags objectAtIndex:i] integerValue]];
+        VHCursorButton *button = [self iconWithImage:[images objectAtIndex:i]
+                                             withTag:[[tags objectAtIndex:i] integerValue]];
+        button.toolTip = [tooltips objectAtIndex:i];
         button.frame = NSMakeRect(startX + i * (ICON_WIDTH + ICONS_MARGIN),
                                   BOTTOM_MARGIN,
                                   ICON_WIDTH,
@@ -89,18 +85,18 @@ const static CGFloat BUTTON_SELECTED_ALPHA = 1;
     }
 }
 
-- (NSButton *)iconWithImage:(NSImage *)image withTag:(NSInteger)tag
+- (VHCursorButton *)iconWithImage:(NSImage *)image withTag:(NSInteger)tag
 {
     image.template = NO;
     image.size = NSMakeSize(20, 20);
-    NSButton *button = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, 0, 0)];
+    VHCursorButton *button = [[VHCursorButton alloc] initWithFrame:NSMakeRect(0, 0, 0, 0)];
+    [button setButtonType:NSButtonTypeMomentaryChange];
+    button.bezelStyle = NSRoundRectBezelStyle;
     button.image = image;
     button.target = self;
     button.action = @selector(onIconClicked:);
     button.tag = tag;
     button.bordered = NO;
-    [button setButtonType:NSButtonTypeMomentaryChange];
-    button.bezelStyle = NSRoundRectBezelStyle;
     return button;
 }
 

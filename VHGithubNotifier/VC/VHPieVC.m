@@ -35,6 +35,10 @@
     self.pieChart.highlightPerTapEnabled = YES;
     self.pieChart.delegate = self;
     self.pieChart.holeColor = nil;
+    self.pieChart.noDataText = @"Didn't get any data yet!";
+    self.pieChart.noDataFont = [NSFont systemFontOfSize:12 weight:NSFontWeightLight];
+    self.pieChart.descriptionFont = [NSFont systemFontOfSize:12 weight:NSFontWeightLight];
+    self.pieChart.entryLabelFont = [NSFont systemFontOfSize:12 weight:NSFontWeightLight];
     
     [self updateCenterText];
     [self.view addSubview:self.pieChart];
@@ -123,11 +127,12 @@
 {
     NSString *starString = [NSString stringWithFormat:@"%lu", [[[VHGithubNotifierManager sharedManager] user] starNumber]];
     NSMutableAttributedString *centerText = [[NSMutableAttributedString alloc] initWithString:starString];
+    NSFont *font = [NSFont systemFontOfSize:30 weight:NSFontWeightThin];
     [centerText addAttribute:NSFontAttributeName
-                       value:[NSFont fontWithName:@"Arial Italic" size:30]
+                       value:font
                        range:NSMakeRange(0, starString.length)];
     [centerText addAttribute:NSForegroundColorAttributeName
-                       value:[VHUtils randomColor]
+                       value:[NSColor grayColor]
                        range:NSMakeRange(0, starString.length)];
     [self.pieChart setCenterAttributedText:centerText];
 }
