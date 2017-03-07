@@ -66,10 +66,9 @@ static const CGFloat CORNER_RADIUS = 5;
 
 - (void)drawRect:(NSRect)dirtyRect
 {
-    [[VHUtils colorFromHexColorCodeInString:@"#d8d8d8"] set];
     NSBezierPath *path = [[NSBezierPath alloc] init];
-    [path setLineWidth:2];
-    [path moveToPoint:NSMakePoint(10, 1)];
+    [path setLineWidth:0.5];
+    [path moveToPoint:NSMakePoint(10, 0)];
     [path lineToPoint:NSMakePoint(10, 36 - CORNER_RADIUS)];
     [path curveToPoint:NSMakePoint(10 + CORNER_RADIUS, 36)
          controlPoint1:NSMakePoint(10, 36)
@@ -78,12 +77,14 @@ static const CGFloat CORNER_RADIUS = 5;
     [path curveToPoint:NSMakePoint(390, 36 - CORNER_RADIUS)
          controlPoint1:NSMakePoint(390, 36)
          controlPoint2:NSMakePoint(390, 36)];
-    [path lineToPoint:NSMakePoint(390, 1)];
-    [path lineToPoint:NSMakePoint(10, 1)];
+    [path lineToPoint:NSMakePoint(390, 0)];
+    [path moveToPoint:NSMakePoint(390 - path.lineWidth, path.lineWidth)];
+    [path lineToPoint:NSMakePoint(10 + path.lineWidth, path.lineWidth)];
     [path closePath];
+    [[VHUtils colorFromHexColorCodeInString:@"#999999"] set];
     [path stroke];
     
-    [[VHUtils colorFromHexColorCodeInString:@"#f5f5f5"] set];
+    [RGBA(255, 255, 255, 0.5) set];
     [path fill];
 }
 

@@ -33,6 +33,8 @@ const static CGFloat TAB_VC_CORNER_RADIUS = 8;
 
 #define STATUS_ITEM_PRESSED_DARK RGB(45, 102, 239)
 
+#define PRIMARY_COLOR RGB(3, 169, 244)  // #03A9F4  
+
 #define AVOID_NIL_STRING(x) ((x) ? (x) : @"")
 
 #define AVOID_NIL_ATTRIBUTE_STRING(x) ((x) ? (x) : [[NSMutableAttributedString alloc] initWithString:@""])

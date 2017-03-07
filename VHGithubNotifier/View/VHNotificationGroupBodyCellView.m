@@ -77,9 +77,9 @@ static const CGFloat CORNER_RADIUS = 5;
 
 - (void)drawRect:(NSRect)dirtyRect
 {
-    [[VHUtils colorFromHexColorCodeInString:@"#d8d8d8"] set];
+    [[VHUtils colorFromHexColorCodeInString:@"#999999"] set];
     NSBezierPath *path = [[NSBezierPath alloc] init];
-    [path setLineWidth:2];
+    [path setLineWidth:0.3];
     
     if (self.isLastBody)
     {
@@ -97,14 +97,16 @@ static const CGFloat CORNER_RADIUS = 5;
     else
     {
         [path moveToPoint:NSMakePoint(10, 40)];
-        [path lineToPoint:NSMakePoint(10, 0.5)];
-        [path lineToPoint:NSMakePoint(390, 0.5)];
+        [path lineToPoint:NSMakePoint(10, 0)];
+        [path moveToPoint:NSMakePoint(10 + path.lineWidth, path.lineWidth)];
+        [path lineToPoint:NSMakePoint(390 - path.lineWidth, path.lineWidth)];
+        [path moveToPoint:NSMakePoint(390, 0)];
         [path lineToPoint:NSMakePoint(390, 40)];
     }
     [path stroke];
     
-    [self.backgroundColor set];
-    [path fill];
+//    [self.backgroundColor set];
+//    [path fill];
 }
 
 - (void)mouseEntered:(NSEvent *)event

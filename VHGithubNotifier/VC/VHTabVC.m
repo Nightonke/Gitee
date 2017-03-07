@@ -18,6 +18,7 @@
 #import "VHSettingsWC.h"
 #import "NSView+Position.h"
 #import "NSImage+Tint.h"
+#import "VHGithubNotifier-Swift.h"
 
 @interface VHTabVC ()<VHTabViewDelegate>
 
@@ -25,6 +26,7 @@
 @property (nonatomic, strong) VHTabVCBackgroundView *backgroundView;
 @property (weak) IBOutlet NSTabView *tab;
 @property (weak) IBOutlet VHTabView *vhTabView;
+@property (weak) IBOutlet VHVisualEffectView *visualEffectView;
 
 @property (nonatomic, strong) VHProfileVC *profileVC;
 @property (nonatomic, strong) VHPieVC *pieVC;

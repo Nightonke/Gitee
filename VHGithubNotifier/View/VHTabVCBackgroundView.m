@@ -91,7 +91,7 @@ static const CGFloat TAB_VC_MARGIN_TOP = 15;
     [path lineToPoint:NSMakePoint(0, self.bounds.size.height - self.titleHeight - TAB_VC_MARGIN_TOP)];
 //    [path closePath];
     
-    [[VHUtils colorFromHexColorCodeInString:@"#03A9F4"] set];
+    [PRIMARY_COLOR set];
     [path fill];
 //    [NSGraphicsContext saveGraphicsState];
     

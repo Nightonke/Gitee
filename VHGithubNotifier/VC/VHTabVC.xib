@@ -10,6 +10,7 @@
                 <outlet property="tab" destination="2n8-6A-LQy" id="WJO-J3-WvO"/>
                 <outlet property="vhTabView" destination="l22-Qg-2wk" id="We6-fK-ecV"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="visualEffectView" destination="NDM-Kv-IIA" id="KMz-HE-ja9"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -24,7 +25,7 @@
                         <constraint firstAttribute="height" constant="40" id="Ndt-pe-xG2"/>
                     </constraints>
                 </customView>
-                <visualEffectView appearanceType="vibrantLight" fixedFrame="YES" blendingMode="behindWindow" material="appearanceBased" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="NDM-Kv-IIA">
+                <visualEffectView appearanceType="vibrantLight" fixedFrame="YES" blendingMode="behindWindow" material="mediumLight" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="NDM-Kv-IIA" customClass="VHVisualEffectView" customModule="VHGithubNotifier" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="400" height="545"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </visualEffectView>

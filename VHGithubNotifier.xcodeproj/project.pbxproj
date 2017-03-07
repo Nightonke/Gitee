@@ -198,6 +198,9 @@
 		373EAB0F1E6EA1C2005B5E86 /* NSImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB0E1E6EA1C2005B5E86 /* NSImage+Tint.m */; };
 		373EAB141E6ECAE7005B5E86 /* VHPopUpButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB131E6ECAE7005B5E86 /* VHPopUpButtonCell.m */; };
 		373EAB171E6EDCFC005B5E86 /* VHHorizontalLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB161E6EDCFC005B5E86 /* VHHorizontalLine.m */; };
+		373EAB191E6EFE69005B5E86 /* VHVisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB181E6EFE69005B5E86 /* VHVisualEffectView.swift */; };
+		373EAB1C1E6F2184005B5E86 /* VHSettingsCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB1B1E6F2184005B5E86 /* VHSettingsCellView.m */; };
+		373EAB1E1E6F2190005B5E86 /* VHSettingsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373EAB1D1E6F2190005B5E86 /* VHSettingsCellView.xib */; };
 		3748DF831E2CE3E900507D9C /* VHDateValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */; };
 		3748DF861E2CEA9800507D9C /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF851E2CEA9800507D9C /* NSDate+Utils.m */; };
 		3749CDCE1E59B27C0083CEB1 /* VHPieVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3749CDCC1E59B27C0083CEB1 /* VHPieVC.m */; };
@@ -533,6 +536,10 @@
 		373EAB131E6ECAE7005B5E86 /* VHPopUpButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHPopUpButtonCell.m; sourceTree = "<group>"; };
 		373EAB151E6EDCFC005B5E86 /* VHHorizontalLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHHorizontalLine.h; sourceTree = "<group>"; };
 		373EAB161E6EDCFC005B5E86 /* VHHorizontalLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHHorizontalLine.m; sourceTree = "<group>"; };
+		373EAB181E6EFE69005B5E86 /* VHVisualEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHVisualEffectView.swift; sourceTree = "<group>"; };
+		373EAB1A1E6F2184005B5E86 /* VHSettingsCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHSettingsCellView.h; sourceTree = "<group>"; };
+		373EAB1B1E6F2184005B5E86 /* VHSettingsCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSettingsCellView.m; sourceTree = "<group>"; };
+		373EAB1D1E6F2190005B5E86 /* VHSettingsCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHSettingsCellView.xib; sourceTree = "<group>"; };
 		3748DF811E2CE3E900507D9C /* VHDateValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHDateValueFormatter.h; sourceTree = "<group>"; };
 		3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHDateValueFormatter.m; sourceTree = "<group>"; };
 		3748DF841E2CEA9800507D9C /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
@@ -1250,6 +1257,10 @@
 				373EAB131E6ECAE7005B5E86 /* VHPopUpButtonCell.m */,
 				373EAB151E6EDCFC005B5E86 /* VHHorizontalLine.h */,
 				373EAB161E6EDCFC005B5E86 /* VHHorizontalLine.m */,
+				373EAB1A1E6F2184005B5E86 /* VHSettingsCellView.h */,
+				373EAB1B1E6F2184005B5E86 /* VHSettingsCellView.m */,
+				373EAB1D1E6F2190005B5E86 /* VHSettingsCellView.xib */,
+				373EAB181E6EFE69005B5E86 /* VHVisualEffectView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1384,6 +1395,7 @@
 				3752DD291E12DB4D000AB94A /* VHTabVC.xib in Resources */,
 				3749CDD61E59B2950083CEB1 /* VHTrendingVC.xib in Resources */,
 				375CD0561E67D71100566B58 /* AppledocSettings.plist in Resources */,
+				373EAB1E1E6F2190005B5E86 /* VHSettingsCellView.xib in Resources */,
 				373BA7131E6AC9D700653C92 /* echarts.js in Resources */,
 				373CF0771E656B2C00711296 /* VHNotificationGroupHeaderCellView.xib in Resources */,
 				378E0AEB1E0ECD070033CBD5 /* Main.storyboard in Resources */,
@@ -1570,6 +1582,7 @@
 				373CF0661E652E5600711296 /* NSString+UAGithubEngineUtilities.m in Sources */,
 				3731877C1E61D95200926F4F /* CircleShapeRenderer.swift in Sources */,
 				3731873B1E61D95200926F4F /* RadarChartData.swift in Sources */,
+				373EAB1C1E6F2184005B5E86 /* VHSettingsCellView.m in Sources */,
 				378E0B2F1E0FFA560033CBD5 /* VHRepository.m in Sources */,
 				373EAB141E6ECAE7005B5E86 /* VHPopUpButtonCell.m in Sources */,
 				37CB06001E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.m in Sources */,
@@ -1586,6 +1599,7 @@
 				373187791E61D95200926F4F /* Renderer.swift in Sources */,
 				373187321E61D95200926F4F /* ChartDataSet.swift in Sources */,
 				375CD0591E67D71100566B58 /* CNUserNotificationBannerButton.m in Sources */,
+				373EAB191E6EFE69005B5E86 /* VHVisualEffectView.swift in Sources */,
 				37005C3B1E5C9C1C000AEFF9 /* TFHppleElement.m in Sources */,
 				373187231E61D95200926F4F /* ChartBaseDataSet.swift in Sources */,
 				373187261E61D95200926F4F /* BarChartDataSet.swift in Sources */,

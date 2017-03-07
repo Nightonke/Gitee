@@ -9,10 +9,15 @@
 #import "VHSettingsWC.h"
 #import "VHUtils.h"
 #import "VHGithubNotifierManager+UserDefault.h"
+#import "VHSettingsCellView.h"
+#import "VHScroller.h"
+#import "NSView+Position.h"
 
-@interface VHSettingsWC ()
+@interface VHSettingsWC ()<NSTableViewDelegate, NSTableViewDataSource>
 
 @property (weak) IBOutlet NSScrollView *scrollView;
+@property (weak) IBOutlet NSTableView *tableView;
+@property (nonatomic, strong) VHScroller *scroller;
 
 #pragma mark Status Bar
 @property (weak) IBOutlet NSButton *totalStargazersNumberButton;
@@ -41,10 +46,26 @@
     self.window.toolbar.showsBaselineSeparator = NO;
     [self.window setMovableByWindowBackground:YES];
     
-    self.scrollView.contentView.bounds = CGRectMake(0, 0, self.scrollView.contentView.bounds.size.width, self.scrollView.contentView.bounds.size.height);
+    
+    [self.tableView registerNib:[[NSNib alloc] initWithNibNamed:@"VHSettingsCellView" bundle:nil]
+                  forIdentifier:@"VHSettingsCellView"];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.backgroundColor = [NSColor clearColor];
+    [self.tableView setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleNone];
+    [self.tableView setIntercellSpacing:NSMakeSize(0, 0)];
+    self.scrollView.drawsBackground = NO;
+    self.scrollView.automaticallyAdjustsContentInsets = NO;
     [VHUtils scrollViewToTop:self.scrollView];
     
-    [self initSettingsForStatusBar];
+    self.scroller = [[VHScroller alloc] initWithFrame:NSMakeRect(self.window.contentView.width - 6, 10, 6, self.scrollView.height - 10)
+                                       withImageFrame:NSMakeRect(0, self.scrollView.height - 60, 6, 60)
+                                        withImageName:@"image_scroller"
+                                 withPressedImageName:@"image_scroller_pressed"
+                                       withScrollView:self.scrollView];
+    [self.window.contentView addSubview:self.scroller];
+    
+//    [self initSettingsForStatusBar];
 }
 
 - (void)initSettingsForStatusBar
@@ -81,6 +102,22 @@
     NOTIFICATION_POST(kNotifyStatusBarButtonContentChanged);
 }
 
+#pragma mark - NSTableViewDelegate, NSTableViewDataSource
 
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
+    return 1;
+}
+
+- (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
+{
+    return 1000;
+}
+
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+    VHSettingsCellView *cell = [tableView makeViewWithIdentifier:@"VHSettingsCellView" owner:self];
+    return cell;
+}
 
 @end

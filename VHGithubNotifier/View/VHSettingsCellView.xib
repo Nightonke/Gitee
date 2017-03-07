@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16C68" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="VHSettingsCellView">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="1000"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="Hlh-Ix-Ys1">
+                    <rect key="frame" x="33" y="862" width="193" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14" id="IJi-Wk-ztd"/>
+                        <constraint firstAttribute="width" constant="189" id="Ysu-af-rCk"/>
+                    </constraints>
+                    <buttonCell key="cell" type="check" title="Unread notifications number" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="V5a-VO-xzU">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="systemThin" size="12"/>
+                    </buttonCell>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="728-YL-bb2">
+                    <rect key="frame" x="13" y="955" width="99" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="95" id="H5n-uP-pIM"/>
+                        <constraint firstAttribute="height" constant="25" id="eoX-29-Fpr"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Status Bar" id="nKW-GS-Ktc">
+                        <font key="font" metaFont="systemThin" size="21"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="COu-YC-ebN">
+                    <rect key="frame" x="21" y="839" width="259" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="255" id="apM-YU-3Co"/>
+                        <constraint firstAttribute="height" constant="14" id="iRU-AK-FCb"/>
+                    </constraints>
+                    <buttonCell key="cell" type="check" title="Only shows valid contents in status bar" bezelStyle="regularSquare" imagePosition="right" state="on" inset="2" id="6V9-IE-LJL">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="systemThin" size="13"/>
+                    </buttonCell>
+                </button>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="Mhf-P8-haT">
+                    <rect key="frame" x="33" y="882" width="129" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14" id="3cH-bQ-Cjl"/>
+                        <constraint firstAttribute="width" constant="125" id="DKn-IJ-iZf"/>
+                    </constraints>
+                    <buttonCell key="cell" type="check" title="Followers number" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="EXu-c4-8NC">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="systemThin" size="12"/>
+                    </buttonCell>
+                </button>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="wvk-F6-eTL">
+                    <rect key="frame" x="33" y="902" width="158" height="18"/>
+                    <buttonCell key="cell" type="check" title="Total stargazers number" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="6OO-y7-brV">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="systemThin" size="12"/>
+                    </buttonCell>
+                </button>
+                <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="gxu-Ct-I97">
+                    <rect key="frame" x="13" y="830" width="265" height="5"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </box>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q7q-eb-fRO">
+                    <rect key="frame" x="23" y="928" width="182" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="178" id="V2A-Pg-y3A"/>
+                        <constraint firstAttribute="height" constant="17" id="zuS-UV-LTm"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Contents Shown in Status Bar" id="fay-1z-3QG">
+                        <font key="font" metaFont="systemThin" size="13"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="COu-YC-ebN" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="23" id="EFc-Y3-TT6"/>
+                <constraint firstItem="q7q-eb-fRO" firstAttribute="top" secondItem="728-YL-bb2" secondAttribute="bottom" constant="10" id="Igt-Vt-OpS"/>
+                <constraint firstItem="q7q-eb-fRO" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="25" id="Kyj-Eu-4nI"/>
+                <constraint firstItem="728-YL-bb2" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" id="Teb-9r-YsU"/>
+                <constraint firstItem="wvk-F6-eTL" firstAttribute="top" secondItem="q7q-eb-fRO" secondAttribute="bottom" constant="10" id="YjH-MW-bel"/>
+                <constraint firstItem="wvk-F6-eTL" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="35" id="dVw-ng-yFf"/>
+                <constraint firstItem="COu-YC-ebN" firstAttribute="top" secondItem="Hlh-Ix-Ys1" secondAttribute="bottom" constant="9" id="dn1-dy-KCi"/>
+                <constraint firstItem="Mhf-P8-haT" firstAttribute="top" secondItem="wvk-F6-eTL" secondAttribute="bottom" constant="6" id="kza-2r-YS8"/>
+                <constraint firstItem="Hlh-Ix-Ys1" firstAttribute="top" secondItem="Mhf-P8-haT" secondAttribute="bottom" constant="6" id="wYa-BG-pbA"/>
+                <constraint firstItem="Hlh-Ix-Ys1" firstAttribute="leading" secondItem="Mhf-P8-haT" secondAttribute="leading" id="xUS-XV-2uD"/>
+                <constraint firstItem="728-YL-bb2" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="15" id="xa2-so-5d1"/>
+                <constraint firstItem="Mhf-P8-haT" firstAttribute="leading" secondItem="wvk-F6-eTL" secondAttribute="leading" id="zMx-fp-3sP"/>
+            </constraints>
+            <accessibility identifier="VHSettingsCellView"/>
+            <point key="canvasLocation" x="132" y="535.5"/>
+        </customView>
+    </objects>
+</document>
