@@ -14,6 +14,7 @@
 #import "VHGithubNotifierManager+Trending.h"
 #import "VHGithubNotifierManager+Notification.h"
 #import "VHGithubNotifierManager+Trend.h"
+#import "VHGithubNotifierManager+Profile.h"
 #import "VHStatusBarButton.h"
 #import "VHUtils.h"
 #import "VHWindow.h"
@@ -90,6 +91,7 @@
     [[VHGithubNotifierManager sharedManager] stopTimerOfLanguage];
     [[VHGithubNotifierManager sharedManager] stopTimerOfTrending];
     [[VHGithubNotifierManager sharedManager] stopTimerOfNotification];
+    [[VHGithubNotifierManager sharedManager] stopTimerOfProfile];
 }
 
 - (void)dealloc
@@ -169,6 +171,7 @@
 {
     [[VHGithubNotifierManager sharedManager] startTimerOfBasicInfo];
     [[VHGithubNotifierManager sharedManager] startTimerOfNotification];
+    [[VHGithubNotifierManager sharedManager] startTimerOfProfile];
 }
 
 #pragma mark - Notifications

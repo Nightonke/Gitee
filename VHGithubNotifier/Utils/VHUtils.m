@@ -81,9 +81,36 @@ static NSArray<NSColor *> *colors = nil;
     NOTIFICATION_POST(kNotifyWindowShouldHide);
 }
 
++ (void)resetWKWebViewExceptCookie
+{
+    NSSet *websiteDataTypes = [NSSet setWithArray:@[
+                                                    WKWebsiteDataTypeDiskCache,
+                                                    WKWebsiteDataTypeOfflineWebApplicationCache,
+                                                    WKWebsiteDataTypeMemoryCache,
+                                                    WKWebsiteDataTypeLocalStorage,
+                                                    //WKWebsiteDataTypeCookies,
+                                                    WKWebsiteDataTypeSessionStorage,
+                                                    WKWebsiteDataTypeIndexedDBDatabases,
+                                                    WKWebsiteDataTypeWebSQLDatabases,
+                                                    ]];
+    NSDate *dateFrom = [NSDate dateWithTimeIntervalSince1970:0];
+    [[WKWebsiteDataStore defaultDataStore] removeDataOfTypes:websiteDataTypes modifiedSince:dateFrom completionHandler:^{
+        
+    }];
+}
+
 + (void)resetWKWebView
 {
-    NSSet *websiteDataTypes = [WKWebsiteDataStore allWebsiteDataTypes];
+    NSSet *websiteDataTypes = [NSSet setWithArray:@[
+                                                    WKWebsiteDataTypeDiskCache,
+                                                    WKWebsiteDataTypeOfflineWebApplicationCache,
+                                                    WKWebsiteDataTypeMemoryCache,
+                                                    WKWebsiteDataTypeLocalStorage,
+                                                    WKWebsiteDataTypeCookies,
+                                                    WKWebsiteDataTypeSessionStorage,
+                                                    WKWebsiteDataTypeIndexedDBDatabases,
+                                                    WKWebsiteDataTypeWebSQLDatabases,
+                                                    ]];
     NSDate *dateFrom = [NSDate dateWithTimeIntervalSince1970:0];
     [[WKWebsiteDataStore defaultDataStore] removeDataOfTypes:websiteDataTypes modifiedSince:dateFrom completionHandler:^{
         

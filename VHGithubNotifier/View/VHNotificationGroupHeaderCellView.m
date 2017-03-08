@@ -24,6 +24,12 @@ static const CGFloat CORNER_RADIUS = 5;
 
 @implementation VHNotificationGroupHeaderCellView
 
+- (void)prepareForReuse
+{
+    [super prepareForReuse];
+    [self.title setWidth:290];
+}
+
 - (void)awakeFromNib
 {
     self.wantsLayer = YES;

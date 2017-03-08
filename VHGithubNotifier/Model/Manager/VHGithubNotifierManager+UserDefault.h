@@ -142,4 +142,10 @@
 
 - (void)setOnlyShowsValidContentsInStatusBar:(BOOL)_onlyShowsValidContentsInStatusBar;
 
+#pragma mark - Profile
+
+- (NSTimeInterval)profileUpdateTime;
+
+- (void)setProfileUpdateTime:(NSTimeInterval)_profileUpdateTime;
+
 @end

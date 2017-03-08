@@ -28,6 +28,8 @@
 
 + (void)openUrl:(NSString *)url;
 
++ (void)resetWKWebViewExceptCookie;
+
 + (void)resetWKWebView;
 
 + (void)scrollViewToTop:(NSScrollView *)scrollView;

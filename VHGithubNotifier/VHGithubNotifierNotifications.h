@@ -118,3 +118,15 @@ static NSString * const kNotifyNotificationsChanged = @"kNotifyNotificationsChan
 // To    :
 // Params:
 static NSString * const kNotifyStatusBarButtonContentChanged = @"kNotifyStatusBarButtonContentChanged";
+
+// When  : When login cookie is got successfully
+// Who   : Manager + Profile
+// To    :
+// Params:
+static NSString * const kNotifyLoginCookieGotSuccessfully = @"kNotifyLoginCookieGotSuccessfully";
+
+// When  : When login cookie is got successfully
+// Who   : Manager + Profile
+// To    :
+// Params:
+static NSString * const kNotifyLoginCookieGotFailed = @"kNotifyLoginCookieGotFailed";

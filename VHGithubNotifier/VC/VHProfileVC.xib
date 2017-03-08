@@ -3,10 +3,12 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="VHProfileVC">
             <connections>
+                <outlet property="needLoginView" destination="u7j-vv-BSD" id="sJL-f2-yxa"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -15,7 +17,43 @@
         <customView id="Hz6-mo-xeY">
             <rect key="frame" x="0.0" y="0.0" width="400" height="545"/>
             <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u7j-vv-BSD">
+                    <rect key="frame" x="83" y="231" width="235" height="84"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wQT-KM-jH3">
+                            <rect key="frame" x="8" y="13" width="218" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Gitee needs a logged-in cookie to achieve your contributions data" id="jVb-Vb-cAm">
+                                <font key="font" metaFont="systemLight" size="11"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3k8-It-X1p">
+                            <rect key="frame" x="101" y="55" width="32" height="26"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="bottom" imageScaling="proportionallyDown" image="icon_login" id="MYK-Kl-3BL"/>
+                        </imageView>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="css-Xy-I4h" customClass="VHCursorButton">
+                            <rect key="frame" x="77" y="5" width="81" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="square" title="Login" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="Gav-1P-vR3">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="systemLight" size="13"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="onLoginButtonClicked:" target="-2" id="bA5-AT-gKr"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </customView>
+            </subviews>
             <point key="canvasLocation" x="132" y="168.5"/>
         </customView>
     </objects>
+    <resources>
+        <image name="icon_login" width="24" height="24"/>
+    </resources>
 </document>

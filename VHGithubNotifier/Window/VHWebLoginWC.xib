@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16C68" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="VHWebLoginWC">
+            <connections>
+                <outlet property="progress" destination="hyL-a5-zTS" id="8pj-Dz-LVp"/>
+                <outlet property="progressLabel" destination="z8R-RU-aDk" id="SKv-yH-0P3"/>
+                <outlet property="visualEffectView" destination="UFd-9w-dSZ" id="mfD-TN-A0q"/>
+                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <rect key="contentRect" x="196" y="240" width="500" height="500"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <value key="minSize" type="size" width="500" height="500"/>
+            <value key="maxSize" type="size" width="500" height="500"/>
+            <view key="contentView" wantsLayer="YES" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="0.0" width="500" height="500"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <visualEffectView appearanceType="vibrantLight" blendingMode="behindWindow" material="mediumLight" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="UFd-9w-dSZ">
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="500"/>
+                        <subviews>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oZ6-G5-kaX">
+                                <rect key="frame" x="320" y="463" width="180" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z8R-RU-aDk">
+                                        <rect key="frame" x="105" y="10" width="64" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Loading..." id="BNA-59-HQP">
+                                            <font key="font" metaFont="systemLight" size="13"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="hyL-a5-zTS">
+                                        <rect key="frame" x="84" y="10" width="16" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    </progressIndicator>
+                                </subviews>
+                            </customView>
+                        </subviews>
+                    </visualEffectView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="UFd-9w-dSZ" firstAttribute="width" secondItem="se5-gp-TjO" secondAttribute="width" id="Lq9-9X-Ptv"/>
+                    <constraint firstAttribute="bottom" secondItem="UFd-9w-dSZ" secondAttribute="bottom" id="NbH-XY-2hf"/>
+                    <constraint firstItem="UFd-9w-dSZ" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="cGg-M0-5Uv"/>
+                    <constraint firstItem="UFd-9w-dSZ" firstAttribute="height" secondItem="se5-gp-TjO" secondAttribute="height" id="g5X-zg-0Qk"/>
+                </constraints>
+            </view>
+            <toolbar key="toolbar" implicitIdentifier="F1320C62-F648-4B7A-AE31-6309465A2764" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="Dh8-qj-UWB">
+                <allowedToolbarItems/>
+                <defaultToolbarItems/>
+            </toolbar>
+            <connections>
+                <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+            </connections>
+        </window>
+    </objects>
+</document>

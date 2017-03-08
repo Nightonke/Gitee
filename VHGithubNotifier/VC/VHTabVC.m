@@ -20,7 +20,7 @@
 #import "NSImage+Tint.h"
 #import "VHGithubNotifier-Swift.h"
 
-@interface VHTabVC ()<VHTabViewDelegate>
+@interface VHTabVC ()<VHTabViewDelegate, VHSettingsWCDelegate>
 
 @property (nonatomic, assign) CGFloat statusItemCenterX;
 @property (nonatomic, strong) VHTabVCBackgroundView *backgroundView;
@@ -108,6 +108,13 @@
     [self.tab selectTabViewItemAtIndex:log(type) / log(2)];
 }
 
+#pragma mark - VHSettingsWCDelegate
+
+- (void)onSettingsWindowClosed
+{
+    self.settingsWC = nil;
+}
+
 #pragma mark - Actions
 
 - (void)onSettingsButtonClicked:(id)sender
@@ -116,6 +123,7 @@
     if (self.settingsWC == nil)
     {
         self.settingsWC = [[VHSettingsWC alloc] initWithWindowNibName:@"VHSettingsWC"];
+        self.settingsWC.settingsWCDelegate = self;
     }
     [self.settingsWC showWindow:self];
 }

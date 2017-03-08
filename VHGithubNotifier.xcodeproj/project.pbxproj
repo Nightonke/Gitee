@@ -201,6 +201,9 @@
 		373EAB191E6EFE69005B5E86 /* VHVisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB181E6EFE69005B5E86 /* VHVisualEffectView.swift */; };
 		373EAB1C1E6F2184005B5E86 /* VHSettingsCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB1B1E6F2184005B5E86 /* VHSettingsCellView.m */; };
 		373EAB1E1E6F2190005B5E86 /* VHSettingsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373EAB1D1E6F2190005B5E86 /* VHSettingsCellView.xib */; };
+		373EAB221E6FE298005B5E86 /* VHWebLoginWC.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB201E6FE298005B5E86 /* VHWebLoginWC.m */; };
+		373EAB231E6FE298005B5E86 /* VHWebLoginWC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373EAB211E6FE298005B5E86 /* VHWebLoginWC.xib */; };
+		373EAB261E6FFBE9005B5E86 /* VHGithubNotifierManager+Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB251E6FFBE9005B5E86 /* VHGithubNotifierManager+Profile.m */; };
 		3748DF831E2CE3E900507D9C /* VHDateValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */; };
 		3748DF861E2CEA9800507D9C /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF851E2CEA9800507D9C /* NSDate+Utils.m */; };
 		3749CDCE1E59B27C0083CEB1 /* VHPieVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3749CDCC1E59B27C0083CEB1 /* VHPieVC.m */; };
@@ -540,6 +543,11 @@
 		373EAB1A1E6F2184005B5E86 /* VHSettingsCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHSettingsCellView.h; sourceTree = "<group>"; };
 		373EAB1B1E6F2184005B5E86 /* VHSettingsCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSettingsCellView.m; sourceTree = "<group>"; };
 		373EAB1D1E6F2190005B5E86 /* VHSettingsCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHSettingsCellView.xib; sourceTree = "<group>"; };
+		373EAB1F1E6FE298005B5E86 /* VHWebLoginWC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHWebLoginWC.h; sourceTree = "<group>"; };
+		373EAB201E6FE298005B5E86 /* VHWebLoginWC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHWebLoginWC.m; sourceTree = "<group>"; };
+		373EAB211E6FE298005B5E86 /* VHWebLoginWC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHWebLoginWC.xib; sourceTree = "<group>"; };
+		373EAB241E6FFBE9005B5E86 /* VHGithubNotifierManager+Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VHGithubNotifierManager+Profile.h"; sourceTree = "<group>"; };
+		373EAB251E6FFBE9005B5E86 /* VHGithubNotifierManager+Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VHGithubNotifierManager+Profile.m"; sourceTree = "<group>"; };
 		3748DF811E2CE3E900507D9C /* VHDateValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHDateValueFormatter.h; sourceTree = "<group>"; };
 		3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHDateValueFormatter.m; sourceTree = "<group>"; };
 		3748DF841E2CEA9800507D9C /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
@@ -681,6 +689,9 @@
 				370BCA3F1E6D472200542632 /* VHSettingsWC.h */,
 				370BCA401E6D472200542632 /* VHSettingsWC.m */,
 				370BCA411E6D472200542632 /* VHSettingsWC.xib */,
+				373EAB1F1E6FE298005B5E86 /* VHWebLoginWC.h */,
+				373EAB201E6FE298005B5E86 /* VHWebLoginWC.m */,
+				373EAB211E6FE298005B5E86 /* VHWebLoginWC.xib */,
 			);
 			path = Window;
 			sourceTree = "<group>";
@@ -1041,6 +1052,8 @@
 				373B96F51E62D9E500AD8E92 /* VHGithubNotifierManager+Notification.m */,
 				375CD03E1E67031800566B58 /* VHGithubNotifierManager+UserNotification.h */,
 				375CD03F1E67031800566B58 /* VHGithubNotifierManager+UserNotification.m */,
+				373EAB241E6FFBE9005B5E86 /* VHGithubNotifierManager+Profile.h */,
+				373EAB251E6FFBE9005B5E86 /* VHGithubNotifierManager+Profile.m */,
 				3752DD1A1E12AAC8000AB94A /* VHGithubNotifierManager_Private.h */,
 			);
 			path = Manager;
@@ -1392,6 +1405,7 @@
 				3731879B1E61D95200926F4F /* Info.plist in Resources */,
 				37298F3B1E27EEEC003810E8 /* VHTrendVC.xib in Resources */,
 				373186401E60646500926F4F /* VHAccountInfoWC.xib in Resources */,
+				373EAB231E6FE298005B5E86 /* VHWebLoginWC.xib in Resources */,
 				3752DD291E12DB4D000AB94A /* VHTabVC.xib in Resources */,
 				3749CDD61E59B2950083CEB1 /* VHTrendingVC.xib in Resources */,
 				375CD0561E67D71100566B58 /* AppledocSettings.plist in Resources */,
@@ -1487,6 +1501,7 @@
 				373B96F01E62AF8000AD8E92 /* VHSimpleRepository.m in Sources */,
 				373187601E61D95200926F4F /* CandleChartDataProvider.swift in Sources */,
 				3731876B1E61D95200926F4F /* AxisRendererBase.swift in Sources */,
+				373EAB261E6FFBE9005B5E86 /* VHGithubNotifierManager+Profile.m in Sources */,
 				373187211E61D95200926F4F /* XAxis.swift in Sources */,
 				373187111E61D95200926F4F /* CombinedChartView.swift in Sources */,
 				373CF0651E652E5600711296 /* NSInvocation+Blocks.m in Sources */,
@@ -1634,6 +1649,7 @@
 				37E7CCFB1E5C576D00BA8BA9 /* VHStateView.m in Sources */,
 				37005C2D1E5C7EFB000AEFF9 /* VHGithubNotifierManager+Trending.m in Sources */,
 				373187471E61D95200926F4F /* ILineScatterCandleRadarChartDataSet.swift in Sources */,
+				373EAB221E6FE298005B5E86 /* VHWebLoginWC.m in Sources */,
 				3731870A1E61D95200926F4F /* Animator.swift in Sources */,
 				373187861E61D95200926F4F /* YAxisRenderer.swift in Sources */,
 				373187881E61D95200926F4F /* YAxisRendererRadarChart.swift in Sources */,

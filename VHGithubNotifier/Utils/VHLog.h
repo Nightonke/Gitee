@@ -33,6 +33,7 @@ extern "C"
 #define TrendLog(format,...) PermanentLog(@"Trend",format,##__VA_ARGS__)
 #define TrendingLog(format,...) PermanentLog(@"Trending",format,##__VA_ARGS__)
 #define NotificationLog(format,...) PermanentLog(@"Notification",format,##__VA_ARGS__)
+#define ProfileLog(format,...) PermanentLog(@"Profile",format,##__VA_ARGS__)
 #define ViewLog(format,...) PermanentLog(@"View",format,##__VA_ARGS__)
 
 #endif /* VHLog_h */

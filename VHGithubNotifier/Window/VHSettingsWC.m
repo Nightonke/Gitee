@@ -46,7 +46,6 @@
     self.window.toolbar.showsBaselineSeparator = NO;
     [self.window setMovableByWindowBackground:YES];
     
-    
     [self.tableView registerNib:[[NSNib alloc] initWithNibNamed:@"VHSettingsCellView" bundle:nil]
                   forIdentifier:@"VHSettingsCellView"];
     self.tableView.delegate = self;
@@ -118,6 +117,26 @@
 {
     VHSettingsCellView *cell = [tableView makeViewWithIdentifier:@"VHSettingsCellView" owner:self];
     return cell;
+}
+
+#pragma mark - Private Methods
+
+- (void)showWindow:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(windowWillClose)
+                                                 name:NSWindowWillCloseNotification
+                                               object:nil];
+    [super showWindow:sender];
+}
+
+- (void)windowWillClose
+{
+    if (self.settingsWCDelegate && [self.settingsWCDelegate respondsToSelector:@selector(onSettingsWindowClosed)])
+    {
+        [self.settingsWCDelegate onSettingsWindowClosed];
+    }
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

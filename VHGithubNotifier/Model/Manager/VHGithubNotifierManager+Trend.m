@@ -36,7 +36,7 @@ static RLMResults *trendDatas;
 
 - (BOOL)loadTrendChartInWebView:(WKWebView *)webView withTrendContentIndex:(NSUInteger)contentIndex withTitle:(NSString *)title
 {
-    [VHUtils resetWKWebView];
+    [VHUtils resetWKWebViewExceptCookie];
     [self copyJsFiles];
     [self writeHtmlWithTrendContentIndex:contentIndex withTitle:title];
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[self htmlPath]]]];

@@ -23,10 +23,12 @@ static const NSTimeInterval defaultBasicInfoUpdateTime = 60 * 10;
 static const NSTimeInterval defaultLanguageUpdateTime = 12 * 60 * 60;
 static const NSTimeInterval defaultTrendingUpdateTime = 60 * 10;
 static const NSTimeInterval defaultNotificationUpdateTime = 60 * 10;
+static const NSTimeInterval defaultProfileUpdateTime = 60 * 10;
 static NSTimeInterval basicInfoUpdateTime;
 static NSTimeInterval languageUpdateTime;
 static NSTimeInterval trendingUpdateTime;
 static NSTimeInterval notificationUpdateTime;
+static NSTimeInterval profileUpdateTime;
 
 static const NSUInteger defaultMinimumStarNumberInPie = 50;
 static NSUInteger minimumStarNumberInPie;
@@ -83,6 +85,12 @@ static BOOL onlyShowsValidContentsInStatusBar;
     if (notificationUpdateTime == 0)
     {
         notificationUpdateTime = defaultNotificationUpdateTime;
+    }
+    
+    profileUpdateTime = [[self userDefaults] doubleForKey:@"profileUpdateTime"];
+    if (profileUpdateTime == 0)
+    {
+        profileUpdateTime = defaultProfileUpdateTime;
     }
     
     minimumStarNumberInPie = [[self userDefaults] integerForKey:@"minimumStarNumberInPie"];
@@ -350,6 +358,19 @@ static BOOL onlyShowsValidContentsInStatusBar;
 {
     onlyShowsValidContentsInStatusBar = _onlyShowsValidContentsInStatusBar;
     [[self userDefaults] setBool:onlyShowsValidContentsInStatusBar forKey:@"onlyShowsValidContentsInStatusBar"];
+}
+
+#pragma mark - Profile
+
+- (NSTimeInterval)profileUpdateTime
+{
+    return profileUpdateTime;
+}
+
+- (void)setProfileUpdateTime:(NSTimeInterval)_profileUpdateTime
+{
+    profileUpdateTime = _profileUpdateTime;
+    [[self userDefaults] setDouble:profileUpdateTime forKey:@"profileUpdateTime"];
 }
 
 #pragma mark - Private Methods
