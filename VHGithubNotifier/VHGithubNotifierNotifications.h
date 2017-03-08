@@ -130,3 +130,15 @@ static NSString * const kNotifyLoginCookieGotSuccessfully = @"kNotifyLoginCookie
 // To    :
 // Params:
 static NSString * const kNotifyLoginCookieGotFailed = @"kNotifyLoginCookieGotFailed";
+
+// When  : When contribution blocks are loaded successfully
+// Who   : Manager + Profile
+// To    :
+// Params:
+static NSString * const kNotifyContributionBlocksLoadedSuccessfully = @"kNotifyContributionBlocksLoadedSuccessfully";
+
+// When  : When contribution blocks are loaded failed
+// Who   : Manager + Profile
+// To    :
+// Params:
+static NSString * const kNotifyContributionBlocksLoadedFailed = @"kNotifyContributionBlocksLoadedFailed";

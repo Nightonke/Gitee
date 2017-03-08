@@ -204,6 +204,11 @@
 		373EAB221E6FE298005B5E86 /* VHWebLoginWC.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB201E6FE298005B5E86 /* VHWebLoginWC.m */; };
 		373EAB231E6FE298005B5E86 /* VHWebLoginWC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373EAB211E6FE298005B5E86 /* VHWebLoginWC.xib */; };
 		373EAB261E6FFBE9005B5E86 /* VHGithubNotifierManager+Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB251E6FFBE9005B5E86 /* VHGithubNotifierManager+Profile.m */; };
+		373EAB291E702BF3005B5E86 /* VHContributionBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB281E702BF3005B5E86 /* VHContributionBlock.m */; };
+		373EAB2C1E7031A0005B5E86 /* VHContributionChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB2B1E7031A0005B5E86 /* VHContributionChartView.m */; };
+		373EAB2F1E704E9F005B5E86 /* VHContributionChartDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB2E1E704E9F005B5E86 /* VHContributionChartDrawer.m */; };
+		373EAB351E705133005B5E86 /* VHContributionChartFaceDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB341E705133005B5E86 /* VHContributionChartFaceDrawer.m */; };
+		373EAB381E70535A005B5E86 /* NSColor+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB371E70535A005B5E86 /* NSColor+Utils.m */; };
 		3748DF831E2CE3E900507D9C /* VHDateValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */; };
 		3748DF861E2CEA9800507D9C /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF851E2CEA9800507D9C /* NSDate+Utils.m */; };
 		3749CDCE1E59B27C0083CEB1 /* VHPieVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3749CDCC1E59B27C0083CEB1 /* VHPieVC.m */; };
@@ -548,6 +553,16 @@
 		373EAB211E6FE298005B5E86 /* VHWebLoginWC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHWebLoginWC.xib; sourceTree = "<group>"; };
 		373EAB241E6FFBE9005B5E86 /* VHGithubNotifierManager+Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VHGithubNotifierManager+Profile.h"; sourceTree = "<group>"; };
 		373EAB251E6FFBE9005B5E86 /* VHGithubNotifierManager+Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VHGithubNotifierManager+Profile.m"; sourceTree = "<group>"; };
+		373EAB271E702BF3005B5E86 /* VHContributionBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHContributionBlock.h; sourceTree = "<group>"; };
+		373EAB281E702BF3005B5E86 /* VHContributionBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHContributionBlock.m; sourceTree = "<group>"; };
+		373EAB2A1E7031A0005B5E86 /* VHContributionChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHContributionChartView.h; sourceTree = "<group>"; };
+		373EAB2B1E7031A0005B5E86 /* VHContributionChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHContributionChartView.m; sourceTree = "<group>"; };
+		373EAB2D1E704E9F005B5E86 /* VHContributionChartDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHContributionChartDrawer.h; sourceTree = "<group>"; };
+		373EAB2E1E704E9F005B5E86 /* VHContributionChartDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHContributionChartDrawer.m; sourceTree = "<group>"; };
+		373EAB331E705133005B5E86 /* VHContributionChartFaceDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHContributionChartFaceDrawer.h; sourceTree = "<group>"; };
+		373EAB341E705133005B5E86 /* VHContributionChartFaceDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHContributionChartFaceDrawer.m; sourceTree = "<group>"; };
+		373EAB361E70535A005B5E86 /* NSColor+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+Utils.h"; sourceTree = "<group>"; };
+		373EAB371E70535A005B5E86 /* NSColor+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Utils.m"; sourceTree = "<group>"; };
 		3748DF811E2CE3E900507D9C /* VHDateValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHDateValueFormatter.h; sourceTree = "<group>"; };
 		3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHDateValueFormatter.m; sourceTree = "<group>"; };
 		3748DF841E2CEA9800507D9C /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
@@ -1156,6 +1171,12 @@
 				3749CDE51E5B1B140083CEB1 /* VHHTTPResponseSerializer.m */,
 				373BA7151E6AF21200653C92 /* VHTrendChartParser.h */,
 				373BA7161E6AF21200653C92 /* VHTrendChartParser.m */,
+				373EAB271E702BF3005B5E86 /* VHContributionBlock.h */,
+				373EAB281E702BF3005B5E86 /* VHContributionBlock.m */,
+				373EAB2D1E704E9F005B5E86 /* VHContributionChartDrawer.h */,
+				373EAB2E1E704E9F005B5E86 /* VHContributionChartDrawer.m */,
+				373EAB331E705133005B5E86 /* VHContributionChartFaceDrawer.h */,
+				373EAB341E705133005B5E86 /* VHContributionChartFaceDrawer.m */,
 				37531A3C1E1408FC00C3EB64 /* VHGithubNotifierEnums.h */,
 			);
 			path = Model;
@@ -1189,6 +1210,8 @@
 				373CF0451E62F79200711296 /* VHLog.m */,
 				373EAB0D1E6EA1C2005B5E86 /* NSImage+Tint.h */,
 				373EAB0E1E6EA1C2005B5E86 /* NSImage+Tint.m */,
+				373EAB361E70535A005B5E86 /* NSColor+Utils.h */,
+				373EAB371E70535A005B5E86 /* NSColor+Utils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1273,6 +1296,8 @@
 				373EAB1A1E6F2184005B5E86 /* VHSettingsCellView.h */,
 				373EAB1B1E6F2184005B5E86 /* VHSettingsCellView.m */,
 				373EAB1D1E6F2190005B5E86 /* VHSettingsCellView.xib */,
+				373EAB2A1E7031A0005B5E86 /* VHContributionChartView.h */,
+				373EAB2B1E7031A0005B5E86 /* VHContributionChartView.m */,
 				373EAB181E6EFE69005B5E86 /* VHVisualEffectView.swift */,
 			);
 			path = View;
@@ -1571,6 +1596,7 @@
 				373187201E61D95200926F4F /* MarkerView.swift in Sources */,
 				378E0B231E0FEEA10033CBD5 /* VHUtils.m in Sources */,
 				373187341E61D95200926F4F /* LineChartData.swift in Sources */,
+				373EAB381E70535A005B5E86 /* NSColor+Utils.m in Sources */,
 				373187361E61D95200926F4F /* LineRadarChartDataSet.swift in Sources */,
 				373CF0461E62F79200711296 /* VHLog.m in Sources */,
 				3731878E1E61D95200926F4F /* TransformerHorizontalBarChart.swift in Sources */,
@@ -1594,6 +1620,7 @@
 				3752DD191E12AAAE000AB94A /* VHGithubNotifierManager.m in Sources */,
 				37531A3F1E140C3500C3EB64 /* VHUtils+TransForm.m in Sources */,
 				378E0AE31E0ECD070033CBD5 /* main.m in Sources */,
+				373EAB2F1E704E9F005B5E86 /* VHContributionChartDrawer.m in Sources */,
 				373CF0661E652E5600711296 /* NSString+UAGithubEngineUtilities.m in Sources */,
 				3731877C1E61D95200926F4F /* CircleShapeRenderer.swift in Sources */,
 				3731873B1E61D95200926F4F /* RadarChartData.swift in Sources */,
@@ -1628,6 +1655,7 @@
 				370BCA421E6D472200542632 /* VHSettingsWC.m in Sources */,
 				3731874A1E61D95200926F4F /* IScatterChartDataSet.swift in Sources */,
 				373187671E61D95200926F4F /* AnimatedZoomViewJob.swift in Sources */,
+				373EAB351E705133005B5E86 /* VHContributionChartFaceDrawer.m in Sources */,
 				3731872C1E61D95200926F4F /* CandleChartData.swift in Sources */,
 				37005C3A1E5C9C1C000AEFF9 /* TFHpple.m in Sources */,
 				373187381E61D95200926F4F /* PieChartData.swift in Sources */,
@@ -1662,6 +1690,7 @@
 				373187221E61D95200926F4F /* YAxis.swift in Sources */,
 				373187181E61D95200926F4F /* AxisBase.swift in Sources */,
 				373187491E61D95200926F4F /* IRadarChartDataSet.swift in Sources */,
+				373EAB2C1E7031A0005B5E86 /* VHContributionChartView.m in Sources */,
 				373186581E60A96D00926F4F /* VHTextField.m in Sources */,
 				3731873D1E61D95200926F4F /* RadarChartDataSet.swift in Sources */,
 				378E0B2C1E0FEF7B0033CBD5 /* VHUser.m in Sources */,
@@ -1684,6 +1713,7 @@
 				3731871C1E61D95200926F4F /* IMarker.swift in Sources */,
 				373187131E61D95200926F4F /* LineChartView.swift in Sources */,
 				373CF06B1E652E5600711296 /* UAGithubURLConnection.m in Sources */,
+				373EAB291E702BF3005B5E86 /* VHContributionBlock.m in Sources */,
 				3731878A1E61D95200926F4F /* ChartUtils.swift in Sources */,
 				373187691E61D95200926F4F /* ViewPortJob.swift in Sources */,
 				378E0AE01E0ECD070033CBD5 /* AppDelegate.m in Sources */,

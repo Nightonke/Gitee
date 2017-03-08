@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="VHProfileVC">
             <connections>
+                <outlet property="contributionChart" destination="4DW-Gj-hSX" id="XE9-Jj-FPT"/>
                 <outlet property="needLoginView" destination="u7j-vv-BSD" id="sJL-f2-yxa"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -48,6 +49,10 @@
                             </connections>
                         </button>
                     </subviews>
+                </customView>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4DW-Gj-hSX" customClass="VHContributionChartView">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="545"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </customView>
             </subviews>
             <point key="canvasLocation" x="132" y="168.5"/>

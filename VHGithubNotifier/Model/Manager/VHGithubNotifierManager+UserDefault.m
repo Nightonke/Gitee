@@ -57,7 +57,7 @@ static BOOL onlyShowsValidContentsInStatusBar;
     weekStartFrom = [[self userDefaults] integerForKey:@"VHGithubWeekStartFrom"];
     if (weekStartFrom == 0)
     {
-        weekStartFrom = VHGithubWeekStartFromMonDay;
+        weekStartFrom = VHGithubWeekStartFromSunDay;
     }
     
     trendingContentSelectedIndex = [[self userDefaults] integerForKey:@"trendingContentSelectedIndex"];

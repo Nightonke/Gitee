@@ -12,11 +12,13 @@
 #import "VHWebLoginWC.h"
 #import "VHGithubNotifierManager+Profile.h"
 #import "VHUtils.h"
+#import "VHContributionChartView.h"
 
 @interface VHProfileVC ()<VHWebLoginWCDelegate>
 
 @property (weak) IBOutlet NSView *needLoginView;
 @property (nonatomic, strong) VHWebLoginWC *webLoginWC;
+@property (weak) IBOutlet VHContributionChartView *contributionChart;
 
 @end
 
@@ -46,6 +48,7 @@
 {
     [self addNotification:kNotifyLoginCookieGotSuccessfully forSelector:@selector(onNotifyLoginCookieGotSuccessfully:)];
     [self addNotification:kNotifyLoginCookieGotFailed forSelector:@selector(onNotifyLoginCookieGotFailed:)];
+    [self addNotification:kNotifyContributionBlocksLoadedSuccessfully forSelector:@selector(onNotifyContributionBlocksLoadedSuccessfully:)];
 }
 
 - (void)onNotifyLoginCookieGotSuccessfully:(NSNotification *)notification
@@ -56,6 +59,11 @@
 - (void)onNotifyLoginCookieGotFailed:(NSNotification *)notification
 {
     self.needLoginView.hidden = NO;
+}
+
+- (void)onNotifyContributionBlocksLoadedSuccessfully:(NSNotification *)notification
+{
+    [self.contributionChart setNeedsDisplay:YES];
 }
 
 #pragma mark - Actions

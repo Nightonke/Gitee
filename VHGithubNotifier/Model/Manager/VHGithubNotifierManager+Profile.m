@@ -12,6 +12,8 @@
 
 static NSTimer *profileTimer;
 static VHLoadStateType contributionLoadState = VHLoadStateTypeDidNotLoad;
+static NSArray<VHContributionBlock *> *contributionBlocks;
+static VHContributionChartDrawer *contributionChartDrawer;
 
 @implementation VHGithubNotifierManager (Profile)
 
@@ -52,6 +54,15 @@ static VHLoadStateType contributionLoadState = VHLoadStateTypeDidNotLoad;
     return contributionLoadState;
 }
 
+- (NSArray<VHContributionBlock *> *)contributionBlocks
+{
+    if (contributionBlocks == nil)
+    {
+        contributionBlocks = [NSArray array];
+    }
+    return contributionBlocks;
+}
+
 - (BOOL)loginCookieExist:(BOOL)sendNotification
 {
     BOOL loggedIn = NO;
@@ -78,6 +89,11 @@ static VHLoadStateType contributionLoadState = VHLoadStateTypeDidNotLoad;
     }
     
     return loggedIn;
+}
+
+- (VHContributionChartDrawer *)contributionChartDrawer
+{
+    return contributionChartDrawer;
 }
 
 #pragma mark - Private Methods
@@ -119,10 +135,28 @@ static VHLoadStateType contributionLoadState = VHLoadStateTypeDidNotLoad;
         if (error)
         {
             ProfileLog(@"Update contributions failed with error: %@", error);
+            NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyContributionBlocksLoadedFailed);
         }
         else
         {
             ProfileLog(@"Update contributions successfully");
+            
+            NSMutableArray<VHContributionBlock *> *blocks = [NSMutableArray arrayWithCapacity:365];
+            TFHpple *hpple = [[TFHpple alloc] initWithHTMLData:[responseObject dataUsingEncoding:NSUTF8StringEncoding]];
+            NSArray *dataArray = [hpple searchWithXPathQuery:@"//rect"];
+            for (TFHppleElement *element in dataArray)
+            {
+                if ([[element objectForKey:@"class"] isEqualToString:@"day"])
+                {
+                    [blocks addObject:[[VHContributionBlock alloc] initWithHppleElement:element]];
+                }
+            }
+            contributionBlocks = [blocks copy];
+            
+            contributionChartDrawer = [[VHContributionChartDrawer alloc] init];
+            [contributionChartDrawer readyForDrawingFromContributionBlocks:contributionBlocks];
+            
+            NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyContributionBlocksLoadedSuccessfully);
         }
     }];
     [dataTask resume];

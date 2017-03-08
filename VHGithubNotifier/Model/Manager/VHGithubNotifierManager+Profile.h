@@ -7,6 +7,8 @@
 //
 
 #import "VHGithubNotifierManager.h"
+#import "VHContributionBlock.h"
+#import "VHContributionChartDrawer.h"
 
 @interface VHGithubNotifierManager (Profile)
 
@@ -20,6 +22,10 @@
 
 - (VHLoadStateType)contributionLoadState;
 
+- (NSArray<VHContributionBlock *> *)contributionBlocks;
+
 - (BOOL)loginCookieExist:(BOOL)sendNotification;
+
+- (VHContributionChartDrawer *)contributionChartDrawer;
 
 @end
