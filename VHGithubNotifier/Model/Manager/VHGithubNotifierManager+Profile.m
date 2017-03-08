@@ -14,6 +14,7 @@ static NSTimer *profileTimer;
 static VHLoadStateType contributionLoadState = VHLoadStateTypeDidNotLoad;
 static NSArray<VHContributionBlock *> *contributionBlocks;
 static VHContributionChartDrawer *contributionChartDrawer;
+static NSUInteger yearContributions;
 
 @implementation VHGithubNotifierManager (Profile)
 
@@ -96,6 +97,38 @@ static VHContributionChartDrawer *contributionChartDrawer;
     return contributionChartDrawer;
 }
 
+- (NSUInteger)yearContributions
+{
+    return yearContributions;
+}
+
+- (NSString *)yearContributionsTimeString
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+    [dateFormatter setLocale:enUSPOSIXLocale];
+    [dateFormatter setDateFormat:@"MMM d, yyyy"];
+    NSMutableString *timeString = [NSMutableString string];
+    [timeString appendString:[dateFormatter stringFromDate:[contributionBlocks firstObject].date]];
+    [timeString appendString:@" — "];
+    [timeString appendString:[dateFormatter stringFromDate:[contributionBlocks lastObject].date]];
+    return [timeString copy];
+}
+
+- (NSUInteger)todayContributions
+{
+    return [contributionBlocks lastObject].contributions;
+}
+
+- (NSString *)todayContributionsTimeString
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+    [dateFormatter setLocale:enUSPOSIXLocale];
+    [dateFormatter setDateFormat:@"MMM d, yyyy"];
+    return [dateFormatter stringFromDate:[contributionBlocks lastObject].date];
+}
+
 #pragma mark - Private Methods
 
 - (void)innerUpdateProfile
@@ -135,11 +168,13 @@ static VHContributionChartDrawer *contributionChartDrawer;
         if (error)
         {
             ProfileLog(@"Update contributions failed with error: %@", error);
+            contributionLoadState = VHLoadStateTypeLoadFailed;
             NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyContributionBlocksLoadedFailed);
         }
         else
         {
             ProfileLog(@"Update contributions successfully");
+            contributionLoadState = VHLoadStateTypeLoadSuccessfully;
             
             NSMutableArray<VHContributionBlock *> *blocks = [NSMutableArray arrayWithCapacity:365];
             TFHpple *hpple = [[TFHpple alloc] initWithHTMLData:[responseObject dataUsingEncoding:NSUTF8StringEncoding]];
@@ -152,6 +187,7 @@ static VHContributionChartDrawer *contributionChartDrawer;
                 }
             }
             contributionBlocks = [blocks copy];
+            [self calculateYearContributions];
             
             contributionChartDrawer = [[VHContributionChartDrawer alloc] init];
             [contributionChartDrawer readyForDrawingFromContributionBlocks:contributionBlocks];
@@ -160,6 +196,15 @@ static VHContributionChartDrawer *contributionChartDrawer;
         }
     }];
     [dataTask resume];
+}
+
+- (void)calculateYearContributions
+{
+    yearContributions = 0;
+    for (VHContributionBlock *contribution in contributionBlocks)
+    {
+        yearContributions += contribution.contributions;
+    }
 }
 
 @end

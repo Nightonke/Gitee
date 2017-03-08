@@ -13,12 +13,18 @@
 #import "VHGithubNotifierManager+Profile.h"
 #import "VHUtils.h"
 #import "VHContributionChartView.h"
+#import "VHStateView.h"
 
-@interface VHProfileVC ()<VHWebLoginWCDelegate>
+@interface VHProfileVC ()<VHWebLoginWCDelegate, VHStateViewDelegate>
 
 @property (weak) IBOutlet NSView *needLoginView;
 @property (nonatomic, strong) VHWebLoginWC *webLoginWC;
 @property (weak) IBOutlet VHContributionChartView *contributionChart;
+@property (weak) IBOutlet NSTextField *yearContributionsLabel;
+@property (weak) IBOutlet NSTextField *yearContributionsTimeLabel;
+@property (weak) IBOutlet NSTextField *todayContributionsLabel;
+@property (weak) IBOutlet NSTextField *todayContributionsTimeLabel;
+@property (weak) IBOutlet VHStateView *stateView;
 
 @end
 
@@ -40,6 +46,44 @@
     }
     
     [self addNotifications];
+    [self setUI];
+}
+
+- (void)setUI
+{
+    [self.stateView setRetryText:@"Contributions loaded failed!"];
+    [self.stateView setLoadingText:@"Loading contributions..."];
+    
+    switch ([[VHGithubNotifierManager sharedManager] contributionLoadState])
+    {
+        case VHLoadStateTypeLoading:
+            self.stateView.state = VHStateViewStateTypeLoading;
+            self.contributionChart.hidden = YES;
+            break;
+        case VHLoadStateTypeDidNotLoad:
+        case VHLoadStateTypeLoadFailed:
+            self.stateView.state = VHStateViewStateTypeLoadFailed;
+            self.contributionChart.hidden = YES;
+            break;
+        case VHLoadStateTypeLoadSuccessfully:
+            self.stateView.state = VHStateViewStateTypeLoadSuccessfully;
+            [self updateContributionLabels];
+            self.contributionChart.hidden = NO;
+            break;
+    }
+}
+
+- (void)updateContributionLabels
+{
+    self.yearContributionsLabel.stringValue = [NSString stringWithFormat:@"%zd", [[VHGithubNotifierManager sharedManager] yearContributions]];
+    [self.yearContributionsLabel sizeToFit];
+    self.yearContributionsTimeLabel.stringValue = [[VHGithubNotifierManager sharedManager] yearContributionsTimeString];
+    [self.yearContributionsTimeLabel sizeToFit];
+    
+    self.todayContributionsLabel.stringValue = [NSString stringWithFormat:@"%zd", [[VHGithubNotifierManager sharedManager] todayContributions]];
+    [self.todayContributionsLabel sizeToFit];
+    self.todayContributionsTimeLabel.stringValue = [[VHGithubNotifierManager sharedManager] todayContributionsTimeString];
+    [self.todayContributionsTimeLabel sizeToFit];
 }
 
 #pragma mark - Notifications
@@ -49,6 +93,7 @@
     [self addNotification:kNotifyLoginCookieGotSuccessfully forSelector:@selector(onNotifyLoginCookieGotSuccessfully:)];
     [self addNotification:kNotifyLoginCookieGotFailed forSelector:@selector(onNotifyLoginCookieGotFailed:)];
     [self addNotification:kNotifyContributionBlocksLoadedSuccessfully forSelector:@selector(onNotifyContributionBlocksLoadedSuccessfully:)];
+    [self addNotification:kNotifyContributionBlocksLoadedFailed forSelector:@selector(onNotifyContributionBlocksLoadedFailed:)];
 }
 
 - (void)onNotifyLoginCookieGotSuccessfully:(NSNotification *)notification
@@ -63,7 +108,16 @@
 
 - (void)onNotifyContributionBlocksLoadedSuccessfully:(NSNotification *)notification
 {
+    self.stateView.state = VHStateViewStateTypeLoadSuccessfully;
+    self.contributionChart.hidden = NO;
     [self.contributionChart setNeedsDisplay:YES];
+    [self updateContributionLabels];
+}
+
+- (void)onNotifyContributionBlocksLoadedFailed:(NSNotification *)notification
+{
+    self.stateView.state = VHStateViewStateTypeLoadFailed;
+    self.contributionChart.hidden = YES;
 }
 
 #pragma mark - Actions
@@ -86,6 +140,13 @@
     {
         NetLog(@"Logged in successfully through web view.");
     }
+}
+
+#pragma mark - VHStateViewDelegate
+
+- (void)onRetryButtonClicked
+{
+    [[VHGithubNotifierManager sharedManager] updateProfile];
 }
 
 @end

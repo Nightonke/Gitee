@@ -14,8 +14,8 @@ static const CGFloat beta = 128;
 static const CGFloat divideWidth = 1;
 static const CGFloat a = 6;
 static const CGFloat b = 6;
-static const CGFloat leftMostX = 10;
-static const CGFloat leftMostY = 200;
+static const CGFloat leftMostX = 15;
+static const CGFloat leftMostY = 230;
 static const CGFloat maxContributionHeight = 200;
 static const CGFloat minContributionHeight = 3;
 

@@ -28,4 +28,12 @@
 
 - (VHContributionChartDrawer *)contributionChartDrawer;
 
+- (NSUInteger)yearContributions;
+
+- (NSString *)yearContributionsTimeString;
+
+- (NSUInteger)todayContributions;
+
+- (NSString *)todayContributionsTimeString;
+
 @end
