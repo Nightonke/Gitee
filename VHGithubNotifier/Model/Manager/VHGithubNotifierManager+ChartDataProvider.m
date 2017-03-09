@@ -10,16 +10,20 @@
 #import "VHGithubNotifierManager+UserDefault.h"
 #import "VHUtils.h"
 
+static NSUInteger repositoriesPieTotalStarNumber = 0;
+
 @implementation VHGithubNotifierManager (ChartDataProvider)
 
 - (PieChartData *)userRepositoriesPieDataSet
 {
     __block NSMutableArray<PieChartDataEntry *> *array = [NSMutableArray arrayWithCapacity:self.user.ownerRepositories.count];
     __block PieChartDataEntry *entry;
+    repositoriesPieTotalStarNumber = 0;
     for (VHRepository *repository in self.user.ownerRepositories)
     {
         if (repository.starNumber >= [[VHGithubNotifierManager sharedManager] minimumStarNumberInPie])
         {
+            repositoriesPieTotalStarNumber += repository.starNumber;
             entry = [[PieChartDataEntry alloc] initWithValue:repository.starNumber label:repository.name];
             [array addObject:entry];
         }
@@ -68,6 +72,11 @@
         }
     }
     return nil;
+}
+
+- (NSUInteger)repositoriesPieTotalStarNumber
+{
+    return repositoriesPieTotalStarNumber;
 }
 
 @end

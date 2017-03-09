@@ -142,3 +142,27 @@ static NSString * const kNotifyContributionBlocksLoadedSuccessfully = @"kNotifyC
 // To    :
 // Params:
 static NSString * const kNotifyContributionBlocksLoadedFailed = @"kNotifyContributionBlocksLoadedFailed";
+
+// When  : When the week-starts-from settings changed
+// Who   : Settings VC
+// To    :
+// Params:
+static NSString * const kNotifyWeekStartsFromChanged = @"kNotifyWeekStartsFromChanged";
+
+// When  : When the contribution chart is updated locally(when the week-stars-from changed)
+// Who   : Manager + Profile
+// To    :
+// Params:
+static NSString * const kNotifyContributionChartChanged = @"kNotifyContributionChartChanged";
+
+// When  : When the current tab of tab view controller is changed
+// Who   : VHTabVC
+// To    :
+// Params:
+static NSString * const kNotifyTabInTabViewControllerChanged = @"kNotifyTabInTabViewControllerChanged";
+
+// When  : When the minimum star number in repositories-pie changed
+// Who   : Settings VC
+// To    :
+// Params:
+static NSString * const kNotifyMinimumStarNumberInPieChanged = @"kNotifyMinimumStarNumberInPieChanged";

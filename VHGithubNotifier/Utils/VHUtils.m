@@ -43,7 +43,7 @@ static NSArray<NSColor *> *colors = nil;
 
 + (void)setRandomColor:(ChartDataSet *)chartDataSet withNumber:(NSInteger)count
 {
-    [chartDataSet setColors:[VHUtils colors]];
+    [chartDataSet setColors:[VHUtils randomColors]];
 }
 
 + (NSColor *)randomColor
@@ -78,6 +78,17 @@ static NSArray<NSColor *> *colors = nil;
     }
     MUST_IN_MAIN_THREAD;
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
+    NOTIFICATION_POST(kNotifyWindowShouldHide);
+}
+
++ (void)openURL:(NSURL *)url
+{
+    if (url.absoluteString.length == 0)
+    {
+        return;
+    }
+    MUST_IN_MAIN_THREAD;
+    [[NSWorkspace sharedWorkspace] openURL:url];
     NOTIFICATION_POST(kNotifyWindowShouldHide);
 }
 
@@ -125,6 +136,17 @@ static NSArray<NSColor *> *colors = nil;
     [scrollView.documentView scrollPoint:NSMakePoint(0, 0)];
 }
 
++ (NSArray<NSColor *> *)randomColors
+{
+    NSMutableArray<NSColor *> *mColors = [NSMutableArray arrayWithCapacity:[self colors].count];
+    NSUInteger index = arc4random_uniform((int)[self colors].count);
+    for (int i = 0; i < [self colors].count; i++)
+    {
+        [mColors addObject:[colors objectAtIndex:(index + i) % colors.count]];
+    }
+    return [mColors copy];
+}
+
 #pragma mark - Private methods
 
 + (NSArray<NSString *> *)colorStrings
@@ -132,12 +154,12 @@ static NSArray<NSColor *> *colors = nil;
     if (colorStrings == nil)
     {
         colorStrings = @[@"#F44336",
-                         @"#3F51B5",
                          @"#673AB7",
                          @"#E91E63",
                          @"#9C27B0",
                          @"#03A9F4",
                          @"#009688",
+                         @"#3F51B5",
                          @"#4CAF50",
                          @"#00BCD4",
                          @"#2196F3",

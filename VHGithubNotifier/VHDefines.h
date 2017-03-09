@@ -57,7 +57,7 @@ const static CGFloat TAB_VC_CORNER_RADIUS = 8;
 
 #define NOTIFICATION_POST_IN_MAIN_THREAD(name) IN_MAIN_THREAD(NOTIFICATION_POST(name))
 
-#define NOTIFICATION_POST_WITH_OBJECT(name, object) [[NSNotificationCenter defaultCenter] postNotificationName:name object:object userInfo:nil]
+#define NOTIFICATION_POST_WITH_OBJECT(name, object2) [[NSNotificationCenter defaultCenter] postNotificationName:name object:object2 userInfo:nil]
 
 #define GLOBAL_QUEUE dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 

@@ -6,8 +6,8 @@
 //  Copyright © 2017年 黄伟平. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
-
 @interface VHSettingsCellView : NSTableCellView
+
+- (void)updateSettings;
 
 @end

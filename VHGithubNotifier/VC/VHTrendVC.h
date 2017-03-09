@@ -6,8 +6,8 @@
 //  Copyright © 2017年 黄伟平. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "VHViewController.h"
 
-@interface VHTrendVC : NSViewController
+@interface VHTrendVC : VHViewController
 
 @end

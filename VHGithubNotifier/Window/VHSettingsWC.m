@@ -18,12 +18,7 @@
 @property (weak) IBOutlet NSScrollView *scrollView;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (nonatomic, strong) VHScroller *scroller;
-
-#pragma mark Status Bar
-@property (weak) IBOutlet NSButton *totalStargazersNumberButton;
-@property (weak) IBOutlet NSButton *followersNumberButton;
-@property (weak) IBOutlet NSButton *unreadNotificationsNumberButton;
-@property (weak) IBOutlet NSButton *onlyShowsValidContentsInStatusBarButton;
+@property (nonatomic, strong) VHSettingsCellView *settingsCell;
 
 @end
 
@@ -63,42 +58,6 @@
                                  withPressedImageName:@"image_scroller_pressed"
                                        withScrollView:self.scrollView];
     [self.window.contentView addSubview:self.scroller];
-    
-//    [self initSettingsForStatusBar];
-}
-
-- (void)initSettingsForStatusBar
-{
-    NSUInteger contents = [[VHGithubNotifierManager sharedManager] statusBarButtonContents];
-    self.totalStargazersNumberButton.state = contents & VHStatusBarButtonContentTypeStargazers;
-    self.followersNumberButton.state = contents & VHStatusBarButtonContentTypeFollowers;
-    self.unreadNotificationsNumberButton.state = contents & VHStatusBarButtonContentTypeNotifications;
-    
-    self.onlyShowsValidContentsInStatusBarButton.state = [[VHGithubNotifierManager sharedManager] onlyShowsValidContentsInStatusBar];
-}
-
-#pragma mark - Actions - Status Bar
-
-- (IBAction)onStatusBarContentChanged:(NSButton *)sender
-{
-    NSUInteger contents = 0;
-    if (self.totalStargazersNumberButton.state)
-    {
-        contents |= VHStatusBarButtonContentTypeStargazers;
-    }
-    if (self.followersNumberButton.state)
-    {
-        contents |= VHStatusBarButtonContentTypeFollowers;
-    }
-    if (self.unreadNotificationsNumberButton.state)
-    {
-        contents |= VHStatusBarButtonContentTypeNotifications;
-    }
-    [[VHGithubNotifierManager sharedManager] setStatusBarButtonContents:contents];
-    
-    [[VHGithubNotifierManager sharedManager] setOnlyShowsValidContentsInStatusBar:self.onlyShowsValidContentsInStatusBarButton.state];
-    
-    NOTIFICATION_POST(kNotifyStatusBarButtonContentChanged);
 }
 
 #pragma mark - NSTableViewDelegate, NSTableViewDataSource
@@ -110,13 +69,13 @@
 
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
 {
-    return 1000;
+    return 1080;
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    VHSettingsCellView *cell = [tableView makeViewWithIdentifier:@"VHSettingsCellView" owner:self];
-    return cell;
+    self.settingsCell = [tableView makeViewWithIdentifier:@"VHSettingsCellView" owner:self];
+    return self.settingsCell;
 }
 
 #pragma mark - Private Methods
@@ -132,6 +91,7 @@
 
 - (void)windowWillClose
 {
+    [self.settingsCell updateSettings];
     if (self.settingsWCDelegate && [self.settingsWCDelegate respondsToSelector:@selector(onSettingsWindowClosed)])
     {
         [self.settingsWCDelegate onSettingsWindowClosed];

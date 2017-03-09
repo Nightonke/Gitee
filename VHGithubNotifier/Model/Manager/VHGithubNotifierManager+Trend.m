@@ -47,8 +47,7 @@ static RLMResults *trendDatas;
 
 - (void)copyJsFiles
 {
-    NSURL *toPath = [self realm].configuration.fileURL;
-    toPath = [toPath URLByDeletingLastPathComponent];
+    NSURL *toPath = [self realmDirectory];
     
     [self copyFileFromPath:[[NSBundle mainBundle] pathForResource:@"echarts" ofType:@"js"]
                     toPath:[[toPath URLByAppendingPathComponent:@"echarts.js"] relativePath]];

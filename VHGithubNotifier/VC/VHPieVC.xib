@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yk7-Ed-zCY" customClass="VHCursorButton">
-                    <rect key="frame" x="338" y="64" width="24" height="24"/>
+                    <rect key="frame" x="338" y="105" width="24" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_open_url" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="ByW-Ji-O3L">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

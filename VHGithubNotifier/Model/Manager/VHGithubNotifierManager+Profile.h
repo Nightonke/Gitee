@@ -36,4 +36,6 @@
 
 - (NSString *)todayContributionsTimeString;
 
+- (void)updateContributionChartLocally;
+
 @end

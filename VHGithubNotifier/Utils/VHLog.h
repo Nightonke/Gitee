@@ -35,5 +35,6 @@ extern "C"
 #define NotificationLog(format,...) PermanentLog(@"Notification",format,##__VA_ARGS__)
 #define ProfileLog(format,...) PermanentLog(@"Profile",format,##__VA_ARGS__)
 #define ViewLog(format,...) PermanentLog(@"View",format,##__VA_ARGS__)
+#define SettingsLog(format,...) PermanentLog(@"Settings",format,##__VA_ARGS__)
 
 #endif /* VHLog_h */

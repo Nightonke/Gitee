@@ -27,6 +27,8 @@
 
 - (void)updateBasicInfo;
 
+- (void)updateAllTimer;
+
 - (void)redirectLogToDocuments;
 
 - (void)confirmUserAccount:(NSString *)username withPassword:(NSString *)password;

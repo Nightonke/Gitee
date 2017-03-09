@@ -129,6 +129,18 @@ static NSUInteger yearContributions;
     return [dateFormatter stringFromDate:[contributionBlocks lastObject].date];
 }
 
+- (void)updateContributionChartLocally
+{
+    dispatch_async(GLOBAL_QUEUE, ^{
+        if (contributionChartDrawer == nil)
+        {
+            contributionChartDrawer = [[VHContributionChartDrawer alloc] init];
+        }
+        [contributionChartDrawer readyForDrawingFromContributionBlocks:contributionBlocks];
+        NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyContributionChartChanged);
+    });
+}
+
 #pragma mark - Private Methods
 
 - (void)innerUpdateProfile
@@ -189,7 +201,10 @@ static NSUInteger yearContributions;
             contributionBlocks = [blocks copy];
             [self calculateYearContributions];
             
-            contributionChartDrawer = [[VHContributionChartDrawer alloc] init];
+            if (contributionChartDrawer == nil)
+            {
+                contributionChartDrawer = [[VHContributionChartDrawer alloc] init];
+            }
             [contributionChartDrawer readyForDrawingFromContributionBlocks:contributionBlocks];
             
             NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyContributionBlocksLoadedSuccessfully);

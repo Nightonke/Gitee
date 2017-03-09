@@ -35,4 +35,11 @@
  */
 - (void)loadUser;
 
+/**
+ Realm directory.
+
+ @return url of realm directory
+ */
+- (NSURL *)realmDirectory;
+
 @end

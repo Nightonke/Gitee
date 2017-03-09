@@ -19,6 +19,7 @@
 #import "NSView+Position.h"
 #import "NSImage+Tint.h"
 #import "VHGithubNotifier-Swift.h"
+#import "VHGithubNotifierManager.h"
 
 @interface VHTabVC ()<VHTabViewDelegate, VHSettingsWCDelegate>
 
@@ -34,6 +35,7 @@
 @property (nonatomic, strong) VHTrendingVC *trendingVC;
 @property (nonatomic, strong) VHNotificationVC *notificationVC;
 
+@property (nonatomic, strong) VHCursorButton *refreshButton;
 @property (nonatomic, strong) VHCursorButton *settingsButton;
 @property (nonatomic, strong) VHCursorButton *exitButton;
 
@@ -80,14 +82,18 @@
 - (void)addIcons
 {
     CGFloat iconWidth = 30;
+    self.refreshButton = [self iconWithImage:[NSImage imageNamed:@"icon_refresh"] withTag:0];
+    self.refreshButton.toolTip = @"Refresh";
     self.settingsButton = [self iconWithImage:[NSImage imageNamed:@"icon_settings"] withTag:0];
     self.settingsButton.toolTip = @"Settings";
     self.exitButton = [self iconWithImage:[NSImage imageNamed:@"icon_exit"] withTag:0];
     self.exitButton.toolTip = @"Quit Gitee";
     self.exitButton.frame = NSMakeRect(self.vhTabView.getRight - iconWidth - 5, self.vhTabView.getTop, iconWidth, self.vhTabView.height);
     [self.view addSubview:self.exitButton];
-    self.settingsButton.frame = NSMakeRect(self.exitButton.getLeft - iconWidth, self.exitButton.getTop, iconWidth, self.exitButton.height);
+    self.settingsButton.frame = NSMakeRect(self.exitButton.getLeft - iconWidth, self.exitButton.getTop - 1, iconWidth, self.exitButton.height);
     [self.view addSubview:self.settingsButton];
+    self.refreshButton.frame = NSMakeRect(self.settingsButton.getLeft - iconWidth, self.settingsButton.getTop, iconWidth, self.settingsButton.height);
+    [self.view addSubview:self.refreshButton];
 }
 
 - (void)updateArrowWithStatusItemCenterX:(CGFloat)centerX
@@ -105,6 +111,7 @@
 
 - (void)didSelectGithubContentType:(VHGithubContentType)type
 {
+    NOTIFICATION_POST_WITH_OBJECT(kNotifyTabInTabViewControllerChanged, @(type));
     [self.tab selectTabViewItemAtIndex:log(type) / log(2)];
 }
 
@@ -116,6 +123,12 @@
 }
 
 #pragma mark - Actions
+
+- (void)onRefreshButtonClicked:(id)sender
+{
+    ViewLog(@"Refresh button clicked");
+    [[VHGithubNotifierManager sharedManager] updateAllTimer];
+}
 
 - (void)onSettingsButtonClicked:(id)sender
 {
@@ -136,7 +149,11 @@
 
 - (void)onIconClicked:(VHCursorButton *)button
 {
-    if (button == self.settingsButton)
+    if (button == self.refreshButton)
+    {
+        [self onRefreshButtonClicked:button];
+    }
+    else if (button == self.settingsButton)
     {
         [self onSettingsButtonClicked:button];
     }

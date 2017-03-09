@@ -61,7 +61,10 @@
 - (void)addNotifications
 {
     [self addNotification:kNotifyRepositoriesLoadedSuccessfully forSelector:@selector(onNotifyRepositoriesLoadedSuccessfully:)];
+    [self addNotification:kNotifyWindowWillShow forSelector:@selector(onNotifyWindowWillShow:)];
     [self addNotification:kNotifyWindowWillHide forSelector:@selector(onNotifyWindowWillHide:)];
+    [self addNotification:kNotifyTabInTabViewControllerChanged forSelector:@selector(onNotifyTabInTabViewControllerChanged:)];
+    [self addNotification:kNotifyMinimumStarNumberInPieChanged forSelector:@selector(onNotifyMinimumStarNumberInPieChanged:)];
 }
 
 - (void)onNotifyRepositoriesLoadedSuccessfully:(NSNotification *)notification
@@ -82,12 +85,31 @@
     {
         NSAssert(NO, @"Pie chart data is empty.");
     }
+    [self.pieChart animateWithXAxisDuration:1];
 }
 
 - (void)onNotifyWindowWillHide:(NSNotification *)notification
 {
     [self.pieChart highlightValue:nil callDelegate:NO];
     [self updateDescriptionText];
+}
+
+- (void)onNotifyWindowWillShow:(NSNotification *)notification
+{
+    [self.pieChart animateWithXAxisDuration:1];
+}
+
+- (void)onNotifyTabInTabViewControllerChanged:(NSNotification *)notification
+{
+    if ([notification.object integerValue] == VHGithubContentTypeRepositoryPie)
+    {
+        [self.pieChart animateWithXAxisDuration:1];
+    }
+}
+
+- (void)onNotifyMinimumStarNumberInPieChanged:(NSNotification *)notification
+{
+    [self onNotifyRepositoriesLoadedSuccessfully:nil];
 }
 
 #pragma mark - ChartViewDelegate
@@ -102,6 +124,7 @@
 
 - (void)chartValueNothingSelected:(ChartViewBase * _Nonnull)chartView
 {
+    self.openUrlButton.hidden = YES;
     [self updateDescriptionText];
 }
 
@@ -123,12 +146,11 @@
     [self updateDescriptionText];
 }
 
-
 #pragma mark - Private Methods
 
 - (void)updateCenterText
 {
-    NSString *starString = [NSString stringWithFormat:@"%lu", [[[VHGithubNotifierManager sharedManager] user] starNumber]];
+    NSString *starString = [NSString stringWithFormat:@"%zd", [[VHGithubNotifierManager sharedManager] repositoriesPieTotalStarNumber]];
     NSMutableAttributedString *centerText = [[NSMutableAttributedString alloc] initWithString:starString];
     NSFont *font = [NSFont systemFontOfSize:30 weight:NSFontWeightThin];
     [centerText addAttribute:NSFontAttributeName
@@ -142,19 +164,19 @@
 
 - (void)updateDescriptionText
 {
-    self.openUrlButton.hidden = YES;
+    [self.openUrlButton setTop:self.pieChart.legend.neededHeight + 20];
     NSUInteger repositoryNumber = [[self.pieChart.data.dataSets firstObject] entryCount];
     if (repositoryNumber == 0)
     {
-        self.pieChart.descriptionText = [NSString stringWithFormat:@"There are no repositories whose stargazers number are greater than %zd", [[VHGithubNotifierManager sharedManager] minimumStarNumberInPie]];
+        self.pieChart.descriptionText = [NSString stringWithFormat:@"There are no repositories whose stargazers number are not less than %zd", [[VHGithubNotifierManager sharedManager] minimumStarNumberInPie]];
     }
     else if (repositoryNumber == 1)
     {
-        self.pieChart.descriptionText = [NSString stringWithFormat:@"1 repository whose stargazers number is greater than %zd", [[VHGithubNotifierManager sharedManager] minimumStarNumberInPie]];
+        self.pieChart.descriptionText = [NSString stringWithFormat:@"1 repository whose stargazers number is not less than %zd", [[VHGithubNotifierManager sharedManager] minimumStarNumberInPie]];
     }
     else
     {
-        self.pieChart.descriptionText = [NSString stringWithFormat:@"%zd repositories whose stargazers number is greater than %zd", repositoryNumber, [[VHGithubNotifierManager sharedManager] minimumStarNumberInPie]];
+        self.pieChart.descriptionText = [NSString stringWithFormat:@"%zd repositories whose stargazers number is not less than %zd", repositoryNumber, [[VHGithubNotifierManager sharedManager] minimumStarNumberInPie]];
     }
 }
 

@@ -28,10 +28,14 @@
 
 + (void)openUrl:(NSString *)url;
 
++ (void)openURL:(NSURL *)url;
+
 + (void)resetWKWebViewExceptCookie;
 
 + (void)resetWKWebView;
 
 + (void)scrollViewToTop:(NSScrollView *)scrollView;
+
++ (NSArray<NSColor *> *)randomColors;
 
 @end

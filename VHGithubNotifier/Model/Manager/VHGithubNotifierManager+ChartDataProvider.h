@@ -15,4 +15,6 @@
 
 - (NSString *)urlFromRepositoryName:(NSString *)name;
 
+- (NSUInteger)repositoriesPieTotalStarNumber;
+
 @end

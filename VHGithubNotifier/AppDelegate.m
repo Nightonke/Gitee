@@ -119,32 +119,8 @@
     }
     else
     {
-//        [self populate];
         NOTIFICATION_POST(kNotifyWindowWillAppear);
         NSRect statusItemFrame = [[self.statusItem.view window] convertRectToScreen:self.statusItem.view.frame];
-//        NSLog(@"%zd", [NSScreen screens].count);
-//        NSScreen *screen = [NSScreen mainScreen];
-//        NSLog(@"%@", [[[NSApp currentEvent] window] screen]);
-//        NSRect rect = [[[NSApp currentEvent] window] frame];
-//        NSLog(@"%f, %f, %f, %f",
-//              rect.origin.x,
-//              rect.origin.y,
-//              rect.size.width,
-//              rect.size.height);
-//        
-//        for(NSScreen* screen in [NSScreen screens])
-//        {
-//            NSRect cocoaScreenFrame = [screen frame];
-//            NSLog(@"Screen(%@) frame in Cocoa coordinate space: %@", screen, NSStringFromRect(cocoaScreenFrame));
-//        }
-//        
-////        [self.menuWindow ]
-//        [self.menuWindow constrainFrameRect:NSMakeRect(statusItemFrame.origin.x + statusItemFrame.size.width / 2,
-//                                                       statusItemFrame.origin.y - self.menuWindow.frame.size.height - 5,
-//                                                       self.menuWindow.frame.size.width,
-//                                                       self.menuWindow.frame.size.height)
-//                                   toScreen:[[[NSApp currentEvent] window] screen]];
-//        NSLog(@"Window changed to %@", self.menuWindow.screen);
         [self.menuWindow updateArrowWithStatusItemCenterX:statusItemFrame.origin.x + statusItemFrame.size.width / 2
                                       withStatusItemFrame:statusItemFrame];
         

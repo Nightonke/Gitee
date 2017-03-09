@@ -10,12 +10,16 @@
 #import "UAGithubEngine.h"
 #import "VHGithubNotifierManager_Private.h"
 #import "VHGithubNotifierManager+UserDefault.h"
+#import "VHGithubNotifierManager+Language.h"
 #import "VHGithubNotifierManager+Trending.h"
 #import "VHGithubNotifierManager+Realm.h"
+#import "VHGithubNotifierManager+Notification.h"
 #import "VHGithubNotifierManager+UserNotification.h"
 #import "VHGithubNotifierManager+Trend.h"
+#import "VHGithubNotifierManager+Profile.h"
 
 static VHLoadStateType repositoriesLoadState = VHLoadStateTypeDidNotLoad;
+static NSTimeInterval lastUpdateAllTime;
 
 @interface VHGithubNotifierManager ()
 
@@ -56,6 +60,21 @@ static VHLoadStateType repositoriesLoadState = VHLoadStateTypeDidNotLoad;
         [self stopTimerOfBasicInfo];
         [self startTimerOfBasicInfo];
     });
+}
+
+- (void)updateAllTimer
+{
+    MUST_IN_MAIN_THREAD;
+    if ([[NSDate date] timeIntervalSince1970] - lastUpdateAllTime <= 10)
+    {
+        return;
+    }
+    lastUpdateAllTime = [[NSDate date] timeIntervalSince1970];
+    [self updateBasicInfo];
+    [self updateLanguages];
+    [self updateTrending];
+    [self updateNotification];
+    [self updateProfile];
 }
 
 - (void)redirectLogToDocuments
@@ -153,12 +172,11 @@ static VHLoadStateType repositoriesLoadState = VHLoadStateTypeDidNotLoad;
 - (NSURL *)logFileURL
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [formatter setDateFormat:@"yyyy_MM_dd_HH_mm_ss"];
     NSString *stringFromDate = [formatter stringFromDate:[NSDate date]];
-    NSURL *desktopUrl = [[NSFileManager defaultManager] URLForDirectory:NSDesktopDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:nil];
-    NSURL *directoryUrl = [desktopUrl URLByAppendingPathComponent:@"GithubNotifierLogs"];
+    NSURL *directoryUrl = [[self realmDirectory] URLByAppendingPathComponent:@"GiteeLogs"];
     [[NSFileManager defaultManager] createDirectoryAtURL:directoryUrl withIntermediateDirectories:YES attributes:nil error:nil];
-    NSURL *fileUrl = [directoryUrl URLByAppendingPathComponent:[NSString stringWithFormat:@"GithubNotifierLog_%@.log", stringFromDate]];
+    NSURL *fileUrl = [directoryUrl URLByAppendingPathComponent:[NSString stringWithFormat:@"Gitee_Log_%@.log", stringFromDate]];
     return fileUrl;
 }
 
@@ -189,8 +207,7 @@ static VHLoadStateType repositoriesLoadState = VHLoadStateTypeDidNotLoad;
         dispatch_group_async(requestGroup, queue, ^{
             dispatch_group_enter(requestGroup);
             [[self engine] repositoriesForUser:[self userAccount] includeWatched:NO page:page success:^(id responseObject) {
-                RELEASE_CODE(BasicInfoLog(@"Update repositories in page %d successed: %@", page, responseObject));
-                DEBUG_CODE(BasicInfoLog(@"Update repositories in page %d successed", page));
+                BasicInfoLog(@"Update repositories in page %d successed", page);
                 allSuccessful = YES;
                 NSArray *array = SAFE_CAST(responseObject, [NSArray class]);
                 if (array != nil)
@@ -262,8 +279,7 @@ static VHLoadStateType repositoriesLoadState = VHLoadStateTypeDidNotLoad;
     dispatch_async(GLOBAL_QUEUE, ^{
         // userWithSuccess spends a long time
         [[self engine] userWithSuccess:^(id responseObject) {
-            RELEASE_CODE(BasicInfoLog(@"Update basic info successfully: %@", responseObject));
-            DEBUG_CODE(BasicInfoLog(@"Update basic info successfully"));
+            BasicInfoLog(@"Update basic info successfully");
             NSArray *array = SAFE_CAST(responseObject, [NSArray class]);
             if ([array count] != 0)
             {

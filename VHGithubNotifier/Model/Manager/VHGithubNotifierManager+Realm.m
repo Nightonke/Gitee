@@ -41,4 +41,9 @@
     }
 }
 
+- (NSURL *)realmDirectory
+{
+    return [[self realm].configuration.fileURL URLByDeletingLastPathComponent];
+}
+
 @end

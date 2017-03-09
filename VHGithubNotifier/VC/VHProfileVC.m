@@ -87,7 +87,9 @@
 
 - (void)setProfileUI
 {
-    [self.avatarButton setImageWithURL:[NSURL URLWithString:[VHGithubNotifierManager sharedManager].user.avatar]];
+    [[[VHCursorButton sharedImageDownloader] imageCache] removeAllImages];
+    [self.avatarButton setImageWithURL:[NSURL URLWithString:[VHGithubNotifierManager sharedManager].user.avatar]
+                      placeholderImage:[NSImage imageNamed:@"icon_user_placeholder"]];
     [self.nameLabel setStringValue:AVOID_NIL_STRING([VHGithubNotifierManager sharedManager].user.name)];
     [self.accountLabel setStringValue:AVOID_NIL_STRING([VHGithubNotifierManager sharedManager].user.account)];
 }
@@ -114,6 +116,7 @@
     [self addNotification:kNotifyContributionBlocksLoadedSuccessfully forSelector:@selector(onNotifyContributionBlocksLoadedSuccessfully:)];
     [self addNotification:kNotifyContributionBlocksLoadedFailed forSelector:@selector(onNotifyContributionBlocksLoadedFailed:)];
     [self addNotification:kNotifyProfileLoadedSuccessfully forSelector:@selector(onNotifyProfileLoadedSuccessfully:)];
+    [self addNotification:kNotifyContributionChartChanged forSelector:@selector(onNotifyContributionChartChanged:)];
 }
 
 - (void)onNotifyLoginCookieGotSuccessfully:(NSNotification *)notification
@@ -143,6 +146,11 @@
 - (void)onNotifyProfileLoadedSuccessfully:(NSNotification *)notificatio
 {
     [self setProfileUI];
+}
+
+- (void)onNotifyContributionChartChanged:(NSNotification *)notification
+{
+    [self.contributionChart setNeedsDisplay:YES];
 }
 
 #pragma mark - Actions

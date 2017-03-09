@@ -80,10 +80,8 @@
 
 - (void)addNotifications
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onNotifyRepositoriesLoadedSuccessfully:)
-                                                 name:kNotifyRepositoriesLoadedSuccessfully
-                                               object:nil];
+    [self addNotification:kNotifyRepositoriesLoadedSuccessfully forSelector:@selector(onNotifyRepositoriesLoadedSuccessfully:)];
+    [self addNotification:kNotifyWeekStartsFromChanged forSelector:@selector(onNotifyWeekStartsFromChanged:)];
 }
 
 - (void)removeNotifications
@@ -107,6 +105,14 @@
     }
     [self.trendPopupButton selectItemAtIndex:self.selectedIndex];
     [self onTrendDataSelected:self.trendPopupButton];
+}
+
+- (void)onNotifyWeekStartsFromChanged:(NSNotification *)notification
+{
+    if ([[VHGithubNotifierManager sharedManager] trendTimeType] == VHGithubTrendTimeTypeWeek)
+    {
+        [self onTrendDataSelected:self.trendPopupButton];
+    }
 }
 
 #pragma mark - Actions
