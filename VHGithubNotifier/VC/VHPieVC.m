@@ -13,12 +13,13 @@
 #import "VHGithubNotifierManager+UserDefault.h"
 #import "VHUtils.h"
 #import "NSView+Position.h"
+#import "VHCursorButton.h"
 
 @interface VHPieVC ()<ChartViewDelegate>
 
 @property (nonatomic, strong) PieChartView *pieChart;
-@property (nonatomic, strong) NSDate *lastMouseUpTime;
-@property (nonatomic, assign) BOOL isDoubleClick;
+@property (weak) IBOutlet VHCursorButton *openUrlButton;
+@property (nonatomic, strong) NSString *highlightedRepositoryName;
 
 @end
 
@@ -43,6 +44,10 @@
     [self updateCenterText];
     [self.view addSubview:self.pieChart];
     
+    [self.openUrlButton removeFromSuperview];
+    [self.view addSubview:self.openUrlButton];
+    self.openUrlButton.hidden = YES;
+    
     [self addNotifications];
     
     if ([[VHGithubNotifierManager sharedManager] repositoriesLoadState] == VHLoadStateTypeLoadSuccessfully)
@@ -64,6 +69,8 @@
     // update pie
     [self.pieChart clearValues];
     [self.pieChart setData:[[VHGithubNotifierManager sharedManager] userRepositoriesPieDataSet]];
+    [self.pieChart highlightValue:nil];
+    self.openUrlButton.hidden = YES;
     
     // update total star number
     [self updateCenterText];
@@ -88,38 +95,34 @@
 - (void)chartValueSelected:(ChartViewBase * _Nonnull)chartView entry:(ChartDataEntry * _Nonnull)entry highlight:(ChartHighlight * _Nonnull)highlight
 {
     NSString *name = ((PieChartDataEntry *)entry).label;
-    if (self.isDoubleClick)
-    {
-        [VHUtils openUrl:[[VHGithubNotifierManager sharedManager] urlFromRepositoryName:name]];
-        [self.pieChart highlightValue:nil callDelegate:NO];
-        [self updateDescriptionText];
-    }
-    else
-    {
-        self.pieChart.descriptionText = [NSString stringWithFormat:@"Double click to visit %@", name];
-    }
-    self.isDoubleClick = NO;
+    self.highlightedRepositoryName = name;
+    self.pieChart.descriptionText = [NSString stringWithFormat:@"Visit %@           ", name];
+    self.openUrlButton.hidden = NO;
+}
+
+- (void)chartValueNothingSelected:(ChartViewBase * _Nonnull)chartView
+{
+    [self updateDescriptionText];
 }
 
 #pragma mark - Mouse
 
 - (void)mouseUp:(NSEvent *)event
 {
-    NSDate *mouseUpTime = [NSDate date];
-    if (self.lastMouseUpTime && mouseUpTime.timeIntervalSince1970 - self.lastMouseUpTime.timeIntervalSince1970 <= 0.3)
-    {
-        // double click
-        self.isDoubleClick = YES;
-    }
     NSPoint locationInPieChart = [self.pieChart convertPoint:[event locationInWindow] fromView:nil];
     ChartHighlight *highlight = [self.pieChart getHighlightByTouchPoint:locationInPieChart];
-    if (highlight == nil)
-    {
-        [self updateDescriptionText];
-    }
     [self.pieChart highlightValue:highlight callDelegate:YES];
-    self.lastMouseUpTime = [NSDate date];
 }
+
+#pragma mark - Actions
+
+- (IBAction)onOpenUrlButtonClicked:(id)sender
+{
+    [VHUtils openUrl:[[VHGithubNotifierManager sharedManager] urlFromRepositoryName:self.highlightedRepositoryName]];
+    [self.pieChart highlightValue:nil callDelegate:NO];
+    [self updateDescriptionText];
+}
+
 
 #pragma mark - Private Methods
 
@@ -139,6 +142,7 @@
 
 - (void)updateDescriptionText
 {
+    self.openUrlButton.hidden = YES;
     NSUInteger repositoryNumber = [[self.pieChart.data.dataSets firstObject] entryCount];
     if (repositoryNumber == 0)
     {

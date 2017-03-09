@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="VHPieVC">
             <connections>
+                <outlet property="openUrlButton" destination="Yk7-Ed-zCY" id="FjY-bg-U1m"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -15,6 +16,22 @@
         <customView id="Hz6-mo-xeY">
             <rect key="frame" x="0.0" y="0.0" width="400" height="545"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yk7-Ed-zCY" customClass="VHCursorButton">
+                    <rect key="frame" x="338" y="64" width="24" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_open_url" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="ByW-Ji-O3L">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onOpenUrlButtonClicked:" target="-2" id="TZj-tX-YK9"/>
+                    </connections>
+                </button>
+            </subviews>
         </customView>
     </objects>
+    <resources>
+        <image name="icon_open_url" width="24" height="24"/>
+    </resources>
 </document>
