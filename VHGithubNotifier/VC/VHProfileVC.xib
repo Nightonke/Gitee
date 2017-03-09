@@ -8,7 +8,10 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="VHProfileVC">
             <connections>
+                <outlet property="accountLabel" destination="fCG-b4-cHn" id="65i-sv-Sej"/>
+                <outlet property="avatarButton" destination="PYP-UY-Nez" id="KcX-YQ-0x0"/>
                 <outlet property="contributionChart" destination="4DW-Gj-hSX" id="XE9-Jj-FPT"/>
+                <outlet property="nameLabel" destination="abL-3V-isH" id="prj-gm-avP"/>
                 <outlet property="needLoginView" destination="u7j-vv-BSD" id="sJL-f2-yxa"/>
                 <outlet property="stateView" destination="cGk-VY-ldF" id="MPa-RD-nYU"/>
                 <outlet property="todayContributionsLabel" destination="xgv-tt-MAk" id="tGl-VU-G58"/>
@@ -62,7 +65,7 @@
                         <constraint firstAttribute="width" constant="300" id="pCt-19-gfl"/>
                     </constraints>
                 </customView>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="4DW-Gj-hSX" customClass="VHContributionChartView">
+                <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4DW-Gj-hSX" customClass="VHContributionChartView">
                     <rect key="frame" x="0.0" y="0.0" width="400" height="545"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="z9J-cK-I6O">
@@ -128,6 +131,35 @@
                             </constraints>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Mar 8, 2017" id="h7m-ln-ovr">
                                 <font key="font" metaFont="systemLight" size="13"/>
+                                <color key="textColor" red="0.5999458432" green="0.60003471370000006" blue="0.59992641209999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PYP-UY-Nez" customClass="VHCursorButton">
+                            <rect key="frame" x="20" y="445" width="80" height="80"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="LLK-jk-rew">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="onAvatarClicked:" target="-2" id="LQ7-yW-Vse"/>
+                            </connections>
+                        </button>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abL-3V-isH">
+                            <rect key="frame" x="106" y="481" width="296" height="27"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" id="RjM-aW-fGD">
+                                <font key="font" metaFont="systemThin" size="22"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fCG-b4-cHn">
+                            <rect key="frame" x="106" y="456" width="296" height="27"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" id="rZP-XH-m7E">
+                                <font key="font" metaFont="systemUltraLight" size="20"/>
                                 <color key="textColor" red="0.5999458432" green="0.60003471370000006" blue="0.59992641209999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>

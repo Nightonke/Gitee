@@ -159,6 +159,11 @@
     _justAddRepositories = YES;
 }
 
+- (NSString *)htmlUrl
+{
+    return [NSString stringWithFormat:@"https://github.com/%@", self.account];
+}
+
 #pragma mark - Private Methods
 
 + (NSString *)primaryKey

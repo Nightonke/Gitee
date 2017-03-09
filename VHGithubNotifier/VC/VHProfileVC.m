@@ -14,6 +14,8 @@
 #import "VHUtils.h"
 #import "VHContributionChartView.h"
 #import "VHStateView.h"
+#import "NSView+Position.h"
+#import "VHCursorButton+AFNetworking.h"
 
 @interface VHProfileVC ()<VHWebLoginWCDelegate, VHStateViewDelegate>
 
@@ -25,6 +27,9 @@
 @property (weak) IBOutlet NSTextField *todayContributionsLabel;
 @property (weak) IBOutlet NSTextField *todayContributionsTimeLabel;
 @property (weak) IBOutlet VHStateView *stateView;
+@property (weak) IBOutlet VHCursorButton *avatarButton;
+@property (weak) IBOutlet NSTextField *nameLabel;
+@property (weak) IBOutlet NSTextField *accountLabel;
 
 @end
 
@@ -71,6 +76,20 @@
             self.contributionChart.hidden = NO;
             break;
     }
+    
+    self.avatarButton.wantsLayer = YES;
+    self.avatarButton.layer.cornerRadius = self.avatarButton.width / 2;
+    self.avatarButton.layer.masksToBounds = YES;
+    self.avatarButton.toolTip = @"Click to visit profile in browser";
+    
+    [self setProfileUI];
+}
+
+- (void)setProfileUI
+{
+    [self.avatarButton setImageWithURL:[NSURL URLWithString:[VHGithubNotifierManager sharedManager].user.avatar]];
+    [self.nameLabel setStringValue:AVOID_NIL_STRING([VHGithubNotifierManager sharedManager].user.name)];
+    [self.accountLabel setStringValue:AVOID_NIL_STRING([VHGithubNotifierManager sharedManager].user.account)];
 }
 
 - (void)updateContributionLabels
@@ -94,6 +113,7 @@
     [self addNotification:kNotifyLoginCookieGotFailed forSelector:@selector(onNotifyLoginCookieGotFailed:)];
     [self addNotification:kNotifyContributionBlocksLoadedSuccessfully forSelector:@selector(onNotifyContributionBlocksLoadedSuccessfully:)];
     [self addNotification:kNotifyContributionBlocksLoadedFailed forSelector:@selector(onNotifyContributionBlocksLoadedFailed:)];
+    [self addNotification:kNotifyProfileLoadedSuccessfully forSelector:@selector(onNotifyProfileLoadedSuccessfully:)];
 }
 
 - (void)onNotifyLoginCookieGotSuccessfully:(NSNotification *)notification
@@ -120,6 +140,11 @@
     self.contributionChart.hidden = YES;
 }
 
+- (void)onNotifyProfileLoadedSuccessfully:(NSNotification *)notificatio
+{
+    [self setProfileUI];
+}
+
 #pragma mark - Actions
 
 - (IBAction)onLoginButtonClicked:(id)sender
@@ -130,6 +155,11 @@
         self.webLoginWC = [[VHWebLoginWC alloc] initWithWindowNibName:@"VHWebLoginWC"];
     }
     [self.webLoginWC showWindow:self];
+}
+
+- (IBAction)onAvatarClicked:(id)sender
+{
+    [VHUtils openUrl:[VHGithubNotifierManager sharedManager].user.htmlUrl];
 }
 
 #pragma mark - VHWebLoginWCDelegate

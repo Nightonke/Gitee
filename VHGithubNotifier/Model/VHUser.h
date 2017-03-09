@@ -55,4 +55,6 @@
  */
 - (void)resetStarCount;
 
+- (NSString *)htmlUrl;
+
 @end
