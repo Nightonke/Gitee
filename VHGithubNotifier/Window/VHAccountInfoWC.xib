@@ -35,7 +35,7 @@
                             <constraint firstAttribute="width" constant="340" id="TjD-2b-ZyF"/>
                             <constraint firstAttribute="height" constant="43" id="pmU-DW-Pbc"/>
                         </constraints>
-                        <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Username or email address" id="VO6-wV-gNF" customClass="VHTextFieldCell">
+                        <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Github username" id="VO6-wV-gNF" customClass="VHTextFieldCell">
                             <font key="font" metaFont="system" size="19"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

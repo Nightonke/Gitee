@@ -213,6 +213,7 @@
 		373EAB411E712C0B005B5E86 /* AFImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB3F1E712C0B005B5E86 /* AFImageDownloader.m */; };
 		373EAB471E713E10005B5E86 /* NSImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB461E713E10005B5E86 /* NSImageView+AFNetworking.m */; };
 		373EAB4D1E713EF7005B5E86 /* VHCursorButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 373EAB4C1E713EF7005B5E86 /* VHCursorButton+AFNetworking.m */; };
+		373EAB521E729CD7005B5E86 /* image_github_w1920.png in Resources */ = {isa = PBXBuildFile; fileRef = 373EAB511E729CD7005B5E86 /* image_github_w1920.png */; };
 		3748DF831E2CE3E900507D9C /* VHDateValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */; };
 		3748DF861E2CEA9800507D9C /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748DF851E2CEA9800507D9C /* NSDate+Utils.m */; };
 		3749CDCE1E59B27C0083CEB1 /* VHPieVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3749CDCC1E59B27C0083CEB1 /* VHPieVC.m */; };
@@ -575,6 +576,7 @@
 		373EAB461E713E10005B5E86 /* NSImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		373EAB4B1E713EF7005B5E86 /* VHCursorButton+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VHCursorButton+AFNetworking.h"; sourceTree = "<group>"; };
 		373EAB4C1E713EF7005B5E86 /* VHCursorButton+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VHCursorButton+AFNetworking.m"; sourceTree = "<group>"; };
+		373EAB511E729CD7005B5E86 /* image_github_w1920.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_github_w1920.png; sourceTree = "<group>"; };
 		3748DF811E2CE3E900507D9C /* VHDateValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHDateValueFormatter.h; sourceTree = "<group>"; };
 		3748DF821E2CE3E900507D9C /* VHDateValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHDateValueFormatter.m; sourceTree = "<group>"; };
 		3748DF841E2CEA9800507D9C /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
@@ -1058,6 +1060,14 @@
 			path = UAGithubEngine;
 			sourceTree = "<group>";
 		};
+		373EAB501E729CD7005B5E86 /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				373EAB511E729CD7005B5E86 /* image_github_w1920.png */,
+			);
+			path = Pictures;
+			sourceTree = "<group>";
+		};
 		3752DD161E12AAAE000AB94A /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1112,6 +1122,7 @@
 		378E0AD21E0ECD060033CBD5 = {
 			isa = PBXGroup;
 			children = (
+				373EAB501E729CD7005B5E86 /* Pictures */,
 				373BA7101E6AC9AC00653C92 /* Assets */,
 				378E0ADD1E0ECD070033CBD5 /* VHGithubNotifier */,
 				378E0ADC1E0ECD070033CBD5 /* Products */,
@@ -1445,6 +1456,7 @@
 				3749CDDB1E59B42A0083CEB1 /* VHNotificationVC.xib in Resources */,
 				373185F61E5DDB5B00926F4F /* VHTrendingRepositoryCellView.xib in Resources */,
 				373BA6F91E6993FA00653C92 /* VHNotificationHeaderCellView.xib in Resources */,
+				373EAB521E729CD7005B5E86 /* image_github_w1920.png in Resources */,
 				373BA6F41E6959C600653C92 /* Assets.xcassets in Resources */,
 				379E09BB1E659B240032EB7E /* VHNotificationGroupBodyCellView.xib in Resources */,
 				3731879B1E61D95200926F4F /* Info.plist in Resources */,

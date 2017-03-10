@@ -165,8 +165,7 @@ static NSTimeInterval lastUpdateAllTime;
 - (void)resetFromWakeNotification
 {
     SystemLog(@"Wake up");
-    [self stopTimerOfBasicInfo];
-    [self startTimerOfBasicInfo];
+    [self updateAllTimer];
 }
 
 - (NSURL *)logFileURL

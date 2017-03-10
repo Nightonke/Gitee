@@ -31,7 +31,7 @@
     
     [self.window.contentView setWantsLayer:YES];
     self.window.contentView.layer.contentsGravity = kCAGravityResizeAspectFill;
-    self.window.contentView.layer.contents = [NSImage imageNamed:@"background_account_info_window"];
+    self.window.contentView.layer.contents = [NSImage imageNamed:@"image_account_info_window"];
     
     self.window.titlebarAppearsTransparent = YES;
     self.window.titleVisibility = NSWindowTitleHidden;
