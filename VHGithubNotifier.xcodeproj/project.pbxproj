@@ -178,7 +178,6 @@
 		373BA6F91E6993FA00653C92 /* VHNotificationHeaderCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373BA6F81E6993FA00653C92 /* VHNotificationHeaderCellView.xib */; };
 		373BA70A1E6AB8D900653C92 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373BA7091E6AB8D900653C92 /* WebKit.framework */; };
 		373BA70F1E6ABD6F00653C92 /* VHGithubNotifierManager+Trend.m in Sources */ = {isa = PBXBuildFile; fileRef = 373BA70E1E6ABD6F00653C92 /* VHGithubNotifierManager+Trend.m */; };
-		373BA7131E6AC9D700653C92 /* echarts.js in Resources */ = {isa = PBXBuildFile; fileRef = 373BA7111E6AC9D700653C92 /* echarts.js */; };
 		373BA7171E6AF21200653C92 /* VHTrendChartParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 373BA7161E6AF21200653C92 /* VHTrendChartParser.m */; };
 		373CF0461E62F79200711296 /* VHLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0451E62F79200711296 /* VHLog.m */; };
 		373CF04A1E644B3A00711296 /* VHNotificationGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373CF0491E644B3A00711296 /* VHNotificationGroupView.m */; };
@@ -260,6 +259,7 @@
 		378E0B3F1E103D940033CBD5 /* VHTabVCBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E0B3E1E103D930033CBD5 /* VHTabVCBackgroundView.m */; };
 		379E09B71E659AD80032EB7E /* VHNotificationGroupBodyCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 379E09B61E659AD80032EB7E /* VHNotificationGroupBodyCellView.m */; };
 		379E09BB1E659B240032EB7E /* VHNotificationGroupBodyCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379E09BA1E659B240032EB7E /* VHNotificationGroupBodyCellView.xib */; };
+		37C13D871E7AD87D00E64C9D /* echarts.js in Resources */ = {isa = PBXBuildFile; fileRef = 37C13D861E7AD87D00E64C9D /* echarts.js */; };
 		37CB06001E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CB05FF1E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.m */; };
 		37E7CCFB1E5C576D00BA8BA9 /* VHStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E7CCFA1E5C576D00BA8BA9 /* VHStateView.m */; };
 		37E7CD011E5C5D2D00BA8BA9 /* VHStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E7CD001E5C5D2D00BA8BA9 /* VHStateView.xib */; };
@@ -510,7 +510,6 @@
 		373BA7091E6AB8D900653C92 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		373BA70D1E6ABD6F00653C92 /* VHGithubNotifierManager+Trend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VHGithubNotifierManager+Trend.h"; sourceTree = "<group>"; };
 		373BA70E1E6ABD6F00653C92 /* VHGithubNotifierManager+Trend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VHGithubNotifierManager+Trend.m"; sourceTree = "<group>"; };
-		373BA7111E6AC9D700653C92 /* echarts.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = echarts.js; path = "../ModernLook-OSX/ModernLookSample/ModernLookOSXSample/echarts.js"; sourceTree = "<group>"; };
 		373BA7151E6AF21200653C92 /* VHTrendChartParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHTrendChartParser.h; sourceTree = "<group>"; };
 		373BA7161E6AF21200653C92 /* VHTrendChartParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHTrendChartParser.m; sourceTree = "<group>"; };
 		373CF0451E62F79200711296 /* VHLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHLog.m; sourceTree = "<group>"; };
@@ -668,6 +667,7 @@
 		379E09B51E659AD80032EB7E /* VHNotificationGroupBodyCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHNotificationGroupBodyCellView.h; sourceTree = "<group>"; };
 		379E09B61E659AD80032EB7E /* VHNotificationGroupBodyCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHNotificationGroupBodyCellView.m; sourceTree = "<group>"; };
 		379E09BA1E659B240032EB7E /* VHNotificationGroupBodyCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHNotificationGroupBodyCellView.xib; sourceTree = "<group>"; };
+		37C13D861E7AD87D00E64C9D /* echarts.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = echarts.js; sourceTree = "<group>"; };
 		37CB05FB1E1C092600E9B924 /* VHGithubNotifier-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VHGithubNotifier-Bridging-Header.h"; sourceTree = "<group>"; };
 		37CB05FE1E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VHGithubNotifierManager+ChartDataProvider.h"; sourceTree = "<group>"; };
 		37CB05FF1E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VHGithubNotifierManager+ChartDataProvider.m"; sourceTree = "<group>"; };
@@ -1024,14 +1024,6 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		373BA7101E6AC9AC00653C92 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				373BA7111E6AC9D700653C92 /* echarts.js */,
-			);
-			name = Assets;
-			sourceTree = "<group>";
-		};
 		373CF04D1E652E5600711296 /* UAGithubEngine */ = {
 			isa = PBXGroup;
 			children = (
@@ -1122,8 +1114,8 @@
 		378E0AD21E0ECD060033CBD5 = {
 			isa = PBXGroup;
 			children = (
+				37C13D851E7AD87D00E64C9D /* Assets */,
 				373EAB501E729CD7005B5E86 /* Pictures */,
-				373BA7101E6AC9AC00653C92 /* Assets */,
 				378E0ADD1E0ECD070033CBD5 /* VHGithubNotifier */,
 				378E0ADC1E0ECD070033CBD5 /* Products */,
 				C0CEE69334124DF6AA58F7A8 /* Pods */,
@@ -1334,6 +1326,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		37C13D851E7AD87D00E64C9D /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				37C13D861E7AD87D00E64C9D /* echarts.js */,
+			);
+			name = Assets;
+			path = VHGithubNotifier/Assets;
+			sourceTree = "<group>";
+		};
 		C0CEE69334124DF6AA58F7A8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1462,12 +1463,12 @@
 				3731879B1E61D95200926F4F /* Info.plist in Resources */,
 				37298F3B1E27EEEC003810E8 /* VHTrendVC.xib in Resources */,
 				373186401E60646500926F4F /* VHAccountInfoWC.xib in Resources */,
+				37C13D871E7AD87D00E64C9D /* echarts.js in Resources */,
 				373EAB231E6FE298005B5E86 /* VHWebLoginWC.xib in Resources */,
 				3752DD291E12DB4D000AB94A /* VHTabVC.xib in Resources */,
 				3749CDD61E59B2950083CEB1 /* VHTrendingVC.xib in Resources */,
 				375CD0561E67D71100566B58 /* AppledocSettings.plist in Resources */,
 				373EAB1E1E6F2190005B5E86 /* VHSettingsCellView.xib in Resources */,
-				373BA7131E6AC9D700653C92 /* echarts.js in Resources */,
 				373CF0771E656B2C00711296 /* VHNotificationGroupHeaderCellView.xib in Resources */,
 				378E0AEB1E0ECD070033CBD5 /* Main.storyboard in Resources */,
 			);

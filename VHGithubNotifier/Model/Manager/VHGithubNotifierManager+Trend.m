@@ -69,7 +69,7 @@ static RLMResults *trendDatas;
     }
     else
     {
-        TrendingLog(@"%@ existed", toPath);
+        TrendLog(@"%@ existed", toPath);
     }
 }
 
