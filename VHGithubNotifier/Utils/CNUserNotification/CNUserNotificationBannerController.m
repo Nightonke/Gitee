@@ -312,15 +312,15 @@ CGFloat CNGetMaxCGFloat(CGFloat left, CGFloat right) {
 
 - (void)configureNotificationBannerTexts {
     self.title = [self labelWithidentifier:@"titleLabel"
-                       attributedTextValue:[[NSAttributedString alloc] initWithString:_userNotification.title attributes:titleAttributes]
+                       attributedTextValue:[[NSAttributedString alloc] initWithString:AVOID_NIL_STRING(_userNotification.title) attributes:titleAttributes]
                                  superView:[[self window] contentView]];
     
     self.subtitle = [self labelWithidentifier:@"subtitleLabel"
-                          attributedTextValue:[[NSAttributedString alloc] initWithString:_userNotification.subtitle attributes:subtitleAttributes]
+                          attributedTextValue:[[NSAttributedString alloc] initWithString:AVOID_NIL_STRING(_userNotification.subtitle) attributes:subtitleAttributes]
                                     superView:[[self window] contentView]];
     
     self.informativeText = [self labelWithidentifier:@"informativeTextLabel"
-                                 attributedTextValue:[[NSAttributedString alloc] initWithString:_userNotification.informativeText attributes:informativeTextAttributes]
+                                 attributedTextValue:[[NSAttributedString alloc] initWithString:AVOID_NIL_STRING(_userNotification.informativeText) attributes:informativeTextAttributes]
                                            superView:[[self window] contentView]];
     switch (_informativeTextLineBreakMode) {
         case NSLineBreakByClipping:

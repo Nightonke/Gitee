@@ -108,10 +108,15 @@ static NSUInteger yearContributions;
     NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
     [dateFormatter setLocale:enUSPOSIXLocale];
     [dateFormatter setDateFormat:@"MMM d, yyyy"];
-    NSMutableString *timeString = [NSMutableString string];
-    [timeString appendString:[dateFormatter stringFromDate:[contributionBlocks firstObject].date]];
-    [timeString appendString:@" — "];
-    [timeString appendString:[dateFormatter stringFromDate:[contributionBlocks lastObject].date]];
+    NSMutableString *timeString = [NSMutableString stringWithFormat:@""];
+    NSString *firstContributionDate = [dateFormatter stringFromDate:[contributionBlocks firstObject].date];
+    NSString *lastContributionDate = [dateFormatter stringFromDate:[contributionBlocks lastObject].date];
+    if (firstContributionDate && lastContributionDate)
+    {
+        [timeString appendString:[dateFormatter stringFromDate:[contributionBlocks firstObject].date]];
+        [timeString appendString:@" — "];
+        [timeString appendString:[dateFormatter stringFromDate:[contributionBlocks lastObject].date]];
+    }
     return [timeString copy];
 }
 

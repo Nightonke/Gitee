@@ -132,6 +132,7 @@
 - (void)onNotifyContributionBlocksLoadedSuccessfully:(NSNotification *)notification
 {
     self.stateView.state = VHStateViewStateTypeLoadSuccessfully;
+    self.needLoginView.hidden = YES;
     self.contributionChart.hidden = NO;
     [self.contributionChart setNeedsDisplay:YES];
     [self updateContributionLabels];
@@ -150,6 +151,7 @@
 
 - (void)onNotifyContributionChartChanged:(NSNotification *)notification
 {
+    self.needLoginView.hidden = YES;
     [self.contributionChart setNeedsDisplay:YES];
 }
 
