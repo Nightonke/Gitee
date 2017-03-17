@@ -464,7 +464,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oed-w9-H2i">
                     <rect key="frame" x="46" y="60" width="98" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Gitee on Github" id="mei-0K-C2d">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Gitee on GitHub" id="mei-0K-C2d">
                         <font key="font" metaFont="systemThin" size="13"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -601,7 +601,7 @@
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UFJ-P5-CyI">
                     <rect key="frame" x="35" y="20" width="430" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="For any bugs or enhancement, send e-mail to Nightonke or post issues on Gitee's homepage on github. Thanks for using Gitee." id="kuS-rs-XNM">
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="For any bugs or enhancement, send e-mail to Nightonke or post issues on Gitee's homepage on GitHub. Thanks for using Gitee." id="kuS-rs-XNM">
                         <font key="font" metaFont="systemThin" size="12"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
