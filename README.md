@@ -1,6 +1,6 @@
 # Gitee
 
-[![GitHub release](https://img.shields.io/github/release/nightonke/gitee.svg)
+[![GitHub release](https://img.shields.io/github/release/nightonke/gitee.svg)](https://github.com/Nightonke/Gitee/releases)
 [![Developer](https://img.shields.io/badge/Developer-Nightonke-red.svg)](http://huangweiping.me/)
 [![Lisense](https://img.shields.io/badge/License-Apache%202-lightgrey.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
@@ -32,7 +32,7 @@ As a practice of developing osx/cocoa, I try to achieve the above needs in Gitee
 9. Quit Gitee by clicking the quit button on the right of toolbar.
 
 # Download
-[![GitHub release](https://img.shields.io/github/release/nightonke/gitee.svg)
+[![GitHub release](https://img.shields.io/github/release/nightonke/gitee.svg)](https://github.com/Nightonke/Gitee/releases)
 
 # Developer
 [![Developer](https://img.shields.io/badge/Developer-Nightonke-red.svg)](http://huangweiping.me/)
