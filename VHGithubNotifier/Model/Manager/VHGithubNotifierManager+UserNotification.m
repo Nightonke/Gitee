@@ -35,10 +35,20 @@ static NSMutableArray<CNUserNotification *> *userNotifications;
             userNotification.title = notification.repository.fullName;
             userNotification.subtitle = notification.title;
             userNotification.informativeText = [notification toNowTimeString];
-            userNotification.userInfo = @{@"type":@(VHGithubUserNotificationTypeNotification),
-                                          @"url":notification.htmlUrl,
-                                          @"notificationId":@(notification.notificationId),
-                                          @"latestUpdateTime":notification.updateDate};
+            NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithCapacity:4];
+            [userInfo setObject:@(VHGithubUserNotificationTypeNotification) forKey:@"type"];
+            if (notification.htmlUrl)
+            {
+                [userInfo setObject:notification.htmlUrl forKey:@"url"];
+            }
+            if (notification.notificationId)
+            {
+                [userInfo setObject:@(notification.notificationId) forKey:@"notificationId"];
+            }
+            if (notification.updateDate)
+            {
+                [userInfo setObject:notification.updateDate forKey:@"latestUpdateTime"];
+            }
             userNotification.hasActionButton = NO;
             userNotification.feature.bannerImage = [VHUtils imageFromNotificationType:notification.type];
             [[self userNotifications] push:userNotification];
