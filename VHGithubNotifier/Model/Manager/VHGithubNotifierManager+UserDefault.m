@@ -12,6 +12,7 @@
 
 static NSString *userAccount;
 static NSString *userPassword;
+static NSString *oauthToken;
 
 static VHGithubTrendTimeType trendTimeType;
 static NSUInteger trendContentSelectedIndex;
@@ -43,8 +44,10 @@ static BOOL onlyShowsValidContentsInStatusBar;
 {
 //    [[self userDefaults] removeObjectForKey:@"userAccount"];
 //    [[self userDefaults] removeObjectForKey:@"userPassword"];
+//    [[self userDefaults] removeObjectForKey:@"oauthToken"];
     userAccount = [[self userDefaults] objectForKey:@"userAccount"];
     userPassword = [[self userDefaults] objectForKey:@"userPassword"];
+    oauthToken = [[self userDefaults] objectForKey:@"oauthToken"];
     
     trendTimeType = [[self userDefaults] integerForKey:@"VHGithubTrendTimeType"];
     if (trendTimeType == 0)
@@ -216,6 +219,17 @@ static BOOL onlyShowsValidContentsInStatusBar;
 {
     userPassword = _userPassword;
     [[self userDefaults] setObject:userPassword forKey:@"userPassword"];
+}
+
+- (NSString *)oauthToken
+{
+    return oauthToken;
+}
+
+- (void)setOauthToken:(NSString *)_oauthToken
+{
+    oauthToken = _oauthToken;
+    [[self userDefaults] setObject:oauthToken forKey:@"oauthToken"];
 }
 
 #pragma mark - Trend

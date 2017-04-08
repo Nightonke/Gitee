@@ -11,7 +11,9 @@
 
 @interface VHGithubNotifierManager (ChartDataProvider)
 
-- (PieChartData *)userRepositoriesPieDataSet;
+- (PieChartData *)userRepositoriesPieData;
+
+- (void)updateUserRepositoriesPieData;
 
 - (NSString *)urlFromRepositoryName:(NSString *)name;
 

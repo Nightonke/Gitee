@@ -17,6 +17,7 @@
 #import "VHGithubNotifierManager+UserNotification.h"
 #import "VHGithubNotifierManager+Trend.h"
 #import "VHGithubNotifierManager+Profile.h"
+#import "VHGithubNotifierManager+ChartDataProvider.h"
 
 static VHLoadStateType repositoriesLoadState = VHLoadStateTypeDidNotLoad;
 static NSTimeInterval lastUpdateAllTime;
@@ -82,17 +83,36 @@ static NSTimeInterval lastUpdateAllTime;
     RELEASE_CODE(freopen([[[self logFileURL] path] cStringUsingEncoding:NSUTF8StringEncoding], "a+", stderr));
 }
 
-- (void)confirmUserAccount:(NSString *)username withPassword:(NSString *)password
+- (void)confirmUserAccount:(NSString *)username withPassword:(NSString *)password withOauthToken:(NSString *)oauthToken
 {
     dispatch_async(GLOBAL_QUEUE, ^{
         // userWithSuccess spends a long time
         UAGithubEngine *engine = [[UAGithubEngine alloc] initWithUsername:username
                                                                  password:password
+                                                               oauthToken:oauthToken
                                                          withReachability:YES];
         [engine userWithSuccess:^(id responseObject) {
-            [self setUserAccount:username];
-            [self setUserPassword:password];
-            NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyUserAccountConfirmSuccessfully);
+            if (!responseObject)
+            {
+                if (oauthToken)
+                {
+                    // Login failed with OAuth token
+                    ConfirmLog(@"Incorrect token");
+                    NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyUserAccountConfirmIncorrectToken);
+                }
+                else
+                {
+                    ConfirmLog(@"Other error: %@", responseObject);
+                    NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyUserAccountConfirmInternetFailed);
+                }
+            }
+            else
+            {
+                [self setUserAccount:username];
+                [self setUserPassword:password];
+                [self setOauthToken:oauthToken];
+                NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyUserAccountConfirmSuccessfully);
+            }
         } failure:^(NSError *error) {
             if (error.code == NSURLErrorUserCancelledAuthentication)
             {
@@ -115,7 +135,7 @@ static NSTimeInterval lastUpdateAllTime;
 
 - (BOOL)userAccountInfoExist
 {
-    return [self userAccount] && [self userPassword];
+    return ([self userAccount] && [self userPassword]) || [self oauthToken];
 }
 
 + (instancetype)sharedManager
@@ -181,7 +201,7 @@ static NSTimeInterval lastUpdateAllTime;
 
 - (UAGithubEngine *)engine
 {
-    return [[UAGithubEngine alloc] initWithUsername:[self userAccount] password:[self userPassword] withReachability:YES];
+    return [[UAGithubEngine alloc] initWithUsername:[self userAccount] password:[self userPassword] oauthToken:[self oauthToken] withReachability:YES];
 }
 
 - (void)innerUpdateRepositories
@@ -257,6 +277,7 @@ static NSTimeInterval lastUpdateAllTime;
                 // the starNumber is an ignored-property in RLMObject.
                 // So, the starNumber of Manager.user is still zero.
                 [self.user resetStarCount];
+                IN_MAIN_THREAD([self updateUserRepositoriesPieData]);
                 NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyRepositoriesLoadedSuccessfully);
             }
         }

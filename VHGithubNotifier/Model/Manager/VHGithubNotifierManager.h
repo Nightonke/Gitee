@@ -31,7 +31,7 @@
 
 - (void)redirectLogToDocuments;
 
-- (void)confirmUserAccount:(NSString *)username withPassword:(NSString *)password;
+- (void)confirmUserAccount:(NSString *)username withPassword:(NSString *)password withOauthToken:(NSString *)oauthToken;
 
 - (VHLoadStateType)repositoriesLoadState;
 

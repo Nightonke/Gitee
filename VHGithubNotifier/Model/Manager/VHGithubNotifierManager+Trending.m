@@ -99,7 +99,10 @@ static NSTimer *trendingTimer;
     TrendingLog(@"Update trending with URL: %@", URL);
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
+    WEAK_SELF(self);
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        STRONG_SELF(self);
+        [manager invalidateSessionCancelingTasks:YES];
         if (error)
         {
             TrendingLog(@"Update trending failed with error: %@", error);

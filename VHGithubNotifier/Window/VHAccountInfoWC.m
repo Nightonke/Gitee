@@ -14,12 +14,17 @@
 #import "VHTextField.h"
 #import "VHGithubNotifierManager.h"
 
+static const int LOGIN_TYPE_USERNAME_AND_PASSWORD = 0;
+static const int LOGIN_TYPE_TOKEN = 1;
+
 @interface VHAccountInfoWC ()<NSTextFieldDelegate, VHTextFieldDelegate>
 
 @property (weak) IBOutlet VHTextField *userNameTextField;
 @property (weak) IBOutlet VHTextField *userPasswordTextField;
 @property (weak) IBOutlet SYFlatButton *startButton;
 @property (weak) IBOutlet NSProgressIndicator *confirmProgress;
+@property (weak) IBOutlet SYFlatButton *loginTypeButton;
+@property (nonatomic, assign) int loginType;
 
 @end
 
@@ -44,12 +49,14 @@
     self.userNameTextField.wantsLayer = YES;
     self.userNameTextField.shadow = [self shadowForViews];
     self.userNameTextField.maximumNumberOfLines = 1;
+    [self.userNameTextField.cell setUsesSingleLineMode:YES];
     self.userNameTextField.editable = YES;
     self.userNameTextField.delegate = self;
     
     self.userPasswordTextField.wantsLayer = YES;
     self.userPasswordTextField.shadow = [self shadowForViews];
     self.userPasswordTextField.maximumNumberOfLines = 1;
+    [self.userPasswordTextField.cell setUsesSingleLineMode:YES];
     self.userPasswordTextField.editable = YES;
     self.userPasswordTextField.delegate = self;
     self.userPasswordTextField.textFieldDelegate = self;
@@ -60,6 +67,8 @@
     
     [self.confirmProgress startAnimation:nil];
     self.confirmProgress.hidden = YES;
+    
+    self.loginType = LOGIN_TYPE_USERNAME_AND_PASSWORD;
     
     [self addNotifications];
 }
@@ -79,6 +88,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onNotifyUserAccountConfirmIncorrectUsernameOrPassword:)
                                                  name:kNotifyUserAccountConfirmIncorrectUsernameOrPassword
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onNotifyUserAccountConfirmIncorrectToken:)
+                                                 name:kNotifyUserAccountConfirmIncorrectToken
                                                object:nil];
 }
 
@@ -103,6 +116,13 @@
 - (void)onNotifyUserAccountConfirmIncorrectUsernameOrPassword:(NSNotification *)notification
 {
     self.startButton.title = @"Incorrect username or password!";
+    self.confirmProgress.hidden = YES;
+    DELAY_EXECUTE_IN_MAIN(1, self.startButton.title = @"Start!";);
+}
+
+- (void)onNotifyUserAccountConfirmIncorrectToken:(NSNotification *)notification
+{
+    self.startButton.title = @"Incorrect token!";
     self.confirmProgress.hidden = YES;
     DELAY_EXECUTE_IN_MAIN(1, self.startButton.title = @"Start!";);
 }
@@ -156,10 +176,37 @@
 {
     NSString *username = [self.userNameTextField stringValue];
     NSString *password = [self.userPasswordTextField stringValue];
-    self.startButton.enabled = [username length] && [password length];
+    if (self.loginType == LOGIN_TYPE_USERNAME_AND_PASSWORD)
+    {
+        self.startButton.enabled = [username length] && [password length];
+    }
+    else
+    {
+        self.startButton.enabled = [username length];
+    }
     if (self.startButton.enabled)
     {
         [self.startButton setButtonType:NSButtonTypeMomentaryChange];
+    }
+}
+
+- (IBAction)onLoginTypeButtonClicked:(id)sender
+{
+    if (self.loginType == LOGIN_TYPE_USERNAME_AND_PASSWORD)
+    {
+        [self.userNameTextField setPlaceholderString:@"Personal access token"];
+        [self.userNameTextField setStringValue:@""];
+        self.userPasswordTextField.hidden = YES;
+        [self.loginTypeButton setTitle:@"Username and Password"];
+        self.loginType = LOGIN_TYPE_TOKEN;
+    }
+    else
+    {
+        [self.userNameTextField setPlaceholderString:@"Github username"];
+        [self.userNameTextField setStringValue:@""];
+        self.userPasswordTextField.hidden = NO;
+        [self.loginTypeButton setTitle:@"Personal Access Token"];
+        self.loginType = LOGIN_TYPE_USERNAME_AND_PASSWORD;
     }
 }
 
@@ -169,8 +216,18 @@
 {
     self.startButton.title = @"";
     self.confirmProgress.hidden = NO;
-    [[VHGithubNotifierManager sharedManager] confirmUserAccount:[self.userNameTextField stringValue]
-                                                   withPassword:[self.userPasswordTextField stringValue]];
+    if (self.loginType == LOGIN_TYPE_USERNAME_AND_PASSWORD)
+    {
+        [[VHGithubNotifierManager sharedManager] confirmUserAccount:[self.userNameTextField stringValue]
+                                                       withPassword:[self.userPasswordTextField stringValue]
+                                                     withOauthToken:nil];
+    }
+    else
+    {
+        [[VHGithubNotifierManager sharedManager] confirmUserAccount:nil
+                                                       withPassword:nil
+                                                     withOauthToken:[self.userNameTextField stringValue]];
+    }
 }
 
 - (void)showWindow:(id)sender

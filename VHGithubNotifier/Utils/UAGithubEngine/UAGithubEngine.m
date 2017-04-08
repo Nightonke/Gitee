@@ -34,23 +34,26 @@
 
 @end
 
-
 @implementation UAGithubEngine
 
-@synthesize username, password, reachability, isReachable;
+@synthesize username, password, oauthToken, reachability, isReachable;
 
 #pragma mark
 #pragma mark Setup & Teardown
 #pragma mark
 
-- (id)initWithUsername:(NSString *)aUsername password:(NSString *)aPassword withReachability:(BOOL)withReach
+- (id)initWithUsername:(NSString *)aUsername
+              password:(NSString *)aPassword
+            oauthToken:(NSString *)aOauthToken
+      withReachability:(BOOL)withReach
 {
     self = [super init];
 	if (self) 
 	{
 		username = aUsername;
 		password = aPassword;
-		if (withReach)
+        oauthToken = aOauthToken;
+        if (withReach)
 		{
 			reachability = [[UAReachability alloc] init];
 		}
@@ -157,10 +160,15 @@
 	NSURL *theURL = [NSURL URLWithString:urlString];
 	
 	NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:theURL cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
-	if (self.username && self.password)
-	{
-		[urlRequest setValue:[NSString stringWithFormat:@"Basic %@", [[[NSString stringWithFormat:@"%@:%@", self.username, self.password] dataUsingEncoding:NSUTF8StringEncoding] base64EncodedString]] forHTTPHeaderField:@"Authorization"];	
-	}
+    if (username && password)
+    {
+        NSString *authorizationString = [[[NSString stringWithFormat:@"%@:%@", self.username, self.password] dataUsingEncoding:NSUTF8StringEncoding] base64EncodedString];
+        [urlRequest setValue:[NSString stringWithFormat:@"Basic %@", authorizationString] forHTTPHeaderField:@"Authorization"];
+    }
+    else if (oauthToken)
+    {
+        [urlRequest setValue:[NSString stringWithFormat:@"Token %@", oauthToken] forHTTPHeaderField:@"Authorization"];
+    }
 
 	if (jsonData)
     {

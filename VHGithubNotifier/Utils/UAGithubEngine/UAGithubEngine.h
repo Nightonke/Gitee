@@ -15,12 +15,16 @@ typedef void (^UAGithubEngineFailureBlock)(NSError *error);
 
 @interface UAGithubEngine : NSObject 
 
-@property (strong) NSString *username;
+@property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *password;
+@property (nonatomic, strong) NSString *oauthToken;
 @property (nonatomic, strong) UAReachability *reachability;
 @property (nonatomic, assign, readonly) BOOL isReachable;
 
-- (id)initWithUsername:(NSString *)aUsername password:(NSString *)aPassword withReachability:(BOOL)withReach;
+- (id)initWithUsername:(NSString *)aUsername
+              password:(NSString *)aPassword
+            oauthToken:(NSString *)aOauthToken
+      withReachability:(BOOL)withReach;
 
 #pragma mark
 #pragma mark Basic Request

@@ -74,6 +74,20 @@
  */
 - (void)setUserPassword:(NSString *)_userPassword;
 
+/**
+ OAuth token of github.
+
+ @return oauthToken
+ */
+- (NSString *)oauthToken;
+
+/**
+ Set oauth token of github.
+
+ @param _oauthToken oauth token
+ */
+- (void)setOauthToken:(NSString *)_oauthToken;
+
 #pragma mark - Trend
 
 /**

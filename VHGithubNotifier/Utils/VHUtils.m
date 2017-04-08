@@ -142,7 +142,7 @@ static NSArray<NSColor *> *colors = nil;
     NSUInteger index = arc4random_uniform((int)[self colors].count);
     for (int i = 0; i < [self colors].count; i++)
     {
-        [mColors addObject:[colors objectAtIndex:(index + i) % colors.count]];
+        [mColors addObject:[[colors objectAtIndex:(index + i) % colors.count] copy]];
     }
     return [mColors copy];
 }

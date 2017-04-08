@@ -71,7 +71,10 @@ static NSString *languageUrl = @"https://raw.githubusercontent.com/github/lingui
     NSURL *URL = [NSURL URLWithString:@"https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml"];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
+    WEAK_SELF(self);
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        STRONG_SELF(self);
+        [manager invalidateSessionCancelingTasks:YES];
         if (error)
         {
             LanguageLog(@"Update language failed with error: %@", error);

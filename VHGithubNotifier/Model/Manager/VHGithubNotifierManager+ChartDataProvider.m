@@ -11,10 +11,47 @@
 #import "VHUtils.h"
 
 static NSUInteger repositoriesPieTotalStarNumber = 0;
+static PieChartData *userRepositoriesPieData;
+static PieChartDataSet *userRepositoriesPieDataSet;
 
 @implementation VHGithubNotifierManager (ChartDataProvider)
 
-- (PieChartData *)userRepositoriesPieDataSet
+- (PieChartData *)userRepositoriesPieData
+{
+    if (userRepositoriesPieData == nil)
+    {
+        userRepositoriesPieData = [[PieChartData alloc] initWithDataSet:userRepositoriesPieDataSet];
+    }
+    return userRepositoriesPieData;
+}
+
+- (void)updateUserRepositoriesPieData
+{
+    if ([[[self userRepositoriesPieData] dataSets] count] == 0)
+    {
+        userRepositoriesPieDataSet = [[PieChartDataSet alloc] initWithValues:[self pieChartDataEntries] label:@""];
+        [VHUtils setRandomColor:userRepositoriesPieDataSet withNumber:userRepositoriesPieData.entryCount];
+        userRepositoriesPieDataSet.valueTextColor = [NSColor whiteColor];
+        userRepositoriesPieDataSet.valueFont = [NSFont systemFontOfSize:12 weight:NSFontWeightLight];
+        [userRepositoriesPieDataSet setEntryLabelColor:[NSColor grayColor]];
+        [userRepositoriesPieDataSet setEntryLabelFont:[NSFont systemFontOfSize:12 weight:NSFontWeightLight]];
+        userRepositoriesPieDataSet.xValuePosition = PieChartValuePositionOutsideSlice;
+        userRepositoriesPieDataSet.valueLineColor = [NSColor grayColor];
+        userRepositoriesPieDataSet.valueLineWidth = 0.5;
+        userRepositoriesPieDataSet.valueLinePart1OffsetPercentage = 0.9;
+        userRepositoriesPieDataSet.valueLinePart1Length = 0.6;
+        userRepositoriesPieDataSet.valueLinePart2Length = 0;
+        
+        [[self userRepositoriesPieData] setDataSets:@[userRepositoriesPieDataSet]];
+    }
+    else
+    {
+        userRepositoriesPieDataSet.values = [self pieChartDataEntries];
+        [VHUtils setRandomColor:userRepositoriesPieDataSet withNumber:userRepositoriesPieData.entryCount];
+    }
+}
+
+- (NSMutableArray<PieChartDataEntry *> *)pieChartDataEntries
 {
     __block NSMutableArray<PieChartDataEntry *> *array = [NSMutableArray arrayWithCapacity:self.user.ownerRepositories.count];
     __block PieChartDataEntry *entry;
@@ -45,21 +82,8 @@ static NSUInteger repositoriesPieTotalStarNumber = 0;
             return NSOrderedAscending;
         }
     }];
-    PieChartDataSet *set = [[PieChartDataSet alloc] initWithValues:array label:@""];
-    [VHUtils setRandomColor:set withNumber:[array count]];
-    set.valueTextColor = [NSColor whiteColor];
-    set.valueFont = [NSFont systemFontOfSize:12 weight:NSFontWeightLight];
-    [set setEntryLabelColor:[NSColor grayColor]];
-    [set setEntryLabelFont:[NSFont systemFontOfSize:12 weight:NSFontWeightLight]];
-    set.xValuePosition = PieChartValuePositionOutsideSlice;
-    set.valueLineColor = [NSColor grayColor];
-    set.valueLineWidth = 0.5;
-    set.valueLinePart1OffsetPercentage = 0.9;
-    set.valueLinePart1Length = 0.6;
-    set.valueLinePart2Length = 0;
     
-    PieChartData *data = [[PieChartData alloc] initWithDataSet:set];
-    return data;
+    return array;
 }
 
 - (NSString *)urlFromRepositoryName:(NSString *)name

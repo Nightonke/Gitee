@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16C68" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="VHAccountInfoWC">
             <connections>
                 <outlet property="confirmProgress" destination="b9U-A5-uSe" id="xgO-JS-ygD"/>
+                <outlet property="loginTypeButton" destination="6Bt-hx-fHB" id="6aO-8s-3x7"/>
                 <outlet property="startButton" destination="lQh-iR-bhR" id="sAQ-Yr-ADq"/>
                 <outlet property="userNameTextField" destination="Wdq-pe-xjV" id="0mA-Gg-wrp"/>
                 <outlet property="userPasswordTextField" destination="W05-Uo-DJ8" id="1kO-Bp-Kog"/>
@@ -35,7 +36,7 @@
                             <constraint firstAttribute="width" constant="340" id="TjD-2b-ZyF"/>
                             <constraint firstAttribute="height" constant="43" id="pmU-DW-Pbc"/>
                         </constraints>
-                        <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Github username" id="VO6-wV-gNF" customClass="VHTextFieldCell">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Github username" id="VO6-wV-gNF" customClass="VHTextFieldCell">
                             <font key="font" metaFont="system" size="19"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -91,14 +92,44 @@
                     <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="b9U-A5-uSe">
                         <rect key="frame" x="392" y="66" width="16" height="16"/>
                     </progressIndicator>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Bt-hx-fHB" customClass="SYFlatButton">
+                        <rect key="frame" x="376" y="231" width="200" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="36" id="VCN-7d-Ofn"/>
+                            <constraint firstAttribute="width" constant="200" id="bLa-5g-1PB"/>
+                        </constraints>
+                        <buttonCell key="cell" type="square" title="Personal Access Token" bezelStyle="shadowlessSquare" alignment="right" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="66f-cY-zcs">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="systemLight" size="17"/>
+                        </buttonCell>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="offAnimateDuration">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="titleNormalColor">
+                                <color key="value" red="0.5677072406" green="0.86503249410000005" blue="0.39028736949999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="titleHighlightColor">
+                                <color key="value" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="onLoginTypeButtonClicked:" target="-2" id="UGH-dz-3YA"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="W05-Uo-DJ8" firstAttribute="centerX" secondItem="se5-gp-TjO" secondAttribute="centerX" id="2kX-lz-lex"/>
                     <constraint firstItem="W05-Uo-DJ8" firstAttribute="top" secondItem="Wdq-pe-xjV" secondAttribute="bottom" constant="10" id="4lK-bm-5Cc"/>
                     <constraint firstAttribute="bottom" secondItem="lQh-iR-bhR" secondAttribute="bottom" constant="52" id="It3-Nc-qgT"/>
                     <constraint firstItem="Wdq-pe-xjV" firstAttribute="centerX" secondItem="se5-gp-TjO" secondAttribute="centerX" id="WuK-qs-EFg"/>
+                    <constraint firstItem="6Bt-hx-fHB" firstAttribute="trailing" secondItem="Wdq-pe-xjV" secondAttribute="trailing" constant="6" id="eX1-3R-z4B"/>
                     <constraint firstItem="b9U-A5-uSe" firstAttribute="centerX" secondItem="se5-gp-TjO" secondAttribute="centerX" id="gu7-Dt-fyA"/>
                     <constraint firstItem="lQh-iR-bhR" firstAttribute="centerX" secondItem="se5-gp-TjO" secondAttribute="centerX" id="hjD-f9-GBj"/>
+                    <constraint firstItem="Wdq-pe-xjV" firstAttribute="top" secondItem="6Bt-hx-fHB" secondAttribute="bottom" id="ilo-Xf-Edm"/>
                     <constraint firstItem="lQh-iR-bhR" firstAttribute="top" secondItem="W05-Uo-DJ8" secondAttribute="bottom" constant="40" id="qNU-wA-5Px"/>
                     <constraint firstAttribute="bottom" secondItem="b9U-A5-uSe" secondAttribute="bottom" constant="66" id="uPy-CP-fPy"/>
                 </constraints>

@@ -181,7 +181,10 @@ static NSUInteger yearContributions;
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
     [request setValue:cookieValue forHTTPHeaderField:@"Cookie"];
     
+    WEAK_SELF(self);
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        STRONG_SELF(self);
+        [manager invalidateSessionCancelingTasks:YES];
         if (error)
         {
             ProfileLog(@"Update contributions failed with error: %@", error);

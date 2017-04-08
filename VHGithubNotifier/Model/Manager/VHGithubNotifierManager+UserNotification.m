@@ -51,6 +51,7 @@ static NSMutableArray<CNUserNotification *> *userNotifications;
             }
             userNotification.hasActionButton = NO;
             userNotification.feature.bannerImage = [VHUtils imageFromNotificationType:notification.type];
+            userNotification.userInfo = userInfo;
             [[self userNotifications] push:userNotification];
         }
     }
