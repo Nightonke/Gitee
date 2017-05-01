@@ -21,6 +21,6 @@
 
 - (instancetype)initWithStatusItem:(NSStatusItem *)statusBarButton withDelegate:(id<VHWindowProtocol>)delegate;
 
-- (void)updateArrowWithStatusItemCenterX:(CGFloat)centerX withStatusItemFrame:(CGRect)statusItemFrame;
+- (void)updateArrowWithStatusItem:(NSStatusItem *) statusItem;
 
 @end

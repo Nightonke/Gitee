@@ -120,12 +120,12 @@
     else
     {
         NOTIFICATION_POST(kNotifyWindowWillAppear);
-        NSRect statusItemFrame = [[self.statusItem.view window] convertRectToScreen:self.statusItem.view.frame];
-        [self.menuWindow updateArrowWithStatusItemCenterX:statusItemFrame.origin.x + statusItemFrame.size.width / 2
-                                      withStatusItemFrame:statusItemFrame];
-        
+
+        [self.menuWindow updateArrowWithStatusItem:self.statusItem];
+
         [self.menuWindow setAlphaValue:0.0];
         [self.menuWindow makeKeyAndOrderFront:self];
+        [self.menuWindow setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces];
         [[NSAnimationContext currentContext] setDuration:0.15];
         [[self.menuWindow animator] setAlphaValue:1.0];
     }
