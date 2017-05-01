@@ -6,7 +6,7 @@
 //  Copyright © 2017年 黄伟平. All rights reserved.
 //
 
-#import "VHGithubNotifier-Bridging-Header.h"
+#import "VHGithubNotifier-Swift.h"
 
 @interface VHDateValueFormatter : NSObject<IChartAxisValueFormatter>
 

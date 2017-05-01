@@ -263,6 +263,7 @@
 		37CB06001E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CB05FF1E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.m */; };
 		37E7CCFB1E5C576D00BA8BA9 /* VHStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E7CCFA1E5C576D00BA8BA9 /* VHStateView.m */; };
 		37E7CD011E5C5D2D00BA8BA9 /* VHStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E7CD001E5C5D2D00BA8BA9 /* VHStateView.xib */; };
+		5269F87E1EB7D1BC00BAF757 /* VHPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269F87D1EB7D1BC00BAF757 /* VHPieChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -674,6 +675,7 @@
 		37E7CCF91E5C576D00BA8BA9 /* VHStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHStateView.h; sourceTree = "<group>"; };
 		37E7CCFA1E5C576D00BA8BA9 /* VHStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHStateView.m; sourceTree = "<group>"; };
 		37E7CD001E5C5D2D00BA8BA9 /* VHStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHStateView.xib; sourceTree = "<group>"; };
+		5269F87D1EB7D1BC00BAF757 /* VHPieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHPieChartView.swift; sourceTree = "<group>"; };
 		A9FD0823EF354958CE567028 /* libPods-VHGithubNotifier.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VHGithubNotifier.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F12D56CE52FBE25F772313B8 /* Pods-VHGithubNotifier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHGithubNotifier.release.xcconfig"; path = "Pods/Target Support Files/Pods-VHGithubNotifier/Pods-VHGithubNotifier.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1322,6 +1324,7 @@
 				373EAB2A1E7031A0005B5E86 /* VHContributionChartView.h */,
 				373EAB2B1E7031A0005B5E86 /* VHContributionChartView.m */,
 				373EAB181E6EFE69005B5E86 /* VHVisualEffectView.swift */,
+				5269F87D1EB7D1BC00BAF757 /* VHPieChartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1745,6 +1748,7 @@
 				373187771E61D95200926F4F /* PieChartRenderer.swift in Sources */,
 				373BA70F1E6ABD6F00653C92 /* VHGithubNotifierManager+Trend.m in Sources */,
 				373187841E61D95200926F4F /* XAxisRendererHorizontalBarChart.swift in Sources */,
+				5269F87E1EB7D1BC00BAF757 /* VHPieChartView.swift in Sources */,
 				373187751E61D95200926F4F /* LineRadarRenderer.swift in Sources */,
 				3731872E1E61D95200926F4F /* CandleChartDataSet.swift in Sources */,
 				3731871C1E61D95200926F4F /* IMarker.swift in Sources */,

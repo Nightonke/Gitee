@@ -11,7 +11,7 @@
 #import "VHGithubNotifierManager.h"
 #import "VHGithubNotifierManager+UserDefault.h"
 #import "VHGithubNotifierManager+Trend.h"
-#import "VHGithubNotifier-Bridging-Header.h"
+#import "VHGithubNotifier-Swift.h"
 #import "VHDateValueFormatter.h"
 #import "VHUtils.h"
 #import <WebKit/WebKit.h>
