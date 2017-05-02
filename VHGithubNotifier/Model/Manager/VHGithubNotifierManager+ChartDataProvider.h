@@ -7,7 +7,7 @@
 //
 
 #import "VHGithubNotifierManager.h"
-#import "VHGithubNotifier-Bridging-Header.h"
+#import "VHGithubNotifier-Swift.h"
 
 @interface VHGithubNotifierManager (ChartDataProvider)
 

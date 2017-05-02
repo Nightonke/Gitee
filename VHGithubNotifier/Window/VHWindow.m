@@ -55,19 +55,25 @@ const static CGFloat MENU_WINDOW_LEFT_MARGIN = 20;
     return self;
 }
 
-- (void)updateArrowWithStatusItemCenterX:(CGFloat)centerX withStatusItemFrame:(CGRect)statusItemFrame;
+- (void)updateArrowWithStatusItem:(NSStatusItem *) statusItem;
 {
     NSRect frame = self.frame;
-    frame.origin.x = centerX - self.frame.size.width / 2;
-    frame.origin.y = statusItemFrame.origin.y - [self frame].size.height - MENU_WINDOW_TOP_MARGIN;
-    
-    if (frame.origin.x + frame.size.width > [[self screen] frame].size.width)
+    NSRect statusItemFrame = [[statusItem.view window] convertRectToScreen:statusItem.view.frame];
+    CGFloat centerX = statusItemFrame.origin.x + statusItemFrame.size.width / 2;
+
+    frame.origin.x = centerX - frame.size.width / 2;
+    frame.origin.y = statusItemFrame.origin.y - frame.size.height - MENU_WINDOW_TOP_MARGIN;
+    [self setFrame: frame display:NO];
+
+    const CGFloat OFFSET = [[self screen] frame].origin.x;
+
+    if (frame.origin.x + frame.size.width > OFFSET + [[self screen] frame].size.width)
     {
-        frame.origin.x = [[self screen] frame].size.width - frame.size.width - MENU_WINDOW_RIGHT_MARGIN;
+        frame.origin.x = OFFSET + [[self screen] frame].size.width - frame.size.width - MENU_WINDOW_RIGHT_MARGIN;
     }
-    if (frame.origin.x < 0)
+    if (frame.origin.x < OFFSET)
     {
-        frame.origin.x = MENU_WINDOW_LEFT_MARGIN;
+        frame.origin.x = OFFSET + MENU_WINDOW_LEFT_MARGIN;
     }
     
     [self setFrame:frame display:NO];

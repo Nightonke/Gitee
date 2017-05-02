@@ -8,7 +8,7 @@
 
 #import <Realm/Realm.h>
 #import "VHRecord.h"
-#import "VHGithubNotifier-Bridging-Header.h"
+#import "VHGithubNotifier-Swift.h"
 
 @interface VHRepository : RLMObject
 

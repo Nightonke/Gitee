@@ -8,7 +8,7 @@
 
 #import "VHPieVC.h"
 #import "AFURLSessionManager.h"
-#import "VHGithubNotifier-Bridging-Header.h"
+#import "VHGithubNotifier-Swift.h"
 #import "VHGithubNotifierManager+ChartDataProvider.h"
 #import "VHGithubNotifierManager+UserDefault.h"
 #import "VHUtils.h"
@@ -17,7 +17,7 @@
 
 @interface VHPieVC ()<ChartViewDelegate>
 
-@property (nonatomic, strong) PieChartView *pieChart;
+@property (nonatomic, strong) VHPieChartView *pieChart;
 @property (weak) IBOutlet VHCursorButton *openUrlButton;
 @property (nonatomic, strong) NSString *highlightedRepositoryName;
 
@@ -30,7 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.pieChart = [[PieChartView alloc] initWithFrame:self.view.bounds];
+    self.pieChart = [[VHPieChartView alloc] initWithFrame:self.view.bounds];
     self.pieChart.extraLeftOffset = 30;
     self.pieChart.extraRightOffset = 30;
     self.pieChart.highlightPerTapEnabled = YES;
@@ -74,10 +74,10 @@
     [self.pieChart notifyDataSetChanged];
     [self.pieChart highlightValue:nil];
     self.openUrlButton.hidden = YES;
-    
+
     // update total star number
     [self updateCenterText];
-    
+
     // update description text
     [self updateDescriptionText];
     
@@ -107,6 +107,7 @@
 
 - (void)onNotifyMinimumStarNumberInPieChanged:(NSNotification *)notification
 {
+    [[VHGithubNotifierManager sharedManager] updateUserRepositoriesPieData];
     [self onNotifyRepositoriesLoadedSuccessfully:nil];
 }
 
@@ -116,6 +117,7 @@
 {
     NSString *name = ((PieChartDataEntry *)entry).label;
     self.highlightedRepositoryName = name;
+    self.pieChart.descriptionTextAlign = NSTextAlignmentRight;
     self.pieChart.chartDescription.text = [NSString stringWithFormat:@"Visit %@           ", name];
     self.openUrlButton.hidden = NO;
 }
@@ -163,6 +165,7 @@
 - (void)updateDescriptionText
 {
     [self.openUrlButton setTop:self.pieChart.legend.neededHeight + 20];
+    self.pieChart.descriptionTextAlign = NSTextAlignmentCenter;
     NSUInteger repositoryNumber = [[self.pieChart.data.dataSets firstObject] entryCount];
     if (repositoryNumber == 0)
     {
