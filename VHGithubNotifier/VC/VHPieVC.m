@@ -37,6 +37,7 @@
     self.pieChart.delegate = self;
     self.pieChart.holeColor = nil;
     self.pieChart.noDataText = @"Didn't get any data yet!";
+    self.pieChart.chartDescription.text = self.pieChart.noDataText;
     self.pieChart.noDataFont = [NSFont systemFontOfSize:12 weight:NSFontWeightLight];
     self.pieChart.descriptionFont = [NSFont systemFontOfSize:12 weight:NSFontWeightLight];
     self.pieChart.entryLabelFont = [NSFont systemFontOfSize:12 weight:NSFontWeightLight];

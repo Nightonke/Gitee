@@ -181,12 +181,17 @@
     {
         self.weekStartsFromMondayButton.state = NSOnState;
     }
-    
+
     NSUInteger starLeast = [[VHGithubNotifierManager sharedManager] minimumStarNumberInPie];
+    if (starLeast < 1)
+    {
+        starLeast = 1;
+        [[VHGithubNotifierManager sharedManager] setMinimumStarNumberInPie:1];
+    }
     [self.starLeastSlider setDoubleValue:starLeast / 10];
     [self.starLeastLabel setStringValue:[self stringFromStarNumber:starLeast]];
     self.starLeast = starLeast;
-    
+
     [self.realmPathView setURL:[[VHGithubNotifierManager sharedManager] realmDirectory]];
 }
 
@@ -239,6 +244,10 @@
 {
     self.starLeastSlider.doubleValue = round(self.starLeastSlider.doubleValue);
     NSUInteger starLeast = [self.starLeastSlider doubleValue] * 10;
+    if (starLeast < 1)
+    {
+        starLeast = 1;
+    }
     [[VHGithubNotifierManager sharedManager] setMinimumStarNumberInPie:starLeast];
     [self.starLeastLabel setStringValue:[self stringFromStarNumber:starLeast]];
 }

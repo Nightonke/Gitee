@@ -35,9 +35,6 @@
 @property (weak) IBOutlet VHStateView *stateView;
 @property (nonatomic, strong) VHScroller *scroller;
 
-@property (nonatomic, assign) NSUInteger languageSelectedIndex;
-@property (nonatomic, assign) NSUInteger timeSelectedIndex;
-
 @end
 
 @implementation VHTrendingVC
@@ -52,13 +49,11 @@
                                                                     self.languagePopupButton.height - 300,
                                                                     200,
                                                                     300)];
-    self.languageSelectedIndex = [[VHGithubNotifierManager sharedManager] trendingContentSelectedIndex];
     [self.timePopupButton setMenuWindowRelativeFrame:NSMakeRect(60,
                                                                 self.timePopupButton.height - 300 + 21,
                                                                 200,
                                                                 300)];
-    self.timeSelectedIndex = [[VHGithubNotifierManager sharedManager] trendingTimeSelectedIndex];
-    
+
     [self addNotifications];
     
     self.stateView.delegate = self;
@@ -169,18 +164,22 @@
         item.image.size = NSMakeSize(8, 8);
         [self.languagePopupButton.menu addItem:item];
     }];
-    
-    if (self.languageSelectedIndex >= self.languagePopupButton.numberOfItems)
+
+    NSUInteger languageSelectedIndex = [[VHGithubNotifierManager sharedManager] trendingContentSelectedIndex];
+    if (languageSelectedIndex >= self.languagePopupButton.numberOfItems)
     {
-        self.languageSelectedIndex = 0;
+        languageSelectedIndex = 0;
+        [[VHGithubNotifierManager sharedManager] setTrendingContentSelectedIndex:0];
     }
-    [self.languagePopupButton selectItemAtIndex:self.languageSelectedIndex];
-    
-    if (self.timeSelectedIndex >= self.timePopupButton.numberOfItems)
+    [self.languagePopupButton selectItemAtIndex:languageSelectedIndex];
+
+    NSUInteger timeSelectedIndex = [[VHGithubNotifierManager sharedManager] trendingTimeSelectedIndex];
+    if (timeSelectedIndex >= self.timePopupButton.numberOfItems)
     {
-        self.timeSelectedIndex = 0;
+        timeSelectedIndex = 0;
+        [[VHGithubNotifierManager sharedManager] setTrendingTimeSelectedIndex:0];
     }
-    [self.timePopupButton selectItemAtIndex:self.timeSelectedIndex];
+    [self.timePopupButton selectItemAtIndex:timeSelectedIndex];
     
     [self colorLanguageIcon];
 }
