@@ -114,9 +114,9 @@
 
 #pragma mark - Trending
 
-- (NSUInteger)trendingContentSelectedIndex;
+- (NSArray<NSNumber *> *)trendingSelectedLanguageIDs;
 
-- (void)setTrendingContentSelectedIndex:(NSUInteger)_trendingContentSelectedIndex;
+- (void)setTrendingSelectedLanguageIDs:(NSArray<NSNumber *> *)_trendingSelectedLanguageIDs;
 
 - (NSUInteger)trendingTimeSelectedIndex;
 

@@ -147,6 +147,21 @@ static NSArray<NSColor *> *colors = nil;
     return [mColors copy];
 }
 
++ (NSInteger)unsignIntFromString:(NSString *)string
+{
+    NSString *scannedString = [string stringByReplacingOccurrencesOfString:@"," withString:@""];
+    NSScanner *scanner = [NSScanner scannerWithString:scannedString];
+    NSString *numberString;
+    NSCharacterSet *numbers = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+    [scanner scanUpToCharactersFromSet:numbers intoString:NULL];
+    [scanner scanCharactersFromSet:numbers intoString:&numberString];
+    if (numberString.length == 0)
+    {
+        return -1;
+    }
+    return [numberString integerValue];
+}
+
 #pragma mark - Private methods
 
 + (NSArray<NSString *> *)colorStrings

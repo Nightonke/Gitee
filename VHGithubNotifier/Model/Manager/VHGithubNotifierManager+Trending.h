@@ -18,4 +18,6 @@
 
 - (VHLoadStateType)trendingContentLoadState;
 
+- (BOOL)hasValidTrendingData;
+
 @end

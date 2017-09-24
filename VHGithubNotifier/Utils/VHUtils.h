@@ -38,4 +38,6 @@
 
 + (NSArray<NSColor *> *)randomColors;
 
++ (NSInteger)unsignIntFromString:(NSString *)string;
+
 @end

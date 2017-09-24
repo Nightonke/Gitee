@@ -12,6 +12,7 @@
 
 @property long long languageId;
 @property NSString *name;
+@property NSString *requestName;
 @property NSString *colorValue;
 
 + (NSArray<VHLanguage *> *)languagesFromData:(NSString *)data;

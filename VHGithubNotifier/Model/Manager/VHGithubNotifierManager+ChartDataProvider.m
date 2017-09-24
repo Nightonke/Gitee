@@ -14,6 +14,10 @@ static NSUInteger repositoriesPieTotalStarNumber = 0;
 static PieChartData *userRepositoriesPieData;
 static PieChartDataSet *userRepositoriesPieDataSet;
 
+@interface VHGithubNotifierManager()<IChartValueFormatter>
+
+@end
+
 @implementation VHGithubNotifierManager (ChartDataProvider)
 
 - (PieChartData *)userRepositoriesPieData
@@ -41,7 +45,7 @@ static PieChartDataSet *userRepositoriesPieDataSet;
         userRepositoriesPieDataSet.valueLinePart1OffsetPercentage = 0.9;
         userRepositoriesPieDataSet.valueLinePart1Length = 0.6;
         userRepositoriesPieDataSet.valueLinePart2Length = 0;
-        
+        userRepositoriesPieDataSet.valueFormatter = self;
         [[self userRepositoriesPieData] setDataSets:@[userRepositoriesPieDataSet]];
     }
     else
@@ -101,6 +105,11 @@ static PieChartDataSet *userRepositoriesPieDataSet;
 - (NSUInteger)repositoriesPieTotalStarNumber
 {
     return repositoriesPieTotalStarNumber;
+}
+
+- (NSString *)stringForValue:(double)value entry:(ChartDataEntry *)entry dataSetIndex:(NSInteger)dataSetIndex viewPortHandler:(ChartViewPortHandler *)viewPortHandler
+{
+    return [NSString stringWithFormat:@"%.0f", value];
 }
 
 @end

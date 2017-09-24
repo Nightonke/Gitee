@@ -14,6 +14,7 @@
 #import "NSMutableArray+Safe.h"
 #import "NSArray+Safe.h"
 #import "VHGithubNotifierManager+UserDefault.h"
+#import "VHGithubNotifierManager_Private.h"
 
 static const NSUInteger REPOSITORIES_IN_ONE_PAGE = 25;
 static VHLoadStateType trendingContentLoadState = VHLoadStateTypeDidNotLoad;
@@ -58,12 +59,110 @@ static NSTimer *trendingTimer;
     return trendingContentLoadState;
 }
 
+- (BOOL)hasValidTrendingData
+{
+    return self.trendingContentLoadState == VHLoadStateTypeLoadSuccessfully && self.trendingRepositories.count > 0;
+}
+
 #pragma mark - Private Methods
 
 - (void)innerUpdateTrending
 {
-    [self updateTrendingContentByLanguageIndex:[[VHGithubNotifierManager sharedManager] trendingContentSelectedIndex]
-                                     timeIndex:[[VHGithubNotifierManager sharedManager] trendingTimeSelectedIndex]];
+    [self updateTrendingContentByLanguageIDs:[[VHGithubNotifierManager sharedManager] trendingSelectedLanguageIDs]
+                                   timeIndex:[[VHGithubNotifierManager sharedManager] trendingTimeSelectedIndex]];
+}
+
+- (void)updateTrendingContentByLanguageIDs:(NSArray<NSNumber *> *)languageIDs timeIndex:(NSUInteger)timeIndex
+{
+    trendingContentLoadState = VHLoadStateTypeLoading;
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    manager.responseSerializer = [VHHTTPResponseSerializer serializer];
+    
+    dispatch_queue_t queue = dispatch_queue_create("Gitee", DISPATCH_QUEUE_CONCURRENT);
+    manager.completionQueue = queue;
+    
+    NSString *timeString = [[NSArray arrayWithObjects:@"today", @"weekly", @"monthly", nil] safeObjectAtIndex:timeIndex];
+    NSArray<NSString *> *languageNames = [self languageRequestNamesFromIDs:languageIDs];
+    
+    dispatch_group_t group = dispatch_group_create();
+    __block NSUInteger successNumber = 0;
+    __block NSMutableArray<VHTrendingRepository *> *trendingRepositories = [NSMutableArray arrayWithCapacity:languageNames.count * 25];
+    for (NSString *languageName in languageNames)
+    {
+        NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"https://github.com/trending/%@?since=%@", languageName, timeString]];
+        TrendingLog(@"Update trending with URL: %@", URL);
+        NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+        
+        dispatch_group_enter(group);
+        WEAK_SELF(self);
+        dispatch_async(queue, ^{
+            NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+                STRONG_SELF(self);
+                if (error)
+                {
+                    TrendingLog(@"%@ - Update trending failed with error: %@", languageName, error);
+                    dispatch_group_leave(group);
+                }
+                else
+                {
+                    IN_GLOBAL_THREAD({
+                        @synchronized(trendingRepositories)
+                        {
+                            id filledResponseObject = [self fillEmptyRepositoryDescription:responseObject];
+                            NSArray<VHTrendingRepository *> *partTrendingRepositories = [self trendingRepositoriesFromHtmlString:filledResponseObject];
+                            if (partTrendingRepositories.count == 0)
+                            {
+                                TrendingLog(@"%@ - Update trending failed because trending repositories results are currently being dissected", languageName);
+                            }
+                            else
+                            {
+                                TrendingLog(@"%@ - Update trending successfully with repositories number: %zd", languageName, partTrendingRepositories.count);
+                                successNumber++;
+                                [trendingRepositories addObjectsFromArray:partTrendingRepositories];
+                            }
+                            dispatch_group_leave(group);
+                        }
+                    });
+                }
+            }];
+            [dataTask resume];
+        });
+    }
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        TrendingLog(@"Update trending for %lu languages, %zd success", (unsigned long)languageNames.count, successNumber);
+        if (trendingRepositories.count == 0)
+        {
+            if (!self.hasLoadedTrendingsSuccessfully)
+            {
+                TrendingLog(@"Update trending failed because trending repositories results are currently being dissected");
+                trendingContentLoadState = VHLoadStateTypeLoadFailed;
+                NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyTrendingLoadedFailed);
+            }
+            else
+            {
+                TrendingLog(@"Use the old trendings");
+                [self trendingLoadedSuccessfully:nil];
+            }
+        }
+        else
+        {
+            [self trendingLoadedSuccessfully:trendingRepositories];
+        }
+    });
+}
+
+- (void)trendingLoadedSuccessfully:(NSMutableArray<VHTrendingRepository *> *)newTrendings
+{
+    if (newTrendings.count > 0)
+    {
+        self.hasLoadedTrendingsSuccessfully = YES;
+        self.trendingRepositories = newTrendings;
+        [self removeDuplicateAndSortForRepositories];
+        TrendingLog(@"Update trending successfully with repositories number: %zd", self.trendingRepositories.count);
+    }
+    trendingContentLoadState = VHLoadStateTypeLoadSuccessfully;
+    NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyTrendingLoadedSuccessfully);
 }
 
 - (void)updateTrendingContentByLanguageIndex:(NSUInteger)languageIndex timeIndex:(NSUInteger)timeIndex
@@ -111,20 +210,24 @@ static NSTimer *trendingTimer;
         }
         else
         {
-            responseObject = [self fillEmptyRepositoryDescription:responseObject];
-            self.trendingRepositories = [self trendingRepositoriesFromHtmlString:responseObject];
-            if (self.trendingRepositories.count == 0)
-            {
-                TrendingLog(@"Update trending failed because trending repositories results are currently being dissected");
-                trendingContentLoadState = VHLoadStateTypeLoadFailed;
-                NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyTrendingLoadedFailed);
-            }
-            else
-            {
-                TrendingLog(@"Update trending successfully with repositories number: %zd", self.trendingRepositories.count);
-                trendingContentLoadState = VHLoadStateTypeLoadSuccessfully;
-                NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyTrendingLoadedSuccessfully);
-            }
+            IN_GLOBAL_THREAD({
+                id filledResponseObject = [self fillEmptyRepositoryDescription:responseObject];
+                self.trendingRepositories = [self trendingRepositoriesFromHtmlString:filledResponseObject];
+                IN_MAIN_THREAD({
+                    if (self.trendingRepositories.count == 0)
+                    {
+                        TrendingLog(@"Update trending failed because trending repositories results are currently being dissected");
+                        trendingContentLoadState = VHLoadStateTypeLoadFailed;
+                        NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyTrendingLoadedFailed);
+                    }
+                    else
+                    {
+                        TrendingLog(@"Update trending successfully with repositories number: %zd", self.trendingRepositories.count);
+                        trendingContentLoadState = VHLoadStateTypeLoadSuccessfully;
+                        NOTIFICATION_POST_IN_MAIN_THREAD(kNotifyTrendingLoadedSuccessfully);
+                    }
+                });
+            });
         }
     }];
     [dataTask resume];
@@ -193,7 +296,7 @@ static NSTimer *trendingTimer;
     // Trending tips
     for (TFHppleElement *element in dataArray)
     {
-        if ([[element objectForKey:@"class"] isEqualToString:@"float-right"])
+        if ([[element objectForKey:@"class"] isEqualToString:@"d-inline-block float-sm-right"])
         {
             repository.trendingTip = [self trendingTipStringFromOriginalString:element.content];
         }
@@ -203,15 +306,19 @@ static NSTimer *trendingTimer;
     dataArray = [hpple searchWithXPathQuery:@"//a"];
     for (TFHppleElement *element in dataArray)
     {
-        if ([[element objectForKey:@"class"] isEqualToString:@"muted-link tooltipped tooltipped-s mr-3"])
+        if ([[element objectForKey:@"class"] isEqualToString:@"muted-link d-inline-block mr-3"])
         {
-            if ([[element objectForKey:@"aria-label"] isEqualToString:@"Stargazers"])
+            TFHppleElement *svgElement = SAFE_CAST([[element searchWithXPathQuery:@"//svg"] firstObject], [TFHppleElement class]);
+            if (svgElement)
             {
-                repository.starNumber = [self starNumberStringFromOriginalString:element.content];
-            }
-            else if ([[element objectForKey:@"aria-label"] isEqualToString:@"Forks"])
-            {
-                repository.forkNumber = [self forkNumberStringFromOriginalString:element.content];
+                if ([[svgElement objectForKey:@"aria-label"] isEqualToString:@"star"])
+                {
+                    repository.starNumberString = [self starNumberStringFromOriginalString:element.content];
+                }
+                else if ([[svgElement objectForKey:@"aria-label"] isEqualToString:@"fork"])
+                {
+                    repository.forkNumberString = [self forkNumberStringFromOriginalString:element.content];
+                }
             }
         }
     }
@@ -350,6 +457,86 @@ static NSTimer *trendingTimer;
     NSString *result = [originalString stringByReplacingOccurrencesOfString:@"\n        " withString:@""];
     result = [result stringByReplacingOccurrencesOfString:@"\n      " withString:@""];
     return result;
+}
+
+- (NSArray<NSString *> *)languageRequestNamesFromIDs:(NSArray<NSNumber *> *)IDs
+{
+    __block NSMutableArray<NSString *> *languageNames = [NSMutableArray arrayWithCapacity:IDs.count];
+    [IDs enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSNumber *IDNumber = SAFE_CAST(obj, [NSNumber class]);
+        if (IDNumber)
+        {
+            NSInteger ID = [IDNumber integerValue];
+            for (VHLanguage *language in self.languages)
+            {
+                if (language.languageId == ID)
+                {
+                    [languageNames addObject:language.requestName];
+                    break;
+                }
+            }
+        }
+    }];
+    if (languageNames.count == 0)
+    {
+        [languageNames addObject:@""];  // All language by default
+    }
+    return [languageNames copy];
+}
+
+- (void)removeDuplicateAndSortForRepositories
+{
+    NSMutableArray<VHTrendingRepository *> *mutableTrendingRepositories = [NSMutableArray arrayWithArray:[self.trendingRepositories sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        VHTrendingRepository *r1 = SAFE_CAST(obj1, [VHTrendingRepository class]);
+        VHTrendingRepository *r2 = SAFE_CAST(obj2, [VHTrendingRepository class]);
+        if (r1.trendingTipStarNumber > r2.trendingTipStarNumber)
+        {
+            return NSOrderedAscending;
+        }
+        else if (r1.trendingTipStarNumber < r2.trendingTipStarNumber)
+        {
+            return NSOrderedDescending;
+        }
+        else
+        {
+            if (r1.starNumber > r2.starNumber)
+            {
+                return NSOrderedAscending;
+            }
+            else if (r1.starNumber < r2.starNumber)
+            {
+                return NSOrderedDescending;
+            }
+            else
+            {
+                if (r1.forkNumber > r2.forkNumber)
+                {
+                    return NSOrderedAscending;
+                }
+                else if (r1.forkNumber < r2.forkNumber)
+                {
+                    return NSOrderedDescending;
+                }
+                else
+                {
+                    return [r1.name compare:r2.name];
+                }
+            }
+        }
+    }]];
+    
+    for (unsigned long i = mutableTrendingRepositories.count - 1; i > 0; i--)
+    {
+        if (i > 0)
+        {
+            if ([mutableTrendingRepositories[i].url isEqualToString:mutableTrendingRepositories[i - 1].url])
+            {
+                [mutableTrendingRepositories removeObjectAtIndex:i];
+            }
+        }
+    }
+    
+    self.trendingRepositories = [mutableTrendingRepositories copy];
 }
 
 @end

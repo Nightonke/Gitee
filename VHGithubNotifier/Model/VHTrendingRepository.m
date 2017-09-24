@@ -7,6 +7,15 @@
 //
 
 #import "VHTrendingRepository.h"
+#import "VHUtils.h"
+
+@interface VHTrendingRepository()
+
+@property (nonatomic, assign, readwrite) NSInteger starNumber;
+@property (nonatomic, assign, readwrite) NSInteger forkNumber;
+@property (nonatomic, assign, readwrite) NSInteger trendingTipStarNumber;
+
+@end
 
 @implementation VHTrendingRepository
 
@@ -21,8 +30,8 @@
         _repositoryDescription = @"";
         _languageName = nil;
         _languageColor = nil;
-        _starNumber = @"0";
-        _forkNumber = @"0";
+        _starNumberString = @"0";
+        _forkNumberString = @"0";
         _contributorAvatars = [NSArray array];
         _trendingTip = nil;
     }
@@ -32,6 +41,24 @@
 - (BOOL)isValid;
 {
     return self.url && self.name && self.ownerAccount;
+}
+
+- (void)setStarNumberString:(NSString *)starNumberString
+{
+    _starNumberString = starNumberString;
+    self.starNumber = MAX(0, [VHUtils unsignIntFromString:starNumberString]);
+}
+
+- (void)setForkNumberString:(NSString *)forkNumberString
+{
+    _forkNumberString = forkNumberString;
+    self.forkNumber = MAX(0, [VHUtils unsignIntFromString:forkNumberString]);
+}
+
+- (void)setTrendingTip:(NSString *)trendingTip
+{
+    _trendingTip = trendingTip;
+    self.trendingTipStarNumber = [VHUtils unsignIntFromString:trendingTip];
 }
 
 @end

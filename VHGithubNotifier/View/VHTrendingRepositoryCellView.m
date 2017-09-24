@@ -82,9 +82,9 @@
         [self.starImage setX:self.languageDot.getLeft];
     }
     
-    if ([self.repository.starNumber isEqualToString:@"0"] == NO)
+    if ([self.repository.starNumberString isEqualToString:@"0"] == NO)
     {
-        [self.starText setStringValue:self.repository.starNumber];
+        [self.starText setStringValue:self.repository.starNumberString];
         [self.starText sizeToFit];
         [self.starText setVCenter:[self.languageDot getCenterY] + 0.5];
         self.starImage.hidden = NO;
@@ -100,9 +100,9 @@
         [self.forkImage setX:self.starImage.getLeft];
     }
     
-    if ([self.repository.forkNumber isEqualToString:@"0"] == NO)
+    if ([self.repository.forkNumberString isEqualToString:@"0"] == NO)
     {
-        [self.forkText setStringValue:self.repository.forkNumber];
+        [self.forkText setStringValue:self.repository.forkNumberString];
         [self.forkText sizeToFit];
         [self.forkText setVCenter:[self.languageDot getCenterY] + 0.5];
         self.forkImage.hidden = NO;

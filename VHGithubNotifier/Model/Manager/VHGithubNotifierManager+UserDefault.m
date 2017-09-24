@@ -9,6 +9,7 @@
 #import "VHGithubNotifierManager+UserDefault.h"
 #import "VHGithubNotifierManager_Private.h"
 #import "VHUtils+TransForm.h"
+#import "VHGithubNotifierManager+Language.h"
 
 static NSString *userAccount;
 static NSString *userPassword;
@@ -17,7 +18,7 @@ static NSString *oauthToken;
 static VHGithubTrendTimeType trendTimeType;
 static NSUInteger trendContentSelectedIndex;
 static VHGithubWeekStartFrom weekStartFrom;
-static NSUInteger trendingContentSelectedIndex;
+static NSArray<NSNumber *> *trendingSelectedLanguageIDs;
 static NSUInteger trendingTimeSelectedIndex;
 
 static const NSTimeInterval defaultBasicInfoUpdateTime = 60 * 10;
@@ -63,7 +64,8 @@ static BOOL onlyShowsValidContentsInStatusBar;
         weekStartFrom = VHGithubWeekStartFromSunDay;
     }
     
-    trendingContentSelectedIndex = [[self userDefaults] integerForKey:@"trendingContentSelectedIndex"];
+    trendingSelectedLanguageIDs = [[self userDefaults] objectForKey:@"trendingSelectedLanguageIDs"];
+    
     trendingTimeSelectedIndex = [[self userDefaults] integerForKey:@"trendingTimeSelectedIndex"];
     
     basicInfoUpdateTime = [[self userDefaults] doubleForKey:@"basicInfoUpdateTime"];
@@ -269,15 +271,20 @@ static BOOL onlyShowsValidContentsInStatusBar;
 
 #pragma mark - Trending
 
-- (NSUInteger)trendingContentSelectedIndex
+- (NSArray<NSNumber *> *)trendingSelectedLanguageIDs
 {
-    return trendingContentSelectedIndex;
+    if (trendingSelectedLanguageIDs.count == 0)
+    {
+        trendingSelectedLanguageIDs = @[@(AllLanguageID)];
+        [self setTrendingSelectedLanguageIDs:trendingSelectedLanguageIDs];
+    }
+    return trendingSelectedLanguageIDs;
 }
 
-- (void)setTrendingContentSelectedIndex:(NSUInteger)_trendingContentSelectedIndex
+- (void)setTrendingSelectedLanguageIDs:(NSArray<NSNumber *> *)_trendingSelectedLanguageIDs
 {
-    trendingContentSelectedIndex = _trendingContentSelectedIndex;
-    [[self userDefaults] setInteger:trendingContentSelectedIndex forKey:@"trendingContentSelectedIndex"];
+    trendingSelectedLanguageIDs = _trendingSelectedLanguageIDs;
+    [[self userDefaults] setObject:trendingSelectedLanguageIDs forKey:@"trendingSelectedLanguageIDs"];
 }
 
 - (NSUInteger)trendingTimeSelectedIndex

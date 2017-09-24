@@ -167,6 +167,7 @@ static NSTimeInterval lastUpdateAllTime;
         [self innerInitializePropertiesForUserDefault];
         [self innerInitializePropertiesForUserNotification];
         [self innerInitializePropertiesForTrend];
+        [self innerInitializeLanguages];
     }
     return self;
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="VHTrendingLanguageCellView">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="30"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="FQt-OW-DaO">
+                    <rect key="frame" x="18" y="6" width="364" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="360" id="Dh1-Hw-AEu"/>
+                    </constraints>
+                    <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="jVV-NK-s7v">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onTrendingLanguageSelected:" target="c22-O7-iKe" id="nxG-ph-Bx6"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="FQt-OW-DaO" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="Qrn-FW-w23"/>
+                <constraint firstItem="FQt-OW-DaO" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="WZQ-27-3Sy"/>
+            </constraints>
+            <connections>
+                <outlet property="checkBox" destination="FQt-OW-DaO" id="okC-5o-Toi"/>
+            </connections>
+            <point key="canvasLocation" x="100" y="51"/>
+        </customView>
+    </objects>
+</document>

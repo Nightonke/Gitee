@@ -29,6 +29,8 @@ const static CGFloat TAB_VC_CORNER_RADIUS = 8;
 
 #define RGBA(R,G,B,A) [NSColor colorWithRed:R/255.0f green:G/255.0f blue:B/255.0f alpha:A]
 
+#define THEME_COLOR_STRING @"#03A9F4"
+
 #define STATUS_ITEM_PRESSED_LIGHT RGB(45, 102, 239)
 
 #define STATUS_ITEM_PRESSED_DARK RGB(45, 102, 239)
@@ -50,6 +52,8 @@ const static CGFloat TAB_VC_CORNER_RADIUS = 8;
 #define SAFE_CAST(obj, className) ([(obj) isKindOfClass:[(className) class]] ? (obj) : (nil))
 
 #define IN_MAIN_THREAD(code) dispatch_async(dispatch_get_main_queue(), ^{code;})
+
+#define IN_GLOBAL_THREAD(code) dispatch_async(dispatch_get_main_queue(), ^{code;})
 
 #define MUST_IN_MAIN_THREAD NSAssert([NSThread isMainThread], @"This methods should be called in main thread!");
 

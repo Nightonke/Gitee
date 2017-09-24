@@ -14,10 +14,13 @@
 @property (nonatomic, strong) NSString *repositoryDescription;
 @property (nonatomic, strong) NSString *languageName;
 @property (nonatomic, strong) NSColor *languageColor;
-@property (nonatomic, strong) NSString *starNumber;
-@property (nonatomic, strong) NSString *forkNumber;
+@property (nonatomic, strong) NSString *starNumberString;
+@property (nonatomic, assign, readonly) NSInteger starNumber;
+@property (nonatomic, strong) NSString *forkNumberString;
+@property (nonatomic, assign, readonly) NSInteger forkNumber;
 @property (nonatomic, strong) NSArray<NSString *> *contributorAvatars;
 @property (nonatomic, strong) NSString *trendingTip;
+@property (nonatomic, assign, readonly) NSInteger trendingTipStarNumber;
 
 - (BOOL)isValid;
 

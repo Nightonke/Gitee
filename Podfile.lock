@@ -13,10 +13,10 @@ PODS:
   - AFNetworking/Security (3.1.0)
   - AFNetworking/Serialization (3.1.0)
   - LibYAML (0.1.4)
-  - Realm (2.4.3):
-    - Realm/Headers (= 2.4.3)
-  - Realm/Headers (2.4.3)
-  - SYFlatButton (1.2)
+  - Realm (2.10.1):
+    - Realm/Headers (= 2.10.1)
+  - Realm/Headers (2.10.1)
+  - SYFlatButton (1.3)
   - YAML-Framework (0.0.2):
     - LibYAML (~> 0.1.4)
 
@@ -29,10 +29,10 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   LibYAML: 3af2c5adf3a40dff936d087aa6a77edc10036bc5
-  Realm: e08d60b0048ccccd3949c8c28a92c4db5712d7e9
-  SYFlatButton: cc8b2eb1d123fb196f42b922a47802c03abc602a
+  Realm: fc7a317a5c2c9ba91f5f235ede4e2ea76e9eba0c
+  SYFlatButton: bd354ccd90ecaf40be6689448054daa0f3243e8b
   YAML-Framework: 6fe698e19d39d778829f5937e39d1e6bc12afd7b
 
 PODFILE CHECKSUM: f708e8765abd3c8a1c0f92785641e597d559eb97
 
-COCOAPODS: 1.1.0.rc.3
+COCOAPODS: 1.2.1

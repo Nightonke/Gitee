@@ -8,7 +8,12 @@
 
 #import "VHGithubNotifierManager.h"
 
+extern NSInteger const AllLanguageID;
+extern NSInteger const UnknownLanguageID;
+
 @interface VHGithubNotifierManager (Language)
+
+- (void)innerInitializeLanguages;
 
 - (void)startTimerOfLanguage;
 
@@ -17,5 +22,7 @@
 - (void)updateLanguages;
 
 - (VHLoadStateType)languagesLoadState;
+
+- (NSInteger)matchLanguageIndexFromSearchString:(NSString *)searchLanguageName;
 
 @end

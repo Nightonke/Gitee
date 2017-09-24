@@ -263,6 +263,10 @@
 		37CB06001E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CB05FF1E1C0CC700E9B924 /* VHGithubNotifierManager+ChartDataProvider.m */; };
 		37E7CCFB1E5C576D00BA8BA9 /* VHStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E7CCFA1E5C576D00BA8BA9 /* VHStateView.m */; };
 		37E7CD011E5C5D2D00BA8BA9 /* VHStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E7CD001E5C5D2D00BA8BA9 /* VHStateView.xib */; };
+		37FEC2EF1F76BA4F0004FBBC /* VHLanguagesButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FEC2EE1F76BA4F0004FBBC /* VHLanguagesButton.m */; };
+		37FEC2F41F77CB720004FBBC /* VHTrendingLanguageCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FEC2F31F77CB720004FBBC /* VHTrendingLanguageCellView.m */; };
+		37FEC2F91F77CD3D0004FBBC /* VHTrendingLanguageCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37FEC2F81F77CD3D0004FBBC /* VHTrendingLanguageCellView.xib */; };
+		37FEC2FF1F77F8BA0004FBBC /* VHTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FEC2FE1F77F8BA0004FBBC /* VHTableView.m */; };
 		5269F87E1EB7D1BC00BAF757 /* VHPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269F87D1EB7D1BC00BAF757 /* VHPieChartView.swift */; };
 /* End PBXBuildFile section */
 
@@ -675,6 +679,13 @@
 		37E7CCF91E5C576D00BA8BA9 /* VHStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHStateView.h; sourceTree = "<group>"; };
 		37E7CCFA1E5C576D00BA8BA9 /* VHStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHStateView.m; sourceTree = "<group>"; };
 		37E7CD001E5C5D2D00BA8BA9 /* VHStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VHStateView.xib; sourceTree = "<group>"; };
+		37FEC2ED1F76BA4F0004FBBC /* VHLanguagesButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHLanguagesButton.h; sourceTree = "<group>"; };
+		37FEC2EE1F76BA4F0004FBBC /* VHLanguagesButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHLanguagesButton.m; sourceTree = "<group>"; };
+		37FEC2F21F77CB720004FBBC /* VHTrendingLanguageCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHTrendingLanguageCellView.h; sourceTree = "<group>"; };
+		37FEC2F31F77CB720004FBBC /* VHTrendingLanguageCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHTrendingLanguageCellView.m; sourceTree = "<group>"; };
+		37FEC2F81F77CD3D0004FBBC /* VHTrendingLanguageCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VHTrendingLanguageCellView.xib; sourceTree = "<group>"; };
+		37FEC2FD1F77F8BA0004FBBC /* VHTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHTableView.h; sourceTree = "<group>"; };
+		37FEC2FE1F77F8BA0004FBBC /* VHTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHTableView.m; sourceTree = "<group>"; };
 		5269F87D1EB7D1BC00BAF757 /* VHPieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHPieChartView.swift; sourceTree = "<group>"; };
 		A9FD0823EF354958CE567028 /* libPods-VHGithubNotifier.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VHGithubNotifier.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F12D56CE52FBE25F772313B8 /* Pods-VHGithubNotifier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHGithubNotifier.release.xcconfig"; path = "Pods/Target Support Files/Pods-VHGithubNotifier/Pods-VHGithubNotifier.release.xcconfig"; sourceTree = "<group>"; };
@@ -1282,6 +1293,9 @@
 				373185F91E5DE54D00926F4F /* VHTrendingRepositoryCellView.h */,
 				373185FA1E5DE54D00926F4F /* VHTrendingRepositoryCellView.m */,
 				373185F51E5DDB5B00926F4F /* VHTrendingRepositoryCellView.xib */,
+				37FEC2F21F77CB720004FBBC /* VHTrendingLanguageCellView.h */,
+				37FEC2F31F77CB720004FBBC /* VHTrendingLanguageCellView.m */,
+				37FEC2F81F77CD3D0004FBBC /* VHTrendingLanguageCellView.xib */,
 				37E7CCF91E5C576D00BA8BA9 /* VHStateView.h */,
 				37E7CCFA1E5C576D00BA8BA9 /* VHStateView.m */,
 				37E7CD001E5C5D2D00BA8BA9 /* VHStateView.xib */,
@@ -1325,6 +1339,10 @@
 				373EAB2B1E7031A0005B5E86 /* VHContributionChartView.m */,
 				373EAB181E6EFE69005B5E86 /* VHVisualEffectView.swift */,
 				5269F87D1EB7D1BC00BAF757 /* VHPieChartView.swift */,
+				37FEC2ED1F76BA4F0004FBBC /* VHLanguagesButton.h */,
+				37FEC2EE1F76BA4F0004FBBC /* VHLanguagesButton.m */,
+				37FEC2FD1F77F8BA0004FBBC /* VHTableView.h */,
+				37FEC2FE1F77F8BA0004FBBC /* VHTableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1468,6 +1486,7 @@
 				373186401E60646500926F4F /* VHAccountInfoWC.xib in Resources */,
 				37C13D871E7AD87D00E64C9D /* echarts.js in Resources */,
 				373EAB231E6FE298005B5E86 /* VHWebLoginWC.xib in Resources */,
+				37FEC2F91F77CD3D0004FBBC /* VHTrendingLanguageCellView.xib in Resources */,
 				3752DD291E12DB4D000AB94A /* VHTabVC.xib in Resources */,
 				3749CDD61E59B2950083CEB1 /* VHTrendingVC.xib in Resources */,
 				375CD0561E67D71100566B58 /* AppledocSettings.plist in Resources */,
@@ -1507,7 +1526,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6967F9654F27A5A529E7AF2F /* [CP] Embed Pods Frameworks */ = {
@@ -1539,6 +1558,7 @@
 				373B96F61E62D9E500AD8E92 /* VHGithubNotifierManager+Notification.m in Sources */,
 				378E0B251E0FEEA10033CBD5 /* NSView+Position.m in Sources */,
 				373B96F31E62BEF500AD8E92 /* VHNotification.m in Sources */,
+				37FEC2F41F77CB720004FBBC /* VHTrendingLanguageCellView.m in Sources */,
 				37005C3C1E5C9C1C000AEFF9 /* XPathQuery.m in Sources */,
 				3731874D1E61D95200926F4F /* DefaultFillFormatter.swift in Sources */,
 				375A7E2A1E66BB17001A2A3B /* VHNotificationRecord.m in Sources */,
@@ -1615,6 +1635,7 @@
 				3731873F1E61D95200926F4F /* ScatterChartDataSet.swift in Sources */,
 				373CF0751E656B1500711296 /* VHNotificationGroupHeaderCellView.m in Sources */,
 				3731872B1E61D95200926F4F /* BubbleChartDataSet.swift in Sources */,
+				37FEC2FF1F77F8BA0004FBBC /* VHTableView.m in Sources */,
 				3749CDD51E59B2950083CEB1 /* VHTrendingVC.m in Sources */,
 				3731874C1E61D95200926F4F /* DefaultAxisValueFormatter.swift in Sources */,
 				3731874F1E61D95200926F4F /* IAxisValueFormatter.swift in Sources */,
@@ -1761,6 +1782,7 @@
 				37531A381E1405ED00C3EB64 /* VHTabView.m in Sources */,
 				373187441E61D95200926F4F /* IChartDataSet.swift in Sources */,
 				375CD05E1E67D71100566B58 /* CNUserNotificationFeature.m in Sources */,
+				37FEC2EF1F76BA4F0004FBBC /* VHLanguagesButton.m in Sources */,
 				3731878B1E61D95200926F4F /* Fill.swift in Sources */,
 				373187611E61D95200926F4F /* ChartDataProvider.swift in Sources */,
 				373EAB0F1E6EA1C2005B5E86 /* NSImage+Tint.m in Sources */,

@@ -15,6 +15,8 @@
 @interface VHGithubNotifierManager ()
 
 @property (nonatomic, strong) VHUser *backupUser;
+@property (nonatomic, assign) BOOL hasLoadedLanguagesSuccessfully;
+@property (nonatomic, assign) BOOL hasLoadedTrendingsSuccessfully;
 
 @end
 

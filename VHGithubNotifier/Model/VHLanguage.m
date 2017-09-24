@@ -44,6 +44,7 @@
                     VHLanguage *language = [[VHLanguage alloc] init];
                     language.languageId = [VHUtils getIntegerFromDictionary:languageData forKey:@"language_id" withDefault:-1];
                     language.name = key;
+                    language.requestName = key;
                     language.colorValue = [VHUtils getStringFromDictionaryWithDefaultNil:languageData forKey:@"color"];
                     if ([language isValid])
                     {
