@@ -13,6 +13,7 @@
 #import "CNUserNotification.h"
 #import "VHUtils+TransForm.h"
 #import "VHNotificationRecord.h"
+#import "VHGithubNotifierManager+Notification.h"
 
 static NSMutableArray<CNUserNotification *> *userNotifications;
 
@@ -37,17 +38,9 @@ static NSMutableArray<CNUserNotification *> *userNotifications;
             userNotification.informativeText = [notification toNowTimeString];
             NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithCapacity:4];
             [userInfo setObject:@(VHGithubUserNotificationTypeNotification) forKey:@"type"];
-            if (notification.htmlUrl)
+            if (notification)
             {
-                [userInfo setObject:notification.htmlUrl forKey:@"url"];
-            }
-            if (notification.notificationId)
-            {
-                [userInfo setObject:@(notification.notificationId) forKey:@"notificationId"];
-            }
-            if (notification.updateDate)
-            {
-                [userInfo setObject:notification.updateDate forKey:@"latestUpdateTime"];
+                [userInfo setObject:notification forKey:@"notification"];
             }
             userNotification.hasActionButton = NO;
             userNotification.feature.bannerImage = [VHUtils imageFromNotificationType:notification.type];
@@ -88,8 +81,9 @@ static NSMutableArray<CNUserNotification *> *userNotifications;
         {
             RLMRealm *realm = [self realm];
             VHNotificationRecord *record = [[VHNotificationRecord alloc] init];
-            record.notificationId = [[userNotification.userInfo objectForKey:@"notificationId"] longLongValue];
-            record.latestUpdateTime = [userNotification.userInfo objectForKey:@"latestUpdateTime"];
+            VHNotification *notification = [userNotification.userInfo objectForKey:@"notification"];
+            record.notificationId = notification.notificationId;
+            record.latestUpdateTime = notification.updateDate;
             if (record.notificationId != 0 && record.latestUpdateTime)
             {
                 [realm beginWriteTransaction];
@@ -114,8 +108,8 @@ static NSMutableArray<CNUserNotification *> *userNotifications;
     {
         if ([[userInfo objectForKey:@"type"] integerValue] == VHGithubUserNotificationTypeNotification)
         {
-            NSString *url = SAFE_CAST([userInfo objectForKey:@"url"], [NSString class]);
-            [VHUtils openUrl:url];
+            VHNotification *notification = [userInfo objectForKey:@"notification"];
+            [self openNotificationURLAndMarkAsReadBySettings:notification];
         }
     }
 }

@@ -44,6 +44,7 @@
 @property (weak) IBOutlet NSSlider *notificationsUpdateTimeSlider;
 
 @property (nonatomic, assign) VHGithubWeekStartFrom weekStartsFrom;
+@property (weak) IBOutlet NSButton *openNotificationBehaviorButton;
 @property (weak) IBOutlet NSButton *weekStartsFromSundayButton;
 @property (weak) IBOutlet NSButton *weekStartsFromMondayButton;
 
@@ -182,6 +183,15 @@
         self.weekStartsFromMondayButton.state = NSOnState;
     }
     
+    if ([[VHGithubNotifierManager sharedManager] isMarkNotificationAsReadWhenOpen])
+    {
+        self.openNotificationBehaviorButton.state = NSOnState;
+    }
+    else
+    {
+        self.openNotificationBehaviorButton.state = NSOffState;
+    }
+    
     NSUInteger starLeast = [[VHGithubNotifierManager sharedManager] minimumStarNumberInPie];
     [self.starLeastSlider setDoubleValue:starLeast / 10];
     [self.starLeastLabel setStringValue:[self stringFromStarNumber:starLeast]];
@@ -232,6 +242,18 @@
     else if (self.weekStartsFromMondayButton.state == NSOnState)
     {
         [[VHGithubNotifierManager sharedManager] setWeekStartFrom:VHGithubWeekStartFromMonDay];
+    }
+}
+
+- (IBAction)onOpenNotificationBehaviorChanged:(NSButton *)sender
+{
+    if (self.openNotificationBehaviorButton.state == NSOnState)
+    {
+        [[VHGithubNotifierManager sharedManager] setMarkNotificationAdReadWhenOpen:YES];
+    }
+    else
+    {
+        [[VHGithubNotifierManager sharedManager] setMarkNotificationAdReadWhenOpen:NO];
     }
 }
 

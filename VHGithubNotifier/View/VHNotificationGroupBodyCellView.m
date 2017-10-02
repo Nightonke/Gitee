@@ -68,7 +68,7 @@ static const CGFloat CORNER_RADIUS = 5;
 
 - (IBAction)onTitleClicked:(id)sender
 {
-    [VHUtils openUrl:self.notification.htmlUrl];
+    [[VHGithubNotifierManager sharedManager] openNotificationURLAndMarkAsReadBySettings:self.notification];
 }
 
 - (IBAction)onSubscribeButtonClicked:(id)sender

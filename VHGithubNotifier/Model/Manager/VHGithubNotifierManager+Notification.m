@@ -139,6 +139,25 @@ static NSUInteger notificationNumber;
     NOTIFICATION_POST(kNotifyNotificationsChanged);
 }
 
+- (void)openNotificationURLAndMarkAsReadBySettings:(VHNotification *)notification;
+{
+    if (!notification)
+    {
+        return;
+    }
+    
+    MUST_IN_MAIN_THREAD;
+    
+    // 1. Open notification in browser
+    [VHUtils openUrl:notification.htmlUrl];
+    
+    // 2. decides whether mark is as read by settings
+    if ([self isMarkNotificationAsReadWhenOpen])
+    {
+        [self markNotificationAsRead:notification];
+    }
+}
+
 #pragma mark - Private Methods
 
 - (void)innerUpdateNotification

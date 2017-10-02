@@ -162,4 +162,10 @@
 
 - (void)setProfileUpdateTime:(NSTimeInterval)_profileUpdateTime;
 
+#pragma mark - Notification
+
+- (BOOL)isMarkNotificationAsReadWhenOpen;
+
+- (void)setMarkNotificationAdReadWhenOpen:(BOOL)_markNotificationAdReadWhenOpen;
+
 @end

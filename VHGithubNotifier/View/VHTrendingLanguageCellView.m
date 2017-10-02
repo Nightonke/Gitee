@@ -27,7 +27,7 @@
 {
     if ([self.delegate respondsToSelector:@selector(onLanguage:selected:)])
     {
-        BOOL isSelected = (self.checkBox.state == NSControlStateValueOn);
+        BOOL isSelected = (self.checkBox.state == NSOnState);
         [self.delegate onLanguage:self.language selected:isSelected];
     }
 }
@@ -37,11 +37,11 @@
     _selected = selected;
     if (selected)
     {
-        [self.checkBox setState:NSControlStateValueOn];
+        [self.checkBox setState:NSOnState];
     }
     else
     {
-        [self.checkBox setState:NSControlStateValueOff];
+        [self.checkBox setState:NSOffState];
     }
 }
 

@@ -18,6 +18,7 @@ static NSString *oauthToken;
 static VHGithubTrendTimeType trendTimeType;
 static NSUInteger trendContentSelectedIndex;
 static VHGithubWeekStartFrom weekStartFrom;
+static BOOL markNotificationAsReadWhenOpen;
 static NSArray<NSNumber *> *trendingSelectedLanguageIDs;
 static NSUInteger trendingTimeSelectedIndex;
 
@@ -57,6 +58,15 @@ static BOOL onlyShowsValidContentsInStatusBar;
     }
     
     trendContentSelectedIndex = [[self userDefaults] integerForKey:@"trendContentSelectedIndex"];
+    
+    if ([[self userDefaults] doesContain:@"markNotificationAsReadWhenOpen"])
+    {
+        markNotificationAsReadWhenOpen = [[self userDefaults] boolForKey:@"markNotificationAsReadWhenOpen"];
+    }
+    else
+    {
+        [self setMarkNotificationAdReadWhenOpen:YES];
+    }
     
     weekStartFrom = [[self userDefaults] integerForKey:@"VHGithubWeekStartFrom"];
     if (weekStartFrom == 0)
@@ -392,6 +402,19 @@ static BOOL onlyShowsValidContentsInStatusBar;
 {
     profileUpdateTime = _profileUpdateTime;
     [[self userDefaults] setDouble:profileUpdateTime forKey:@"profileUpdateTime"];
+}
+
+#pragma mark - Notification
+
+- (BOOL)isMarkNotificationAsReadWhenOpen
+{
+    return markNotificationAsReadWhenOpen;
+}
+
+- (void)setMarkNotificationAdReadWhenOpen:(BOOL)_markNotificationAdReadWhenOpen
+{
+    markNotificationAsReadWhenOpen = _markNotificationAdReadWhenOpen;
+    [[self userDefaults] setBool:markNotificationAsReadWhenOpen forKey:@"markNotificationAsReadWhenOpen"];
 }
 
 #pragma mark - Private Methods

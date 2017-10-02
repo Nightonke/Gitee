@@ -41,7 +41,7 @@
 - (void)markNotificationAsRead:(VHNotification *)notification;
 
 /**
- This methods does:
+ This method does:
  1. Delete the key-value model in notificationDic.
  2. Send a mark-all-as-read request to github.
 
@@ -50,7 +50,7 @@
 - (void)markNotificationAsReadInRepository:(VHSimpleRepository *)repository;
 
 /**
- This methods does 'markNotificationAsReadInRepository' as a loop for all repositories in notificationDic.
+ This method does 'markNotificationAsReadInRepository' as a loop for all repositories in notificationDic.
  */
 - (void)markAllNotificationAsRead;
 
@@ -62,5 +62,14 @@
  @param notification notification
  */
 - (void)unsubscribeThread:(VHNotification *)notification;
+
+/**
+ This method 
+ 1. opens a URL of notification in browser.
+ 2. decides whether mark is as read by settings.
+
+ @param notification notification
+ */
+- (void)openNotificationURLAndMarkAsReadBySettings:(VHNotification *)notification;
 
 @end
