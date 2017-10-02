@@ -74,6 +74,7 @@
             self.stateView.state = VHStateViewStateTypeLoadSuccessfully;
             [self updateContributionLabels];
             self.contributionChart.hidden = NO;
+            self.needLoginView.hidden = YES;
             break;
     }
     
