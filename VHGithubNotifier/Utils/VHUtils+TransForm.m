@@ -85,7 +85,7 @@
 + (NSDate *)dateFromGithubTimeString:(NSString *)timeString
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'hh:mm:ss'Z'"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
     return [[dateFormatter dateFromString:timeString] toLocalTime];
 }
 
