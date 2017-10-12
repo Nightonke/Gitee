@@ -16,6 +16,7 @@
 #import "VHGithubNotifierManager+Notification.h"
 
 static NSMutableArray<CNUserNotification *> *userNotifications;
+static NSMutableSet<VHNotification *> *cacheNotifications;
 
 @implementation VHGithubNotifierManager (UserNotification)
 
@@ -28,8 +29,7 @@ static NSMutableArray<CNUserNotification *> *userNotifications;
 
 - (void)addNotifications:(NSArray<VHNotification *> *)notifications
 {
-    @synchronized (userNotifications)
-    {
+    IN_MAIN_THREAD({
         for (VHNotification *notification in notifications)
         {
             CNUserNotification *userNotification = [[CNUserNotification alloc] init];
@@ -38,17 +38,15 @@ static NSMutableArray<CNUserNotification *> *userNotifications;
             userNotification.informativeText = [notification toNowTimeString];
             NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithCapacity:4];
             [userInfo setObject:@(VHGithubUserNotificationTypeNotification) forKey:@"type"];
-            if (notification)
-            {
-                [userInfo setObject:notification forKey:@"notification"];
-            }
+            [userInfo setObject:@(notification.notificationId) forKey:@"notificationID"];
             userNotification.hasActionButton = NO;
             userNotification.feature.bannerImage = [VHUtils imageFromNotificationType:notification.type];
             userNotification.userInfo = userInfo;
             [[self userNotifications] push:userNotification];
         }
-    }
-    [self notify];
+        [[self cacheNotifications] addObjectsFromArray:notifications];
+        [self notify];
+    });
 }
 
 #pragma mark - Private Methods
@@ -74,6 +72,44 @@ static NSMutableArray<CNUserNotification *> *userNotifications;
     return userNotifications;
 }
 
+- (NSMutableSet<VHNotification *> *)cacheNotifications
+{
+    if (cacheNotifications == nil)
+    {
+        cacheNotifications = [NSMutableSet set];
+    }
+    return cacheNotifications;
+}
+
+- (VHNotification *)cacheNotificationWithID:(long long)notificationID
+{
+    __block VHNotification *cacheNotification = nil;
+    [[self cacheNotifications] enumerateObjectsUsingBlock:^(VHNotification * _Nonnull obj, BOOL * _Nonnull stop) {
+        if (obj.notificationId == notificationID)
+        {
+            cacheNotification = obj;
+            *stop = YES;
+        }
+    }];
+    return cacheNotification;
+}
+
+- (void)removeCacheNotificationWithID:(long long)notificationID
+{
+    __block VHNotification *cacheNotification = nil;
+    [[self cacheNotifications] enumerateObjectsUsingBlock:^(VHNotification * _Nonnull obj, BOOL * _Nonnull stop) {
+        if (obj.notificationId == notificationID)
+        {
+            cacheNotification = obj;
+            *stop = YES;
+        }
+    }];
+    if (cacheNotification)
+    {
+        [[self cacheNotifications] removeObject:cacheNotification];
+    }
+}
+
 - (void)storeRecordOfNotification:(CNUserNotification *)userNotification
 {
     dispatch_async(GLOBAL_QUEUE, ^{
@@ -81,14 +117,17 @@ static NSMutableArray<CNUserNotification *> *userNotifications;
         {
             RLMRealm *realm = [self realm];
             VHNotificationRecord *record = [[VHNotificationRecord alloc] init];
-            VHNotification *notification = [userNotification.userInfo objectForKey:@"notification"];
-            record.notificationId = notification.notificationId;
-            record.latestUpdateTime = notification.updateDate;
-            if (record.notificationId != 0 && record.latestUpdateTime)
+            VHNotification *notification = [self cacheNotificationWithID:[[userNotification.userInfo objectForKey:@"notificationID"] longLongValue]];
+            if (notification)
             {
-                [realm beginWriteTransaction];
-                [realm addOrUpdateObject:record];
-                [realm commitWriteTransaction];
+                record.notificationId = notification.notificationId;
+                record.latestUpdateTime = notification.updateDate;
+                if (record.notificationId != 0 && record.latestUpdateTime)
+                {
+                    [realm beginWriteTransaction];
+                    [realm addOrUpdateObject:record];
+                    [realm commitWriteTransaction];
+                }
             }
         }
     });
@@ -96,31 +135,32 @@ static NSMutableArray<CNUserNotification *> *userNotifications;
 
 #pragma mark - NSUserNotificationCenterDelegate
 
-- (void)userNotificationCenter:(NSUserNotificationCenter *)center didDeliverNotification:(NSUserNotification *)notification
+- (void)userNotificationCenter:(NSUserNotificationCenter *)center didDeliverNotification:(NSUserNotification *)userNotification
 {
     
 }
 
-- (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification
+- (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)userNotification
 {
-    NSDictionary *userInfo = notification.userInfo;
+    NSDictionary *userInfo = userNotification.userInfo;
     if (userInfo)
     {
         if ([[userInfo objectForKey:@"type"] integerValue] == VHGithubUserNotificationTypeNotification)
         {
-            VHNotification *notification = [userInfo objectForKey:@"notification"];
+            VHNotification *notification = [self cacheNotificationWithID:[[userInfo objectForKey:@"notificationID"] longLongValue]];
             [self openNotificationURLAndMarkAsReadBySettings:notification];
         }
     }
 }
 
-- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification
+- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)userNotification
 {
     return YES;
 }
 
-- (void)userNotificationCenter:(CNUserNotificationCenter *)center didRemoveNotification:(CNUserNotification *)notification
+- (void)userNotificationCenter:(CNUserNotificationCenter *)center didRemoveNotification:(CNUserNotification *)userNotification
 {
+    [self removeCacheNotificationWithID:[[userNotification.userInfo objectForKey:@"notificationID"] longLongValue]];
     [self notify];
 }
 

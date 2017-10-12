@@ -98,4 +98,39 @@
             self.htmlUrl];
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeInt64:self.notificationId forKey:@"notificationId"];
+    [aCoder encodeObject:self.lastReadDate forKey:@"lastReadDate"];
+    [aCoder encodeInteger:self.reason forKey:@"reason"];
+    [aCoder encodeObject:self.repository forKey:@"repository"];
+    [aCoder encodeObject:self.lastCommentUrl forKey:@"lastCommentUrl"];
+    [aCoder encodeObject:self.title forKey:@"title"];
+    [aCoder encodeObject:self.url forKey:@"url"];
+    [aCoder encodeBool:self.unread forKey:@"unread"];
+    [aCoder encodeObject:self.updateDate forKey:@"updateDate"];
+    [aCoder encodeObject:self.htmlUrl forKey:@"htmlUrl"];
+    [aCoder encodeInteger:self.type forKey:@"type"];
+}
+
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self)
+    {
+        _notificationId = [aDecoder decodeInt64ForKey:@"notificationId"];
+        _lastReadDate = [aDecoder decodeObjectForKey:@"lastReadDate"];
+        _reason = [aDecoder decodeIntegerForKey:@"reason"];
+        _repository = [aDecoder decodeObjectForKey:@"repository"];
+        _lastCommentUrl = [aDecoder decodeObjectForKey:@"lastCommentUrl"];
+        _title = [aDecoder decodeObjectForKey:@"title"];
+        _url = [aDecoder decodeObjectForKey:@"url"];
+        _unread = [aDecoder decodeBoolForKey:@"unread"];
+        _updateDate = [aDecoder decodeObjectForKey:@"updateDate"];
+        _htmlUrl = [aDecoder decodeObjectForKey:@"htmlUrl"];
+        _type = [aDecoder decodeIntegerForKey:@"type"];
+    }
+    return self;
+}
+
 @end

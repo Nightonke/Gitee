@@ -6,7 +6,7 @@
 //  Copyright © 2017年 黄伟平. All rights reserved.
 //
 
-@interface VHSimpleRepository : NSObject<NSCopying>
+@interface VHSimpleRepository : NSObject<NSCopying, NSCoding>
 
 @property (nonatomic, assign) long long repositoryId;
 @property (nonatomic, strong) NSString *fullName;

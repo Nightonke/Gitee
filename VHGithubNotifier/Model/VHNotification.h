@@ -29,7 +29,7 @@ typedef NS_ENUM(NSUInteger, VHNotificationType)
     VHNotificationTypePullRequest = 2,
 };
 
-@interface VHNotification : NSObject
+@interface VHNotification : NSObject<NSCoding>
 
 @property (nonatomic, assign) long long notificationId;
 @property (nonatomic, strong) NSDate *lastReadDate;

@@ -71,4 +71,27 @@
     return self.repositoryId;
 }
 
+- (void)encodeWithCoder:(nonnull NSCoder *)aCoder
+{
+    [aCoder encodeInt64:self.repositoryId forKey:@"repositoryId"];
+    [aCoder encodeObject:self.fullName forKey:@"fullName"];
+    [aCoder encodeObject:self.htmlUrl forKey:@"htmlUrl"];
+    [aCoder encodeObject:self.ownerName forKey:@"ownerName"];
+    [aCoder encodeObject:self.name forKey:@"name"];
+}
+
+- (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self)
+    {
+        _repositoryId = [aDecoder decodeInt64ForKey:@"repositoryId"];
+        _fullName = [aDecoder decodeObjectForKey:@"fullName"];
+        _htmlUrl = [aDecoder decodeObjectForKey:@"htmlUrl"];
+        _ownerName = [aDecoder decodeObjectForKey:@"ownerName"];
+        _name = [aDecoder decodeObjectForKey:@"name"];
+    }
+    return self;
+}
+
 @end
